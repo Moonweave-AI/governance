@@ -62,12 +62,15 @@ This is not code. This is the project's operating system: the rules, processes, 
 
 ## Languages
 
-The governance documents are written in **Chinese (Simplified)** as the primary language, with English technical terms preserved where appropriate.
+All documents are available in three languages:
 
-The [Glossary](06-Glossary/) is available in three languages:
-- English (default)
-- 中文 (Chinese Simplified)
-- 日本語 (Japanese)
+| Language | Path | Notes |
+|----------|------|-------|
+| **中文 (Chinese)** | Root of each section (e.g., `01-Foundation/01-Principles.md`) | Primary/canonical version |
+| **English** | `en/` subdirectory (e.g., `01-Foundation/en/01-Principles.md`) | Full translation |
+| **日本語 (Japanese)** | `ja/` subdirectory (e.g., `01-Foundation/ja/01-Principles.md`) | Full translation |
+
+The [Glossary](06-Glossary/) uses the same `en/` / `zh/` / `ja/` structure with English as default.
 
 ---
 
