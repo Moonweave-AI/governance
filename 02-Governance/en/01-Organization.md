@@ -1,8 +1,8 @@
 # Organizational Structure and Responsibility Model
 
-> This document defines how responsibility is assigned, how permissions are granted, how Owners are established, how the organization scales, and who converges when no one is responsible, when multiple parties conflict, or when the system fails in the Kaguya Project. It is the organizational-layer implementation of "systems that outlast individuals beat hero engineering" and "existence matters more than tools" from `01-Principles.md`—making responsibility, permissions, scope, and escalation paths explicit rather than concentrating power in a "core group."
+> This document defines how responsibility is assigned, how permissions are granted, how Owners are established, how the organization scales, and who converges when no one is responsible, when multiple parties conflict, or when the system fails in the Kaguya Project. It is the organizational-layer implementation of "systems that outlast individuals beat hero engineering" and "existence matters more than tools" from `../../01-Foundation/en/01-Principles.md`—making responsibility, permissions, scope, and escalation paths explicit rather than concentrating power in a "core group."
 
-This document does not define day-to-day communication norms, RFC processes, community contribution workflows, or code review details; those are covered by documents in `03-Collaboration` and `04-Engineering`. This document only answers:
+This document does not define day-to-day communication norms, RFC processes, community contribution workflows, or code review details; those are covered by documents in `../../03-Collaboration/en` and `../../04-Engineering/en`. This document only answers:
 
 > Who is responsible? For what? On what basis? Where do permissions end? How does one join? How does one exit? What happens when no one is responsible? How are disputes escalated? How does the organization evolve with scale?
 
@@ -20,7 +20,7 @@ Organizational roles are centered on responsibility, not on titles, seniority, o
 
 ## 2. Organizational Principles
 
-The following five principles specifically constrain organizational structure; they are not a repeat of `01-Principles.md`:
+The following five principles specifically constrain organizational structure; they are not a repeat of `../../01-Foundation/en/01-Principles.md`:
 
 1. **Responsibility over titles** — Organizational roles are not identity labels; they are mechanisms for bearing ongoing responsibility for a given scope. Every permission must correspond to a clear scope of responsibility, observable contribution history, and revocable trust boundaries.
 2. **Distributed autonomy, centralized convergence** — Day-to-day technical decisions belong to the relevant Owner / Maintainer; cross-repository, cross-domain, long-term irreversible decisions go through RFC; security, privacy, and embodiment risks are blocked by the security responsibility domain; organization-level disputes are ultimately converged by core governance bodies. Not all decisions are pushed onto a single "core group."
@@ -215,7 +215,7 @@ This section determines whether long-term systems will rot; it is therefore pres
 
 ### 6.1 Owner Coverage Rules
 
-All formal repositories, public packages, deployed services, core models, datasets, evaluation sets, protocols, Schemas, design systems, embodied control components, and security-sensitive infrastructure must declare an Owner. The asset inventory corresponds to asset classification in `02-Security-Ethics.md` §4.1.
+All formal repositories, public packages, deployed services, core models, datasets, evaluation sets, protocols, Schemas, design systems, embodied control components, and security-sensitive infrastructure must declare an Owner. The asset inventory corresponds to asset classification in `../../01-Foundation/en/02-Security-Ethics.md` §4.1.
 
 ### 6.2 Dual Owner
 
@@ -253,7 +253,7 @@ When an Owner cannot respond to critical security, release, or maintenance reque
 | Override safety block      |             |        |          |          |            |       | Cannot override alone |
 | Governance revision         |             |        |          |          |         Propose |   Propose | Approve after RFC |
 
-> Security, privacy, embodiment risk, and legal compliance blocks must not be overridden by ordinary technical permissions. Stop-Ship conditions (see `02-Security-Ethics.md` §7) must not be unilaterally bypassed by any role.
+> Security, privacy, embodiment risk, and legal compliance blocks must not be overridden by ordinary technical permissions. Stop-Ship conditions (see `../../01-Foundation/en/02-Security-Ethics.md` §7) must not be unilaterally bypassed by any role.
 
 ---
 
@@ -326,7 +326,7 @@ Once the project enters multi-institution collaboration, the Stewardship Council
 
 ## 12. Disputes and Escalation Path
 
-The full RFC process is in `03-Collaboration/03-RFC-Process.md`; this document only defines who converges disputes.
+The full RFC process is in `../../03-Collaboration/en/03-RFC-Process.md`; this document only defines who converges disputes.
 
 ```text
 Local Discussion

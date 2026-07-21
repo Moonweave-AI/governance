@@ -23,14 +23,14 @@ This is not code. This is the project's operating system: the rules, processes, 
 06-Glossary/            Term definitions in English, Chinese, and Japanese
 ```
 
-| Section | Documents |
-|---------|-----------|
-| **01-Foundation** | [Principles](01-Foundation/01-Principles.md) · [Security & Ethics](01-Foundation/02-Security-Ethics.md) |
-| **02-Governance** | [Organization](02-Governance/01-Organization.md) · [Community](02-Governance/02-Community.md) |
-| **03-Collaboration** | [Communication](03-Collaboration/01-Communication.md) · [Planning](03-Collaboration/02-Planning.md) · [RFC Process](03-Collaboration/03-RFC-Process.md) |
-| **04-Engineering** | [Workflow](04-Engineering/01-Workflow.md) · [Quality Assurance](04-Engineering/02-Quality-Assurance.md) · [Standards](04-Engineering/standards/) |
-| **05-Knowledge** | [Documentation Guide](05-Knowledge/01-Documentation-Guide.md) |
-| **06-Glossary** | [English](06-Glossary/en/) · [中文](06-Glossary/zh/) · [日本語](06-Glossary/ja/) |
+| Section | English | 中文 | 日本語 |
+|---------|---------|------|--------|
+| **01-Foundation** | [Principles](01-Foundation/en/01-Principles.md) · [Security & Ethics](01-Foundation/en/02-Security-Ethics.md) | [原则](01-Foundation/01-Principles.md) · [安全伦理](01-Foundation/02-Security-Ethics.md) | [原則](01-Foundation/ja/01-Principles.md) · [セキュリティ](01-Foundation/ja/02-Security-Ethics.md) |
+| **02-Governance** | [Organization](02-Governance/en/01-Organization.md) · [Community](02-Governance/en/02-Community.md) | [组织](02-Governance/01-Organization.md) · [社区](02-Governance/02-Community.md) | [組織](02-Governance/ja/01-Organization.md) · [コミュニティ](02-Governance/ja/02-Community.md) |
+| **03-Collaboration** | [Communication](03-Collaboration/en/01-Communication.md) · [Planning](03-Collaboration/en/02-Planning.md) · [RFC](03-Collaboration/en/03-RFC-Process.md) | [沟通](03-Collaboration/01-Communication.md) · [规划](03-Collaboration/02-Planning.md) · [RFC](03-Collaboration/03-RFC-Process.md) | [コミュニケーション](03-Collaboration/ja/01-Communication.md) · [プランニング](03-Collaboration/ja/02-Planning.md) · [RFC](03-Collaboration/ja/03-RFC-Process.md) |
+| **04-Engineering** | [Workflow](04-Engineering/en/01-Workflow.md) · [Quality](04-Engineering/en/02-Quality-Assurance.md) | [工作流](04-Engineering/01-Workflow.md) · [质量](04-Engineering/02-Quality-Assurance.md) | [ワークフロー](04-Engineering/ja/01-Workflow.md) · [品質](04-Engineering/ja/02-Quality-Assurance.md) |
+| **05-Knowledge** | [Documentation](05-Knowledge/en/01-Documentation-Guide.md) | [文档规范](05-Knowledge/01-Documentation-Guide.md) | [ドキュメント](05-Knowledge/ja/01-Documentation-Guide.md) |
+| **06-Glossary** | [English](06-Glossary/en/) | [中文](06-Glossary/zh/) | [日本語](06-Glossary/ja/) |
 
 ---
 

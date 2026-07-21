@@ -246,7 +246,7 @@ Follow-up Issues:
 
 合意は多数決でも全員満足でもありません。鍵は実質的異議を真剣に処理し、反対者に関心が採用されなかった理由を説明することです。賛成/反対の数だけでは重要少数意見がノイズに埋もれます。
 
-**上訴パス**：裁定に不服な場合、上位決定主体へエスカレーション（Area → Maintainer Council → Stewardship Council）。最終上訴機関は `01-Organization.md` §12 参照。
+**上訴パス**：裁定に不服な場合、上位決定主体へエスカレーション（Area → Maintainer Council → Stewardship Council）。最終上訴機関は `../../02-Governance/ja/01-Organization.md` §12 参照。
 
 ---
 
@@ -499,6 +499,6 @@ superseded_by:
 4. Accepted は方向通過のみ——実装自動マージではない。
 5. RFC の結果は ADR、Implementation Issue、Project、Release に接続必須。
 
-本文は Governance RFC による改訂のみ可能です（本文が定義するプロセスが自身に適用されることの体現）。`01-Principles.md` の「衝突と改訂」と一致：本文が組織権限またはセキュリティルールと衝突する場合、対応する専門ドキュメントが優先します。法務、セキュリティ倫理の最低限の基準と衝突する場合、その基準が優先します。旧版はバージョン管理に保存され、いつでも参照できます。
+本文は Governance RFC による改訂のみ可能です（本文が定義するプロセスが自身に適用されることの体現）。`../../01-Foundation/ja/01-Principles.md` の「衝突と改訂」と一致：本文が組織権限またはセキュリティルールと衝突する場合、対応する専門ドキュメントが優先します。法務、セキュリティ倫理の最低限の基準と衝突する場合、その基準が優先します。旧版はバージョン管理に保存され、いつでも参照できます。
 
 このメカニズムは Rust の軽量 Markdown RFC、Python の状態と歴史記録、Go の「先に短い issue、必要なら設計ドキュメント」、Kubernetes の本番準備意識、OpenTelemetry の「RFC → 規範 → 実装」連鎖、TC39 の段階成熟度と reviewer sign-off、IETF の rough consensus 理解を取り入れ——輝夜計画の長期進化に奉仕し、形式化負担を作るものではありません。

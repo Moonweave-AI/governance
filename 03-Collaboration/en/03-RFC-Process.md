@@ -246,7 +246,7 @@ Follow-up Issues:
 
 Consensus is not majority vote nor everyone satisfied; key is seriously handling substantive objections and explaining to dissenters why their concerns were not adopted. Counting approve/disapprove alone drowns important minority opinions in noise.
 
-**Appeal path**: Dissatisfied with decision may escalate to next-level decision entity (Area → Maintainer Council → Stewardship Council); final appeal authority see `01-Organization.md` §12.
+**Appeal path**: Dissatisfied with decision may escalate to next-level decision entity (Area → Maintainer Council → Stewardship Council); final appeal authority see `../../02-Governance/en/01-Organization.md` §12.
 
 ---
 
@@ -499,6 +499,6 @@ The 5 most important core rules:
 4. Accepted means direction passed only—not automatic implementation merge.
 5. RFC results must connect to ADR, Implementation Issue, Project, and Release.
 
-This document may only be revised through Governance RFC (this process applying to itself). Consistent with "Conflict and Revision" in `01-Principles.md`: when this document conflicts with organizational permissions or security rules, corresponding specialized document takes precedence; when conflicting with legal or security-ethics baselines, baseline takes precedence. Previous versions stored in version control, always accessible.
+This document may only be revised through Governance RFC (this process applying to itself). Consistent with "Conflict and Revision" in `../../01-Foundation/en/01-Principles.md`: when this document conflicts with organizational permissions or security rules, corresponding specialized document takes precedence; when conflicting with legal or security-ethics baselines, baseline takes precedence. Previous versions stored in version control, always accessible.
 
 This mechanism draws from Rust's lightweight Markdown RFC, Python's status and historical records, Go's "short issue first, design doc when needed", Kubernetes production readiness awareness, OpenTelemetry's "RFC → spec → implementation" chain, TC39 stage maturity and reviewer sign-off, and IETF rough consensus understanding—serving long-term evolution of the Kaguya Project, not creating formalization burden.

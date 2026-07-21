@@ -28,7 +28,7 @@ Core assets must not rely on unauthorized protected expression — character lik
 
 > Iroha only acted after she saw the truth of "Tsukuyomi" and Tsukimi Yachiyo; only by first acknowledging gaps can a system preserve its identity across long years.
 
-Internally and externally, first account for what exists, what is missing, and what is limited. Key decisions must retain sufficient records of inputs, state, versions, tool invocations, outputs, and evaluations so they can be traced, audited, explained, or replayed under reasonable conditions to the extent needed to locate problems; internal state that cannot be measured, verified, or traced is treated as uncontrollable. Models must not use hallucination or vague responses to mask errors; when context confidence is insufficient, uncertainty must be stated explicitly — concealment harms trust more than slowness. See standards in `04-Engineering` for thresholds and specific metrics.
+Internally and externally, first account for what exists, what is missing, and what is limited. Key decisions must retain sufficient records of inputs, state, versions, tool invocations, outputs, and evaluations so they can be traced, audited, explained, or replayed under reasonable conditions to the extent needed to locate problems; internal state that cannot be measured, verified, or traced is treated as uncontrollable. Models must not use hallucination or vague responses to mask errors; when context confidence is insufficient, uncertainty must be stated explicitly — concealment harms trust more than slowness. See standards in `../../04-Engineering/en` for thresholds and specific metrics.
 
 ### Bounded Embodiment & Fail-Safe
 

@@ -31,7 +31,7 @@ It sets constraints on three kinds of objects:
 - **Changes:** Every evolution from idea to production must pass the corresponding gate according to risk classification (§6).
 - **Behavior:** What the system may and may not do at runtime must obey permission and ethics boundaries (§8, §9, §12).
 
-This document does not replace specific engineering standards, RFCs, or responsible-party decisions, but takes priority over engineering efficiency in any conflict. Specific practices (scan tool selection, gate script implementation, license inventory) are delegated to standards in `04-Engineering` and specifications referenced herein; this document only defines **which risks are unacceptable, which items must be reviewed, which evidence must be retained, and which releases must be blocked**.
+This document does not replace specific engineering standards, RFCs, or responsible-party decisions, but takes priority over engineering efficiency in any conflict. Specific practices (scan tool selection, gate script implementation, license inventory) are delegated to standards in `../../04-Engineering/en` and specifications referenced herein; this document only defines **which risks are unacceptable, which items must be reviewed, which evidence must be retained, and which releases must be blocked**.
 
 ---
 

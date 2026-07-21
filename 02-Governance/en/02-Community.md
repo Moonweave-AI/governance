@@ -2,7 +2,7 @@
 
 > This document defines how the Kaguya Project enables external participants to enter the community, how contributors stay and grow, how a safe, respectful, and sustainable collaboration environment is maintained, and how the community avoids becoming an implicit burden on a few maintainers. `01-Organization.md` answers "who is responsible, who has permissions, who adjudicates"; this document answers "how people enter, participate, grow, are protected, are recognized, and are handed off." Community is the life cycle, not the power structure.
 
-This document does not replace the permission definitions in `01-Organization.md`, nor does it replace code review and release processes in `04-Engineering`.
+This document does not replace the permission definitions in `01-Organization.md`, nor does it replace code review and release processes in `../../04-Engineering/en`.
 
 The philosophical foundation is Apache's "Community Over Code": a healthy community can fix code problems; an unhealthy community struggles to maintain a codebase long term—code, models, documentation, and infrastructure are products of community collaboration, not the sole reason the community exists.
 
@@ -18,7 +18,7 @@ The code of conduct applies online and offline—public events, social media, fo
 
 ## 2. Community Principles
 
-Six principles specifically constrain community operation; they are not a repeat of `01-Principles.md`:
+Six principles specifically constrain community operation; they are not a repeat of `../../01-Foundation/en/01-Principles.md`:
 
 1. **Community before artifacts** — Prioritize maintaining a community that can continuously create, review, fix, and pass on systems. Code, models, documentation, and infrastructure are products of community collaboration, not the sole reason the community exists.
 2. **Open, asynchronous, traceable** — Collaborate openly, asynchronously, and traceably by default. Chat and meetings may be used for quick coordination, but important conclusions must be captured in Issues, PRs, RFCs, ADRs, or documentation. Project direction and policy discussions that occur privately should be brought back to public channels.
@@ -144,7 +144,7 @@ Minimum rules:
    Whether human or AI contribution, the submitter must be able to explain change motivation, implementation details, testing approach, and risk. Submissions that cannot be explained may be closed by maintainers. For AI contributors, the human accountable party is the one who "can explain."
 
 4. **License and provenance responsibility rests with the human accountable party**
-   AI-generated or AI-assisted content must not bypass copyright, license, data source, and attribution review; third-party material introduced by AI contributors must complete asset admission under `02-Security-Ethics.md` §4 by the human accountable party.
+   AI-generated or AI-assisted content must not bypass copyright, license, data source, and attribution review; third-party material introduced by AI contributors must complete asset admission under `../../01-Foundation/en/02-Security-Ethics.md` §4 by the human accountable party.
 
 5. **Do not use AI to batch-generate low-quality contributions**
    Large volumes of repetitive, context-free, untested, unmaintainable, or obviously project-unaware AI-generated Issues / PRs / comments may be treated as maintainer burden and community abuse, whether driven by humans or autonomous AI.
@@ -308,4 +308,4 @@ Who may speak on behalf of the project.
 9. Maintainer burden should be actively distributed, not treated as personal obligation.
 10. Community health metrics are for improving the system, not shaming or ranking individuals.
 
-**Revision**: Consistent with "Conflict and Revision" in `01-Principles.md`; when this document conflicts with organizational permission definitions, `01-Organization.md` takes precedence; when it conflicts with legal or security-ethics baselines, the baseline takes precedence. Previous versions are stored in version control and are always available for reference.
+**Revision**: Consistent with "Conflict and Revision" in `../../01-Foundation/en/01-Principles.md`; when this document conflicts with organizational permission definitions, `01-Organization.md` takes precedence; when it conflicts with legal or security-ethics baselines, the baseline takes precedence. Previous versions are stored in version control and are always available for reference.

@@ -2,7 +2,7 @@
 
 > This document defines how the Kaguya Project determines whether an idea, experiment, prototype, or requirement is worth pursuing; how to validate it; how to enter RFC / design; how to break down into engineering tasks; how to complete testing, release, go-live, operations, and postmortem; and when to pause, archive, or terminate. It is the unified flow for all projects from **Idea → Prototype → Engineering → Release → Operation**—not merely a Roadmap document or project management tool guide.
 
-This document does not replace the formal decision process in `03-RFC-Process.md`, security review in `02-Security-Ethics.md`, or role and permission definitions in `01-Organization.md`. This document defines only planning object flow, gates, maturity, and responsibility assignment.
+This document does not replace the formal decision process in `03-RFC-Process.md`, security review in `../../01-Foundation/en/02-Security-Ethics.md`, or role and permission definitions in `../../02-Governance/en/01-Organization.md`. This document defines only planning object flow, gates, maturity, and responsibility assignment.
 
 ---
 
@@ -21,7 +21,7 @@ Eight principles specifically constraining the planning system:
 1. **Start from the problem, not the implementation** — Before any project enters engineering, it must state what problem it solves, whom it serves, why now, and what loss occurs if it is not done. For the Kaguya Project, "customer" is not necessarily a commercial user—it may be Agent systems, research workflows, open-source contributors, future embodied terminals, Infra runtime environments, long-term memory systems, developers, and maintainers. Every project should answer: Who benefits? What changes after this exists? Why is this better than the current state? Why now? What should not be built?
 2. **Validate high uncertainty before heavy engineering** — Early in a project, prioritize validating the greatest uncertainty: technical feasibility, data availability, model capability sufficiency, controllable security boundaries, whether the system is truly needed, whether it breaks existing architecture, whether maintenance cost is acceptable. Do not prioritize building a complete system first.
 3. **A prototype is not a production system** — Prototypes are for learning; they must not silently become production dependencies without Owner, tests, documentation, security review, and operational responsibility. Notebook / demo / script temporarily given to others, depended on by other systems, with nobody daring to change or delete—that rot path must be blocked at the prototype stage.
-4. **Risk determines process intensity** — Low-risk, reversible, small-scope changes proceed lightly; high-risk, cross-repository, irreversible changes involving security/privacy/embodiment/long-term state require stronger review. Reuse S0–S5 and Blocked levels from `02-Security-Ethics.md` §3.
+4. **Risk determines process intensity** — Low-risk, reversible, small-scope changes proceed lightly; high-risk, cross-repository, irreversible changes involving security/privacy/embodiment/long-term state require stronger review. Reuse S0–S5 and Blocked levels from `../../01-Foundation/en/02-Security-Ethics.md` §3.
 5. **Plans must have an Owner; execution must have a DRI** — Every planning object must have an Owner (long-term responsibility for asset or direction); every active initiative must have a DRI (driving work to the next gate). Projects without a DRI cannot enter active status; projects without an Owner cannot enter long-term maintenance or production.
 6. **Roadmap is commitment management, not a wish list** — Projects entering the Roadmap must have clear value, scope, Owner, risk level, target phase, and next review date. Unvalidated ideas should not enter the Roadmap directly—they belong in Idea Backlog or Discovery Queue.
 7. **Decisions must be captured; status must be visible** — Project status, risk, blockers, milestones, Owner, and decision rationale must be traceable. GitHub Projects is the source of truth for engineering planning; chat, meetings, and Notion may reference but must not create parallel facts.
@@ -107,7 +107,7 @@ Phases may overlap or be skipped in high-certainty cases, but key outputs and re
 
 All planning objects must be tagged with:
 
-- **Risk**: S0–S5 / Blocked (consistent with `02-Security-Ethics.md` §3)
+- **Risk**: S0–S5 / Blocked (consistent with `../../01-Foundation/en/02-Security-Ethics.md` §3)
 - **Maturity**: M0–M9 (see below)
 - **Owner**, **DRI**, **Area**, **Next Review**
 
@@ -405,7 +405,7 @@ AI project verification should not look at benchmarks alone—it should also cov
 - [ ] Post-launch review scheduled
 ```
 
-Reliability and operations requirements should enter design and build early—late PRR involvement brings high rework cost. Stop-Ship conditions (see `02-Security-Ethics.md` §7) freeze release immediately; nobody may override with schedule pressure.
+Reliability and operations requirements should enter design and build early—late PRR involvement brings high rework cost. Stop-Ship conditions (see `../../01-Foundation/en/02-Security-Ethics.md` §7) freeze release immediately; nobody may override with schedule pressure.
 
 ---
 
@@ -639,6 +639,6 @@ The following are planning anti-patterns:
 
 ## 23. Revision
 
-This document may only be revised through a public RFC; revision must state whether planning scale changed, old conflicts persist, or a rule proved harmful. Consistent with "Conflict and Revision" in `01-Principles.md`: when this document conflicts with RFC process, security review, or organizational permissions, the corresponding specialized document takes precedence; when conflicting with legal or security-ethics baselines, the baseline takes precedence. Previous versions stored in version control, always accessible.
+This document may only be revised through a public RFC; revision must state whether planning scale changed, old conflicts persist, or a rule proved harmful. Consistent with "Conflict and Revision" in `../../01-Foundation/en/01-Principles.md`: when this document conflicts with RFC process, security review, or organizational permissions, the corresponding specialized document takes precedence; when conflicting with legal or security-ethics baselines, the baseline takes precedence. Previous versions stored in version control, always accessible.
 
 Only when the chain established here—Idea → Triage → Discovery → Prototype → RFC / Design → Engineering Breakdown → Build → Verification → Release → Operation → Improve / Retire—is upheld will the Kaguya Project avoid two common failures: **many ideas but nothing truly landed, or many demos but nothing maintainable long-term**.

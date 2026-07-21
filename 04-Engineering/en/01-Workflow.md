@@ -4,10 +4,10 @@
 
 This document does not replace:
 
-- `03-Collaboration/02-Planning.md`: decides whether to do something, when, and how to break it down;
-- `03-Collaboration/03-RFC-Process.md`: handles major design and cross-repository decisions;
-- `04-Engineering/02-Quality-Assurance.md`: defines testing and quality standard details;
-- `01-Foundation/02-Security-Ethics.md`: defines security, privacy, AI, and embodied risk boundaries;
+- `../../03-Collaboration/en/02-Planning.md`: decides whether to do something, when, and how to break it down;
+- `../../03-Collaboration/en/03-RFC-Process.md`: handles major design and cross-repository decisions;
+- `02-Quality-Assurance.md`: defines testing and quality standard details;
+- `../../01-Foundation/en/02-Security-Ethics.md`: defines security, privacy, AI, and embodied risk boundaries;
 - `04-Engineering/standards/*`: defines specific technical standards for frontend, backend, API, AI systems, and more.
 
 ---
@@ -226,7 +226,7 @@ Google SRE defines canary release as: first expose a small portion of real traff
 
 ## 5. Engineering Ready: Conditions Before Entering Engineering
 
-Items output from `02-Planning.md` cannot go directly into development. The entry gates defined by the engineering workflow are as follows.
+Items output from `../../03-Collaboration/en/02-Planning.md` cannot go directly into development. The entry gates defined by the engineering workflow are as follows.
 
 ### 5.1 Ready for Engineering
 
@@ -235,7 +235,7 @@ An item may enter formal engineering development only when all of the following 
 - Problem is clearly defined;
 - Scope and Non-goals are explicit;
 - Owner and DRI are confirmed;
-- Risk level is labeled (reuse S0–S5 and Blocked from `02-Security-Ethics.md` §3);
+- Risk level is labeled (reuse S0–S5 and Blocked from `../../01-Foundation/en/02-Security-Ethics.md` §3);
 - Related Issue / RFC / ADR are linked;
 - Acceptance criteria are defined;
 - Technical dependencies are identified;
@@ -1329,6 +1329,6 @@ The following are engineering workflow anti-patterns:
 
 ## 23. Revision
 
-This document may only be revised through public RFC. Revisions must state whether engineering scale changed, old conflicts persist, or a rule was proven harmful. Consistent with "Conflict and Revision" in `01-Foundation/01-Principles.md`: when this document conflicts with RFC process, security review, or organizational authority, the corresponding specialized document takes precedence; when conflicting with legal or security ethics bottom lines, the bottom line takes precedence. Previous versions are stored in version control and are always retrievable.
+This document may only be revised through public RFC. Revisions must state whether engineering scale changed, old conflicts persist, or a rule was proven harmful. Consistent with "Conflict and Revision" in `../../01-Foundation/en/01-Principles.md`: when this document conflicts with RFC process, security review, or organizational authority, the corresponding specialized document takes precedence; when conflicting with legal or security ethics bottom lines, the bottom line takes precedence. Previous versions are stored in version control and are always retrievable.
 
 Only when the chain established by this document—Design → Decision → Implementation → Verification → Review → Build → Release → Deploy → Observe → Improve—is maintained will the Kaguya Project avoid three common failures: **prototypes without gates becoming production dependencies; Agent / data / model / embodied changes lacking specialized verification; formal artifacts not traceable to code, configuration, data, build process, and Owner**.

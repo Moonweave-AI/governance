@@ -22,7 +22,7 @@ This document applies to:
 - Automated notifications, Agent pushes, and operational alerts;
 - Public community spaces and internal collaboration spaces.
 
-This document does not replace role and permission definitions in `01-Organization.md`, formal decision processes in `03-RFC-Process.md`, or security disclosure and incident handling rules in `02-Security-Ethics.md`.
+This document does not replace role and permission definitions in `../../02-Governance/en/01-Organization.md`, formal decision processes in `03-RFC-Process.md`, or security disclosure and incident handling rules in `../../01-Foundation/en/02-Security-Ethics.md`.
 
 ---
 
@@ -409,11 +409,11 @@ WeChat groups serve the Chinese community; Discord serves the international comm
 ### 9.4 Boundaries and Hard Rules
 
 1. Technical conclusions in WeChat and Discord do not constitute project fact—valuable discussion must be written back to GitHub Discussion / Issue / RFC by participants or Maintainers; what is not written back does not count.
-2. Do not send keys, tokens, production configuration, user privacy, undisclosed security vulnerabilities, or unauthorized assets in public groups. Security vulnerabilities follow the private disclosure channel in `02-Security-Ethics.md` §11—not community group discussion.
-3. Community group code of conduct applies per `02-Community.md` §9; harassment, humiliation, discrimination, identity impersonation, privacy leaks, malicious spam, and unauthorized promotion are likewise prohibited.
+2. Do not send keys, tokens, production configuration, user privacy, undisclosed security vulnerabilities, or unauthorized assets in public groups. Security vulnerabilities follow the private disclosure channel in `../../01-Foundation/en/02-Security-Ethics.md` §11—not community group discussion.
+3. Community group code of conduct applies per `../../02-Governance/en/02-Community.md` §9; harassment, humiliation, discrimination, identity impersonation, privacy leaks, malicious spam, and unauthorized promotion are likewise prohibited.
 4. Community groups must have explicit Moderators and Owners (see §13); public groups must not be ownerless.
 5. In-group bots must be registered with Owner, permissions, trigger events, and disable method; unregistered bots must not enter formal community groups.
-6. Community groups are not release channels—roadmaps, security statements, partnership announcements, legal commitments, and official announcements may only be published by authorized persons in an official capacity (see `02-Community.md` §14).
+6. Community groups are not release channels—roadmaps, security statements, partnership announcements, legal commitments, and official announcements may only be published by authorized persons in an official capacity (see `../../02-Governance/en/02-Community.md` §14).
 
 ### 9.5 Connection with Internal Channels
 
@@ -620,7 +620,7 @@ Quarterly review:
 
 ## 15. Revision and Core Rules
 
-This document may only be revised through a public RFC. Previous versions are stored in version control and remain accessible. Consistent with "Conflict and Revision" in `01-Principles.md`: when this document conflicts with organizational permissions, RFC process, or security rules, the corresponding specialized document takes precedence; when conflicting with legal or security-ethics baselines, the baseline takes precedence.
+This document may only be revised through a public RFC. Previous versions are stored in version control and remain accessible. Consistent with "Conflict and Revision" in `../../01-Foundation/en/01-Principles.md`: when this document conflicts with organizational permissions, RFC process, or security rules, the corresponding specialized document takes precedence; when conflicting with legal or security-ethics baselines, the baseline takes precedence.
 
 The three most important core rules:
 

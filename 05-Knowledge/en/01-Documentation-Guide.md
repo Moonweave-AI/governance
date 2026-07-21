@@ -4,10 +4,10 @@
 
 This document does not replace:
 
-- `03-Collaboration/03-RFC-Process.md`: the formal decision process for major proposals;
-- `04-Engineering/01-Workflow.md`: the engineering implementation workflow;
-- `04-Engineering/02-Quality-Assurance.md`: quality evidence standards;
-- `01-Foundation/02-Security-Ethics.md`: security, privacy, compliance, and ethical boundaries.
+- `../../03-Collaboration/en/03-RFC-Process.md`: the formal decision process for major proposals;
+- `../../04-Engineering/en/01-Workflow.md`: the engineering implementation workflow;
+- `../../04-Engineering/en/02-Quality-Assurance.md`: quality evidence standards;
+- `../../01-Foundation/en/02-Security-Ethics.md`: security, privacy, compliance, and ethical boundaries.
 
 This document covers **knowledge management issues not addressed by the above documents**: which knowledge must be recorded? Where is it recorded? Who is responsible for maintaining it? How should it be written to be readable, reviewable, reproducible, and inheritable? When does documentation expire, become obsolete, or get superseded?
 
@@ -193,7 +193,7 @@ The Kubernetes documentation system adopts a "handwritten explanation + auto-gen
 
 RFC records the proposal background, problem, solution, alternatives, risks, discussion, and final decision for major changes. It answers: **Should we do this? Why?**
 
-The complete RFC process and template are defined in `03-Collaboration/03-RFC-Process.md`. This document only emphasizes documentation management rules: RFC is a historical record; Accepted / Rejected / Superseded RFCs should not be substantially modified retroactively. Subsequent actions should be maintained in ADR, standard documentation, or implementation Issues.
+The complete RFC process and template are defined in `../../03-Collaboration/en/03-RFC-Process.md`. This document only emphasizes documentation management rules: RFC is a historical record; Accepted / Rejected / Superseded RFCs should not be substantially modified retroactively. Subsequent actions should be maintained in ADR, standard documentation, or implementation Issues.
 
 ### 8.2 ADR
 
@@ -205,7 +205,7 @@ Recommended ADR structure: Status (Proposed / Accepted / Deprecated / Superseded
 
 ### 8.3 Engineering Brief and Design Doc
 
-Engineering Brief is defined in `01-Workflow.md` §6. Design Doc is detailed technical design after RFC acceptance and before implementation. Both are knowledge assets and should have Owner and status; changes go through PR Review.
+Engineering Brief is defined in `../../04-Engineering/en/01-Workflow.md` §6. Design Doc is detailed technical design after RFC acceptance and before implementation. Both are knowledge assets and should have Owner and status; changes go through PR Review.
 
 ---
 
@@ -245,7 +245,7 @@ Datasheets for Datasets proposes that datasets should be accompanied by document
 
 Dataset Card is aimed at data users, helping them determine whether a dataset suits their purpose. Minimum content: name and version, source and license, scale and format, data composition description, preprocessing notes, recommended and prohibited uses, bias and limitations, privacy and sensitive information declarations, quality check results, citation method, and related experiments/models.
 
-Hugging Face Dataset Cards practice can serve as a format reference, but the Kaguya Project should additionally emphasize source compliance (aligned with `02-Security-Ethics.md` §4 Asset and Source Security).
+Hugging Face Dataset Cards practice can serve as a format reference, but the Kaguya Project should additionally emphasize source compliance (aligned with `../../01-Foundation/en/02-Security-Ethics.md` §4 Asset and Source Security).
 
 ### 10.2 Model Card
 
@@ -390,7 +390,7 @@ If any condition is met, the PR must include documentation updates or new docume
 | README | Repo Owner |
 | Tutorial / How-to | Technical Reviewer + target reader perspective |
 | Reference | API / Schema Owner |
-| RFC | Reviewers defined in `03-RFC-Process.md` |
+| RFC | Reviewers defined in `../../03-Collaboration/en/03-RFC-Process.md` |
 | ADR | Architecture Owner / Maintainer |
 | Research Log | Research Reviewer |
 | Dataset Card | Data Owner + License / Privacy Reviewer |
@@ -555,7 +555,7 @@ The following behaviors are documentation and knowledge management anti-patterns
 
 ## 20. Revision
 
-This document may only be revised through a public RFC. Revisions must state whether knowledge management practices have proven too heavy or insufficient, new asset types lack coverage, or a rule hinders rather than promotes knowledge accumulation in practice. Consistent with "Conflicts and Revision" in `01-Foundation/01-Principles.md`: when this document conflicts with security review or organizational authority, the corresponding specialized document takes precedence; baseline principles take priority. Previous versions are stored in version control and are always accessible.
+This document may only be revised through a public RFC. Revisions must state whether knowledge management practices have proven too heavy or insufficient, new asset types lack coverage, or a rule hinders rather than promotes knowledge accumulation in practice. Consistent with "Conflicts and Revision" in `../../01-Foundation/en/01-Principles.md`: when this document conflicts with security review or organizational authority, the corresponding specialized document takes precedence; baseline principles take priority. Previous versions are stored in version control and are always accessible.
 
 The hard core of this document has only five points:
 

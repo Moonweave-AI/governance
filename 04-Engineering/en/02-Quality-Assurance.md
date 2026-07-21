@@ -5,7 +5,7 @@
 This document does not replace:
 
 - `01-Workflow.md`: defines how engineering work progresses;
-- `01-Foundation/02-Security-Ethics.md`: defines hard bottom lines for security, privacy, and ethics;
+- `../../01-Foundation/en/02-Security-Ethics.md`: defines hard bottom lines for security, privacy, and ethics;
 - `standards/*`: defines specific implementation standards for each technology stack.
 
 The relationship with the above documents is: Workflow defines process nodes, Security-Ethics defines non-negotiable boundaries, Quality-Assurance defines **at each node, what evidence is sufficient to prove the system is correct, reliable, secure, maintainable, observable, releasable, operable, and retirable**.
@@ -30,7 +30,7 @@ Eight principles, specifically governing quality judgment:
 
 1. **Quality is evidence, not feeling** — Any system called "usable," "stable," "secure," or "complete" must have inspectable evidence. Test results, evaluation reports, Review records, operational metrics, security scans, model cards, simulation records, and incident postmortems all count as evidence; "should be fine" and "ship first, fix later" do not.
 
-2. **Risk determines quality intensity** — Short lifecycle, reversible, low-impact changes get lightweight verification; long-term, cross-system, irreversible changes involving security / privacy / AI / embodiment require stronger evidence. Evidence strength aligns with S0–S5 risk tiering in `02-Security-Ethics.md` §3.
+2. **Risk determines quality intensity** — Short lifecycle, reversible, low-impact changes get lightweight verification; long-term, cross-system, irreversible changes involving security / privacy / AI / embodiment require stronger evidence. Evidence strength aligns with S0–S5 risk tiering in `../../01-Foundation/en/02-Security-Ethics.md` §3.
 
 3. **Shift testing left; do not skip operational verification** — Quality issues should be exposed as early as possible in design, static checks, unit tests, and Review. But post-launch monitoring, SLO, alerts, incident postmortems, and user feedback are also part of quality evidence—not "ops' problem."
 
@@ -444,7 +444,7 @@ If using ROS 2 or similar middleware, core packages and message interfaces shoul
 
 ## 15. Security and Supply Chain Quality
 
-This section overlaps with `02-Security-Ethics.md` but focuses on **verification evidence**—security policies live in security documents; security evidence belongs to quality assurance.
+This section overlaps with `../../01-Foundation/en/02-Security-Ethics.md` but focuses on **verification evidence**—security policies live in security documents; security evidence belongs to quality assurance.
 
 ### 15.1 Security Verification Requirements
 
@@ -610,7 +610,7 @@ The following are quality assurance anti-patterns:
 
 ## 23. Revision
 
-This document may only be revised through public RFC. Revisions must state whether quality requirements were proven too heavy or too light, new system types lack coverage, or a rule was proven to hinder rather than protect engineering health in practice. Consistent with "Conflict and Revision" in `01-Foundation/01-Principles.md`: when this document conflicts with security review or organizational authority, the corresponding specialized document takes precedence; when conflicting with legal or security ethics bottom lines, the bottom line takes precedence. Previous versions are stored in version control and are always retrievable.
+This document may only be revised through public RFC. Revisions must state whether quality requirements were proven too heavy or too light, new system types lack coverage, or a rule was proven to hinder rather than protect engineering health in practice. Consistent with "Conflict and Revision" in `../../01-Foundation/en/01-Principles.md`: when this document conflicts with security review or organizational authority, the corresponding specialized document takes precedence; when conflicting with legal or security ethics bottom lines, the bottom line takes precedence. Previous versions are stored in version control and are always retrievable.
 
 The hard core of this document has only five points:
 
