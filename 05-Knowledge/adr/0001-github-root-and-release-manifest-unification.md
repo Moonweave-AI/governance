@@ -125,3 +125,27 @@ workflow changes.
   activate repo-level CI`
 - Release manifest `assurance_scope.not_completed`: npm publication, third-party
   marketplace approval, release signing/OIDC provenance, live in-product evaluation.
+
+## Release CI (provenance)
+
+A dedicated `release.yml` workflow publishes to npm with Sigstore provenance:
+
+- **Trigger**: `push` of tags matching `v*` and `workflow_dispatch` (with an optional
+  `dry-run` input). Tag-triggered releases keep the irreversible publish act deliberate.
+- **Permissions**: `id-token: write` (required for npm provenance OIDC) and
+  `contents: read`.
+- **Environment**: `release` (use a GitHub Environment to require reviewers/wait for
+  the first provenance publish; optional hardening).
+- **Steps**: `npm ci` → `npm run verify` → `npm run audit:self` →
+  `npm publish --provenance`. The package's `prepublishOnly` script additionally
+  runs `verify` + `audit --fail-on medium`, so the publish is double-gated.
+- **Secret**: `NPM_TOKEN` must be a **granular access token** (automation/legacy tokens
+  do not support provenance) scoped to `@moonweave-ai/governance-skills` with Publish
+  permission. Set it via `gh secret set NPM_TOKEN` — never commit it.
+- **Local publish limitation**: `npm publish --provenance` from a local terminal fails
+  with "Automatic provenance generation not supported for provider: null" because no
+  OIDC token source exists outside GitHub Actions. Provenance releases must go through
+  this workflow.
+- A package-local standalone copy lives at `governance-skills/.github/workflows/release.yml`
+  for consumers (no `working-directory`); the root copy uses
+  `working-directory: governance-skills` per the sync rule above.
