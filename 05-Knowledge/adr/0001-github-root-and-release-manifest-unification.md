@@ -160,3 +160,14 @@ A dedicated `release.yml` workflow publishes to npm with Sigstore provenance:
 - `assurance_scope` updated: `npm registry publication` and `release signing and OIDC
   provenance` moved to `completed`. Remaining `not_completed`: live in-product
   evaluation, third-party marketplace review. Maturity raised M3 → M4.
+
+### 0.2.2 and marketplace verification (2026-07-22)
+- 0.2.2 fixed an unquoted-colon frontmatter bug in `moonweave-pull-request` that
+  made standard YAML parsers (Cursor) skip it during install (24/25). Added a
+  `description-unquoted-colon` lint rule + regression test.
+- Marketplace discovery verified via `npx skills add Moonweave-AI/governance/governance-skills --all -g`:
+  25/25 skills installed to 73 agents (Cursor, Claude Code, Codex, Antigravity, Kilo, OpenCode, and more).
+  Eve and PromptScript skipped because those platforms do not support global-scope skill installation — a platform limitation, not a skill defect.
+- Third-party security scan (skills.sh Socket + Snyk + Gen): all 25 skills rated Safe, 0 high-severity alerts.
+- `release-manifest.json` `status` → `published`; maturity raised M4 → M5.
+  Remaining `not_completed`: live model paired evaluation inside all six interactive agent products.

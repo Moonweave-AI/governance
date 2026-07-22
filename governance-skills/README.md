@@ -4,9 +4,9 @@
 
 Compiles [Moonweave AI Governance](https://github.com/Moonweave-AI/governance) from "long documents a human must memorize" into discoverable, invokable, checkable, auditable Agent Skills, commands, templates, a CLI, and platform adapters.
 
-> **Version: 0.1.0**
+> **Version: 0.2.2**
 > **Spec snapshot: 2026-07-22**
-> **Status: Active / pre-publication. Features and install artifacts are verified; npm packages and platform marketplaces still require actual publication or review submission by the Moonweave AI account.**
+> **Status: Active / published. Published to npm as `@moonweave-ai/governance-skills@0.2.2` with SLSA provenance; discoverable via skills.sh and platform marketplaces (Cursor, Claude Code, Codex, Antigravity, Kilo, OpenCode, and the generic `.agents/skills` format).**
 > **Owner: Moonweave AI Governance Maintainers. Backup Owner: Moonweave AI Stewardship Council.**
 
 ## Core Architecture

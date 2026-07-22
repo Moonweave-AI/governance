@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | Component | Moonweave Governance Skills |
-| Status | Active / pre-publication |
+| Status | Active / published |
 | Quality level | QA-L2 (maintained library and portable skill collection) |
 | Primary owner | Moonweave AI Governance Maintainers |
 | Backup owner | Moonweave AI Stewardship Council |
