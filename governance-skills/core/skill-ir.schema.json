@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moonweave.ai/schemas/governance-skill-ir-v1.json",
+  "title": "Moonweave Governance Skill IR",
+  "type": "object",
+  "required": ["id", "intent", "triggers", "inputs", "procedure", "outputs", "safety"],
+  "properties": {
+    "id": {"type":"string","pattern":"^[a-z0-9-]+$"},
+    "intent": {"type":"string"},
+    "triggers": {"type":"array","items":{"type":"string"}},
+    "contraindications": {"type":"array","items":{"type":"string"}},
+    "inputs": {"type":"array","items":{"type":"string"}},
+    "procedure": {"type":"array","items":{"type":"object","required":["step","action"],"properties":{"step":{"type":"integer"},"action":{"type":"string"},"evidence":{"type":"array","items":{"type":"string"}}}}},
+    "outputs": {"type":"array","items":{"type":"string"}},
+    "safety": {"type":"object","required":["untrusted_input","stop_ship","human_confirmation"],"properties":{"untrusted_input":{"type":"boolean"},"stop_ship":{"type":"boolean"},"human_confirmation":{"type":"boolean"}}},
+    "governance_refs": {"type":"array","items":{"type":"string"}}
+  },
+  "additionalProperties": true
+}

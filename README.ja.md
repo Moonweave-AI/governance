@@ -127,6 +127,8 @@ flowchart TB
 04-Engineering/         ワークフロー、品質保証、技術標準
 05-Knowledge/           ドキュメントガイドと知識資産管理
 06-Glossary/            英 / 中 / 日 の用語定義
+governance-skills/      Agent Skills・コマンド・テンプレート・CLI・プラットフォームアダプタ
+                        本ガバナンス体系を呼出可能・検査可能なツールへコンパイル
 ```
 
 | セクション | 日本語 |
@@ -137,6 +139,7 @@ flowchart TB
 | **04-Engineering** | [ワークフロー](04-Engineering/ja/01-Workflow.md) · [品質](04-Engineering/ja/02-Quality-Assurance.md) |
 | **05-Knowledge** | [ドキュメント](05-Knowledge/ja/01-Documentation-Guide.md) |
 | **06-Glossary** | [日本語](06-Glossary/README.ja.md) |
+| **governance-skills** | [Skills](governance-skills/README.ja.md) — Agent Skills・CLI・プラットフォームアダプタ |
 
 ## 主要概念
 

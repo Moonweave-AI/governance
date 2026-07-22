@@ -1,0 +1,257 @@
+{
+  "skills": [
+    {
+      "name": "moonweave-adr",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-code-review",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-community-contribution",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-documentation",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-engineering-brief",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-gap-analysis",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-governance-change",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-governance-router",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-handoff",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-idea-triage",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-implementation",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-incident-response",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-issue",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-project-bootstrap",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-project-planning",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-pull-request",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-quality-assurance",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-release-readiness",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-repository-audit",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-research",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-retrospective",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-rfc",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-security-review",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    }
+  ]
+}

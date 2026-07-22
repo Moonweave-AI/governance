@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "moonweave-ai",
+  "owner": {"name": "Moonweave AI"},
+  "plugins": [
+    {
+      "name": "moonweave-governance",
+      "description": "Moonweave governance skills, commands, templates and safety gates.",
+      "version": "0.1.0",
+      "source": {"source": "github", "repo": "Moonweave-AI/governance"}
+    }
+  ]
+}

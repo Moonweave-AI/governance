@@ -1,0 +1,15 @@
+name: Moonweave Governance Audit
+description: Run deterministic Moonweave governance checks
+inputs:
+  profile:
+    description: docs, library, service, ai-agent, embodied, or auto
+    required: false
+    default: auto
+  root:
+    required: false
+    default: .
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: node "$GITHUB_ACTION_PATH/../../../bin/moonweave-skills.mjs" audit --root "${{ inputs.root }}" --profile "${{ inputs.profile }}" --format markdown

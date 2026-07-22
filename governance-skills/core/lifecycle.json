@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "planning": [
+    "Inbox",
+    "Needs Triage",
+    "Discovery",
+    "Prototype",
+    "Needs RFC",
+    "Design Review",
+    "Planning Breakdown",
+    "Ready for Engineering",
+    "In Development",
+    "In Review",
+    "Verification",
+    "Release Candidate",
+    "Staged Rollout",
+    "Operational",
+    "Improve",
+    "Paused",
+    "Archived",
+    "Terminated"
+  ],
+  "maturity": [
+    [
+      "M0",
+      "Idea"
+    ],
+    [
+      "M1",
+      "Concept"
+    ],
+    [
+      "M2",
+      "Proof of Concept"
+    ],
+    [
+      "M3",
+      "Prototype"
+    ],
+    [
+      "M4",
+      "Relevant Environment"
+    ],
+    [
+      "M5",
+      "Integrated Prototype"
+    ],
+    [
+      "M6",
+      "Beta/Pilot"
+    ],
+    [
+      "M7",
+      "Production Candidate"
+    ],
+    [
+      "M8",
+      "GA/Production"
+    ],
+    [
+      "M9",
+      "Sustained Operation"
+    ]
+  ],
+  "engineering": [
+    "Engineering Ready",
+    "Engineering Brief",
+    "Technical Decision/ADR",
+    "Scaffolding",
+    "Implementation",
+    "Local Verification",
+    "Pull Request",
+    "CI Gates",
+    "Required Review",
+    "Merge",
+    "Build Artifact",
+    "Staging/Preview/Simulation",
+    "Release Readiness",
+    "Deployment/Rollout",
+    "Post-deploy Verification",
+    "Feedback/Improvement"
+  ]
+}

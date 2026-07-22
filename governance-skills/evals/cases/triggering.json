@@ -1,0 +1,117 @@
+[
+  {
+    "skill": "moonweave-governance-router",
+    "positive": ["请先做治理路由并给出S级和QA-L等级", "我不确定下一步该走Issue、RFC还是ADR", "Classify the risk level and QA-L3 grade for this task", "Route to the right governance path and give the S-level and QA-L2 grade"],
+    "negative": ["直接把这个错别字改掉", "just fix the typo"]
+  },
+  {
+    "skill": "moonweave-project-bootstrap",
+    "positive": ["为一个新仓库建立项目初始化基线", "把这个PoC提升为正式工程项目", "New project: set up the 项目初始化 baseline for a new repository", "把这个 PoC 工程化为正式项目"],
+    "negative": ["审查现有PR的并发错误", "review the concurrency bug in the existing PR"]
+  },
+  {
+    "skill": "moonweave-idea-triage",
+    "positive": ["我有个想法，需要判断是否值得做", "清理backlog并对这些idea做triage", "I have an idea, need to triage whether it is worth doing", "Idea triage: clean the backlog and prioritize ideas"],
+    "negative": ["准备生产发布的回滚计划", "prepare the rollback plan for the production release"]
+  },
+  {
+    "skill": "moonweave-project-planning",
+    "positive": ["为这个项目制定Roadmap和Milestone", "把原型晋级工作拆成任务和生命周期门禁", "Build a roadmap and milestones for this project", "Break the prototype promotion into tasks and milestones with lifecycle gates"],
+    "negative": ["为数据库选型写ADR", "write an ADR for the database selection"]
+  },
+  {
+    "skill": "moonweave-rfc",
+    "positive": ["改变公共协议", "引入核心数据库", "修改治理角色权限", "this is a breaking change to the public API schema", "draft an RFC for this cross-repo decision"],
+    "negative": ["修正文档拼写", "补一个单元测试", "fix a documentation typo"]
+  },
+  {
+    "skill": "moonweave-adr",
+    "positive": ["为已经确定的数据库选型创建ADR", "记录这次长期架构决定并替代旧决策", "record an ADR for the database selection", "record an ADR replacing the old architecture decision"],
+    "negative": ["这个想法是否值得进入Discovery", "is this idea worth discovery"]
+  },
+  {
+    "skill": "moonweave-issue",
+    "positive": ["创建一个可执行的GitHub Issue", "把会议里的action item落到任务系统并补全验收条件", "create a GitHub Issue", "turn the meeting action items into a GitHub Issue"],
+    "negative": ["对生产事故做无责复盘", "run a blameless postmortem on the production incident"]
+  },
+  {
+    "skill": "moonweave-engineering-brief",
+    "positive": ["进入Engineering Ready前写一份工程简报", "实现前定义领域概念、不变量和失败模式", "write an Engineering Brief before Engineering Ready", "write an Engineering Brief defining invariants and failure modes"],
+    "negative": ["整理贡献者成长路径", "map the contributor growth path"]
+  },
+  {
+    "skill": "moonweave-implementation",
+    "positive": ["开始实现已经批准的Feature", "按验收标准修复这个Bug并补测试", "开始实现 the approved feature", "修复 this bug 按 acceptance criteria and add tests"],
+    "negative": ["决定这个公共协议是否应该采用", "decide whether this public protocol should be adopted"]
+  },
+  {
+    "skill": "moonweave-pull-request",
+    "positive": ["准备创建PR并完善PR描述", "把这组提交整理成可审查的Pull Request", "创建 a PR and refine the PR 描述", "整理 commits 成可审查的 pull request"],
+    "negative": ["为新研究实验定义假设", "define the hypothesis for a new research experiment"]
+  },
+  {
+    "skill": "moonweave-code-review",
+    "positive": ["review这个PR", "检查diff是否可合并", "review this PR and check the diff", "request changes on this code review"],
+    "negative": ["帮我写一个长期Roadmap", "write a long-term roadmap"]
+  },
+  {
+    "skill": "moonweave-security-review",
+    "positive": ["新增OAuth", "Agent调用Shell", "数据包含个人信息", "机器人执行器", "add OAuth authentication", "the Agent calls shell commands"],
+    "negative": ["修改无敏感信息的标题", "change a title with no sensitive data"]
+  },
+  {
+    "skill": "moonweave-quality-assurance",
+    "positive": ["为服务制定QA-L3测试计划和CI门禁", "处理这个flaky test并补齐质量证据", "set a QA-L3 test plan and CI gate for the service", "fix this flaky test and add quality evidence"],
+    "negative": ["创建一个社区good first issue", "create a community good first issue"]
+  },
+  {
+    "skill": "moonweave-release-readiness",
+    "positive": ["执行Release Readiness并给出Go或No-Go", "上线前检查灰度、监控和回滚决策", "run release readiness and give a Go or No-Go", "check release readiness: canary rollout and rollback before launch"],
+    "negative": ["复现一篇论文", "reproduce a paper"]
+  },
+  {
+    "skill": "moonweave-documentation",
+    "positive": ["重写README并补Quick Start", "审查这份Runbook是否过期", "rewrite the README and add a Quick Start", "review whether this Runbook is outdated"],
+    "negative": ["直接部署候选版本到生产", "deploy the release candidate straight to production"]
+  },
+  {
+    "skill": "moonweave-research",
+    "positive": ["复现这篇论文", "记录模型评测和负面结果", "reproduce this paper", "record the model card and dataset card with negative results"],
+    "negative": ["发布生产服务", "release a production service"]
+  },
+  {
+    "skill": "moonweave-incident-response",
+    "positive": ["生产宕机，需要建立事故时间线", "Agent越权后做Hotfix和Postmortem", "production outage, build the incident timeline", "Agent exceeded scope, do a hotfix and postmortem"],
+    "negative": ["为新项目写README", "write a README for the new project"]
+  },
+  {
+    "skill": "moonweave-handoff",
+    "positive": ["负责人要离开，请生成交接记录", "Release换班并把DRI移交给下一位", "the owner is leaving, create a handoff note", "release shift change, mark the DRI inactive and move to emeritus"],
+    "negative": ["审查一个公共API设计", "review a public API design"]
+  },
+  {
+    "skill": "moonweave-repository-audit",
+    "positive": ["对这个遗留仓库做治理审计", "季度检查仓库基线和缺失证据", "run a repository audit on this legacy repo", "quarterly repository audit of the baseline and missing evidence"],
+    "negative": ["写一份模型卡", "write a model card"]
+  },
+  {
+    "skill": "moonweave-gap-analysis",
+    "positive": ["分析规范与实际工作的治理漂移", "这些流程经常漏项，请做补漏分析", "run gap analysis on the governance drift", "run a gap analysis between the spec and actual work"],
+    "negative": ["修复一个确定的空指针Bug", "fix a confirmed null pointer bug"]
+  },
+  {
+    "skill": "moonweave-retrospective",
+    "positive": ["发布后做一次结构化复盘", "比较季度计划的预期与实际并形成持续改进项", "run a retrospective after the release", "run a retrospective comparing plan vs actual"],
+    "negative": ["创建一个新的工程仓库", "create a new engineering repository"]
+  },
+  {
+    "skill": "moonweave-community-contribution",
+    "positive": ["审查首次贡献并设计Good First Issue", "处理AI批量贡献引发的社区摩擦和Mentorship", "review first contributions and design a good first issue", "handle community friction from AI batch contributions with mentorship"],
+    "negative": ["给后端服务配置SLO", "set SLO for the backend service"]
+  },
+  {
+    "skill": "moonweave-governance-change",
+    "positive": ["修改治理原则并更新相关skills", "平台格式变化，需要更新适配器和技能体系", "修改治理 principles and update related skills", "新增 a skill into the skills 体系"],
+    "negative": ["为现有功能补一个集成测试", "add an integration test for the existing feature"]
+  }
+]

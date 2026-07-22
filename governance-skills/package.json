@@ -1,0 +1,83 @@
+{
+  "name": "@moonweave-ai/governance-skills",
+  "version": "0.1.0",
+  "description": "Cross-platform Agent Skills, commands, deterministic checks, templates and adapters implementing the Moonweave AI governance system.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "moonweave-skills": "bin/moonweave-skills.mjs",
+    "mw-skills": "bin/moonweave-skills.mjs"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "core",
+    "skills",
+    "commands",
+    "templates",
+    "adapters",
+    "marketplace",
+    "evals",
+    "tests",
+    ".github",
+    ".moonweave",
+    "docs",
+    "rules",
+    "scripts",
+    "plugins",
+    ".claude-plugin",
+    ".cursor-plugin",
+    ".agents",
+    "plugin.json",
+    "generated-adapters.json",
+    "README.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "QUALITY.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "checksums.sha256",
+    "release-manifest.json"
+  ],
+  "scripts": {
+    "build:adapters": "node scripts/build-adapters.mjs",
+    "validate:adapters": "node scripts/validate-marketplaces.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "lint:skills": "node bin/moonweave-skills.mjs lint-skills",
+    "eval:static": "node bin/moonweave-skills.mjs eval-static",
+    "audit:self": "node bin/moonweave-skills.mjs audit --root . --profile library --format markdown",
+    "verify": "npm run build:adapters && npm run validate:adapters && npm test && npm run lint:skills && npm run eval:static",
+    "prepack": "npm run verify",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run verify && node bin/moonweave-skills.mjs audit --root . --profile library --format markdown --fail-on medium"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "agent-skills",
+    "governance",
+    "codex",
+    "claude-code",
+    "cursor",
+    "opencode",
+    "kilo",
+    "antigravity",
+    "software-engineering",
+    "ai-safety"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moonweave-AI/governance.git",
+    "directory": "governance-skills"
+  },
+  "homepage": "https://github.com/Moonweave-AI/governance/tree/main/governance-skills#readme",
+  "bugs": {
+    "url": "https://github.com/Moonweave-AI/governance/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

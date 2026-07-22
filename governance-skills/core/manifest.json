@@ -1,0 +1,27 @@
+{
+  "name": "moonweave-governance-skills",
+  "version": "0.1.0",
+  "governance_source": "https://github.com/Moonweave-AI/governance",
+  "governance_branch": "main",
+  "retrieved_at": "2026-07-22",
+  "canonical_language": "en",
+  "architecture": "typed governance core + focused Agent Skills + platform adapters + deterministic CLI + evaluations",
+  "default_install_mode": "copy",
+  "network_default": "off",
+  "destructive_actions_default": "require-human-confirmation",
+  "native_targets": [
+    "claude",
+    "cursor",
+    "codex",
+    "antigravity"
+  ],
+  "portable_targets": [
+    "codex",
+    "cursor",
+    "claude",
+    "opencode",
+    "kilo",
+    "antigravity"
+  ],
+  "marketplace_status": "publication-ready; not yet submitted by Moonweave AI"
+}

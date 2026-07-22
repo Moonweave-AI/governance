@@ -1,0 +1,117 @@
+[
+  {
+    "command": "mw-route",
+    "skill": "moonweave-governance-router",
+    "description": "Classify task, risk, and maturity, then route to the correct governance path"
+  },
+  {
+    "command": "mw-start",
+    "skill": "moonweave-project-bootstrap",
+    "description": "Start a new project or engineer a prototype"
+  },
+  {
+    "command": "mw-triage",
+    "skill": "moonweave-idea-triage",
+    "description": "Triage and discovery for ideas/issues"
+  },
+  {
+    "command": "mw-plan",
+    "skill": "moonweave-project-planning",
+    "description": "Generate project plan, Milestones, and Gates"
+  },
+  {
+    "command": "mw-rfc",
+    "skill": "moonweave-rfc",
+    "description": "Draft or review an RFC"
+  },
+  {
+    "command": "mw-adr",
+    "skill": "moonweave-adr",
+    "description": "Create or review an ADR"
+  },
+  {
+    "command": "mw-issue",
+    "skill": "moonweave-issue",
+    "description": "Create or complete a GitHub Issue"
+  },
+  {
+    "command": "mw-brief",
+    "skill": "moonweave-engineering-brief",
+    "description": "Write an Engineering Brief"
+  },
+  {
+    "command": "mw-implement",
+    "skill": "moonweave-implementation",
+    "description": "Execute governed engineering implementation"
+  },
+  {
+    "command": "mw-pr",
+    "skill": "moonweave-pull-request",
+    "description": "Prepare a Pull Request"
+  },
+  {
+    "command": "mw-review",
+    "skill": "moonweave-code-review",
+    "description": "Review a PR/diff"
+  },
+  {
+    "command": "mw-security",
+    "skill": "moonweave-security-review",
+    "description": "Run security/privacy/asset/ethics review"
+  },
+  {
+    "command": "mw-qa",
+    "skill": "moonweave-quality-assurance",
+    "description": "Define or check quality evidence"
+  },
+  {
+    "command": "mw-release",
+    "skill": "moonweave-release-readiness",
+    "description": "Run release and production-readiness checks"
+  },
+  {
+    "command": "mw-docs",
+    "skill": "moonweave-documentation",
+    "description": "Create or review documentation"
+  },
+  {
+    "command": "mw-research",
+    "skill": "moonweave-research",
+    "description": "Record experiments/papers/data/models"
+  },
+  {
+    "command": "mw-incident",
+    "skill": "moonweave-incident-response",
+    "description": "Handle incidents/vulnerabilities/Postmortems"
+  },
+  {
+    "command": "mw-handoff",
+    "skill": "moonweave-handoff",
+    "description": "Create a handoff record"
+  },
+  {
+    "command": "mw-audit",
+    "skill": "moonweave-repository-audit",
+    "description": "Read-only audit of repository governance and engineering baseline"
+  },
+  {
+    "command": "mw-gaps",
+    "skill": "moonweave-gap-analysis",
+    "description": "Analyze spec gaps and drift"
+  },
+  {
+    "command": "mw-retro",
+    "skill": "moonweave-retrospective",
+    "description": "Release/project/incident retrospective and continuous improvement"
+  },
+  {
+    "command": "mw-community",
+    "skill": "moonweave-community-contribution",
+    "description": "Handle community contributions and maintainer experience"
+  },
+  {
+    "command": "mw-governance",
+    "skill": "moonweave-governance-change",
+    "description": "Modify governance or the Skills system"
+  }
+]

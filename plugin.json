@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "moonweave-governance",
+  "description": "Moonweave AI governance, planning, RFC, engineering, security, quality, release, research, and knowledge management skills."
+}

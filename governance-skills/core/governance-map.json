@@ -1,0 +1,58 @@
+{
+  "01-Foundation/01-Principles.md": [
+    "moonweave-governance-router",
+    "moonweave-security-review",
+    "moonweave-gap-analysis",
+    "moonweave-governance-change"
+  ],
+  "01-Foundation/02-Security-Ethics.md": [
+    "moonweave-security-review",
+    "moonweave-release-readiness",
+    "moonweave-incident-response",
+    "moonweave-repository-audit"
+  ],
+  "02-Governance/01-Organization.md": [
+    "moonweave-project-bootstrap",
+    "moonweave-handoff",
+    "moonweave-governance-router"
+  ],
+  "02-Governance/02-Community.md": [
+    "moonweave-community-contribution",
+    "moonweave-issue",
+    "moonweave-retrospective"
+  ],
+  "03-Collaboration/01-Communication.md": [
+    "moonweave-issue",
+    "moonweave-handoff",
+    "moonweave-incident-response"
+  ],
+  "03-Collaboration/02-Planning.md": [
+    "moonweave-idea-triage",
+    "moonweave-project-planning",
+    "moonweave-project-bootstrap"
+  ],
+  "03-Collaboration/03-RFC-Process.md": [
+    "moonweave-rfc",
+    "moonweave-adr",
+    "moonweave-governance-change"
+  ],
+  "04-Engineering/01-Workflow.md": [
+    "moonweave-engineering-brief",
+    "moonweave-implementation",
+    "moonweave-pull-request",
+    "moonweave-code-review",
+    "moonweave-release-readiness"
+  ],
+  "04-Engineering/02-Quality-Assurance.md": [
+    "moonweave-quality-assurance",
+    "moonweave-code-review",
+    "moonweave-release-readiness",
+    "moonweave-repository-audit"
+  ],
+  "05-Knowledge/01-Documentation-Guide.md": [
+    "moonweave-documentation",
+    "moonweave-research",
+    "moonweave-rfc",
+    "moonweave-adr"
+  ]
+}

@@ -127,6 +127,8 @@ flowchart TB
 04-Engineering/         工作流、质量保障与技术标准
 05-Knowledge/           文档规范与知识资产管理
 06-Glossary/            英 / 中 / 日 术语定义
+governance-skills/      Agent Skills、命令、模板、CLI 与平台适配器
+                        将本治理体系编译为可调用、可检查的工具
 ```
 
 | 章节 | 中文 |
@@ -137,6 +139,7 @@ flowchart TB
 | **04-Engineering** | [工作流](04-Engineering/01-Workflow.md) · [质量](04-Engineering/02-Quality-Assurance.md) |
 | **05-Knowledge** | [文档规范](05-Knowledge/01-Documentation-Guide.md) |
 | **06-Glossary** | [中文](06-Glossary/README.zh.md) |
+| **governance-skills** | [Skills](governance-skills/README.zh.md) — Agent Skills、CLI 与平台适配器 |
 
 ## 关键概念
 

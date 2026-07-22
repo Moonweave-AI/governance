@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "levels": [
+    {
+      "id": "QA-L0",
+      "name": "Draft/Note",
+      "evidence": [
+        "Status marker"
+      ]
+    },
+    {
+      "id": "QA-L1",
+      "name": "Experiment",
+      "evidence": [
+        "Reproducible record",
+        "Data provenance",
+        "Owner",
+        "Expiration time"
+      ]
+    },
+    {
+      "id": "QA-L2",
+      "name": "Maintained Component",
+      "evidence": [
+        "CI",
+        "Unit tests",
+        "Documentation",
+        "Owner",
+        "Change log"
+      ]
+    },
+    {
+      "id": "QA-L3",
+      "name": "Production Service",
+      "evidence": [
+        "Integration/contract tests",
+        "Monitoring",
+        "Alerting",
+        "SLO",
+        "Runbook",
+        "Rollback"
+      ]
+    },
+    {
+      "id": "QA-L4",
+      "name": "AI/Agent System",
+      "evidence": [
+        "Eval",
+        "Adversarial testing",
+        "Model/Dataset Card",
+        "Permission review",
+        "Behavioral regression"
+      ]
+    },
+    {
+      "id": "QA-L5",
+      "name": "Embodied/Safety-Critical",
+      "evidence": [
+        "Hazard analysis",
+        "Simulation",
+        "SIL/HIL",
+        "E-Stop",
+        "HITL",
+        "Physical test records"
+      ]
+    }
+  ],
+  "gates": [
+    "Q0 Quality planning",
+    "Q1 Design quality",
+    "Q2 Implementation quality",
+    "Q3 CI gate",
+    "Q4 Release quality",
+    "Q5 Operational quality"
+  ]
+}

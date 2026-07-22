@@ -1,0 +1,37 @@
+{
+  "name": "moonweave-governance",
+  "version": "0.1.0",
+  "description": "Moonweave AI governance, planning, RFC, engineering, security, quality, release, research, and knowledge management skills.",
+  "author": {
+    "name": "Moonweave AI",
+    "url": "https://github.com/Moonweave-AI"
+  },
+  "homepage": "https://github.com/Moonweave-AI/governance",
+  "repository": "https://github.com/Moonweave-AI/governance",
+  "license": "MIT",
+  "keywords": [
+    "governance",
+    "agent-skills",
+    "code-review",
+    "ai-safety",
+    "quality-assurance"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Moonweave Governance",
+    "shortDescription": "Governance-aware engineering workflows",
+    "longDescription": "Route, plan, review, secure, validate, release and document Moonweave AI projects using focused skills and deterministic checks.",
+    "developerName": "Moonweave AI",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Moonweave-AI/governance",
+    "defaultPrompt": [
+      "Route this task through the Moonweave governance lifecycle.",
+      "Review this pull request using Moonweave security and quality gates.",
+      "Audit this repository and produce a prioritized remediation plan."
+    ]
+  }
+}

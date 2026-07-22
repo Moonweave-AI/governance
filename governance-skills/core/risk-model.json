@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "levels": [
+    {
+      "id": "S0",
+      "name": "Low-risk documentation / non-runtime assets",
+      "examples": [
+        "README",
+        "General documentation",
+        "Design drafts without sensitive information"
+      ],
+      "minimum": [
+        "Standard PR Review"
+      ]
+    },
+    {
+      "id": "S1",
+      "name": "Local tools / experimental prototypes",
+      "examples": [
+        "Local scripts",
+        "Offline PoC"
+      ],
+      "minimum": [
+        "Basic code review",
+        "Dependency provenance check",
+        "Experiment log",
+        "Expiration time"
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "Reusable software components",
+      "examples": [
+        "SDK",
+        "Library",
+        "CLI",
+        "Internal tools"
+      ],
+      "minimum": [
+        "CI",
+        "Tests",
+        "Dependency scanning",
+        "License check",
+        "Owner"
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "Networked services / stateful systems",
+      "examples": [
+        "API services",
+        "Databases",
+        "State machines",
+        "Schedulers"
+      ],
+      "minimum": [
+        "Threat modeling",
+        "Access control",
+        "Logging",
+        "Monitoring",
+        "Rollback",
+        "Runbook"
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "AI / Agent high-impact systems",
+      "examples": [
+        "Tool-calling Agent",
+        "RAG",
+        "Model serving",
+        "Long-term memory"
+      ],
+      "minimum": [
+        "AI security assessment",
+        "Prompt Injection protection",
+        "Permission isolation",
+        "Output validation",
+        "Eval report",
+        "Human takeover"
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "Embodied / high-risk physical systems",
+      "examples": [
+        "Robot control",
+        "Sensor closed loops",
+        "Actuators"
+      ],
+      "minimum": [
+        "Hazard analysis",
+        "Simulation",
+        "SIL/HIL",
+        "HITL",
+        "E-Stop",
+        "Phased rollout",
+        "Independent safety review"
+      ]
+    },
+    {
+      "id": "BLOCKED",
+      "name": "Proceeding blocked",
+      "examples": [
+        "Assets of unknown provenance",
+        "Key leakage",
+        "Unreviewed personal data",
+        "High-autonomy physical control without E-Stop"
+      ],
+      "minimum": [
+        "Immediate stop",
+        "Remediate or abandon"
+      ]
+    }
+  ],
+  "principle": "Risk determines process intensity; the risk level is a minimum requirement, not a waiver."
+}

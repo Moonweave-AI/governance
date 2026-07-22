@@ -1,0 +1,18 @@
+# IDE / editor runtime state
+.cursor/
+.idea/
+.vscode/
+*.code-workspace
+
+# Node (governance-skills CLI build / test)
+node_modules/
+*.tgz
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts that are regenerable on demand
+governance-skills.zip
+governance.zip

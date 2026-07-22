@@ -1,0 +1,17 @@
+{
+  "name": "moonweave-ai",
+  "owner": {
+    "name": "Moonweave AI"
+  },
+  "metadata": {
+    "description": "Moonweave AI governance skills and commands",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "moonweave-governance",
+      "source": "./governance-skills/plugins/cursor/moonweave-governance",
+      "description": "Moonweave AI governance, planning, RFC, engineering, security, quality, release, research, and knowledge management skills."
+    }
+  ]
+}

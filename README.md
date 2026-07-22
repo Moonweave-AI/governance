@@ -127,6 +127,8 @@ flowchart TB
 04-Engineering/         Workflow, quality assurance, and technical standards
 05-Knowledge/           Documentation guide and knowledge asset management
 06-Glossary/            Term definitions in English, Chinese, and Japanese
+governance-skills/      Agent Skills, commands, templates, CLI, and platform adapters
+                        that compile this governance system into invokable, checkable tools
 ```
 
 | Section | English |
@@ -137,6 +139,7 @@ flowchart TB
 | **04-Engineering** | [Workflow](04-Engineering/en/01-Workflow.md) · [Quality](04-Engineering/en/02-Quality-Assurance.md) |
 | **05-Knowledge** | [Documentation](05-Knowledge/en/01-Documentation-Guide.md) |
 | **06-Glossary** | [English](06-Glossary/README.md) |
+| **governance-skills** | [Skills](governance-skills/README.md) — Agent Skills, CLI, and platform adapters |
 
 ## Key Concepts
 

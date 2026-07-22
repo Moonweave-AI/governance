@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "platforms": {
+    "generic": {
+      "skills_project": ".agents/skills",
+      "rules_project": "AGENTS.md",
+      "commands_project": null
+    },
+    "codex": {
+      "skills_project": ".agents/skills",
+      "skills_global": "~/.agents/skills",
+      "rules_project": "AGENTS.md",
+      "commands_project": null
+    },
+    "cursor": {
+      "skills_project": ".cursor/skills",
+      "skills_global": "~/.cursor/skills",
+      "rules_project": ".cursor/rules/moonweave-governance.mdc",
+      "commands_project": ".cursor/commands"
+    },
+    "claude": {
+      "skills_project": ".claude/skills",
+      "skills_global": "~/.claude/skills",
+      "rules_project": "CLAUDE.md",
+      "commands_project": ".claude/commands"
+    },
+    "opencode": {
+      "skills_project": ".opencode/skills",
+      "skills_global": "~/.config/opencode/skills",
+      "rules_project": "AGENTS.md",
+      "commands_project": ".opencode/commands"
+    },
+    "kilo": {
+      "skills_project": ".kilo/skills",
+      "skills_global": "~/.kilo/skills",
+      "rules_project": "AGENTS.md",
+      "commands_project": ".kilo/commands"
+    },
+    "antigravity": {
+      "skills_project": ".agents/skills",
+      "skills_global": "~/.gemini/config/skills",
+      "rules_project": ".agents/rules/moonweave-governance.md",
+      "commands_project": null
+    }
+  },
+  "notes": [
+    "Codex, OpenCode, Kilo, and Antigravity can all read the open Agent Skills format; paths are confirmed against each platform's current official documentation.",
+    "Cursor uses .cursor/skills; Claude Code uses .claude/skills.",
+    "Kilo loads project rules via AGENTS.md; its custom rules can also be referenced by kilo.jsonc instructions.",
+    "Command adapters are thin wrappers; the canonical semantics always come from skills/ and core/."
+  ]
+}
