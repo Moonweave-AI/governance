@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.1 — 2026-07-22
+
+- Republish to align the npm registry with the repository after the 0.2.0
+  tarball was found to be a pre-fix artifact (its internal `release-manifest`
+  still read version 0.1.0 with 23-skill counts). 0.2.1 carries the corrected
+  manifest, regenerated adapters/checksums, and all repository fixes below.
+- Relocate `.github/` to the repository root so CI, CODEOWNERS, and Issue/PR
+  templates function; keep a package-local `.github/` for `install --withGithub`
+  and the package-level audit (see ADR-0001).
+- Bump GitHub Actions to Node 24 and `codeql-action/upload-sarif` to v4 across
+  root workflows, package-local workflows, and the `installGithub` template.
+- Add repo-root `SECURITY.md`, `CONTRIBUTING.md`, `CHANGELOG.md` as the public
+  repository surface.
+- No skill semantic changes; existing evaluations remain valid.
+
 ## 0.2.0 — 2026-07-22
 
 - Add `moonweave-help` (skill picker) and `moonweave-flow` (staged multi-skill runner), bringing the total to 25 focused Agent Skills with 25 thin command wrappers.
