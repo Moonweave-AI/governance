@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "package": "@moonweave-ai/governance-skills",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "status": "published",
   "governance_source": "https://github.com/Moonweave-AI/governance",
   "governance_snapshot_date": "2026-07-22",
@@ -62,7 +62,7 @@
       "live installation verified in Cursor and 71+ agents via skills.sh"
     ],
     "not_completed": [
-      "live model paired evaluation inside all six interactive agent products"
+      "live model paired evaluation (Cursor verified 1/6, all sections 1.00; Codex/Claude Code/OpenCode/Kilo/Antigravity pending — reuse live-evaluation-prompt.md)"
     ]
   }
 }

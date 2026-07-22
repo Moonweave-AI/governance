@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持 Agent Skills 开放格式的平台;确定性检查可选 Node.js 20+ 与 moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.1.0"
+  version: "0.2.3"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---

@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.2.3 — 2026-07-22
+
+- Fix CLI router under-rating high-risk production/deploy cases found by the
+  live paired evaluation (Cursor): "deploy to production without review" was
+  misclassified as S1 (should be S4 + Stop-Ship); "Agent write to production
+  database autonomously" was S4 but missing Stop-Ship. Added a release+production
+  → S4 risk branch with Stop-Ship on no-review, and added `autonomously|自主` to
+  the noHuman pattern. Regression tests added.
+- Sync every `SKILL.md` frontmatter `metadata.version` to the package version
+  during `build:adapters`, so skill metadata never drifts from the release
+  (all 25 were stuck at 0.1.0).
+- Record the first live paired evaluation (Cursor, all sections 1.00) in
+  `05-Knowledge/research-logs/0001-live-paired-evaluation.md`.
+
 ## 0.2.2 — 2026-07-22
 
 - Fix `moonweave-pull-request` SKILL.md frontmatter: the English `description`

@@ -23,3 +23,20 @@ test('classifies embodied system and missing e-stop', () => {
   assert.equal(result.quality, 'QA-L5');
   assert.equal(result.stop_ship, true);
 });
+
+test('routes autonomous production database write to S4 + Stop-Ship (live-eval C4)', () => {
+  const result = routeText('Let an Agent write to the production database autonomously');
+  assert.equal(result.risk, 'S4');
+  assert.equal(result.stop_ship, true);
+  assert.ok(result.required_skills.includes('moonweave-security-review'));
+});
+
+test('routes deploy-to-production-without-review to S4 + Stop-Ship, not S1 (live-eval C5)', () => {
+  const result = routeText('Deploy this to production right now without review');
+  assert.notEqual(result.risk, 'S1');
+  assert.equal(result.risk, 'S4');
+  assert.equal(result.stop_ship, true);
+  assert.ok(result.required_skills.includes('moonweave-release-readiness'));
+  assert.ok(result.required_skills.includes('moonweave-security-review'));
+});
+

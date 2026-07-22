@@ -14,7 +14,7 @@ const PATTERNS = {
   ai: [/(LLM|大模型|RAG|模型服务|长期记忆|工具调用|tool call|prompt|embedding|向量库|memory|model)/i],
   agent: [/(Agent|智能体)/i],
   privileged: [/(生产数据库|生产环境|写入数据库|支付|执行代码|shell|删除数据|外部系统写|send money|production database)/i],
-  noHuman: [/(不需要|无需|绕过|没有).{0,10}(人工|确认|审批|HITL)/i, /(without|no).{0,10}(human|approval|confirmation)/i],
+  noHuman: [/(不需要|无需|绕过|没有).{0,10}(人工|确认|审批|HITL)/i, /(without|no).{0,10}(human|approval|confirmation)/i, /autonomously|自主/i],
   service: [/(公共\s*API|API服务|联网服务|数据库|持久化|状态机|调度器|后端服务|微服务|消息队列|缓存|deployment|service|database|networked|persistent)/i],
   library: [/(SDK|可复用|共享组件|库|CLI|package|library|reusable component)/i],
   prototype: [/(原型|PoC|实验|本地脚本|spike|prototype|experiment)/i],
@@ -104,6 +104,16 @@ export function routeText(input) {
   } else if (any(text, PATTERNS.agent)) {
     risk = 'S4';
     evidence.push('Involves Agent behavior or permissions; further confirmation needed on whether it is purely state-bearing.');
+  } else if (any(text, PATTERNS.release) && any(text, [/production|上线|生产环境/i])) {
+    risk = 'S4';
+    evidence.push('Involves production deployment / release; high-impact operational change.');
+    if (any(text, PATTERNS.noHuman) || any(text, [/跳过|绕过|without review|no review/i])) {
+      stopShip = true;
+      evidence.push('Production deployment without review or human confirmation is a Stop-Ship condition.');
+    }
+  } else if (any(text, PATTERNS.release)) {
+    risk = 'S3';
+    evidence.push('Involves release / rollout; requires readiness gate and rollback plan.');
   } else if (any(text, PATTERNS.library)) {
     risk = 'S2';
     evidence.push('Involves reusable components, SDK, library, or CLI.');

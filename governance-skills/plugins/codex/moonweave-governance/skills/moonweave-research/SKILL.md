@@ -5,7 +5,7 @@ license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
   author: Moonweave AI
-  version: "0.1.0"
+  version: "0.2.3"
   language: en
   governance-source: https://github.com/Moonweave-AI/governance
 ---

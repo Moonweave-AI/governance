@@ -76,6 +76,19 @@ const skills = fs.readdirSync(path.join(root, 'skills'), { withFileTypes: true }
 const kiloIndex = {
   skills: skills.map((name) => ({ name, files: filesUnder(path.join('skills', name)) })),
 };
+
+// Keep each SKILL.md frontmatter metadata.version in sync with the package
+// version so skill metadata never drifts from the release version.
+for (const name of skills) {
+  for (const rel of [`skills/${name}/SKILL.md`, `skills/${name}/zh/SKILL.md`, `skills/${name}/ja/SKILL.md`]) {
+    const file = path.join(root, rel);
+    if (!fs.existsSync(file)) continue;
+    const text = fs.readFileSync(file, 'utf8');
+    const updated = text.replace(/(metadata:\n(?:[^\n]*\n)*?  version: ")[^"]*(")/, `$1${version}$2`);
+    if (updated !== text) fs.writeFileSync(file, updated, 'utf8');
+  }
+}
+
 writeJson('skills/index.json', kiloIndex);
 writeJson('marketplace/kilo/index.json', kiloIndex);
 writeJson('marketplace/kilo/entry.json', {
