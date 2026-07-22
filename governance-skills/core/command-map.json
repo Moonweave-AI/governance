@@ -113,5 +113,15 @@
     "command": "mw-governance",
     "skill": "moonweave-governance-change",
     "description": "Modify governance or the Skills system"
+  },
+  {
+    "command": "mw-help",
+    "skill": "moonweave-help",
+    "description": "Help pick the right Moonweave skill or command for the current situation"
+  },
+  {
+    "command": "mw-flow",
+    "skill": "moonweave-flow",
+    "description": "Run a staged multi-skill flow for the current project phase, after auditing and user confirmation"
   }
 ]

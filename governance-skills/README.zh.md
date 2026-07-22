@@ -99,7 +99,7 @@ moonweave-skills checksums
 
 完整命令见 [`docs/COMMANDS.md`](docs/COMMANDS.md)。
 
-## 23个技能
+## 25个技能
 
 | 类别 | 技能 |
 |---|---|
@@ -110,6 +110,7 @@ moonweave-skills checksums
 | 知识与研究 | `moonweave-documentation`, `moonweave-research` |
 | 运行与组织 | `moonweave-incident-response`, `moonweave-handoff`, `moonweave-community-contribution` |
 | 改进与治理 | `moonweave-gap-analysis`, `moonweave-retrospective`, `moonweave-governance-change` |
+| 指南与流程 | `moonweave-help`（选择正确技能）, `moonweave-flow`（分阶段多 skill 流程） |
 
 ## 安全说明
 

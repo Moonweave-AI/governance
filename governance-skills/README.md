@@ -98,7 +98,7 @@ moonweave-skills checksums
 
 See [`docs/COMMANDS.md`](docs/COMMANDS.md) for the full command reference.
 
-## 23 Skills
+## 25 Skills
 
 | Category | Skills |
 |---|---|
@@ -109,6 +109,7 @@ See [`docs/COMMANDS.md`](docs/COMMANDS.md) for the full command reference.
 | Knowledge & research | `moonweave-documentation`, `moonweave-research` |
 | Operation & organization | `moonweave-incident-response`, `moonweave-handoff`, `moonweave-community-contribution` |
 | Improvement & governance | `moonweave-gap-analysis`, `moonweave-retrospective`, `moonweave-governance-change` |
+| Guidance & flow | `moonweave-help` (pick the right skill), `moonweave-flow` (staged multi-skill run) |
 
 ## Security Note
 

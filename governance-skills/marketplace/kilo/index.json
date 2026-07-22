@@ -56,6 +56,17 @@
       ]
     },
     {
+      "name": "moonweave-flow",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
       "name": "moonweave-gap-analysis",
       "files": [
         "SKILL.md",
@@ -90,6 +101,17 @@
     },
     {
       "name": "moonweave-handoff",
+      "files": [
+        "SKILL.md",
+        "ja/SKILL.md",
+        "ja/references/governance-contract.md",
+        "references/governance-contract.md",
+        "zh/SKILL.md",
+        "zh/references/governance-contract.md"
+      ]
+    },
+    {
+      "name": "moonweave-help",
       "files": [
         "SKILL.md",
         "ja/SKILL.md",

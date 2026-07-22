@@ -43,7 +43,7 @@ function noSymlinks(rel) {
 }
 
 const skillDirs = fs.readdirSync(path.join(root, 'skills'), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name).sort();
-if (skillDirs.length === 23) pass('Portable skill count', '23'); else fail('Portable skill count', String(skillDirs.length));
+if (skillDirs.length === 25) pass('Portable skill count', '25'); else fail('Portable skill count', String(skillDirs.length));
 for (const name of skillDirs) exists(`skills/${name}/SKILL.md`, `Skill ${name}`);
 
 const kilo = read('skills/index.json');

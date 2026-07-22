@@ -15,7 +15,7 @@ test('CLI lists package content', () => {
   const result = run(['list', '--format', 'json']);
   assert.equal(result.status, 0, result.stderr);
   const data = JSON.parse(result.stdout);
-  assert.equal(data.skills.length, 23);
+  assert.equal(data.skills.length, 25);
 });
 
 test('CLI route emits machine-readable stop ship result', () => {

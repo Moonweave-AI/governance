@@ -119,6 +119,8 @@ function staticTrigger(skill, text) {
     'moonweave-retrospective': /(复盘|反思|retrospective|季度回顾|发布后回顾|比较.*预期.*实际|持续改进)/i,
     'moonweave-community-contribution': /(首次贡献|good first issue|贡献者路径|mentorship|社区摩擦|行为准则|非代码贡献|ai批量贡献)/i,
     'moonweave-governance-change': /(修改.*治理|更新.*原则|新增.*skill|弃用.*skill|平台适配器.*更新|平台格式.*(?:变化|更新)|更新.*适配器|治理规范.*演进|skills体系.*修改)/i,
+    'moonweave-help': /(该用哪个.*skill|用什么.*命令|which skill.*use|what command.*run|不知道.*用.*skill|help.*pick.*skill)/i,
+    'moonweave-flow': /(推进到.*工程化|从.*原型.*到.*发布|take this from idea|run this.*through to release|分阶段.*流程|staged.*flow|idea.*到.*engineering-ready|项目.*全流程)/i,
   };
   return map[skill]?.test(t) ?? false;
 }

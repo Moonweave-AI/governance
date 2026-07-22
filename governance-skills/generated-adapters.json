@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "version": "0.1.0",
   "generated_at": null,
-  "source_skill_count": 23,
+  "source_skill_count": 25,
   "targets": [
     "portable",
     "claude",
@@ -31,7 +31,7 @@
     },
     {
       "path": "skills/index.json",
-      "sha256": "8def8a28b4afe20be59bb3ba8a4c7e1e700f48b6c7bf914e88a9d1956774676f"
+      "sha256": "af21570ee6611fdc3818402dc3b68440d06c5aa34ee93894e8caec9e0ec3066d"
     },
     {
       "path": "plugins/claude/moonweave-governance/.claude-plugin/plugin.json",

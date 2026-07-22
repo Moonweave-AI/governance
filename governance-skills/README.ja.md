@@ -99,7 +99,7 @@ moonweave-skills checksums
 
 完全なコマンドリファレンスは [`docs/COMMANDS.md`](docs/COMMANDS.md) を参照。
 
-## 23 のスキル
+## 25 のスキル
 
 | カテゴリ | スキル |
 |---|---|
@@ -110,6 +110,7 @@ moonweave-skills checksums
 | 知識と研究 | `moonweave-documentation`, `moonweave-research` |
 | 運用と組織 | `moonweave-incident-response`, `moonweave-handoff`, `moonweave-community-contribution` |
 | 改善とガバナンス | `moonweave-gap-analysis`, `moonweave-retrospective`, `moonweave-governance-change` |
+| ガイダンスとフロー | `moonweave-help`（正しいスキルを選ぶ）, `moonweave-flow`（段階的複数skillフロー） |
 
 ## セキュリティ上の注意
 

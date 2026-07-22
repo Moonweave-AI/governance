@@ -8,7 +8,7 @@ import { doctor, install, uninstall } from '../lib/installer.mjs';
 test('installs all project adapters in copy mode and uninstalls owned files', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-skills-install-'));
   const result = install({ root, agents: 'all', scope: 'project', mode: 'copy', profile: 'ai-agent', withGithub: true });
-  assert.equal(result.skills, 23);
+  assert.equal(result.skills, 25);
   assert.ok(fs.existsSync(path.join(root, '.cursor', 'skills', 'moonweave-code-review', 'SKILL.md')));
   assert.ok(fs.existsSync(path.join(root, '.claude', 'skills', 'moonweave-rfc', 'SKILL.md')));
   assert.ok(fs.existsSync(path.join(root, '.opencode', 'commands', 'mw-review.md')));
@@ -38,7 +38,7 @@ test('does not overwrite an existing skill without force', () => {
 test('symlink mode installs stable links and safely removes them', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-skills-symlink-'));
   const result = install({ root, agents: 'cursor', scope: 'project', mode: 'symlink' });
-  assert.equal(result.skills, 23);
+  assert.equal(result.skills, 25);
   const target = path.join(root, '.cursor', 'skills', 'moonweave-rfc');
   assert.ok(fs.lstatSync(target).isSymbolicLink());
   const removed = uninstall(root);
