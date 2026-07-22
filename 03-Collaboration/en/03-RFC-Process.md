@@ -85,6 +85,30 @@ Usually no RFC needed for:
 
 ## 6. Roles
 
+```mermaid
+flowchart LR
+    A["Author<br/>Write and respond"]
+    C["Champion<br/>Drive and coordinate"]
+    S["Sponsor<br/>Help enter the process"]
+    E["RFC Editor<br/>Numbering, format, status, index"]
+    RR["Required Reviewers<br/>Specialized review"]
+    D["Decision Owner<br/>Final adjudication"]
+    A --> C
+    S --> A
+    C --> E
+    E --> RR
+    RR --> C
+    C --> D
+    RR --> R1["Area Reviewer"]
+    RR --> R2["Owner / Maintainer"]
+    RR --> R3["Security Reviewer"]
+    RR --> R4["AI / Eval Reviewer"]
+    RR --> R5["Embodiment Safety Reviewer"]
+    RR --> R6["Privacy / Data Reviewer"]
+    D --> DEC["Accepted / Rejected / Deferred / Needs Revision / Split Required"]
+    DEC --> IDX["RFC Index / GitHub PR / Project update"]
+```
+
 ### 6.1 Author
 
 Primary writer of the RFC. Responsibilities: Write RFC; Collect background, data, alternatives, and risks; Respond to Review; Maintain RFC status; Record resolved and unresolved issues.
@@ -121,11 +145,28 @@ Final adjudicator or adjudicating organization:
 
 ## 7. Lifecycle Status
 
-```text
-Idea → Pre-RFC → Draft → Review → Final Comment Period
-  → Accepted / Rejected / Deferred / Withdrawn
-  → Active / Implementable → Implemented / Final
-  → Superseded / Obsolete
+```mermaid
+stateDiagram-v2
+    [*] --> Idea
+    Idea --> PreRFC: RFC may be needed
+    PreRFC --> Draft: Draft formed
+    Draft --> Review: Editor check passed
+    Review --> FCP: Major issues handled
+    FCP --> Accepted: Accept
+    FCP --> Rejected: Reject
+    FCP --> Deferred: Defer
+    Draft --> Withdrawn: Author withdraws
+    Review --> NeedsRevision: Needs revision
+    NeedsRevision --> Draft
+    Accepted --> Active: Create implementation tracking
+    Active --> Implemented: Landed and verified
+    Implemented --> Final
+    Final --> Superseded: Replaced by new RFC
+    Superseded --> Obsolete
+    Rejected --> [*]
+    Deferred --> PreRFC: Re-evaluate
+    Withdrawn --> [*]
+    Obsolete --> [*]
 ```
 
 | Status | Meaning |
@@ -148,8 +189,24 @@ Idea → Pre-RFC → Draft → Review → Final Comment Period
 
 ## 8. Submission Process
 
-```text
-Pre-RFC Issue → Draft Markdown → RFC PR → Editor Check → Review → FCP → Decision → Merge / Close → Implementation Tracking
+```mermaid
+flowchart TB
+    PRE["Pre-RFC Issue<br/>Confirm whether RFC is needed"]
+    DRAFT["Draft Markdown<br/>0000-short-title.md"]
+    PR["RFC Pull Request<br/>[RFC] short title"]
+    EDIT["RFC Editor Check<br/>Format / Metadata / Numbering"]
+    REVIEW["Review<br/>Problem, approach, risks, alternatives"]
+    FCP["Final Comment Period"]
+    DEC["Decision"]
+    END{"Outcome"}
+    PRE --> DRAFT --> PR --> EDIT --> REVIEW --> FCP --> DEC --> END
+    END -- "Accepted" --> MERGE["Merge to 05-Knowledge/rfc/"]
+    END -- "Rejected / Deferred / Withdrawn" --> CLOSE["Close / Record reason"]
+    END -- "Needs Revision" --> DRAFT
+    MERGE --> IMPL["Implementation Issue"]
+    MERGE --> ADR["ADR / Standard doc"]
+    MERGE --> PROJ["GitHub Project"]
+    MERGE --> REL["Release / Migration / Security / Eval Follow-up"]
 ```
 
 ### 8.1 Pre-RFC
@@ -221,11 +278,23 @@ FCP is "final comment period"—not reopening unlimited discussion.
 
 ## 11. Consensus and Decision
 
-Uses **Rough Consensus + Responsible Decision**:
-
-```text
-Sufficient discussion → Handle substantive objections → Record unresolved disagreements → Decision Owner decides → Appeal path preserved
+```mermaid
+flowchart TD
+    D["Sufficient discussion"] --> O["Raise substantive objection"]
+    O --> P{"Objection specific, relevant, understandable?"}
+    P -- "No" --> NOTE["Record but do not block"]
+    P -- "Yes" --> HANDLE["Seriously handle objection"]
+    HANDLE --> RES{"Resolved?"}
+    RES -- "Resolved" --> FCP["Enter FCP"]
+    RES -- "Unresolved" --> RECORD["Record unresolved disagreement and rationale"]
+    RECORD --> FCP
+    FCP --> DEC["Decision Owner makes decision"]
+    DEC --> R{"Accept the decision?"}
+    R -- "Yes" --> END["Archive outcome"]
+    R -- "No" --> APPEAL["Appeal via organizational escalation path"]
 ```
+
+Uses **Rough Consensus + Responsible Decision**:
 
 **Consensus does not mean**: Majority vote; Everyone agrees; No comments; Silence auto-passes; Senior person decides; Author persists to win.
 
@@ -251,6 +320,22 @@ Consensus is not majority vote nor everyone satisfied; key is seriously handling
 ---
 
 ## 12. After Accepted
+
+```mermaid
+flowchart TB
+    RFC["Accepted RFC<br/>Direction accepted"] --> ADR{"Forms architecture decision?"}
+    ADR -- "Yes" --> A["Create / Update ADR"]
+    ADR -- "No" --> N["No ADR needed, retain RFC only"]
+    RFC --> SPEC{"Changes standards / specifications?"}
+    SPEC -- "Yes" --> STD["Update standards / API / AI / Embodiment docs"]
+    SPEC -- "No" --> SKIP["Do not update standards"]
+    RFC --> IMPL["Create Implementation Issue"]
+    IMPL --> PLAN["Planning Breakdown"]
+    PLAN --> WORK["Engineering Workflow"]
+    WORK --> QA["Quality Gates"]
+    QA --> RELEASE["Release / Deploy"]
+    RELEASE --> FINAL["RFC status updated to Implemented / Final"]
+```
 
 > RFC Accepted means direction accepted—may enter implementation planning only. It does not mean related code, configuration, model, service, or embodied behavior may bypass PR Review, security review, quality gates, or release process. RFC active is not rubber stamp—it does not guarantee final merge.
 

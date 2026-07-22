@@ -189,6 +189,25 @@ Kubernetes ドキュメント体系は「手書き説明 + 自動生成リファ
 
 ## 8. アーキテクチャドキュメント、RFC、ADR
 
+```mermaid
+flowchart TB
+    IDEA["Idea / Problem"] --> DISC["Discussion / Planning"]
+    DISC --> RFC["RFC<br/>こうすべきか、なぜか"]
+    RFC --> DEC{"Accepted?"}
+    DEC -- "是" --> ADR["ADR<br/>何を決定したか、その結果"]
+    DEC -- "否" --> HIST["Rejected / Deferred RFC<br/>履歴と重複防止記録"]
+    ADR --> ENG["Engineering Workflow"]
+    ENG --> QA["Quality Evidence"]
+    QA --> REL["Release / Operation"]
+    RESEARCH["Research Log<br/>実験と再現"] --> DISC
+    RESEARCH --> RFC
+    DATA["Dataset / Model / Eval Record"] --> RESEARCH
+    DATA --> QA
+    REL --> POST["Postmortem / Follow-up"]
+    POST --> RFC
+    POST --> ADR
+```
+
 ### 8.1 RFC
 
 RFC は重大な変更の提案背景、問題、方案、代替案、リスク、議論、最終決定を記録します。回答する問い：**こうすべきか？なぜか？**

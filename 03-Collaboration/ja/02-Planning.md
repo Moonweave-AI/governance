@@ -31,6 +31,33 @@
 
 ## 3. 作業対象と計画階層
 
+```mermaid
+flowchart TB
+    IDEA["Idea<br/>未検証アイデア"]
+    TASK["Task<br/>小型の明確なタスク"]
+    EXP["Experiment<br/>仮説検証"]
+    PROTO["Prototype<br/>実行可能な検証物"]
+    FEAT["Feature<br/>交付可能な機能"]
+    PROJ["Project<br/>複数タスク複数フェーズ交付"]
+    PROGRAM["Program<br/>複数 Area 複数四半期方向"]
+    OP["Operation<br/>本番投入済み長期資産"]
+    IDEA --> TASK
+    IDEA --> EXP
+    EXP --> PROTO
+    PROTO --> FEAT
+    FEAT --> PROJ
+    PROJ --> PROGRAM
+    PROJ --> OP
+    PROGRAM --> OP
+    IDEA -.デフォルトツール.-> D1["GitHub Discussion / Issue"]
+    EXP -.デフォルトツール.-> D2["Research Log + Issue"]
+    PROTO -.デフォルトツール.-> D3["Issue + Notion Brief"]
+    FEAT -.デフォルトツール.-> D4["GitHub Project Item"]
+    PROJ -.デフォルトツール.-> D5["Project Brief + GitHub Project"]
+    PROGRAM -.デフォルトツール.-> D6["Roadmap + RFC Set"]
+    OP -.デフォルトツール.-> D7["Owner Registry + Runbook"]
+```
+
 計画対象を階層化しないと、小 Issue と多年プロジェクトが混在します。
 
 | 階層 | 定義 | 例 | デフォルトツール |
@@ -50,30 +77,39 @@ Issue / Project / RFC の境界：小範囲、低リスク、可逆変更 → Is
 
 ## 4. ライフサイクル概要
 
-```text
-0. Idea Intake
-   ↓
-1. Triage
-   ↓
-2. Discovery / Problem Validation
-   ↓
-3. Prototype / Experiment
-   ↓
-4. Proposal / RFC / Design
-   ↓
-5. Planning Breakdown
-   ↓
-6. Build & Integration
-   ↓
-7. Verification
-   ↓
-8. Release Readiness
-   ↓
-9. Staged Rollout
-   ↓
-10. Operation
-   ↓
-11. Improve / Retire
+```mermaid
+stateDiagram-v2
+    [*] --> Inbox: Idea Intake
+    Inbox --> NeedsTriage: Accept for Triage
+    NeedsTriage --> Discovery: 問題の検証が必要
+    NeedsTriage --> Prototype: 主要仮説を直接検証
+    NeedsTriage --> NeedsRFC: 重大変更
+    NeedsTriage --> Archived: 推進しない / 重複 / 範囲外
+    Discovery --> Prototype: 問題成立
+    Discovery --> Archived: 証拠不足
+    Discovery --> Terminated: 実行に値しない
+    Prototype --> NeedsRFC: 高リスク / 領域横断 / 長期影響
+    Prototype --> PlanningBreakdown: 低リスクかつ案が明確
+    Prototype --> Archived: 学習結果のみ保持
+    Prototype --> Terminated: 仮説失敗
+    NeedsRFC --> DesignReview: RFC 草案がレビューに入る
+    DesignReview --> PlanningBreakdown: 案通過
+    DesignReview --> NeedsRFC: 修正が必要
+    DesignReview --> Deferred: Owner / 証拠 / タイミング不足
+    PlanningBreakdown --> ReadyForEngineering
+    ReadyForEngineering --> InDevelopment
+    InDevelopment --> InReview
+    InReview --> Verification
+    Verification --> ReleaseCandidate
+    ReleaseCandidate --> StagedRollout
+    StagedRollout --> Operational
+    Operational --> Improve
+    Improve --> PlanningBreakdown: イテレーション継続
+    Improve --> Archived: 退役アーカイブ
+    Improve --> Terminated: 保守停止
+    Deferred --> NeedsTriage: 再評価
+    Archived --> [*]
+    Terminated --> [*]
 ```
 
 状態フィールド：
@@ -101,9 +137,40 @@ Issue / Project / RFC の境界：小範囲、低リスク、可逆変更 → Is
 
 フェーズは重なったり、高確信度でスキップしたりできますが、重要なアウトプットと責任は明確である必要があります。
 
+```mermaid
+flowchart TB
+    G0["Gate 0<br/>Idea Intake<br/>アイデア进入、実行を約束しない"]
+    G1["Gate 1<br/>Triage<br/>分類、優先度、リスク"]
+    G2["Gate 2<br/>Discovery<br/>問題検証"]
+    G3["Gate 3<br/>Prototype / Experiment<br/>最大の不確実性を検証"]
+    G4["Gate 4<br/>Proposal / RFC / Design<br/>正式な案化"]
+    G5["Gate 5<br/>Planning Breakdown<br/>タスク分解とマイルストーン"]
+    G6["Gate 6<br/>Build & Integration<br/>開発と統合"]
+    G7["Gate 7<br/>Verification<br/>テスト、評価、検証"]
+    G8["Gate 8<br/>Release Readiness<br/>リリース準備"]
+    G9["Gate 9<br/>Staged Rollout<br/>段階的本番投入"]
+    G10["Gate 10<br/>Operation & Improvement<br/>運用、フィードバック、イテレーションまたは退役"]
+    G0 --> G1 --> G2 --> G3 --> G4 --> G5 --> G6 --> G7 --> G8 --> G9 --> G10
+    G3 -.失敗.-> A["Archive / Terminate"]
+    G4 -.延期.-> D["Deferred / Needs Evidence"]
+    G8 -.不通過.-> FIX["Fix / Rollback / Stop-Ship"]
+    G10 -.フィードバック.-> G2
+```
+
 ---
 
 ## 5. リスクと成熟度
+
+```mermaid
+flowchart LR
+    S0["S0<br/>ドキュメント / 低リスク"] --> P0["Issue + PR"]
+    S1["S1<br/>ローカル実験"] --> P1["Issue + 実験記録"]
+    S2["S2<br/>再利用可能コンポーネント"] --> P2["Issue + 設計説明 + テスト計画"]
+    S3["S3<br/>ネットワークサービス / 永続化システム"] --> P3["Project Brief + Design Review + Release Gate"]
+    S4["S4<br/>AI / Agent 高影響システム"] --> P4["RFC + AI Safety Review + Eval Plan"]
+    S5["S5<br/>具身 / 物理システム"] --> P5["RFC + Safety Review + Simulation Gate + Staged Rollout"]
+    B["Blocked"] --> PB["即時停止、整改または放棄"]
+```
 
 すべての計画対象には以下を付与する必要があります：
 
@@ -123,6 +190,19 @@ Issue / Project / RFC の境界：小範囲、低リスク、可逆変更 → Is
 | S5 具身 / 物理システム | RFC + Safety Review + Simulation Gate + Staged Rollout |
 
 ### Moonweave Maturity Level
+
+```mermaid
+flowchart TB
+    M0["M0 Idea<br/>アイデアのみ"] --> M1["M1 Concept<br/>概念が初步的に明確"]
+    M1 --> M2["M2 PoC<br/>主要な実現可能性検証"]
+    M2 --> M3["M3 Prototype<br/>実行可能だが未エンジニアリング化"]
+    M3 --> M4["M4 Relevant Environment<br/>実環境に近い検証"]
+    M4 --> M5["M5 Integrated Prototype<br/>部分実システム統合"]
+    M5 --> M6["M6 Beta / Pilot<br/>実ユーザーまたは内部運用"]
+    M6 --> M7["M7 Production Candidate<br/>リリースゲート待ち"]
+    M7 --> M8["M8 GA / Production<br/>正式利用可能"]
+    M8 --> M9["M9 Sustained Operation<br/>長期運用、保守、退役メカニズム"]
+```
 
 | 等級 | 名称 | 定義 |
 | ---- | ---- | ---- |

@@ -1,18 +1,18 @@
-# Glossary
+# 用語集
 
-> **Language**: [English](README.md) · [中文](README.zh.md) · [日本語](README.ja.md)
+> **言語**：[English](README.md) · [中文](README.zh.md) · [日本語](README.ja.md)
 
-This directory provides definitions for all key concepts, methods, and terms used throughout the Moonweave/Kaguya Project governance documents.
+本ディレクトリは、輝夜計画ガバナンス文書で使用されるすべての主要概念・手法・用語の定義を提供します。
 
-## Language Versions
+## 言語バージョン
 
-| Language | Directory |
+| 言語 | ディレクトリ |
 |----------|-----------|
-| **English** (default) | [`en/`](en/) |
+| **English**（デフォルト） | [`en/`](en/) |
 | **中文** | [`zh/`](zh/) |
 | **日本語** | [`ja/`](ja/) |
 
-## Categories
+## カテゴリ
 
 | # | English | 中文 | 日本語 |
 |---|---------|------|--------|
@@ -25,31 +25,31 @@ This directory provides definitions for all key concepts, methods, and terms use
 | 07 | [Embodiment & Robotics](en/07-embodiment-and-robotics.md) | [具身智能与机器人](zh/07-embodiment-and-robotics.md) | [身体性知能とロボティクス](ja/07-embodiment-and-robotics.md) |
 | 08 | [Documentation & Knowledge](en/08-documentation-and-knowledge.md) | [文档与知识管理](zh/08-documentation-and-knowledge.md) | [ドキュメンテーションと知識管理](ja/08-documentation-and-knowledge.md) |
 
-## Usage
+## 使い方
 
-- **Default language is English.** Switch to `zh/` or `ja/` for Chinese or Japanese versions.
-- All three versions cover the same terms in the same structure.
-- Terms are organized by domain, not alphabetically—find the relevant domain first.
-- Each entry provides the English term as heading, the localized name, and a concise explanation.
+- **デフォルト言語は英語です。** 中国語版は `zh/`、日本語版は `ja/` をご参照ください。
+- 3つのバージョンは同じ用語を同じ構造でカバーしています。
+- 用語は分野別に編成されており、アルファベット順ではありません——該当分野を先に探してください。
+- 各エントリは英語の用語を見出しとし、ローカライズ名と簡潔な説明を示します。
 
 ```mermaid
 flowchart
-    X["Encountering an unfamiliar term"] --> L{"Select language version"}
+    X["見慣れない用語に出会った"] --> L{"言語版を選択"}
     L --> EN["en/<category>.md<br/>English default"]
     L --> ZH["zh/<category>.md<br/>中文"]
     L --> JA["ja/<category>.md<br/>日本語"]
-    EN --> C{"Find by category"}
+    EN --> C{"カテゴリ別に検索"}
     ZH --> C
     JA --> C
-    C --> G1["Governance & Process"]
-    C --> G2["Engineering & Development"]
-    C --> G3["Quality & Testing"]
-    C --> G4["Security & Compliance"]
-    C --> G5["AI / Agent / Data"]
-    C --> G6["Infrastructure & Operations"]
-    C --> G7["Embodiment & Robotics"]
-    C --> G8["Documentation & Knowledge"]
-    G1 --> TERM["Glossary entry<br/>English term / Localized name / Concise explanation"]
+    C --> G1["ガバナンスとプロセス"]
+    C --> G2["エンジニアリングと開発"]
+    C --> G3["品質とテスト"]
+    C --> G4["セキュリティとコンプライアンス"]
+    C --> G5["AI / Agent / データ"]
+    C --> G6["インフラと運用"]
+    C --> G7["具現知能とロボット工学"]
+    C --> G8["ドキュメントと知識管理"]
+    G1 --> TERM["用語エントリ<br/>英語の用語 / ローカライズ名 / 簡潔な説明"]
     G2 --> TERM
     G3 --> TERM
     G4 --> TERM
@@ -57,5 +57,5 @@ flowchart
     G6 --> TERM
     G7 --> TERM
     G8 --> TERM
-    TERM --> DOC["Back to related governance / engineering / documentation pages"]
+    TERM --> DOC["関連するガバナンス / エンジニアリング / ドキュメントページに戻る"]
 ```

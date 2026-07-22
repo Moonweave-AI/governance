@@ -39,38 +39,26 @@ Eight principles, specifically governing engineering execution:
 
 ## 3. Engineering Process Overview
 
-```text
-Engineering Ready
-  ↓
-Engineering Brief
-  ↓
-Technical Decision / ADR
-  ↓
-Scaffolding & Environment Setup
-  ↓
-Implementation Branch
-  ↓
-Local Verification
-  ↓
-Pull Request
-  ↓
-CI Quality Gates
-  ↓
-Code Review / Design Review / Safety Review
-  ↓
-Merge
-  ↓
-Build Artifact
-  ↓
-Staging / Preview / Simulation
-  ↓
-Release Readiness
-  ↓
-Deployment / Rollout
-  ↓
-Post-deploy Verification
-  ↓
-Feedback / Incident / Improvement Loop
+```mermaid
+flowchart TB
+    ER["Engineering Ready"]
+    EB["Engineering Brief"]
+    TD["Technical Decision / ADR"]
+    SE["Scaffolding & Environment Setup"]
+    BR["Implementation Branch"]
+    LV["Local Verification"]
+    PR["Pull Request"]
+    CI["CI Quality Gates"]
+    RV["Code Review / Design Review / Safety Review"]
+    MG["Merge"]
+    BA["Build Artifact"]
+    STG["Staging / Preview / Simulation"]
+    RR["Release Readiness"]
+    DEP["Deployment / Rollout"]
+    PDV["Post-deploy Verification"]
+    FB["Feedback / Incident / Improvement Loop"]
+    ER --> EB --> TD --> SE --> BR --> LV --> PR --> CI --> RV --> MG --> BA --> STG --> RR --> DEP --> PDV --> FB
+    FB -.Feedback enters Planning / Issue / RFC.-> ER
 ```
 
 Not every change needs to pass through all nodes. Process intensity is determined by workflow tiering.
@@ -78,6 +66,18 @@ Not every change needs to pass through all nodes. Process intensity is determine
 ---
 
 ## 4. Workflow Tiering
+
+```mermaid
+flowchart TD
+    X["Engineering Item"] --> R{"Involves public contract, production, AI, data, embodied, safety, privacy, or non-rollback migration?"}
+    R -- "Yes" --> H["High-risk Engineering Path"]
+    R -- "No" --> S{"Is it a new feature, reusable component, service, data module, or requires deployment or documentation?"}
+    S -- "Yes" --> STD["Standard Engineering Path"]
+    S -- "No" --> L["Lightweight Path"]
+    L --> L1["Issue / Small Task → Branch → Local Check → PR → CI → Review → Merge"]
+    STD --> S1["Issue → Engineering Brief → ADR if needed → Task Breakdown → Implementation → CI → Review → Staging → Release → Deploy"]
+    H --> H1["Planning Discovery → RFC → Risk Review → Design Doc → CI + Security + Eval → Required Review → Simulation / Canary → Staged Rollout"]
+```
 
 Not all items follow the same heavy process. Three paths cover everything from documentation fixes to production infrastructure.
 
@@ -317,6 +317,21 @@ Long-term Owner and current driver.
 
 ## 7. Technology Selection Process
 
+```mermaid
+flowchart TD
+    T["Technology Choice / New Dependency / New Framework"] --> Q{"Affects long-term maintenance, core dependencies, deployment, license, supply chain, or cross-repo contracts?"}
+    Q -- "No" --> ISSUE["Record rationale in Issue / PR"]
+    Q -- "Yes" --> DEC["Technical Decision Record / ADR"]
+    DEC --> A["Adopt<br/>Default recommended standard"]
+    DEC --> TR["Trial<br/>Limited project trial"]
+    DEC --> AS["Assess<br/>Research, not a formal dependency"]
+    DEC --> H["Hold<br/>Pause introduction"]
+    A --> USE["Default for new projects"]
+    TR --> PILOT["Pilot + Owner + Exit path"]
+    AS --> SPIKE["Spike / Research Log"]
+    H --> BLOCK["Not for new projects"]
+```
+
 The Kaguya Project spans Python, TypeScript, Rust, containers, data, models, frontend and backend, and Agent Infra; technology stack management must follow a structured approach.
 
 ### 7.1 Selection Tiering
@@ -388,6 +403,36 @@ The following is the initial engineering baseline for the Kaguya Project; finer 
 ---
 
 ## 8. Repository and Engineering Scaffolding
+
+```mermaid
+flowchart LR
+    R["Formal Engineering Repository"]
+    R --> CORE["Core Files"]
+    CORE --> C1["README.md"]
+    CORE --> C2["CONTRIBUTING.md"]
+    CORE --> C3["SECURITY.md"]
+    CORE --> C4["LICENSE"]
+    CORE --> C5["CODEOWNERS"]
+    CORE --> C6["CHANGELOG.md"]
+    R --> GH[".github"]
+    GH --> G1["workflows/"]
+    GH --> G2["ISSUE_TEMPLATE/"]
+    GH --> G3["PULL_REQUEST_TEMPLATE.md"]
+    R --> DOC["docs/"]
+    R --> TEST["tests/"]
+    R --> LANG["Stack Files"]
+    LANG --> P["Python<br/>pyproject.toml / uv.lock"]
+    LANG --> T["TypeScript<br/>package.json / pnpm-lock.yaml / pnpm-workspace.yaml"]
+    LANG --> RU["Rust<br/>Cargo.toml / Cargo.lock"]
+    LANG --> CON["Container<br/>Dockerfile / .dockerignore / compose.yaml"]
+    LANG --> DEV["Dev Container<br/>devcontainer.json"]
+    R --> GATE["Init Gates"]
+    GATE --> O["Owner Declaration"]
+    GATE --> CI["CI baseline"]
+    GATE --> BP["Branch Protection"]
+    GATE --> SS["Secret / Dependency Scanning"]
+    GATE --> REL["Release Method Statement"]
+```
 
 Every formal engineering repository should have a unified baseline.
 
@@ -748,6 +793,27 @@ Reviewers should at minimum check:
 ---
 
 ## 14. CI Quality Gates
+
+```mermaid
+flowchart TB
+    DEV["Development Branch"] --> PR["Pull Request"]
+    PR --> CI["ci.yml<br/>format / lint / typecheck / unit / integration / build"]
+    PR --> SEC["security.yml<br/>secret / dependency / license / SAST / container"]
+    PR --> E2E["e2e.yml<br/>preview / E2E / report"]
+    CI --> CHECK{"All blocking checks pass?"}
+    SEC --> CHECK
+    E2E --> CHECK
+    CHECK -- "No" --> FIX["Fix / Update tests / Resubmit"]
+    FIX --> PR
+    CHECK -- "Yes" --> REVIEW["Code Review / CODEOWNERS / Required Review"]
+    REVIEW --> MERGE["Merge to main"]
+    MERGE --> BUILD["Build Artifact<br/>hash / image digest / SBOM / provenance"]
+    BUILD --> STAGE["Staging / Preview / Simulation"]
+    STAGE --> READY["Release Readiness"]
+    READY --> DEPLOY["Deploy / Staged Rollout"]
+    DEPLOY --> VERIFY["Post-deploy Verification"]
+    VERIFY --> DONE["Done / Follow-up Issues"]
+```
 
 CI is not "good enough to run" but an engineering fact verification system.
 

@@ -32,6 +32,35 @@ The following five principles specifically constrain organizational structure; t
 
 ## 3. Organizational Model
 
+```mermaid
+flowchart TB
+    SC["Moonweave Stewardship Council<br/>Stewardship Council"]
+    MC["Maintainer Council / Area Maintainers<br/>Maintainer Council / Area Maintainers"]
+    OC["Repository & Component Owners<br/>Repository & Component Owners"]
+    RA["Reviewers / Approvers<br/>Reviewers / Approvers"]
+    MCN["Members / Contributors<br/>Members / Contributors"]
+    SC --> MC --> OC --> RA --> MCN
+    SC -.Responsible for.-> SC1["Mission, Principles, Governance Rules"]
+    SC -.Responsible for.-> SC2["Organization-level Assets"]
+    SC -.Responsible for.-> SC3["Final Appeal"]
+    SC -.Responsible for.-> SC4["Safety, Ethics, Legal Blocks"]
+    MC -.Responsible for.-> MC1["Cross-Repository Technical Direction"]
+    MC -.Responsible for.-> MC2["Engineering Standards"]
+    MC -.Responsible for.-> MC3["RFC Advancement"]
+    MC -.Responsible for.-> MC4["Maintainer System Health"]
+    OC -.Responsible for.-> O1["Whether to Continue Maintaining"]
+    OC -.Responsible for.-> O2["Who Can Review / Release"]
+    OC -.Responsible for.-> O3["Incident Response"]
+    OC -.Responsible for.-> O4["Archival and Migration"]
+    RA -.Responsible for.-> R1["Formal Review"]
+    RA -.Responsible for.-> R2["Approve scoped PR"]
+    RA -.Responsible for.-> R3["Identify whether RFC / ADR / Security Review is needed"]
+    MCN -.Participates in.-> C1["Issue / Discussion"]
+    MCN -.Participates in.-> C2["PR"]
+    MCN -.Participates in.-> C3["RFC Discussion"]
+    MCN -.Participates in.-> C4["Research / Documentation / Evaluation Contributions"]
+```
+
 The Kaguya Project adopts an organizational model of "core governance + maintainer autonomy + explicit Owners + temporary working groups." This is a **responsibility hierarchy**, not a corporate department hierarchy:
 
 ```text
@@ -126,6 +155,24 @@ Archive upon completion; Working Groups that are not archived swell into nominal
 
 ## 5. Role Definitions
 
+```mermaid
+flowchart TB
+    C["Contributor<br/>Contributor"] --> M["Member<br/>Member"]
+    M --> R["Reviewer<br/>Reviewer"]
+    R --> A["Approver<br/>Approver"]
+    A --> MA["Maintainer<br/>Maintainer"]
+    MA --> O["Owner<br/>Final Responsible Party"]
+    DRI["DRI<br/>Phase Directly Responsible Individual"] -.Task-level responsibility.-> R
+    DRI -.Task-level responsibility.-> A
+    DRI -.Task-level responsibility.-> MA
+    C -.Contributes.-> C1["Code / Documentation / Research / Evaluation / Issue"]
+    M -.Participates in.-> M1["Triage / Non-binding Review / Roadmap Discussion"]
+    R -.Checks.-> R1["Correctness / Testing / Documentation / Risk"]
+    A -.Judges.-> A1["Compatibility / Architecture Impact / Tech Debt / Security Boundary"]
+    MA -.Maintains.-> MA1["Direction / Release / Reviewer System / Quality Baseline"]
+    O -.Answers.-> O1["Who responds when broken? Who archives when stale? Who explains the future roadmap?"]
+```
+
 Seven roles and two governance entities are retained. Roles are functions performed by project members—one person can hold multiple roles, and multiple members can share the same role.
 
 ### 5.1 Contributor
@@ -210,6 +257,29 @@ A DRI does not necessarily hold the highest technical authority, but must drive 
 ---
 
 ## 6. Owner Mechanism
+
+```mermaid
+flowchart TB
+    ASSET["Formal Asset<br/>Repository / Service / Model / Dataset / Protocol / Embodiment Component"] --> HAS{"Owner declared?"}
+    HAS -- "No" --> BLOCK["Cannot enter production, release, or long-term roadmap"]
+    HAS -- "Yes" --> REG["Owner Registry"]
+    REG --> P["Primary Owner"]
+    REG --> B["Backup Owner"]
+    REG --> M["Maintainers"]
+    REG --> R["Reviewers"]
+    REG --> A["Approvers"]
+    REG --> S["Status / Last Review / Escalation"]
+    P --> OK["Maintainable Asset"]
+    B --> OK
+    M --> OK
+    R --> OK
+    A --> OK
+    OK --> FAIL{"Owner invalid or unresponsive long-term?"}
+    FAIL -- "No" --> REVIEW["Periodic Review"]
+    FAIL -- "Yes" --> TEMP["Maintainer Council appoints temporary Owner"]
+    TEMP --> TRANSFER["Publicly record handoff"]
+    TRANSFER --> REG
+```
 
 This section determines whether long-term systems will rot; it is therefore presented in a more normative form.
 
@@ -325,6 +395,22 @@ Once the project enters multi-institution collaboration, the Stewardship Council
 ---
 
 ## 12. Disputes and Escalation Path
+
+```mermaid
+flowchart TD
+    L["Local Discussion<br/>Local Discussion"] --> O["Owner / Maintainer Decision<br/>Local Convergence"]
+    O --> A["Area Maintainer Review<br/>Area Review"]
+    A --> RFC["RFC<br/>Formal Proposal and Discussion"]
+    RFC --> MC["Maintainer Council<br/>Cross-Domain Technical Adjudication"]
+    MC --> SC["Stewardship Council<br/>Final Appeal"]
+    SEC["Safety / Privacy / Legal / Embodiment / Ethics Risk"] -.Can escalate directly.-> SC
+    L -.Applies to.-> L1["Ordinary implementation disputes"]
+    O -.Applies to.-> O1["Intra-component decisions"]
+    A -.Applies to.-> A1["Cross-component impact"]
+    RFC -.Applies to.-> R1["Long-term architecture / public contract / breaking change"]
+    MC -.Applies to.-> M1["Cross-Area conflict"]
+    SC -.Applies to.-> S1["Final adjudication after other mechanisms fail"]
+```
 
 The full RFC process is in `../../03-Collaboration/en/03-RFC-Process.md`; this document only defines who converges disputes.
 

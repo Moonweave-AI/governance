@@ -31,6 +31,33 @@ Eight principles specifically constraining the planning system:
 
 ## 3. Work Objects and Planning Levels
 
+```mermaid
+flowchart TB
+    IDEA["Idea<br/>Unvalidated idea"]
+    TASK["Task<br/>Small well-defined task"]
+    EXP["Experiment<br/>Validate hypothesis"]
+    PROTO["Prototype<br/>Runnable validation artifact"]
+    FEAT["Feature<br/>Deliverable capability"]
+    PROJ["Project<br/>Multi-task multi-phase delivery"]
+    PROGRAM["Program<br/>Multi-Area multi-quarter direction"]
+    OP["Operation<br/>Deployed long-term asset"]
+    IDEA --> TASK
+    IDEA --> EXP
+    EXP --> PROTO
+    PROTO --> FEAT
+    FEAT --> PROJ
+    PROJ --> PROGRAM
+    PROJ --> OP
+    PROGRAM --> OP
+    IDEA -.Default tool.-> D1["GitHub Discussion / Issue"]
+    EXP -.Default tool.-> D2["Research Log + Issue"]
+    PROTO -.Default tool.-> D3["Issue + Notion Brief"]
+    FEAT -.Default tool.-> D4["GitHub Project Item"]
+    PROJ -.Default tool.-> D5["Project Brief + GitHub Project"]
+    PROGRAM -.Default tool.-> D6["Roadmap + RFC Set"]
+    OP -.Default tool.-> D7["Owner Registry + Runbook"]
+```
+
 Planning objects are layered; otherwise small Issues and multi-year projects get mixed together.
 
 | Level | Definition | Examples | Default tool |
@@ -50,30 +77,39 @@ Issue / Project / RFC boundaries: Small-scope, low-risk, reversible changes → 
 
 ## 4. Lifecycle Overview
 
-```text
-0. Idea Intake
-   ↓
-1. Triage
-   ↓
-2. Discovery / Problem Validation
-   ↓
-3. Prototype / Experiment
-   ↓
-4. Proposal / RFC / Design
-   ↓
-5. Planning Breakdown
-   ↓
-6. Build & Integration
-   ↓
-7. Verification
-   ↓
-8. Release Readiness
-   ↓
-9. Staged Rollout
-   ↓
-10. Operation
-   ↓
-11. Improve / Retire
+```mermaid
+stateDiagram-v2
+    [*] --> Inbox: Idea Intake
+    Inbox --> NeedsTriage: Accept for Triage
+    NeedsTriage --> Discovery: Problem needs validation
+    NeedsTriage --> Prototype: Directly validate key hypothesis
+    NeedsTriage --> NeedsRFC: Major change
+    NeedsTriage --> Archived: Not advancing / Duplicate / Out of scope
+    Discovery --> Prototype: Problem confirmed
+    Discovery --> Archived: Insufficient evidence
+    Discovery --> Terminated: Not worth doing
+    Prototype --> NeedsRFC: High risk / Cross-domain / Long-term impact
+    Prototype --> PlanningBreakdown: Low risk and approach clear
+    Prototype --> Archived: Retain learning only
+    Prototype --> Terminated: Hypothesis failed
+    NeedsRFC --> DesignReview: RFC draft enters review
+    DesignReview --> PlanningBreakdown: Approach accepted
+    DesignReview --> NeedsRFC: Needs revision
+    DesignReview --> Deferred: Missing Owner / Evidence / Timing
+    PlanningBreakdown --> ReadyForEngineering
+    ReadyForEngineering --> InDevelopment
+    InDevelopment --> InReview
+    InReview --> Verification
+    Verification --> ReleaseCandidate
+    ReleaseCandidate --> StagedRollout
+    StagedRollout --> Operational
+    Operational --> Improve
+    Improve --> PlanningBreakdown: Continue iteration
+    Improve --> Archived: Retire and archive
+    Improve --> Terminated: Stop maintenance
+    Deferred --> NeedsTriage: Re-evaluate
+    Archived --> [*]
+    Terminated --> [*]
 ```
 
 Status fields:
@@ -101,9 +137,40 @@ Status fields:
 
 Phases may overlap or be skipped in high-certainty cases, but key outputs and responsibilities must remain explicit.
 
+```mermaid
+flowchart TB
+    G0["Gate 0<br/>Idea Intake<br/>Idea enters, no commitment to do"]
+    G1["Gate 1<br/>Triage<br/>Classification, priority, risk"]
+    G2["Gate 2<br/>Discovery<br/>Problem validation"]
+    G3["Gate 3<br/>Prototype / Experiment<br/>Validate greatest uncertainty"]
+    G4["Gate 4<br/>Proposal / RFC / Design<br/>Formal proposal"]
+    G5["Gate 5<br/>Planning Breakdown<br/>Task breakdown and milestones"]
+    G6["Gate 6<br/>Build & Integration<br/>Development and integration"]
+    G7["Gate 7<br/>Verification<br/>Testing, evaluation, validation"]
+    G8["Gate 8<br/>Release Readiness<br/>Release preparation"]
+    G9["Gate 9<br/>Staged Rollout<br/>Phased go-live"]
+    G10["Gate 10<br/>Operation & Improvement<br/>Run, feedback, iterate or retire"]
+    G0 --> G1 --> G2 --> G3 --> G4 --> G5 --> G6 --> G7 --> G8 --> G9 --> G10
+    G3 -.Failure.-> A["Archive / Terminate"]
+    G4 -.Defer.-> D["Deferred / Needs Evidence"]
+    G8 -.Not passed.-> FIX["Fix / Rollback / Stop-Ship"]
+    G10 -.Feedback.-> G2
+```
+
 ---
 
 ## 5. Risk and Maturity
+
+```mermaid
+flowchart LR
+    S0["S0<br/>Docs / Low risk"] --> P0["Issue + PR"]
+    S1["S1<br/>Local experiment"] --> P1["Issue + Experiment record"]
+    S2["S2<br/>Reusable component"] --> P2["Issue + Design note + Test plan"]
+    S3["S3<br/>Networked service / Persistent system"] --> P3["Project Brief + Design Review + Release Gate"]
+    S4["S4<br/>AI / Agent high-impact system"] --> P4["RFC + AI Safety Review + Eval Plan"]
+    S5["S5<br/>Embodied / Physical system"] --> P5["RFC + Safety Review + Simulation Gate + Staged Rollout"]
+    B["Blocked"] --> PB["Stop immediately, remediate or abandon"]
+```
 
 All planning objects must be tagged with:
 
@@ -123,6 +190,19 @@ Risk determines process intensity:
 | S5 embodied / physical system | RFC + Safety Review + Simulation Gate + Staged Rollout |
 
 ### Moonweave Maturity Level
+
+```mermaid
+flowchart TB
+    M0["M0 Idea<br/>Idea only"] --> M1["M1 Concept<br/>Concept initially clear"]
+    M1 --> M2["M2 PoC<br/>Key feasibility validation"]
+    M2 --> M3["M3 Prototype<br/>Runnable but not engineered"]
+    M3 --> M4["M4 Relevant Environment<br/>Validated in near-real environment"]
+    M4 --> M5["M5 Integrated Prototype<br/>Partial real-system integration"]
+    M5 --> M6["M6 Beta / Pilot<br/>Real users or internal operation"]
+    M6 --> M7["M7 Production Candidate<br/>Awaiting release gate"]
+    M7 --> M8["M8 GA / Production<br/>Formally available"]
+    M8 --> M9["M9 Sustained Operation<br/>Long-term operation, maintenance, retirement mechanism"]
+```
 
 | Level | Name | Definition |
 | ----- | ---- | ---------- |

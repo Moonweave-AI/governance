@@ -54,6 +54,27 @@
 
 ## 4. 被保护、被认可、被交接？——贡献者路径
 
+```mermaid
+journey
+    title 辉夜计划贡献者成长路径
+    section 进入
+      阅读项目与文档: 3: User
+      提问与反馈: 4: Participant
+    section 首次贡献
+      提交 Issue / PR / 文档 / 复现: 4: Contributor
+      获得清晰反馈: 5: Contributor
+    section 持续参与
+      持续贡献并熟悉规范: 4: Recurring Contributor
+      参与 triage 与讨论: 4: Member
+    section 承担维护职责
+      正式 Review: 4: Reviewer
+      Mentorship / Pairing Review: 5: Mentor
+      Approve / Release / 维护方向: 4: Maintainer
+    section 交接
+      进入 Inactive / Emeritus: 3: Emeritus
+      保留贡献认可: 5: Community
+```
+
 `01-Organization.md` 已定义角色权限；本文定义成长路径。
 
 ```text
@@ -109,6 +130,58 @@ Emeritus
 
 ## 6. 贡献类型与非代码贡献
 
+```mermaid
+mindmap
+  root((有效贡献))
+    代码
+      功能
+      修复
+      重构
+      测试
+      工具链
+    文档
+      README
+      教程
+      API 文档
+      架构解释
+    研究
+      Paper Review
+      实验复现
+      Research Log
+    评测
+      Benchmark
+      红队测试
+      失败案例
+      数据分析
+    安全
+      漏洞报告
+      威胁建模
+      依赖审计
+    数据
+      数据集整理
+      元数据
+      授权检查
+      去重
+    设计
+      UI UX
+      Design System
+      交互原型
+      可视化
+    具身
+      仿真场景
+      安全清单
+      硬件测试记录
+    社区
+      Issue Triage
+      新人引导
+      活动组织
+      翻译
+    治理
+      RFC Review
+      会议记录
+      决策归档
+```
+
 辉夜计划必须比普通软件项目更明确地承认非代码贡献，因为它包含 AI、研究、具身、设计、数据和社区建设。
 
 | 类型 | 例子                           |
@@ -129,6 +202,22 @@ Emeritus
 ---
 
 ## 7. AI 辅助贡献规范
+
+```mermaid
+flowchart TD
+    AIC["AI 辅助 / AI 自主产出贡献"] --> DISC{"是否披露 AI 使用？"}
+    DISC -- "否" --> REQ["要求补充披露"]
+    DISC -- "是" --> HUMAN{"是否有人类责任主体？"}
+    HUMAN -- "否" --> CLOSE["关闭 / 不接收"]
+    HUMAN -- "是" --> EXPLAIN{"提交方能解释动机、实现、测试、风险？"}
+    EXPLAIN -- "否" --> CLOSE
+    EXPLAIN -- "是" --> LIC{"来源、许可、资产风险可追溯？"}
+    LIC -- "否" --> ASSET["进入资产准入审查"]
+    LIC -- "是" --> QUALITY{"是否为低质量批量内容？"}
+    QUALITY -- "是" --> ABUSE["视为维护者负担 / 社区滥用"]
+    QUALITY -- "否" --> REVIEW["进入正常 Review / 门禁 / 安全审查"]
+    ASSET --> REVIEW
+```
 
 辉夜计划允许使用 AI 工具辅助贡献，也允许 AI 作为项目的贡献者、共同作者、Reviewer 或参与者——这与项目的使命一致：我们正在造一个有持续人格与记忆的 AI Entity，让它参与自身系统的协作是合理的。但贡献与责任必须可追溯。
 
@@ -197,6 +286,28 @@ Mentorship 不是社区装饰，而是维护者代际更替的机制——结构
 ---
 
 ## 10. 冲突、调解与升级
+
+```mermaid
+flowchart TD
+    E["社区事件 / 举报 / 冲突"] --> T{"事件类型"}
+    T --> TECH["技术分歧"]
+    T --> FRICTION["协作摩擦"]
+    T --> COC["行为准则违规"]
+    T --> SEC["安全 / 隐私 / 法律 / 具身风险"]
+    TECH --> ISSUE["Issue / PR / RFC 中讨论"]
+    ISSUE --> OWNER["Owner / Maintainer 收敛"]
+    FRICTION --> MED["Moderator / Maintainer 调解"]
+    MED --> NOTE["必要时沉淀规则改进"]
+    COC --> REPORT["私密举报渠道"]
+    REPORT --> TEAM["CoC 执行者处理"]
+    TEAM --> ACTION["提醒 / 编辑 / 移除 / 限制 / 封禁 / 申诉"]
+    SEC --> PRIVATE["私密安全渠道"]
+    PRIVATE --> SECURITY["Security Owner / Stewardship Council"]
+    OWNER --> RECORD["记录结论"]
+    NOTE --> RECORD
+    ACTION --> RECORD
+    SECURITY --> RECORD
+```
 
 社区冲突不等于行为违规。区分四类：
 

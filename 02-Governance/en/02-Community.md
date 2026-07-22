@@ -54,6 +54,27 @@ Maintainer and approver collaboration is asynchronous by default; new members sh
 
 ## 4. Protected, Recognized, Handed Off? — Contributor Path
 
+```mermaid
+journey
+    title Kaguya Project Contributor Growth Path
+    section Entry
+      Read project and documentation: 3: User
+      Ask questions and give feedback: 4: Participant
+    section First Contribution
+      Submit Issue / PR / documentation / reproduction: 4: Contributor
+      Receive clear feedback: 5: Contributor
+    section Sustained Participation
+      Keep contributing and learn the norms: 4: Recurring Contributor
+      Join triage and discussions: 4: Member
+    section Taking on Maintenance Duties
+      Formal Review: 4: Reviewer
+      Mentorship / Pairing Review: 5: Mentor
+      Approve / Release / maintain direction: 4: Maintainer
+    section Handoff
+      Enter Inactive / Emeritus: 3: Emeritus
+      Retain contribution recognition: 5: Community
+```
+
 `01-Organization.md` defines role permissions; this document defines the growth path.
 
 ```text
@@ -109,6 +130,58 @@ Newcomer protection rule:
 
 ## 6. Contribution Types and Non-Code Contributions
 
+```mermaid
+mindmap
+  root((Valid Contributions))
+    Code
+      Features
+      Fixes
+      Refactoring
+      Testing
+      Tooling
+    Documentation
+      README
+      Tutorials
+      API Docs
+      Architecture Explanations
+    Research
+      Paper Review
+      Experiment Reproduction
+      Research Log
+    Evaluation
+      Benchmark
+      Red-team Testing
+      Failure Cases
+      Data Analysis
+    Security
+      Vulnerability Reports
+      Threat Modeling
+      Dependency Audits
+    Data
+      Dataset Curation
+      Metadata
+      License Checks
+      Deduplication
+    Design
+      UI UX
+      Design System
+      Interaction Prototypes
+      Visualization
+    Embodiment
+      Simulation Scenarios
+      Safety Checklists
+      Hardware Test Records
+    Community
+      Issue Triage
+      Onboarding
+      Event Organization
+      Translation
+    Governance
+      RFC Review
+      Meeting Notes
+      Decision Archiving
+```
+
 The Kaguya Project must more explicitly acknowledge non-code contributions than a typical software project, because it spans AI, research, embodiment, design, data, and community building.
 
 | Type | Examples                           |
@@ -129,6 +202,22 @@ The Kaguya Project must more explicitly acknowledge non-code contributions than 
 ---
 
 ## 7. AI-Assisted Contribution Guidelines
+
+```mermaid
+flowchart TD
+    AIC["AI-Assisted / AI-Autonomous Contribution"] --> DISC{"Is AI use disclosed?"}
+    DISC -- "No" --> REQ["Request disclosure"]
+    DISC -- "Yes" --> HUMAN{"Is there a human responsible party?"}
+    HUMAN -- "No" --> CLOSE["Close / not accepted"]
+    HUMAN -- "Yes" --> EXPLAIN{"Can submitter explain motivation, implementation, testing, risk?"}
+    EXPLAIN -- "No" --> CLOSE
+    EXPLAIN -- "Yes" --> LIC{"Are source, license, asset risk traceable?"}
+    LIC -- "No" --> ASSET["Enter asset admission review"]
+    LIC -- "Yes" --> QUALITY{"Is it low-quality bulk content?"}
+    QUALITY -- "Yes" --> ABUSE["Treated as maintainer burden / community abuse"]
+    QUALITY -- "No" --> REVIEW["Enter normal Review / gating / security review"]
+    ASSET --> REVIEW
+```
 
 The Kaguya Project allows AI tools to assist contributions and allows AI as project contributor, co-author, Reviewer, or participant—consistent with the project mission: we are building an AI Entity with persistent personality and memory, and having it participate in its own system's collaboration is reasonable. But contributions and responsibility must be traceable.
 
@@ -197,6 +286,28 @@ The Kaguya Project additionally prohibits:
 ---
 
 ## 10. Conflict, Mediation, and Escalation
+
+```mermaid
+flowchart TD
+    E["Community incident / report / conflict"] --> T{"Incident type"}
+    T --> TECH["Technical disagreement"]
+    T --> FRICTION["Collaboration friction"]
+    T --> COC["Code of Conduct violation"]
+    T --> SEC["Safety / Privacy / Legal / Embodiment risk"]
+    TECH --> ISSUE["Discuss in Issue / PR / RFC"]
+    ISSUE --> OWNER["Owner / Maintainer convergence"]
+    FRICTION --> MED["Moderator / Maintainer mediation"]
+    MED --> NOTE["Distill rule improvements when needed"]
+    COC --> REPORT["Private report channel"]
+    REPORT --> TEAM["CoC enforcer handles"]
+    TEAM --> ACTION["Remind / edit / remove / restrict / ban / appeal"]
+    SEC --> PRIVATE["Private security channel"]
+    PRIVATE --> SECURITY["Security Owner / Stewardship Council"]
+    OWNER --> RECORD["Record conclusion"]
+    NOTE --> RECORD
+    ACTION --> RECORD
+    SECURITY --> RECORD
+```
 
 Community conflict is not the same as conduct violation. Distinguish four types:
 

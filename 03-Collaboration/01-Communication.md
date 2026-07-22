@@ -53,6 +53,33 @@
 
 ## 3. 平台分工
 
+```mermaid
+flowchart TB
+    subgraph FACT["事实源"]
+        GH["GitHub<br/>Issue / PR / Discussion / Project / RFC / ADR / Release"]
+        NOTION["Notion / Wiki<br/>组织知识 / Owner Registry / Runbook / Onboarding"]
+        GUIDE["Governance Repo<br/>原则 / 治理 / 协作 / 工程标准"]
+    end
+    subgraph CHANNEL["沟通与节奏"]
+        FEISHU["飞书<br/>内部即时沟通 / 会议 / 日历 / 机器人"]
+        WX["微信群<br/>中文社区入口"]
+        DC["Discord<br/>国际社区入口"]
+        CAL["Calendar<br/>会议节奏 / 审查窗口 / 发布窗口"]
+    end
+    subgraph AUTOMATION["自动化"]
+        BOT["Agent / Bot Layer<br/>路由 / 摘要 / 提醒 / 状态检查"]
+    end
+    FEISHU -.产生任务.-> GH
+    WX -.有价值结论回写.-> GH
+    DC -.有价值结论回写.-> GH
+    CAL -.会议纪要链接.-> NOTION
+    BOT -.引用事实源.-> GH
+    BOT -.引用事实源.-> NOTION
+    BOT -.不得裁决.-> GUIDE
+    GH --> GUIDE
+    GUIDE --> NOTION
+```
+
 每种平台角色必须明确，否则后期会出现 GitHub、Notion、飞书群、会议口头各一套说法，最后没人知道哪个才是可参考的。
 
 | 平台                    | 角色                                                 | 不承担              |
@@ -75,6 +102,40 @@
 ---
 
 ## 4. 信息分级与沟通渠道
+
+```mermaid
+flowchart LR
+    X["信息 / 事件出现"] --> T{"场景类型"}
+    T --> BUG["Bug"]
+    T --> FEAT["Feature"]
+    T --> CR["Code Review"]
+    T --> ARCH["架构争议"]
+    T --> REL["发布准备"]
+    T --> RES["研究讨论 / 实验结果"]
+    T --> DAILY["日常协调"]
+    T --> MEET["决策会议"]
+    T --> INC["事故响应"]
+    T --> VULN["安全漏洞"]
+    T --> ANN["组织公告"]
+    T --> Q["社区问答"]
+    T --> OWNER["Owner 变更"]
+    BUG --> GHI["GitHub Issue"]
+    FEAT --> GHD["GitHub Issue / Discussion"]
+    CR --> PR["GitHub PR"]
+    ARCH --> RFC["GitHub Issue → RFC → ADR"]
+    REL --> PROJ["GitHub Project + 飞书提醒"]
+    RES --> RLOG["Research Log"]
+    DAILY --> CHAT["飞书"]
+    MEET --> MIN["会议纪要 + Issue/RFC/ADR"]
+    INC --> ICH["飞书 Incident Channel"]
+    VULN --> SEC["私密安全渠道"]
+    ANN --> ANR["飞书公告 + GitHub/Notion 记录"]
+    Q --> DISC["GitHub Discussions / 微信 / Discord"]
+    OWNER --> REG["Notion Owner Registry + PR"]
+    CHAT -.产生任务时.-> GHI
+    ICH --> POST["Incident Report / Postmortem"]
+    SEC --> ADVISORY["Security Advisory / Private Issue"]
+```
 
 | 场景      | 默认平台                       | 必须沉淀到                             |
 | ------- | -------------------------- | --------------------------------- |
@@ -283,6 +344,25 @@ Notion 解释背景、索引资源和组织知识；GitHub 保存工程事实、
 
 ## 8. 日历、会议与会议记录
 
+```mermaid
+flowchart TD
+    START["需要会议？"] --> A{"是否可异步解决？"}
+    A -- "是" --> ASYNC["转 Issue / PR / RFC / Notion"]
+    A -- "否" --> B{"是否有议程、DRI、预期输出？"}
+    B -- "否" --> NO["不创建会议"]
+    B -- "是" --> INVITE["创建日历事件<br/>目的 / 议程 / 预读 / 关联链接"]
+    INVITE --> MEET["会议进行"]
+    MEET --> DEC["记录 Decisions"]
+    MEET --> ACT["记录 Action Items"]
+    MEET --> RISK["记录 Risks / Blockers"]
+    DEC --> WRITE["写入会议纪要"]
+    ACT --> ISSUE["转 GitHub Issue / Project"]
+    RISK --> ESC["必要时升级"]
+    WRITE --> LINK["链接 Issue / RFC / ADR / Runbook"]
+    ISSUE --> FOLLOW["会后跟踪"]
+    ESC --> FOLLOW
+```
+
 ### 8.1 日历系统
 
 内部日历使用飞书日历；公开社区会议可同步到 Google Calendar / iCalendar 订阅，便于外部参与者加入。
@@ -422,6 +502,34 @@ Related links:
 ---
 
 ## 10. 自动化通知与 Agent 推送
+
+```mermaid
+flowchart LR
+    GH["GitHub Events"]
+    CI["CI/CD"]
+    SEC["Security Alerts"]
+    MON["Monitoring"]
+    CAL["Calendar"]
+    NOTION["Notion Events"]
+    GH --> HUB["Moonweave Communication Hub"]
+    CI --> HUB
+    SEC --> HUB
+    MON --> HUB
+    CAL --> HUB
+    NOTION --> HUB
+    HUB --> RELAY["Kaguya Relay<br/>事件路由"]
+    HUB --> SCRIBE["Kaguya Scribe<br/>会议记录草稿"]
+    HUB --> STEWARD["Kaguya Steward<br/>治理与交接提醒"]
+    HUB --> SENTINEL["Kaguya Sentinel<br/>安全与事故沟通"]
+    RELAY --> FEISHU["飞书卡片 / 群提醒"]
+    SCRIBE --> NOTE["Notion / GitHub 草稿"]
+    STEWARD --> DIGEST["Weekly Digest"]
+    SENTINEL --> INCIDENT["Incident Channel / Timeline"]
+    FEISHU -.不得作为事实源.-> GH
+    NOTE -.人类 DRI 确认后.-> NOTION["Notion / Wiki"]
+    DIGEST -.链接回.-> GH
+    INCIDENT -.事后沉淀.-> POST["Postmortem"]
+```
 
 > Agent 是通信路由器，不是负责人。Agent 可以提醒、摘要、检查、创建草案，但不能替代 DRI、Maintainer 或 Owner 作出组织决策。
 

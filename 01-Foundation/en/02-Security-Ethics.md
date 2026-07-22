@@ -37,6 +37,30 @@ This document does not replace specific engineering standards, RFCs, or responsi
 
 ## 2. Core Security Principles
 
+```mermaid
+flowchart LR
+    SE["Security, Privacy & Responsibility Boundaries"]
+    SE --> R["Risk Classification<br/>S0–S5 + Blocked"]
+    SE --> A["Asset & Provenance Security"]
+    SE --> D["Data, Privacy & Memory Security"]
+    SE --> SDLC["Secure Development Lifecycle"]
+    SE --> STOP["Stop-Ship Conditions"]
+    SE --> AI["AI / Agent System Security"]
+    SE --> EMB["Embodied Intelligence & Physical Safety"]
+    SE --> OPS["Infrastructure & Operational Continuity"]
+    SE --> IR["Vulnerability Disclosure & Incident Response"]
+    SE --> ETH["Ethics Boundaries & Prohibited Items"]
+    SE --> EX["Exceptions & Revision"]
+    R --> SDLC
+    A --> SDLC
+    D --> SDLC
+    AI --> STOP
+    EMB --> STOP
+    OPS --> IR
+    ETH --> STOP
+    EX -->|"Owner / Mitigation / Expiration / Review"| SDLC
+```
+
 The following eight rules are this project's core security rules:
 
 1. **Trustworthy provenance** — Assets without provenance, license, hash, Owner, and purpose boundaries may not enter core repositories or production systems. Aligns with *Asset Cleanliness & Provenance*.
@@ -51,6 +75,22 @@ The following eight rules are this project's core security rules:
 ---
 
 ## 3. Risk Classification Model
+
+```mermaid
+flowchart TB
+    S0["S0<br/>Low-Risk Docs / Non-Runtime Assets<br/>Ordinary PR Review"]
+    S1["S1<br/>Local Tools / Experimental Prototypes<br/>Basic Review"]
+    S2["S2<br/>Reusable Software Components<br/>CI / Tests / Dependencies / License"]
+    S3["S3<br/>Networked Services / Persistent Systems<br/>Threat Modeling / Access Control / Rollback"]
+    S4["S4<br/>AI / Agent High-Impact Systems<br/>AI Safety Assessment / Permission Isolation / Output Validation"]
+    S5["S5<br/>Embodied / Physical High-Risk Systems<br/>Simulation / HITL / E-Stop / Phased Release"]
+    B["Blocked<br/>Prohibited from Proceeding<br/>Remediate or Abandon"]
+    S0 --> S1 --> S2 --> S3 --> S4 --> S5 --> B
+    B -.Trigger Condition.-> B1["Unknown-Provenance Assets"]
+    B -.Trigger Condition.-> B2["Leaked Secrets"]
+    B -.Trigger Condition.-> B3["Unreviewed High-Risk Data"]
+    B -.Trigger Condition.-> B4["High-DOF Embodied Control Without E-Stop"]
+```
 
 Without risk classification, all subsequent requirements become "every item at the highest standard," and ultimately no one executes them.
 
@@ -71,6 +111,34 @@ Classification is initially assessed by the change proposer and confirmed by the
 ---
 
 ## 4. Asset and Provenance Security
+
+```mermaid
+flowchart TD
+    X["Asset Enters Project"] --> T{"Asset Type"}
+    T --> C["Source Code / Third-Party Dependency"]
+    T --> B["Binary / Container Image"]
+    T --> D["Dataset / Evaluation Set"]
+    T --> M["Model Weights / LoRA / Adapter"]
+    T --> MEDIA["Multimedia Asset"]
+    T --> P["Prompt / System Prompt"]
+    T --> E["Embodied Asset"]
+    T --> LOG["Runtime Log / Long-Term Memory"]
+    C --> META["Metadata Check<br/>Source / License / Hash / Owner / Use"]
+    B --> META
+    D --> META
+    M --> META
+    MEDIA --> META
+    P --> META
+    E --> META
+    LOG --> META
+    META --> LICENSE{"License & Rights Clear?"}
+    LICENSE -- "No" --> BLOCK["Blocked<br/>May Not Enter Formal Repository / Training / Release / Production"]
+    LICENSE -- "Yes" --> SCAN{"Security Scan & Risk Review Pass?"}
+    SCAN -- "No" --> FIX["Remediate / Isolate / Abandon"]
+    SCAN -- "Yes" --> CLASS["Mark Risk Level S0–S5"]
+    CLASS --> REG["Write to Asset Record / SBOM / Provenance Log"]
+    REG --> OK["Allowed to Enter Corresponding Environment"]
+```
 
 This section answers "Is what enters the system trustworthy?" Kaguya Project assets are not only code, but also data, models, audio, images, 3D, motion, firmware, Prompt, evaluation sets, paper materials, and runtime logs.
 
@@ -162,6 +230,30 @@ Boundary in one sentence:
 
 ## 6. Secure Development Lifecycle and Release Gates
 
+```mermaid
+flowchart TB
+    I["Idea / Proposal"] --> R["Risk Classification"]
+    R --> T["Threat & Safety Review"]
+    T --> IM["Implementation"]
+    IM --> AC["Automated Security Checks"]
+    AC --> HR["Human Review"]
+    HR --> RG["Release Gate"]
+    RG --> MON["Monitoring"]
+    MON --> POST["Incident / Postmortem / Improvement"]
+    R -.Determines Intensity.-> S["S0–S5 / Blocked"]
+    T -.Covers.-> T1["Threat Model"]
+    T -.Covers.-> T2["Privacy Impact"]
+    T -.Covers.-> T3["AI Behavior Risk"]
+    T -.Covers.-> T4["Embodied Risk"]
+    AC -.Includes.-> C1["SAST"]
+    AC -.Includes.-> C2["Dependency Scan"]
+    AC -.Includes.-> C3["Secret Scan"]
+    AC -.Includes.-> C4["License Check"]
+    RG -.Requires.-> G1["SBOM"]
+    RG -.Requires.-> G2["Rollback Plan"]
+    RG -.Requires.-> G3["Owner / DRI"]
+```
+
 This section answers "How do changes safely move from idea to production?" Aligns with [NIST SSDF (SP 800-218)](https://csrc.nist.gov/pubs/sp/800/218/final): many SDLC models do not address software security in detail, so security development practices must be integrated into every SDLC implementation, with the goal of reducing published vulnerabilities, lowering impact of unpatched exploitation, and addressing root causes to prevent recurrence.
 
 ### 6.1 Lifecycle Gates
@@ -205,6 +297,24 @@ Design-phase practice aligns with [Microsoft SDL](https://learn.microsoft.com/en
 
 ## 7. Stop-Ship Conditions
 
+```mermaid
+flowchart TD
+    C["Change / Asset / Release Candidate"] --> CHECK{"Triggers Stop-Ship?"}
+    CHECK -- "No" --> CONT["Continue to Review / Release Gate"]
+    CHECK -- "Yes" --> STOP["Immediately Stop Merge / Release / Experiment"]
+    STOP --> REASON["Record Trigger Reason"]
+    REASON --> OWNER["Assign Owner / DRI"]
+    OWNER --> FIX["Remediate or Mitigate"]
+    FIX --> REVIEW{"Re-Review Pass?"}
+    REVIEW -- "Pass" --> RESUME["Resume Process"]
+    REVIEW -- "Not Passed" --> DECIDE{"Request Exception?"}
+    DECIDE -- "No" --> TERMINATE["Terminate / Archive / Abandon"]
+    DECIDE -- "Yes" --> EX["Security Exception Record<br/>Owner / Reason / Mitigation / Expiration / Review"]
+    EX --> APPROVAL{"Must Not Breach Legal, Privacy, Physical Security, Unauthorized IP Baselines"}
+    APPROVAL -- "Satisfied" --> CONDITIONAL["Conditionally Resume"]
+    APPROVAL -- "Not Satisfied" --> TERMINATE
+```
+
 Security documentation must state when **release, merge, or continued experimentation must not proceed**. The following trigger Stop-Ship:
 
 1. Discovery of leaked keys, credentials, private keys, access tokens, or production configuration;
@@ -223,6 +333,33 @@ Stop-Ship is not a punitive mechanism, but an organizational circuit breaker: tr
 ---
 
 ## 8. AI / Agent System Security
+
+```mermaid
+flowchart TB
+    AG["Agent Capability"] --> P{"Has Explicit Permission?"}
+    P -- "No" --> DENY["Refuse Execution / Request Authorization"]
+    P -- "Yes" --> SCOPE["Permission Boundary Check"]
+    SCOPE --> TOOL["Tool Invocation"]
+    SCOPE --> FILE["File Access"]
+    SCOPE --> NET["Network Access"]
+    SCOPE --> DB["Database Write"]
+    SCOPE --> API["External API Call"]
+    SCOPE --> CODE["Code Execution"]
+    SCOPE --> PHYS["Embodied Action"]
+    TOOL --> AUDIT["Audit Log"]
+    FILE --> AUDIT
+    NET --> AUDIT
+    DB --> AUDIT
+    API --> AUDIT
+    CODE --> AUDIT
+    PHYS --> AUDIT
+    AUDIT --> RISK{"High-Risk Behavior?"}
+    RISK -- "No" --> EXEC["Execute"]
+    RISK -- "Yes" --> HITL["Human Confirmation / HITL"]
+    HITL --> EXEC
+    EXEC --> MON["Monitor Cost, Loops, Output, Anomalies"]
+    MON --> FALLBACK["Fallback / Degrade / Stop on Failure"]
+```
 
 Ordinary AppSec is insufficient for Agent. This section aligns with [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework): incorporate trustworthiness into AI product design, development, use, and evaluation; trustworthy characteristics include valid and reliable, safe, secure and resilient, accountable and transparent, explainable and interpretable, privacy-enhanced, and harmful bias managed.
 
@@ -265,6 +402,26 @@ Core sentence:
 ---
 
 ## 9. Embodied Intelligence and Physical Safety
+
+```mermaid
+flowchart TB
+    A["Embodied Capability Proposal"] --> H["Hazard Analysis"]
+    H --> SIM["Simulation Validation"]
+    SIM --> SIL["Software-in-the-loop"]
+    SIL --> HIL["Hardware-in-the-loop"]
+    HIL --> LOW["Low-Power / No-Load / Isolated Space Test"]
+    LOW --> HITL["Human-in-the-loop<br/>Online Human Takeover"]
+    HITL --> LIMITED["Limited Autonomy"]
+    LIMITED --> OP["Controlled Operation"]
+    H -.Must Define.-> B1["Spatial Boundaries"]
+    H -.Must Define.-> B2["Motion Boundaries"]
+    H -.Must Define.-> B3["Speed / Force / Posture Limits"]
+    OP --> LOG["Sensor / Decision / Control Output Log"]
+    OP --> ESTOP["E-Stop / Kill Switch"]
+    OP --> SAFE["Enter Safe State on Communication Loss or Anomaly"]
+    ESTOP --> STOP["Immediately Stop Physical Execution"]
+    SAFE --> STOP
+```
 
 The Kaguya Project ultimately involves the physical world; risk level differs from ordinary software. This section implements "Bounded Embodiment & Fail-Safe" from `01-Principles.md`.
 

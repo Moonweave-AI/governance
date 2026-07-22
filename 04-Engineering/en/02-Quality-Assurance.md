@@ -48,6 +48,17 @@ Eight principles, specifically governing quality judgment:
 
 ## 3. Quality Objects and Quality Levels
 
+```mermaid
+flowchart TB
+    L0["QA-L0<br/>Draft<br/>Draft / Informal notes<br/>Status label"]
+    L1["QA-L1<br/>Experiment<br/>Experiment / Spike<br/>Reproduction record / Data source / Expiry"]
+    L2["QA-L2<br/>Maintained Component<br/>Library / CLI / SDK<br/>CI / Unit tests / Docs / Owner"]
+    L3["QA-L3<br/>Production Service<br/>Service / Data pipeline / API<br/>Contract tests / SLO / Monitoring / Runbook / Rollback"]
+    L4["QA-L4<br/>AI / Agent System<br/>Agent / RAG / Model service<br/>Eval / Adversarial tests / Model card / Permission review"]
+    L5["QA-L5<br/>Embodied / Safety-Critical<br/>Embodied control / Actuators<br/>Simulation / HIL / E-Stop / HITL / Independent safety review"]
+    L0 --> L1 --> L2 --> L3 --> L4 --> L5
+```
+
 ### 3.1 QA Level
 
 The Kaguya Project defines six quality levels for deliverables of different lifecycles and risk scenarios. It does not replace S0–S5 security levels but specifies the **minimum quality evidence strength** required at each level.
@@ -73,6 +84,65 @@ ROS 2 REP-2004 uses a similar approach: packages claiming a quality level must p
 
 ## 4. Quality Evidence System
 
+```mermaid
+mindmap
+  root((Quality Evidence System))
+    Design Evidence
+      RFC
+      ADR
+      Engineering Brief
+      Threat Model
+      Hazard Analysis
+    Implementation Evidence
+      PR
+      Code Review
+      CODEOWNERS Approval
+    Automation Evidence
+      CI Report
+      Test Report
+      Coverage
+      Static Analysis
+    Security Evidence
+      SAST
+      Dependency Scan
+      Secret Scan
+      Container Scan
+    Supply Chain Evidence
+      SBOM
+      SPDX
+      Provenance
+      Signature
+      Image Digest
+    Data Evidence
+      Dataset Card
+      Schema Validation
+      Drift Report
+      Dedup Report
+      Provenance Statement
+    Model Evidence
+      Model Card
+      Eval Report
+      Prompt Policy Snapshot
+      Model Version
+    Runtime Evidence
+      SLO
+      Dashboard
+      Logs
+      Tracing
+      Alerts
+      Postmortem
+    User Evidence
+      Usability Test
+      Accessibility Report
+      Feedback Record
+      Core Web Vitals
+    Embodied Evidence
+      Simulation Record
+      SIL HIL Log
+      E-Stop Test
+      Physical Test Record
+```
+
 The core of quality assurance is not process but evidence. The following categories answer "what counts as evidence":
 
 | Evidence Type | Typical Form | Applicable Stage |
@@ -93,6 +163,21 @@ Principle: **Evidence type must match quality level**. QA-L2 need not have SLO r
 ---
 
 ## 5. Quality Gates
+
+```mermaid
+flowchart TB
+    Q0["Gate Q0<br/>Quality Planning<br/>Level, risk, evidence, rollback, Owner"]
+    Q1["Gate Q1<br/>Design Quality<br/>Invariants, failure modes, compatibility, observability, rollback"]
+    Q2["Gate Q2<br/>Implementation Quality<br/>PR, tests, error handling, dependencies, docs"]
+    Q3["Gate Q3<br/>CI Quality Gate<br/>format / lint / typecheck / tests / scans"]
+    Q4["Gate Q4<br/>Release Quality Gate<br/>Artifact, SBOM, monitoring, Runbook, rollback"]
+    Q5["Gate Q5<br/>Operational Quality Gate<br/>SLO, alerts, logs, Tracing, incident closure"]
+    Q0 --> Q1 --> Q2 --> Q3 --> Q4 --> Q5
+    Q3 -.Fail.-> BLOCK["Block merge"]
+    Q4 -.Fail.-> HOLD["Block release"]
+    Q5 -.Anomaly.-> INCIDENT["Incident / Postmortem / Regression Test"]
+    INCIDENT -.Improve.-> Q0
+```
 
 Quality gates are continuous checkpoints from design to operation, not a one-time big check before release.
 
@@ -127,6 +212,22 @@ Continuous quality verification after launch. Health check, smoke test, error ra
 ---
 
 ## 6. Test Layering Strategy
+
+```mermaid
+flowchart TB
+    STATIC["Static Checks<br/>formatter / linter / typecheck / secret / license"]
+    UNIT["Unit Tests<br/>Pure functions / Domain logic / State transitions"]
+    COMP["Component Tests<br/>Module boundaries / UI components / Tool Wrapper"]
+    INT["Integration Tests<br/>API + DB / Service + Queue / Agent + Tool Sandbox"]
+    CONTRACT["Contract Tests<br/>OpenAPI / Schema / Event / State Machine"]
+    E2E["E2E Tests<br/>Key user journeys / Pre-release Smoke"]
+    PERF["Performance / Load / Stress"]
+    SEC["Security Tests"]
+    AI["AI / Data / Agent Evaluations"]
+    EMB["Simulation / SIL / HIL / Physical Tests"]
+    POST["Post-deploy Checks"]
+    STATIC --> UNIT --> COMP --> INT --> CONTRACT --> E2E --> PERF --> SEC --> AI --> EMB --> POST
+```
 
 ### 6.1 Test Pyramid
 
@@ -337,6 +438,21 @@ Google SRE core insight: 100% reliability is neither realistic nor ideal. Value 
 
 ## 13. Data, Model, and AI Agent Quality
 
+```mermaid
+flowchart TB
+    CHANGE["AI / Agent Change"] --> VER["Version Pinning<br/>Model / Prompt / Policy / Tool"]
+    VER --> DATA["Data & Eval Set Check<br/>Source / License / Contamination / Version"]
+    DATA --> PERM["Tool Permission Matrix"]
+    PERM --> EVAL["Capability Eval"]
+    EVAL --> ADV["Adversarial Test<br/>Prompt Injection / Privilege Escalation / Memory Contamination"]
+    ADV --> REG["Behavior Regression Test"]
+    REG --> COST["Latency / Cost / Loop Budget"]
+    COST --> LOG["Audit Log Completeness"]
+    LOG --> DEC{"Pass?"}
+    DEC -- "Yes" --> RELEASE["Enter Release / Canary"]
+    DEC -- "No" --> FIX["Fix / Degrade / Disable / Rollback"]
+```
+
 This is the key chapter distinguishing the Kaguya Project from ordinary software projects. Traditional testing cannot cover AI system quality—evaluation, adversarial testing, drift monitoring, and behavior review are needed.
 
 ### 13.1 Data Quality
@@ -397,6 +513,23 @@ Every formal release of AI/Agent systems should produce an evaluation report rec
 ---
 
 ## 14. Embodied Intelligence and Physical Safety Quality
+
+```mermaid
+flowchart TB
+    DESIGN["Design Hazard Analysis"] --> SIM["Simulation"]
+    SIM --> SIL["Software-in-the-loop"]
+    SIL --> HIL["Hardware-in-the-loop"]
+    HIL --> CTRL["Controlled Physical Test"]
+    CTRL --> HITL["Human-in-the-loop Operation"]
+    HITL --> LIMITED["Limited Autonomy"]
+    LIMITED --> ACCEPT["Operational Acceptance"]
+    DESIGN -.Defines.-> LIMIT["Speed / Force / Space / Pose / Tool Boundaries"]
+    SIM -.Validates.-> SCENARIO["Scenario Coverage & Failure Modes"]
+    HIL -.Validates.-> SENSOR["Sensor / Actuator Failures"]
+    CTRL -.Validates.-> ESTOP["E-Stop / Kill Switch"]
+    HITL -.Validates.-> OVERRIDE["Manual Takeover Path"]
+    ACCEPT -.Requires.-> RUNBOOK["Runbook / Incident Path / Test Log"]
+```
 
 Errors in embodied systems have physical consequences—quality requirements must be stricter than pure software.
 
@@ -477,6 +610,23 @@ Kubernetes Release Cycle Code Freeze and documentation review stages are good ex
 ---
 
 ## 17. Defect, Regression, and Incident Loop
+
+```mermaid
+flowchart TB
+    R["Report"] --> T["Triage"]
+    T --> REP["Reproduce"]
+    REP --> C["Classify"]
+    C --> RCA["Root Cause"]
+    RCA --> FIX["Fix"]
+    FIX --> REG["Regression Test"]
+    REG --> REL["Release"]
+    REL --> V["Verify"]
+    V --> CLOSE["Close"]
+    RCA --> DOC["Docs / Runbook Update"]
+    RCA --> MON["Monitoring / Alert Improvement"]
+    RCA --> ADR["ADR / RFC if needed"]
+    CLOSE --> LEARN["Quality Debt / Improvement Items"]
+```
 
 ### 17.1 Defect Lifecycle
 

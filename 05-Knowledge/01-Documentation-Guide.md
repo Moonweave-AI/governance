@@ -189,6 +189,25 @@ Kubernetes 文档体系采用"手写解释 + 自动生成参考"的模式：API 
 
 ## 8. 架构文档、RFC 与 ADR
 
+```mermaid
+flowchart TB
+    IDEA["Idea / Problem"] --> DISC["Discussion / Planning"]
+    DISC --> RFC["RFC<br/>是否应该这样做，为什么"]
+    RFC --> DEC{"Accepted?"}
+    DEC -- "是" --> ADR["ADR<br/>已经决定什么，后果是什么"]
+    DEC -- "否" --> HIST["Rejected / Deferred RFC<br/>历史与防重复记录"]
+    ADR --> ENG["Engineering Workflow"]
+    ENG --> QA["Quality Evidence"]
+    QA --> REL["Release / Operation"]
+    RESEARCH["Research Log<br/>实验与复现"] --> DISC
+    RESEARCH --> RFC
+    DATA["Dataset / Model / Eval Record"] --> RESEARCH
+    DATA --> QA
+    REL --> POST["Postmortem / Follow-up"]
+    POST --> RFC
+    POST --> ADR
+```
+
 ### 8.1 RFC
 
 RFC 记录重大变更的提案背景、问题、方案、替代方案、风险、讨论和最终决定。它回答：**我们是否应该这样做？为什么？**

@@ -8,6 +8,29 @@ In *Super Dimension Kaguya Hime!*, Iroha Sakai found Kaguya beside a glowing uti
 
 ## Mission
 
+```mermaid
+flowchart TB
+    M["Moonweave Mission<br/>Build a Long-Lifecycle AI Architecture"]
+    M --> A["Agent Layer<br/>Cognitive Core"]
+    M --> I["AI Infra Layer<br/>Operational Foundation"]
+    M --> E["Embodied Intelligence Layer<br/>Physical Carrier"]
+    A --> A1["Personality Consistency"]
+    A --> A2["Contextual Memory"]
+    A --> A3["Proactive Interaction"]
+    A --> A4["Long Context & Multimodal Understanding"]
+    I --> I1["State Machine Persistence"]
+    I --> I2["Runtime Scheduling"]
+    I --> I3["Long-Term Maintenance"]
+    I --> I4["Data & State Coherence"]
+    E --> E1["Perception"]
+    E --> E2["Decision"]
+    E --> E3["Action"]
+    E --> E4["Controlled Physical Constraints"]
+    A -->|"Decision & Intent"| I
+    I -->|"Scheduling & State"| E
+    E -->|"Reality Feedback"| A
+```
+
 Build a long-lifecycle AI architecture with Agent (intelligent agent) as the cognitive core, embodied intelligence as the physical carrier, and AI Infra (infrastructure) as the operational foundation.
 
 - **Agent layer:** Integrate personality consistency, contextual memory, and proactive interaction logic; based on long context and multimodal understanding, provide companion-style interaction with sustained emotional awareness and proactive response capabilities.
@@ -17,6 +40,57 @@ Build a long-lifecycle AI architecture with Agent (intelligent agent) as the cog
 ---
 
 ## Principles
+
+```mermaid
+mindmap
+  root((Moonweave Principles))
+    Asset Cleanliness & Provenance
+      Provenance
+      License
+      Provenance
+      Risk Assessment
+    Global Observability & Traceable Behavior
+      Input
+      State
+      Version
+      Tool Invocation
+      Output
+      Evaluation Record
+    Bounded Embodiment & Fail-Safe
+      Boundary
+      Authorization
+      HITL
+      E-Stop
+      Reversible
+    Persistent State, Replaceable Implementation
+      Long-Term Memory
+      Personality State
+      State Machine
+      Model Replaceable
+      Framework Replaceable
+    Unified Domain Contract, Distributed Implementation
+      Concept
+      Naming
+      Schema
+      API
+      State Transition
+    Build for Lifespan, Care in Every Change
+      Prototype
+      Shared Components
+      Long-Term Foundation
+      Quality Gates
+    Continuity Over Heroics
+      Owner
+      Reviewer
+      Documentation
+      Decision Trail
+      Bus Factor
+    Default Transparency, Accountable Openness
+      Open Source
+      License
+      Maintenance Responsibility
+      Restriction Boundaries
+```
 
 ### Asset Cleanliness & Provenance
 
@@ -87,6 +161,31 @@ General code, documentation, decisions, and research, when not touching security
 ---
 
 ## Conflict and Revision
+
+```mermaid
+flowchart TD
+    X["Principles or Goals Conflict"] --> L{"Touches legal, security, privacy, ethics red line?"}
+    L -- "Yes" --> STOP["Stop<br/>Enter Security-Ethics / Stop-Ship"]
+    L -- "No" --> M{"Serves Moonweave Mission?"}
+    M -- "No" --> REJECT["Reject / Archive / Terminate"]
+    M -- "Yes" --> I{"What Is the Real Impact?"}
+    I --> I1["Scope of Impact"]
+    I --> I2["Reversibility"]
+    I --> I3["Maintenance Cost"]
+    I --> I4["Impact on Long-Term State"]
+    I --> I5["Impact on Community & Users"]
+    I1 --> R{"Highly Uncertain?"}
+    I2 --> R
+    I3 --> R
+    I4 --> R
+    I5 --> R
+    R -- "Yes" --> SAFE["Choose Minimum Blast Radius<br/>Prefer Rollback Path"]
+    R -- "No" --> DRI["DRI Makes Convergent Decision"]
+    SAFE --> DRI
+    DRI --> ADR{"Involves Long-Term Architecture / Public Interface / Security Boundary?"}
+    ADR -- "Yes" --> RECORD["Generate ADR / RFC Record"]
+    ADR -- "No" --> ISSUE["Issue / PR / Maintainer Decision Record"]
+```
 
 1. **Conflict Priority Cascade**
 When several principles pull at once, resolve in the following priority order:

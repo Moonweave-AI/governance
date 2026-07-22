@@ -53,6 +53,33 @@ This document does not replace role and permission definitions in `../../02-Gove
 
 ## 3. Platform Roles
 
+```mermaid
+flowchart TB
+    subgraph FACT["Source of Truth"]
+        GH["GitHub<br/>Issue / PR / Discussion / Project / RFC / ADR / Release"]
+        NOTION["Notion / Wiki<br/>Organizational knowledge / Owner Registry / Runbook / Onboarding"]
+        GUIDE["Governance Repo<br/>Principles / Governance / Collaboration / Engineering Standards"]
+    end
+    subgraph CHANNEL["Communication and Cadence"]
+        FEISHU["Feishu<br/>Internal real-time chat / Meetings / Calendar / Bots"]
+        WX["WeChat Groups<br/>Chinese community entry"]
+        DC["Discord<br/>International community entry"]
+        CAL["Calendar<br/>Meeting cadence / Review windows / Release windows"]
+    end
+    subgraph AUTOMATION["Automation"]
+        BOT["Agent / Bot Layer<br/>Routing / Summaries / Reminders / Status checks"]
+    end
+    FEISHU -.Produces tasks.-> GH
+    WX -.Write back valuable conclusions.-> GH
+    DC -.Write back valuable conclusions.-> GH
+    CAL -.Meeting notes link.-> NOTION
+    BOT -.References source of truth.-> GH
+    BOT -.References source of truth.-> NOTION
+    BOT -.Must not adjudicate.-> GUIDE
+    GH --> GUIDE
+    GUIDE --> NOTION
+```
+
 Each platform's role must be explicit; otherwise GitHub, Notion, Feishu groups, and meeting verbal statements will diverge and nobody will know which is authoritative.
 
 | Platform | Role | Does not handle |
@@ -75,6 +102,40 @@ WeChat and Discord serve external participants interested in the Kaguya Project,
 ---
 
 ## 4. Information Classification and Communication Channels
+
+```mermaid
+flowchart LR
+    X["Information / Event appears"] --> T{"Scenario type"}
+    T --> BUG["Bug"]
+    T --> FEAT["Feature"]
+    T --> CR["Code Review"]
+    T --> ARCH["Architecture dispute"]
+    T --> REL["Release preparation"]
+    T --> RES["Research discussion / Experiment results"]
+    T --> DAILY["Daily coordination"]
+    T --> MEET["Decision meeting"]
+    T --> INC["Incident response"]
+    T --> VULN["Security vulnerability"]
+    T --> ANN["Organization announcement"]
+    T --> Q["Community Q&A"]
+    T --> OWNER["Owner change"]
+    BUG --> GHI["GitHub Issue"]
+    FEAT --> GHD["GitHub Issue / Discussion"]
+    CR --> PR["GitHub PR"]
+    ARCH --> RFC["GitHub Issue → RFC → ADR"]
+    REL --> PROJ["GitHub Project + Feishu reminder"]
+    RES --> RLOG["Research Log"]
+    DAILY --> CHAT["Feishu"]
+    MEET --> MIN["Meeting notes + Issue/RFC/ADR"]
+    INC --> ICH["Feishu Incident Channel"]
+    VULN --> SEC["Private security channel"]
+    ANN --> ANR["Feishu announcement + GitHub/Notion record"]
+    Q --> DISC["GitHub Discussions / WeChat / Discord"]
+    OWNER --> REG["Notion Owner Registry + PR"]
+    CHAT -.When tasks arise.-> GHI
+    ICH --> POST["Incident Report / Postmortem"]
+    SEC --> ADVISORY["Security Advisory / Private Issue"]
+```
 
 | Scenario | Default platform | Must be captured in |
 | -------- | ---------------- | ------------------- |
@@ -283,6 +344,25 @@ Notion explains background, indexes resources, and organizes knowledge; GitHub h
 
 ## 8. Calendar, Meetings, and Meeting Records
 
+```mermaid
+flowchart TD
+    START["Need a meeting?"] --> A{"Solvable asynchronously?"}
+    A -- "Yes" --> ASYNC["Convert to Issue / PR / RFC / Notion"]
+    A -- "No" --> B{"Has agenda, DRI, expected output?"}
+    B -- "No" --> NO["Do not create a meeting"]
+    B -- "Yes" --> INVITE["Create calendar event<br/>Purpose / Agenda / Pre-read / Related links"]
+    INVITE --> MEET["Meeting in progress"]
+    MEET --> DEC["Record Decisions"]
+    MEET --> ACT["Record Action Items"]
+    MEET --> RISK["Record Risks / Blockers"]
+    DEC --> WRITE["Write into meeting notes"]
+    ACT --> ISSUE["Convert to GitHub Issue / Project"]
+    RISK --> ESC["Escalate if necessary"]
+    WRITE --> LINK["Link Issue / RFC / ADR / Runbook"]
+    ISSUE --> FOLLOW["Post-meeting tracking"]
+    ESC --> FOLLOW
+```
+
 ### 8.1 Calendar System
 
 Internal calendar uses Feishu Calendar; public community meetings may sync to Google Calendar / iCalendar subscription for external participants.
@@ -422,6 +502,34 @@ Contribution intent, bug leads, and research ideas emerging in community groups 
 ---
 
 ## 10. Automated Notifications and Agent Push
+
+```mermaid
+flowchart LR
+    GH["GitHub Events"]
+    CI["CI/CD"]
+    SEC["Security Alerts"]
+    MON["Monitoring"]
+    CAL["Calendar"]
+    NOTION["Notion Events"]
+    GH --> HUB["Moonweave Communication Hub"]
+    CI --> HUB
+    SEC --> HUB
+    MON --> HUB
+    CAL --> HUB
+    NOTION --> HUB
+    HUB --> RELAY["Kaguya Relay<br/>Event routing"]
+    HUB --> SCRIBE["Kaguya Scribe<br/>Meeting notes draft"]
+    HUB --> STEWARD["Kaguya Steward<br/>Governance and handoff reminders"]
+    HUB --> SENTINEL["Kaguya Sentinel<br/>Security and incident communication"]
+    RELAY --> FEISHU["Feishu cards / Group reminders"]
+    SCRIBE --> NOTE["Notion / GitHub draft"]
+    STEWARD --> DIGEST["Weekly Digest"]
+    SENTINEL --> INCIDENT["Incident Channel / Timeline"]
+    FEISHU -.Must not be source of truth.-> GH
+    NOTE -.After human DRI confirms.-> NOTION["Notion / Wiki"]
+    DIGEST -.Links back.-> GH
+    INCIDENT -.Post-incident capture.-> POST["Postmortem"]
+```
 
 > Agents are communication routers, not responsible parties. Agents may remind, summarize, check, and draft—but cannot replace DRI, Maintainer, or Owner in making organizational decisions.
 

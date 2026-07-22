@@ -31,6 +31,33 @@
 
 ## 3. 工作对象与规划层级
 
+```mermaid
+flowchart TB
+    IDEA["Idea<br/>未验证想法"]
+    TASK["Task<br/>小型明确任务"]
+    EXP["Experiment<br/>验证假设"]
+    PROTO["Prototype<br/>可运行验证物"]
+    FEAT["Feature<br/>可交付功能"]
+    PROJ["Project<br/>多任务多阶段交付"]
+    PROGRAM["Program<br/>多 Area 多季度方向"]
+    OP["Operation<br/>已上线长期资产"]
+    IDEA --> TASK
+    IDEA --> EXP
+    EXP --> PROTO
+    PROTO --> FEAT
+    FEAT --> PROJ
+    PROJ --> PROGRAM
+    PROJ --> OP
+    PROGRAM --> OP
+    IDEA -.默认工具.-> D1["GitHub Discussion / Issue"]
+    EXP -.默认工具.-> D2["Research Log + Issue"]
+    PROTO -.默认工具.-> D3["Issue + Notion Brief"]
+    FEAT -.默认工具.-> D4["GitHub Project Item"]
+    PROJ -.默认工具.-> D5["Project Brief + GitHub Project"]
+    PROGRAM -.默认工具.-> D6["Roadmap + RFC Set"]
+    OP -.默认工具.-> D7["Owner Registry + Runbook"]
+```
+
 规划对象分层，否则小 Issue 和多年项目会混在一起。
 
 | 层级             | 定义           | 例子                             | 默认工具                           |
@@ -50,30 +77,39 @@ Issue / Project / RFC 的边界：小范围、低风险、可逆变更走 Issue 
 
 ## 4. 生命周期总览
 
-```text
-0. Idea Intake
-   ↓
-1. Triage
-   ↓
-2. Discovery / Problem Validation
-   ↓
-3. Prototype / Experiment
-   ↓
-4. Proposal / RFC / Design
-   ↓
-5. Planning Breakdown
-   ↓
-6. Build & Integration
-   ↓
-7. Verification
-   ↓
-8. Release Readiness
-   ↓
-9. Staged Rollout
-   ↓
-10. Operation
-   ↓
-11. Improve / Retire
+```mermaid
+stateDiagram-v2
+    [*] --> Inbox: Idea Intake
+    Inbox --> NeedsTriage: Accept for Triage
+    NeedsTriage --> Discovery: 问题需要验证
+    NeedsTriage --> Prototype: 直接验证关键假设
+    NeedsTriage --> NeedsRFC: 重大变更
+    NeedsTriage --> Archived: 不推进 / 重复 / 范围外
+    Discovery --> Prototype: 问题成立
+    Discovery --> Archived: 证据不足
+    Discovery --> Terminated: 不值得做
+    Prototype --> NeedsRFC: 高风险 / 跨域 / 长期影响
+    Prototype --> PlanningBreakdown: 低风险且方案清楚
+    Prototype --> Archived: 仅保留学习结果
+    Prototype --> Terminated: 假设失败
+    NeedsRFC --> DesignReview: RFC 草案进入审查
+    DesignReview --> PlanningBreakdown: 方案通过
+    DesignReview --> NeedsRFC: 需要修订
+    DesignReview --> Deferred: 缺 Owner / 证据 / 时机
+    PlanningBreakdown --> ReadyForEngineering
+    ReadyForEngineering --> InDevelopment
+    InDevelopment --> InReview
+    InReview --> Verification
+    Verification --> ReleaseCandidate
+    ReleaseCandidate --> StagedRollout
+    StagedRollout --> Operational
+    Operational --> Improve
+    Improve --> PlanningBreakdown: 继续迭代
+    Improve --> Archived: 退役归档
+    Improve --> Terminated: 停止维护
+    Deferred --> NeedsTriage: 重新评估
+    Archived --> [*]
+    Terminated --> [*]
 ```
 
 状态字段：
@@ -101,9 +137,40 @@ Issue / Project / RFC 的边界：小范围、低风险、可逆变更走 Issue 
 
 阶段可以重叠或在高确定性情况下跳过，但关键输出和责任仍需明确。
 
+```mermaid
+flowchart TB
+    G0["Gate 0<br/>Idea Intake<br/>想法进入，不承诺会做"]
+    G1["Gate 1<br/>Triage<br/>分类、优先级、风险"]
+    G2["Gate 2<br/>Discovery<br/>问题验证"]
+    G3["Gate 3<br/>Prototype / Experiment<br/>验证最大不确定性"]
+    G4["Gate 4<br/>Proposal / RFC / Design<br/>正式方案化"]
+    G5["Gate 5<br/>Planning Breakdown<br/>任务拆解与里程碑"]
+    G6["Gate 6<br/>Build & Integration<br/>开发与集成"]
+    G7["Gate 7<br/>Verification<br/>测试、评测、验证"]
+    G8["Gate 8<br/>Release Readiness<br/>发布准备"]
+    G9["Gate 9<br/>Staged Rollout<br/>分阶段上线"]
+    G10["Gate 10<br/>Operation & Improvement<br/>运行、反馈、迭代或退役"]
+    G0 --> G1 --> G2 --> G3 --> G4 --> G5 --> G6 --> G7 --> G8 --> G9 --> G10
+    G3 -.失败.-> A["Archive / Terminate"]
+    G4 -.暂缓.-> D["Deferred / Needs Evidence"]
+    G8 -.不通过.-> FIX["Fix / Rollback / Stop-Ship"]
+    G10 -.反馈.-> G2
+```
+
 ---
 
 ## 5. 风险与成熟度
+
+```mermaid
+flowchart LR
+    S0["S0<br/>文档 / 低风险"] --> P0["Issue + PR"]
+    S1["S1<br/>本地实验"] --> P1["Issue + 实验记录"]
+    S2["S2<br/>可复用组件"] --> P2["Issue + 设计说明 + 测试计划"]
+    S3["S3<br/>联网服务 / 持久化系统"] --> P3["Project Brief + Design Review + Release Gate"]
+    S4["S4<br/>AI / Agent 高影响系统"] --> P4["RFC + AI Safety Review + Eval Plan"]
+    S5["S5<br/>具身 / 物理系统"] --> P5["RFC + Safety Review + Simulation Gate + Staged Rollout"]
+    B["Blocked"] --> PB["立即停止，整改或放弃"]
+```
 
 所有规划对象必须标记：
 
@@ -123,6 +190,19 @@ Issue / Project / RFC 的边界：小范围、低风险、可逆变更走 Issue 
 | S5 具身 / 物理系统        | RFC + Safety Review + Simulation Gate + Staged Rollout |
 
 ### Moonweave Maturity Level
+
+```mermaid
+flowchart TB
+    M0["M0 Idea<br/>只有想法"] --> M1["M1 Concept<br/>概念初步清楚"]
+    M1 --> M2["M2 PoC<br/>关键可行性验证"]
+    M2 --> M3["M3 Prototype<br/>可运行但未工程化"]
+    M3 --> M4["M4 Relevant Environment<br/>接近真实环境验证"]
+    M4 --> M5["M5 Integrated Prototype<br/>部分真实系统集成"]
+    M5 --> M6["M6 Beta / Pilot<br/>真实用户或内部运行"]
+    M6 --> M7["M7 Production Candidate<br/>等待发布门禁"]
+    M7 --> M8["M8 GA / Production<br/>正式可用"]
+    M8 --> M9["M9 Sustained Operation<br/>长期运行、维护、退役机制"]
+```
 
 | 等级     | 名称                   | 定义               |
 | ------ | -------------------- | ---------------- |

@@ -189,6 +189,25 @@ The Kubernetes documentation system adopts a "handwritten explanation + auto-gen
 
 ## 8. Architecture Documentation, RFC, and ADR
 
+```mermaid
+flowchart TB
+    IDEA["Idea / Problem"] --> DISC["Discussion / Planning"]
+    DISC --> RFC["RFC<br/>Whether to do this, and why"]
+    RFC --> DEC{"Accepted?"}
+    DEC -- "Yes" --> ADR["ADR<br/>What was decided, and its consequences"]
+    DEC -- "No" --> HIST["Rejected / Deferred RFC<br/>History and duplicate-prevention record"]
+    ADR --> ENG["Engineering Workflow"]
+    ENG --> QA["Quality Evidence"]
+    QA --> REL["Release / Operation"]
+    RESEARCH["Research Log<br/>Experiments and reproduction"] --> DISC
+    RESEARCH --> RFC
+    DATA["Dataset / Model / Eval Record"] --> RESEARCH
+    DATA --> QA
+    REL --> POST["Postmortem / Follow-up"]
+    POST --> RFC
+    POST --> ADR
+```
+
 ### 8.1 RFC
 
 RFC records the proposal background, problem, solution, alternatives, risks, discussion, and final decision for major changes. It answers: **Should we do this? Why?**
