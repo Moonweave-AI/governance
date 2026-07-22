@@ -36,6 +36,12 @@ function checkSkillDir(skillDir, root) {
   if (!description) findings.push({ severity: 'error', id: 'missing-description', path: rel, message: 'frontmatter is missing description' });
   else if (description.length > 1024) findings.push({ severity: 'error', id: 'description-too-long', path: rel, message: `description length ${description.length} > 1024` });
   else if (description.length < 20) findings.push({ severity: 'warning', id: 'description-too-short', path: rel, message: 'description is too short, which may reduce auto-trigger quality' });
+  const descLine = (parsed.raw || '').split('\n').find((l) => l.trimStart().startsWith('description:'));
+  if (descLine) {
+    const value = descLine.replace(/^.*?description:\s*/, '');
+    const unquoted = !/^['"]/.test(value);
+    if (unquoted && /:\s/.test(value)) findings.push({ severity: 'error', id: 'description-unquoted-colon', path: rel, message: 'description contains an unquoted ": " sequence; standard YAML parsers may misparse it. Quote the value.' });
+  }
 
   const bodyWords = parsed.body.trim().split(/\s+/).filter(Boolean).length;
   if (bodyWords > 5000) findings.push({ severity: 'warning', id: 'body-too-long', path: rel, message: `Body is about ${bodyWords} tokens/words; consider splitting references for progressive loading` });

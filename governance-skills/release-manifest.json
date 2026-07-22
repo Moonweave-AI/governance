@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "package": "@moonweave-ai/governance-skills",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "status": "pre-publication",
   "governance_source": "https://github.com/Moonweave-AI/governance",
   "governance_snapshot_date": "2026-07-22",

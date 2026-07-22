@@ -5,13 +5,13 @@
   },
   "metadata": {
     "description": "Moonweave AI agent skills and governance workflows",
-    "version": "0.2.1"
+    "version": "0.2.2"
   },
   "plugins": [
     {
       "name": "moonweave-governance",
       "description": "Moonweave AI governance, planning, RFC, engineering, security, quality, release, research, and knowledge management skills.",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "author": {
         "name": "Moonweave AI"
       },

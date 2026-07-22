@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.2 — 2026-07-22
+
+- Fix `moonweave-pull-request` SKILL.md frontmatter: the English `description`
+  contained an unquoted `Pull Request: ` sequence that caused standard YAML
+  parsers (e.g. Cursor) to fail parsing, so the skill was skipped during
+  installation (24/25 installed). The description is now quoted.
+- Add a lint rule `description-unquoted-colon` that flags any skill description
+  with an unquoted `: ` sequence, preventing recurrence. Includes a regression
+  test.
+- No skill semantic changes; existing evaluations remain valid.
+
 ## 0.2.1 — 2026-07-22
 
 - First release published via the `release.yml` GitHub Actions workflow with
