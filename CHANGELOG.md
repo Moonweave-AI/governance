@@ -2,6 +2,10 @@
 
 ## 0.2.1 — 2026-07-22
 
+- First release published via the `release.yml` GitHub Actions workflow with
+  `npm publish --provenance` (Sigstore / SLSA v1 provenance, GitHub OIDC). The
+  published tarball carries `dist.attestations` linking it to this repository
+  and the release workflow run.
 - Republish to align the npm registry with the repository after the 0.2.0
   tarball was found to be a pre-fix artifact (its internal `release-manifest`
   still read version 0.1.0 with 23-skill counts). 0.2.1 carries the corrected

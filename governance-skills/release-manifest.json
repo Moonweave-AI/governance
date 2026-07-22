@@ -54,13 +54,13 @@
       "secret detection and redaction tests",
       "S4/S5 routing and embodied Stop-Ship tests",
       "positive and negative skill triggering regression",
-      "package self-audit"
+      "package self-audit",
+      "npm registry publication (0.2.1 published via release.yml)",
+      "release signing and OIDC provenance (npm publish --provenance, SLSA v1, GitHub Actions OIDC)"
     ],
     "not_completed": [
       "live model paired evaluation inside all six interactive agent products",
-      "npm registry publication",
-      "third-party marketplace review and approval",
-      "release signing and OIDC provenance from the future publication CI"
+      "third-party marketplace review and approval"
     ]
   }
 }

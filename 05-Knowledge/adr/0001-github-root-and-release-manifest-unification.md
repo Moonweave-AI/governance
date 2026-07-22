@@ -149,3 +149,14 @@ A dedicated `release.yml` workflow publishes to npm with Sigstore provenance:
 - A package-local standalone copy lives at `governance-skills/.github/workflows/release.yml`
   for consumers (no `working-directory`); the root copy uses
   `working-directory: governance-skills` per the sync rule above.
+
+### First provenance publish (2026-07-22)
+- Tag `v0.2.1` triggered `release.yml`; `npm publish --provenance` succeeded from
+  GitHub Actions OIDC.
+- Registry verification: `npm view @moonweave-ai/governance-skills@0.2.1 dist.attestations`
+  returns SLSA v1 provenance (`https://slsa.dev/provenance/v1`).
+- Published tarball `release-manifest.json` confirmed at version 0.2.1 with 25-skill
+  counts and passing validation, matching the repository.
+- `assurance_scope` updated: `npm registry publication` and `release signing and OIDC
+  provenance` moved to `completed`. Remaining `not_completed`: live in-product
+  evaluation, third-party marketplace review. Maturity raised M3 → M4.
