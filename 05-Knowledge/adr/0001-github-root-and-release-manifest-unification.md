@@ -83,6 +83,25 @@ No governance specification document and no skill semantic core was modified.
 - Repo-root `SECURITY.md`/`CONTRIBUTING.md`/`CHANGELOG.md` duplicate the package
   copies. Edits should be mirrored to avoid divergence.
 
+### Sync rule (authoritative)
+When editing GitHub workflow or governance-surface files, apply this rule to keep
+the two copies coherent:
+
+| File | Root copy (monorepo) | Package copy (`governance-skills/`) |
+|---|---|---|
+| `workflows/ci.yml` | `defaults.run.working-directory: governance-skills` | no `working-directory` (package is the root for consumers) |
+| `workflows/governance-audit.yml` | `working-directory: governance-skills`; `sarif_file: governance-skills/moonweave-audit.sarif` | no `working-directory`; `sarif_file: moonweave-audit.sarif` |
+| `actions/governance-audit/action.yml` | bin path `governance-skills/bin/...` | (lives only at root; consumers get the workflow from `installGithub`) |
+| `CODEOWNERS` | `governance-skills/` path prefixes | direct path prefixes (`/skills/`, `/core/`, ...) |
+| `ISSUE_TEMPLATE/`, `PULL_REQUEST_TEMPLATE.md` | identical content | identical content |
+| `SECURITY.md`, `CONTRIBUTING.md`, `CHANGELOG.md` | repo-root public surface | package copy for the npm tarball — keep content in sync |
+
+Rule of thumb: change both copies in the same commit; run `npm run build:adapters`
+and `node bin/moonweave-skills.mjs checksums` afterward; verify with
+`npm run verify` and `npm run audit:self`. The `installGithub` workflow template
+embedded in `lib/installer.mjs` must also be bumped when the consumer-facing
+workflow changes.
+
 ### Neutral
 - `audit:self` continues to run against the package subdirectory (`--root .`), where
   all package baseline files live. A root-level audit (`--root ..`) would falsely
