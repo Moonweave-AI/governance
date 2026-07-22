@@ -27,50 +27,61 @@ Paired Evals & Security Analysis (trigger, non-trigger, task outcome, safety)
 
 ## Installation
 
-### From a local tarball / npm tarball
+### From GitHub / skills.sh (recommended, no publish needed)
+
+The `governance-skills/skills/` directory of the governance repo follows the open Agent Skills format, so it is discoverable by skills.sh, Codex, Claude Code, Cursor, OpenCode, Kilo, Antigravity, and other supporters.
 
 ```bash
-npm install
-npm pack
-npx --yes --package=./moonweave-ai-governance-skills-0.1.0.tgz \
-  moonweave-skills install --agents all --scope project
-```
-
-### After publishing to npm
-
-```bash
-npx @moonweave-ai/governance-skills install --agents all --scope project
-```
-
-### From GitHub / skills.sh
-
-Once the repo is pushed to `Moonweave-AI/governance` (with `governance-skills/` as a subdirectory):
-
-```bash
+# Install all skills into the current project
 npx skills add Moonweave-AI/governance/governance-skills --all
+# Install globally
+npx skills add Moonweave-AI/governance/governance-skills -g
 # or install a single skill
 npx skills add Moonweave-AI/governance/governance-skills --skill moonweave-code-review
 ```
 
-The `governance-skills/skills/` directory of the governance repo follows the open Agent Skills format, so it is discoverable by skills.sh, Codex, Claude Code, Cursor, OpenCode, Kilo, Antigravity, and other supporters. Platform-specific rules, commands, and native plugins are installed by this package's CLI or the marketplace manifests in the repo.
+GitHub CLI skill install:
 
-### Platform native plugins / marketplaces
+```bash
+gh skill install Moonweave-AI/governance/governance-skills --all
+gh skill install Moonweave-AI/governance/governance-skills --all --agent cursor --scope user
+```
 
-- Claude Code: `.claude-plugin/marketplace.json`
-- Cursor: `.cursor-plugin/marketplace.json`
-- Codex / ChatGPT: `.agents/plugins/marketplace.json`
-- Antigravity: root `plugin.json`
-- Kilo: `skills/index.json` remote index
-
-Each manifest and plugin directory is generated from the same `skills/`, `commands/`, `rules/` sources by `npm run build:adapters`, and checked by `npm run validate:adapters`. See [`docs/INSTALLATION.md`](docs/INSTALLATION.md) for full install options.
-
-### Git clone
+### Git clone and run
 
 ```bash
 git clone https://github.com/Moonweave-AI/governance.git
 cd governance
 node governance-skills/bin/moonweave-skills.mjs install --agents all --root /path/to/project
 ```
+
+### Platform-native marketplaces (no publish needed)
+
+Marketplace manifests live at the governance repo root, so each platform discovers them by adding the `Moonweave-AI/governance` repository:
+
+- Claude Code: `/plugin marketplace add Moonweave-AI/governance`
+- Cursor: add `Moonweave-AI/governance` in the Cursor Plugin Marketplace
+- Codex / ChatGPT: `codex plugin marketplace add Moonweave-AI/governance`
+- Antigravity: `agy plugin install https://github.com/Moonweave-AI/governance`
+- Kilo remote URL: `https://raw.githubusercontent.com/Moonweave-AI/governance/main/governance-skills/skills/`
+
+### From a local tarball
+
+```bash
+cd governance-skills && npm install && npm pack
+npx --yes --package=./moonweave-ai-governance-skills-0.1.0.tgz \
+  moonweave-skills install --agents all --scope project
+```
+
+### After publishing to npm
+
+Requires creating the `moonweave-ai` organization on npm first (see [`docs/INSTALLATION.md`](docs/INSTALLATION.md)):
+
+```bash
+npx @moonweave-ai/governance-skills install --agents all --scope project
+```
+
+Each marketplace manifest and plugin directory is generated from the same `skills/`, `commands/`, `rules/` sources by `npm run build:adapters`, and checked by `npm run validate:adapters`. See [`docs/INSTALLATION.md`](docs/INSTALLATION.md) for full install options.
 
 ## Common Commands
 

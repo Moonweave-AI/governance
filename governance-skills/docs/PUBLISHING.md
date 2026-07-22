@@ -19,10 +19,17 @@ You should also:
 
 ## npm
 
+The package uses the `@moonweave-ai` scope. Before the first publish, create the `moonweave-ai` organization on npm (this is what causes `Scope not found` / 404 otherwise):
+
+1. Open https://www.npmjs.com/org/create and create an organization named `moonweave-ai` with your npm account.
+2. From the `governance-skills/` directory:
+
 ```bash
 npm login
 npm publish --access public
 ```
+
+If you see `Scope not found` (404), the organization has not been created yet. Scoped packages require the scope to exist as an npm organization you own.
 
 ## GitHub Release
 

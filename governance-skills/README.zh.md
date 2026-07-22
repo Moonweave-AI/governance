@@ -27,49 +27,61 @@ Paired Evals & Security Analysis（触发、非触发、任务结果、安全）
 
 ## 安装
 
-### 从本地压缩包 / npm tarball
+### 从 GitHub / skills.sh（推荐，无需发布）
+
+`governance` 仓库 `governance-skills/skills/` 目录符合 Agent Skills 开放格式，因此可被 skills.sh、Codex、Claude Code、Cursor、OpenCode、Kilo、Antigravity 等支持方发现。
 
 ```bash
-npm install
-npm pack
+# 装到当前项目
+npx skills add Moonweave-AI/governance/governance-skills --all
+# 全局安装
+npx skills add Moonweave-AI/governance/governance-skills -g
+# 或只安装一个技能
+npx skills add Moonweave-AI/governance/governance-skills --skill moonweave-code-review
+```
+
+GitHub CLI skill 安装：
+
+```bash
+gh skill install Moonweave-AI/governance/governance-skills --all
+gh skill install Moonweave-AI/governance/governance-skills --all --agent cursor --scope user
+```
+
+### Git clone 并运行
+
+```bash
+git clone https://github.com/Moonweave-AI/governance.git
+cd governance
+node governance-skills/bin/moonweave-skills.mjs install --agents all --root /path/to/project
+```
+
+### 平台原生市场（无需发布）
+
+marketplace 清单位于 governance 仓库根，各平台添加 `Moonweave-AI/governance` 仓库即可发现：
+
+- Claude Code：`/plugin marketplace add Moonweave-AI/governance`
+- Cursor：在 Cursor 插件市场添加 `Moonweave-AI/governance`
+- Codex / ChatGPT：`codex plugin marketplace add Moonweave-AI/governance`
+- Antigravity：`agy plugin install https://github.com/Moonweave-AI/governance`
+- Kilo remote URL：`https://raw.githubusercontent.com/Moonweave-AI/governance/main/governance-skills/skills/`
+
+### 从本地 tarball
+
+```bash
+cd governance-skills && npm install && npm pack
 npx --yes --package=./moonweave-ai-governance-skills-0.1.0.tgz \
   moonweave-skills install --agents all --scope project
 ```
 
 ### 发布到 npm 后
 
+需先在 npm 创建 `moonweave-ai` 组织（见 [`docs/INSTALLATION.md`](docs/INSTALLATION.md)）：
+
 ```bash
 npx @moonweave-ai/governance-skills install --agents all --scope project
 ```
 
-### 从 GitHub / skills.sh
-
-仓库推送至 `Moonweave-AI/governance`（`governance-skills/` 为子目录）后：
-
-```bash
-npx skills add Moonweave-AI/governance/governance-skills --all
-# 或只安装一个技能
-npx skills add Moonweave-AI/governance/governance-skills --skill moonweave-code-review
-```
-
-`governance` 仓库 `governance-skills/skills/` 目录符合 Agent Skills 开放格式，因此可被 skills.sh、Codex、Claude Code、Cursor、OpenCode、Kilo、Antigravity 等支持方发现。平台专用规则、命令和原生插件由本包 CLI 或仓库内的 marketplace manifest 安装。
-
-### 平台原生插件 / 市场
-
-- Claude Code：`.claude-plugin/marketplace.json`
-- Cursor：`.cursor-plugin/marketplace.json`
-- Codex / ChatGPT：`.agents/plugins/marketplace.json`
-- Antigravity：根目录 `plugin.json`
-- Kilo：`skills/index.json` remote index
-
 各清单及插件目录由 `npm run build:adapters` 从同一 `skills/`、`commands/`、`rules/` 源生成，并由 `npm run validate:adapters` 检查。完整安装方式见 [`docs/INSTALLATION.md`](docs/INSTALLATION.md)。
-
-### Git clone
-
-```bash
-git clone https://github.com/Moonweave-AI/governance.git
-cd governance
-node governance-skills/bin/moonweave-skills.mjs install --agents all --root /path/to/project
 ```
 
 ## 常用命令

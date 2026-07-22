@@ -27,49 +27,61 @@ Paired Evals & Security Analysis（トリガ、非トリガ、タスク結果、
 
 ## インストール
 
-### ローカル tarball / npm tarball から
+### GitHub / skills.sh から（推奨、公開不要）
+
+`governance` リポジリの `governance-skills/skills/` ディレクトリは Agent Skills オープンフォーマットに従うため、skills.sh、Codex、Claude Code、Cursor、OpenCode、Kilo、Antigravity などが発見できます。
 
 ```bash
-npm install
-npm pack
+# 現在のプロジェクトにインストール
+npx skills add Moonweave-AI/governance/governance-skills --all
+# グローバルにインストール
+npx skills add Moonweave-AI/governance/governance-skills -g
+# または単一スキルのインストール
+npx skills add Moonweave-AI/governance/governance-skills --skill moonweave-code-review
+```
+
+GitHub CLI による skill インストール：
+
+```bash
+gh skill install Moonweave-AI/governance/governance-skills --all
+gh skill install Moonweave-AI/governance/governance-skills --all --agent cursor --scope user
+```
+
+### Git clone して実行
+
+```bash
+git clone https://github.com/Moonweave-AI/governance.git
+cd governance
+node governance-skills/bin/moonweave-skills.mjs install --agents all --root /path/to/project
+```
+
+### プラットフォームネイティブマーケットプレース（公開不要）
+
+marketplace manifest は governance リポジリのルートにあり、各プラットフォームが `Moonweave-AI/governance` リポジリを追加することで発見できます：
+
+- Claude Code: `/plugin marketplace add Moonweave-AI/governance`
+- Cursor: Cursor のプラグインマーケットプレースで `Moonweave-AI/governance` を追加
+- Codex / ChatGPT: `codex plugin marketplace add Moonweave-AI/governance`
+- Antigravity: `agy plugin install https://github.com/Moonweave-AI/governance`
+- Kilo リモート URL: `https://raw.githubusercontent.com/Moonweave-AI/governance/main/governance-skills/skills/`
+
+### ローカル tarball から
+
+```bash
+cd governance-skills && npm install && npm pack
 npx --yes --package=./moonweave-ai-governance-skills-0.1.0.tgz \
   moonweave-skills install --agents all --scope project
 ```
 
 ### npm 公開後
 
+事前に npm で `moonweave-ai` 組織を作成する必要があります（[`docs/INSTALLATION.md`](docs/INSTALLATION.md) 参照）：
+
 ```bash
 npx @moonweave-ai/governance-skills install --agents all --scope project
 ```
 
-### GitHub / skills.sh から
-
-リポジトリを `Moonweave-AI/governance`（`governance-skills/` をサブディレクトリとして含む）に push 後：
-
-```bash
-npx skills add Moonweave-AI/governance/governance-skills --all
-# または単一スキルのインストール
-npx skills add Moonweave-AI/governance/governance-skills --skill moonweave-code-review
-```
-
-`governance` リポジリの `governance-skills/skills/` ディレクトリは Agent Skills オープンフォーマットに従うため、skills.sh、Codex、Claude Code、Cursor、OpenCode、Kilo、Antigravity などが発見できます。プラットフォーム固有のルール・コマンド・ネイティブプラグインは本パッケージの CLI またはリポジトリ内の marketplace manifest でインストールします。
-
-### プラットフォームネイティブプラグイン / マーケットプレース
-
-- Claude Code: `.claude-plugin/marketplace.json`
-- Cursor: `.cursor-plugin/marketplace.json`
-- Codex / ChatGPT: `.agents/plugins/marketplace.json`
-- Antigravity: ルート `plugin.json`
-- Kilo: `skills/index.json` リモートインデックス
-
 各 manifest とプラグインディレクトリは `npm run build:adapters` で同一の `skills/`・`commands/`・`rules/` ソースから生成され、`npm run validate:adapters` で検査されます。完全なインストール方法は [`docs/INSTALLATION.md`](docs/INSTALLATION.md) を参照。
-
-### Git clone
-
-```bash
-git clone https://github.com/Moonweave-AI/governance.git
-cd governance
-node governance-skills/bin/moonweave-skills.mjs install --agents all --root /path/to/project
 ```
 
 ## よく使うコマンド
