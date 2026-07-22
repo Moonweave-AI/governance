@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "package": "@moonweave-ai/governance-skills",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "pre-publication",
   "governance_source": "https://github.com/Moonweave-AI/governance",
   "governance_snapshot_date": "2026-07-22",
   "contents": {
-    "skills": 23,
-    "commands": 23,
+    "skills": 25,
+    "commands": 25,
     "templates": 24,
     "platforms": [
       "cursor",
@@ -24,16 +24,16 @@
       "failed": 0
     },
     "static_skill_checks": {
-      "skills": 23,
+      "skills": 25,
       "errors": 0,
       "warnings": 0
     },
     "static_evaluations": {
-      "passed": 82,
+      "passed": 171,
       "failed": 0
     },
     "adapter_checks": {
-      "passed": 93,
+      "passed": 199,
       "failed": 0
     },
     "self_audit": {

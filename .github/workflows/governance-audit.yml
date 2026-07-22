@@ -1,0 +1,19 @@
+name: Moonweave Governance Audit
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+  security-events: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - run: node bin/moonweave-skills.mjs audit --root . --profile library --format sarif --out moonweave-audit.sarif
+        working-directory: governance-skills
+      - uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with: {sarif_file: governance-skills/moonweave-audit.sarif}

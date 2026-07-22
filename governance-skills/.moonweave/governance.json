@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
   "governance_source": "https://github.com/Moonweave-AI/governance",
-  "canonical_language": "zh-CN",
+  "canonical_language": "en",
   "profile": "library",
   "owner": "Moonweave AI Governance Maintainers",
   "backup_owner": "Moonweave AI Stewardship Council",
   "risk": "S2",
   "quality": "QA-L2",
-  "maturity": "M7",
+  "maturity": "M3",
   "facts": {
     "engineering": "GitHub",
     "rules": "Moonweave Governance canonical repository",

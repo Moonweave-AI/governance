@@ -12,4 +12,4 @@ runs:
   using: composite
   steps:
     - shell: bash
-      run: node "$GITHUB_ACTION_PATH/../../../bin/moonweave-skills.mjs" audit --root "${{ inputs.root }}" --profile "${{ inputs.profile }}" --format markdown
+      run: node "$GITHUB_ACTION_PATH/../../../governance-skills/bin/moonweave-skills.mjs" audit --root "${{ inputs.root }}" --profile "${{ inputs.profile }}" --format markdown

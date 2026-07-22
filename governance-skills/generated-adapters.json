@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "generated_at": null,
   "source_skill_count": 25,
   "targets": [
@@ -15,11 +15,11 @@
   "generated_files": [
     {
       "path": ".claude-plugin/marketplace.json",
-      "sha256": "11e62ce6feef51565b924e34790a000e7ba4f408866b98b0e681b29cb67a126e"
+      "sha256": "738c177ec538b387cf8f6ecf8542c3e0f8e5296e4e8097e08677e5bfb5400675"
     },
     {
       "path": ".cursor-plugin/marketplace.json",
-      "sha256": "c41d7b3227177a3d12af1f92ac7b8d3d40e5c5ab03ab99ad6e10ebb12d434be4"
+      "sha256": "fa615688df701ce0da9632a878be63d87d4b6b2193435f99068f0bed3f431e07"
     },
     {
       "path": ".agents/plugins/marketplace.json",
@@ -35,15 +35,15 @@
     },
     {
       "path": "plugins/claude/moonweave-governance/.claude-plugin/plugin.json",
-      "sha256": "6bd4365e823c476bc0c396dacb431d0b1b880fb8489b9bb3584e40c34d02040f"
+      "sha256": "40cce4ebde2d9ef53e828f110fb99a09e2c26c1be3b94cb929355d7b8c9cf2cd"
     },
     {
       "path": "plugins/cursor/moonweave-governance/.cursor-plugin/plugin.json",
-      "sha256": "ff707ccafdbb7cfa7a9b23d9601af1e029f5f4381a93acf073d63605f2ebf35c"
+      "sha256": "29b03db9e38f4ec3f7143bdce743b5dfc70f3bd8e6691f7e753b1c2e5df4c3e5"
     },
     {
       "path": "plugins/codex/moonweave-governance/.codex-plugin/plugin.json",
-      "sha256": "c94808ab95bbc2fd1f9161177e573a9715f5f93d4de4acddd5a2cc6fcedf0466"
+      "sha256": "fddecd8e976897c6b554de50e94883e60518c5f7f75a8d8b33edabdb1f9b68bd"
     },
     {
       "path": "plugins/antigravity/moonweave-governance/plugin.json",

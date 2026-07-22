@@ -1,0 +1,19 @@
+name: Idea / proposal
+description: Submit a new idea for triage
+title: "[Idea] "
+labels: ["type:idea", "needs:triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes: {label: Problem, description: Start from the problem, not the implementation.}
+    validations: {required: true}
+  - type: textarea
+    id: users
+    attributes: {label: Who benefits and why now?}
+    validations: {required: true}
+  - type: textarea
+    id: value
+    attributes: {label: Expected value and success evidence}
+  - type: textarea
+    id: risks
+    attributes: {label: Known security, privacy, AI, embodiment or maintenance risks}
