@@ -2,17 +2,16 @@
 rfc: RFC-0000
 title:
 status: Draft
-type: Engineering
+type: engineering/rfc
 authors:
 champion:
 sponsor:
 decision_owner:
 area:
 risk_level:
-created:
-updated:
-last_reviewed:
-review_cycle_days: 180
+created: <date>
+updated: <date>
+last_reviewed: <date>
 summary:
 canonical:
 fcp_start:

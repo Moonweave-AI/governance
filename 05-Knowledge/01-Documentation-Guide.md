@@ -1,13 +1,12 @@
 ---
-type: knowledge-policy
-status: Active
-owner: Moonweave AI Governance Maintainers
-created: 2026-07-22
-updated: 2026-08-05
-last_reviewed: 2026-08-05
-review_cycle_days: 180
+type: "knowledge-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
 summary: "Authoritative knowledge policy: 文档编写与知识资产管理规范."
-canonical: ./01-Documentation-Guide.md
+canonical: "./en/01-Documentation-Guide.md"
 related: []
 supersedes: []
 superseded_by: []

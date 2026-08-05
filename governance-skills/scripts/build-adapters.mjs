@@ -253,7 +253,7 @@ const generatedFiles = [
 writeJson('generated-adapters.json', {
   schema_version: '1.0',
   version,
-  generated_at: process.env.SOURCE_DATE_EPOCH ? new Date(Number(process.env.SOURCE_DATE_EPOCH) * 1000).toISOString() : null,
+  generated_at: null,
   source_skill_count: skills.length,
   targets: ['portable', 'claude', 'cursor', 'codex', 'opencode', 'kilo', 'antigravity'],
   generated_files: generatedFiles.map((entry) => ({ path: entry.path, sha256: sha(path.join(entry.base, entry.path)) })),

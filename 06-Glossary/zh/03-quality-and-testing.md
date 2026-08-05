@@ -1,13 +1,12 @@
 ---
-type: glossary
-status: Active
-owner: Moonweave AI Governance Maintainers
-created: 2026-07-22
-updated: 2026-08-05
-last_reviewed: 2026-08-05
-review_cycle_days: 180
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
 summary: "Authoritative glossary: 质量与测试."
-canonical: ../en/03-quality-and-testing.md
+canonical: "../en/03-quality-and-testing.md"
 related: []
 supersedes: []
 superseded_by: []

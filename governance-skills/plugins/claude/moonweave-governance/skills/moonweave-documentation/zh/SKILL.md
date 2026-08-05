@@ -34,11 +34,10 @@ metadata:
 新建或实质性更新每份正式文档时，必须使用相应的治理模板并保留其 YAML frontmatter。填写 `type`、`status`、`owner`、`created`、`updated`、`last_reviewed`、`review_cycle_days`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by`。
 
 - `created` 是记录首次创建日期，不得回写；`updated` 是最后一次实质内容更新；`last_reviewed` 是 Owner 最后一次确认文档仍有效的日期，三者都不是 Git 提交时间。
+- `type` 必须取自 `core/document-type-registry.json`；使用对应模板，新增类型须先登记再使用。
 - 日期一律使用 ISO 格式 `YYYY-MM-DD`，并保证 `created ≤ updated ≤ last_reviewed`。
 - 只有明确替代目标或保留背景说明时，才可使用 `Superseded` 或 `Archived`；不得静默覆盖已接受的决策。
 - `summary` 应足够精简以支持渐进披露；翻译文档必须指向 canonical 正本。
-
-不要把这些生命周期字段写入 `SKILL.md` 自身：已发布的 Skill 是稳定指令，不是持续变更的工作记录。
 
 
 ## 安全执行契约

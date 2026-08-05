@@ -4,9 +4,10 @@ import { parseFrontmatter } from './frontmatter.mjs';
 import { normalizeRel, walkFiles } from './fs-utils.mjs';
 
 export const GOVERNANCE_DOCUMENT_ROOTS = ['01-Foundation', '02-Governance', '03-Collaboration', '04-Engineering', '05-Knowledge', '06-Glossary'];
-const REQUIRED = ['type', 'status', 'owner', 'created', 'updated', 'last_reviewed', 'review_cycle_days', 'summary', 'canonical', 'related', 'supersedes', 'superseded_by'];
-const TYPES = new Set(['governance-policy', 'governance-process', 'engineering-policy', 'knowledge-policy', 'glossary']);
+const REQUIRED = ['type', 'status', 'owner', 'created', 'updated', 'last_reviewed', 'summary', 'canonical', 'related', 'supersedes', 'superseded_by'];
 const STATUSES = new Set(['Draft', 'Active', 'Deprecated', 'Superseded', 'Archived']);
+const typeRegistry = JSON.parse(fs.readFileSync(new URL('../core/document-type-registry.json', import.meta.url), 'utf8'));
+const DOCUMENT_TYPES = new Set(typeRegistry.$defs.type.oneOf.map((entry) => entry.const));
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 function finding(severity, id, file, message) {
@@ -18,8 +19,15 @@ function metadataFiles(root) {
     .filter((file) => file.endsWith('.md'));
 }
 
-function isListValue(value) {
-  return value === '[]' || (typeof value === 'object' && value !== null);
+function isBlank(value) {
+  return value === '' || (typeof value === 'object' && value !== null && !Array.isArray(value) && Object.keys(value).length === 0);
+}
+
+function isCalendarDate(value) {
+  if (typeof value !== 'string' || !DATE.test(value)) return false;
+  const [year, month, day] = value.split('-').map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
 }
 
 export function lintDocuments(rootInput) {
@@ -34,17 +42,18 @@ export function lintDocuments(rootInput) {
       findings.push(finding('error', parsed.error, rel, 'Authoritative governance documents require YAML frontmatter.'));
       continue;
     }
-    for (const key of REQUIRED) if (!(key in parsed.data) || parsed.data[key] === '') findings.push(finding('error', 'missing-document-metadata', rel, `frontmatter is missing ${key}`));
-    if (parsed.data.type && !TYPES.has(parsed.data.type)) findings.push(finding('error', 'invalid-document-type', rel, `Unknown type: ${parsed.data.type}`));
+    for (const key of REQUIRED) if (!(key in parsed.data) || isBlank(parsed.data[key])) findings.push(finding('error', 'missing-document-metadata', rel, `frontmatter is missing ${key}`));
+    if (parsed.data.type && !DOCUMENT_TYPES.has(parsed.data.type)) findings.push(finding('error', 'invalid-document-type', rel, `Unknown type: ${parsed.data.type}`));
     if (parsed.data.status && !STATUSES.has(parsed.data.status)) findings.push(finding('error', 'invalid-document-status', rel, `Unknown status: ${parsed.data.status}`));
-    for (const key of ['created', 'updated', 'last_reviewed']) if (parsed.data[key] && !DATE.test(parsed.data[key])) findings.push(finding('error', 'invalid-document-date', rel, `${key} must be YYYY-MM-DD`));
-    if (DATE.test(parsed.data.created || '') && DATE.test(parsed.data.updated || '') && parsed.data.updated < parsed.data.created) findings.push(finding('error', 'updated-before-created', rel, 'updated cannot be earlier than created'));
-    if (DATE.test(parsed.data.updated || '') && DATE.test(parsed.data.last_reviewed || '') && parsed.data.last_reviewed < parsed.data.updated) findings.push(finding('error', 'review-before-update', rel, 'last_reviewed cannot be earlier than updated'));
-    if (parsed.data.review_cycle_days && !/^\d+$/.test(parsed.data.review_cycle_days)) findings.push(finding('error', 'invalid-review-cycle', rel, 'review_cycle_days must be a positive integer'));
-    for (const key of ['related', 'supersedes', 'superseded_by']) if (key in parsed.data && !isListValue(parsed.data[key])) findings.push(finding('error', 'invalid-document-relation', rel, `${key} must be a YAML list or []`));
-    if (parsed.data.status === 'Superseded' && parsed.data.superseded_by === '[]') findings.push(finding('error', 'missing-replacement', rel, 'Superseded documents must name a replacement in superseded_by'));
+    for (const key of ['created', 'updated', 'last_reviewed']) if (!isCalendarDate(parsed.data[key])) findings.push(finding('error', 'invalid-document-date', rel, `${key} must be a real YYYY-MM-DD calendar date`));
+    if (isCalendarDate(parsed.data.created) && isCalendarDate(parsed.data.updated) && parsed.data.updated < parsed.data.created) findings.push(finding('error', 'updated-before-created', rel, 'updated cannot be earlier than created'));
+    if (isCalendarDate(parsed.data.updated) && isCalendarDate(parsed.data.last_reviewed) && parsed.data.last_reviewed < parsed.data.updated) findings.push(finding('error', 'review-before-update', rel, 'last_reviewed cannot be earlier than updated'));
+    if (typeof parsed.data.summary !== 'string' || parsed.data.summary.length < 20 || parsed.data.summary.length > 280) findings.push(finding('error', 'invalid-summary-length', rel, 'summary must be between 20 and 280 characters'));
+    for (const key of ['related', 'supersedes', 'superseded_by']) if (key in parsed.data && !Array.isArray(parsed.data[key])) findings.push(finding('error', 'invalid-document-relation', rel, `${key} must be a YAML list`));
+    if (parsed.data.status === 'Superseded' && (!Array.isArray(parsed.data.superseded_by) || parsed.data.superseded_by.length === 0)) findings.push(finding('error', 'missing-replacement', rel, 'Superseded documents must name a replacement in superseded_by'));
     if (parsed.data.status === 'Archived' && !parsed.data.summary) findings.push(finding('error', 'missing-archive-context', rel, 'Archived documents require a summary explaining their retained context'));
-    if (parsed.data.canonical) {
+    if (typeof parsed.data.canonical !== 'string' || !parsed.data.canonical.trim()) findings.push(finding('error', 'missing-canonical-target', rel, 'canonical must name an existing target'));
+    else {
       const target = path.resolve(path.dirname(file), parsed.data.canonical);
       if (!fs.existsSync(target)) findings.push(finding('error', 'missing-canonical-target', rel, `canonical target does not exist: ${parsed.data.canonical}`));
     }
@@ -65,6 +74,7 @@ export function lintTemplates(rootInput) {
       continue;
     }
     for (const key of REQUIRED) if (!(key in parsed.data)) findings.push(finding('error', 'missing-template-metadata', rel, `frontmatter is missing ${key}`));
+    if (parsed.data.type && !DOCUMENT_TYPES.has(parsed.data.type)) findings.push(finding('error', 'invalid-template-type', rel, `Unknown type: ${parsed.data.type}`));
   }
   const summary = { templates: files.length, errors: findings.filter((item) => item.severity === 'error').length, warnings: 0 };
   return { root, summary, findings };

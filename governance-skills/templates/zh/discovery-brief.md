@@ -1,15 +1,14 @@
 ---
-type: discovery
+type: planning/discovery
 status: active
-owner:
+owner: <owner>
 dri:
 risk:
 maturity:
-created:
+created: <date>
 next_review:
 updated: 
 last_reviewed: 
-review_cycle_days: 180
 summary: 
 canonical: 
 related: []

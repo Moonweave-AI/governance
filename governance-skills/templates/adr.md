@@ -2,18 +2,17 @@
 adr: ADR-0000
 title:
 status: Proposed
-owner:
-created:
-updated:
-last_reviewed:
-review_cycle_days: 180
+owner: <owner>
+created: <date>
+updated: <date>
+last_reviewed: <date>
 summary:
 canonical:
 decision_owner:
 related_rfc:
 supersedes: []
 superseded_by: []
-type: adr
+type: architecture/adr
 related: []
 ---
 

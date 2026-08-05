@@ -1,7 +1,7 @@
 ---
-type: engineering-brief
+type: engineering/brief
 status: draft
-owner:
+owner: <owner>
 dri:
 risk:
 quality_level:
@@ -11,7 +11,6 @@ related_adr:
 created: 
 updated: 
 last_reviewed: 
-review_cycle_days: 180
 summary: 
 canonical: 
 related: []

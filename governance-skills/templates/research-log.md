@@ -1,13 +1,12 @@
 ---
-type: research-log
+type: knowledge-policy/research-logs
 status: active
-owner:
+owner: <owner>
 risk:
 visibility:
-created:
+created: <date>
 updated: 
 last_reviewed: 
-review_cycle_days: 180
 summary: 
 canonical: 
 related: []

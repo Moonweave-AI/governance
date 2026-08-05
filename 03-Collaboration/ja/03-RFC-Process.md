@@ -1,13 +1,12 @@
 ---
-type: governance-process
-status: Active
-owner: Moonweave AI Governance Maintainers
-created: 2026-07-22
-updated: 2026-08-05
-last_reviewed: 2026-08-05
-review_cycle_days: 180
+type: "governance-process"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
 summary: "Authoritative governance process: RFC プロセス."
-canonical: ../en/03-RFC-Process.md
+canonical: "../en/03-RFC-Process.md"
 related: []
 supersedes: []
 superseded_by: []

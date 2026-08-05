@@ -1,15 +1,14 @@
 ---
-type: idea
+type: planning/idea
 status: inbox
-owner:
+owner: <owner>
 dri:
 risk: S0
 maturity: M0
-created:
+created: <date>
 next_review:
 updated: 
 last_reviewed: 
-review_cycle_days: 180
 summary: 
 canonical: 
 related: []

@@ -1,11 +1,10 @@
 ---
-type: hazard-analysis
+type: security/hazard-analysis
 status: Draft
 owner: 
 created: 
 updated: 
 last_reviewed: 
-review_cycle_days: 180
 summary: 
 canonical: 
 related: []

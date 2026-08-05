@@ -1,13 +1,12 @@
 ---
-type: glossary
-status: Active
-owner: Moonweave AI Governance Maintainers
-created: 2026-07-22
-updated: 2026-08-05
-last_reviewed: 2026-08-05
-review_cycle_days: 180
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
 summary: "Authoritative glossary: AI, Agent & Data."
-canonical: ./05-ai-agent-and-data.md
+canonical: "./05-ai-agent-and-data.md"
 related: []
 supersedes: []
 superseded_by: []

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moonweave.ai/schemas/governance-document-types-v1.json",
+  "title": "Moonweave Governance Document Types",
+  "description": "Controlled vocabulary for the type field in governance documents and templates.",
+  "$defs": {
+    "type": {
+      "oneOf": [
+        {"const": "governance-policy", "description": "A governing policy."},
+        {"const": "governance-process", "description": "A governing process."},
+        {"const": "engineering-policy", "description": "An engineering policy."},
+        {"const": "knowledge-policy", "description": "A knowledge-management policy."},
+        {"const": "knowledge-policy/research-logs", "description": "A research or evaluation record."},
+        {"const": "glossary", "description": "A terminology reference."},
+        {"const": "architecture/adr", "description": "An architecture decision record."},
+        {"const": "agent/behavior-record", "description": "An agent behavior record."},
+        {"const": "knowledge/asset-record", "description": "An asset record."},
+        {"const": "knowledge/dataset-card", "description": "A dataset card."},
+        {"const": "planning/discovery", "description": "A discovery brief."},
+        {"const": "engineering/brief", "description": "An engineering brief."},
+        {"const": "collaboration/handoff", "description": "A handoff record."},
+        {"const": "security/hazard-analysis", "description": "A hazard analysis."},
+        {"const": "planning/idea", "description": "An idea record."},
+        {"const": "operations/incident", "description": "An incident record."},
+        {"const": "collaboration/issue", "description": "An issue record."},
+        {"const": "knowledge/model-card", "description": "A model card."},
+        {"const": "knowledge/paper-review", "description": "A paper review."},
+        {"const": "operations/postmortem", "description": "A postmortem."},
+        {"const": "engineering/prototype", "description": "A prototype record."},
+        {"const": "collaboration/pull-request", "description": "A pull request record."},
+        {"const": "quality/declaration", "description": "A quality declaration."},
+        {"const": "quality/exception", "description": "A quality exception."},
+        {"const": "quality/release-report", "description": "A release-quality report."},
+        {"const": "engineering/rfc", "description": "An engineering request for comments."},
+        {"const": "operations/runbook", "description": "An operational runbook."},
+        {"const": "quality/test-plan", "description": "A test plan."},
+        {"const": "security/threat-model", "description": "A threat model."}
+      ]
+    }
+  }
+}

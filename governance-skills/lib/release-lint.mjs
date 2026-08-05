@@ -7,6 +7,9 @@ const READMES = [
   ['README.ja.md', /^> \*\*バージョン: ([^*]+)\*\*/m],
 ];
 const CHANGELOGS = ['CHANGELOG.md', 'CHANGELOG.zh.md', 'CHANGELOG.ja.md'];
+const MARKETPLACE_VERSIONS = [
+  ['marketplace/claude/marketplace.json', (data) => data.plugins?.[0]?.version],
+];
 
 function readJson(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 function finding(id, file, message) { return { severity: 'error', id, path: file, message }; }
@@ -24,6 +27,9 @@ export function lintReleaseMetadata(packageRoot) {
   for (const file of CHANGELOGS) {
     const actual = fs.readFileSync(path.join(packageRoot, file), 'utf8').match(/^## ([^\s]+)\s+—/m)?.[1];
     if (actual !== version) findings.push(finding('changelog-version-mismatch', file, `first changelog entry must equal package.json (${version})`));
+  }
+  for (const [file, readVersion] of MARKETPLACE_VERSIONS) {
+    if (readVersion(readJson(path.join(packageRoot, file))) !== version) findings.push(finding('version-mismatch', file, `marketplace version must equal package.json (${version})`));
   }
   return { version, summary: { errors: findings.length }, findings };
 }

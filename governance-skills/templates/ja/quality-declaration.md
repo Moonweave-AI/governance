@@ -1,14 +1,13 @@
 ---
-type: quality-declaration
+type: quality/declaration
 status: active
-owner:
+owner: <owner>
 backup_owner:
 quality_level:
-last_reviewed:
+last_reviewed: <date>
 next_review:
 created: 
 updated: 
-review_cycle_days: 180
 summary: 
 canonical: 
 related: []

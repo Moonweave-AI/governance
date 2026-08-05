@@ -31,7 +31,7 @@ metadata:
 
 ## 文档记录元数据
 
-必须从对应模板创建研究日志、论文审查或卡片。填写 `created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`；这些字段须与实验时间戳分开记录，避免混淆文档的当前有效性。
+必须从对应模板创建研究日志、论文审查或卡片。`created`、`updated`、`last_reviewed` 描述文档记录本身；实验执行、数据采集和评测时间按需写入研究正文的对应位置。
 
 
 ## 安全执行契约

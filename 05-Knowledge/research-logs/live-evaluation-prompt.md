@@ -1,16 +1,17 @@
 ---
-type: knowledge-policy
-status: Active
-owner: Moonweave AI Governance Maintainers
-created: 2026-07-22
-updated: 2026-08-05
-last_reviewed: 2026-08-05
-review_cycle_days: 180
+type: "research-log"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
 summary: "Authoritative knowledge policy: Live Paired Evaluation — Agent Self-Test Prompt."
-canonical: ./live-evaluation-prompt.md
+canonical: "./live-evaluation-prompt.md"
 related: []
 supersedes: []
 superseded_by: []
+risk: "S1"
+visibility: "public"
 ---
 # Live Paired Evaluation — Agent Self-Test Prompt
 

@@ -1,13 +1,12 @@
 ---
-type: governance-process
-status: Active
-owner: Moonweave AI Governance Maintainers
-created: 2026-07-22
-updated: 2026-08-05
-last_reviewed: 2026-08-05
-review_cycle_days: 180
+type: "governance-process"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
 summary: "Authoritative governance process: 協業計画規範."
-canonical: ../en/02-Planning.md
+canonical: "../en/02-Planning.md"
 related: []
 supersedes: []
 superseded_by: []

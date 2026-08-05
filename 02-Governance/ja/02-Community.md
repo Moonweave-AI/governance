@@ -1,13 +1,12 @@
 ---
-type: governance-policy
-status: Active
-owner: Moonweave AI Governance Maintainers
-created: 2026-07-22
-updated: 2026-08-05
-last_reviewed: 2026-08-05
-review_cycle_days: 180
+type: "governance-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
 summary: "Authoritative governance policy: コミュニティ健全性と貢献者成長."
-canonical: ../en/02-Community.md
+canonical: "../en/02-Community.md"
 related: []
 supersedes: []
 superseded_by: []

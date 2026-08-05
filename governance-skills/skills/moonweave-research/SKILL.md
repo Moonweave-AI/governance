@@ -31,7 +31,7 @@ Design, execute, or review research experiments, paper reviews, reproductions, D
 
 ## Document Record Metadata
 
-Start a research log, paper review, or card from its matching template. Populate `created`, `updated`, `last_reviewed`, `summary`, `canonical`, and `related`; record these separately from experiment timestamps so the current validity of the record is unambiguous.
+Start a research log, paper review, or card from its matching template. `created`, `updated`, and `last_reviewed` describe the document record; record experiment execution, data-collection, and evaluation times in the research content where they are needed.
 
 
 ## Security Execution Contract
