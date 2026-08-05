@@ -8,6 +8,15 @@ quality_level:
 related_issue:
 related_rfc:
 related_adr:
+created: 
+updated: 
+last_reviewed: 
+review_cycle_days: 180
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Engineering Brief: <title>

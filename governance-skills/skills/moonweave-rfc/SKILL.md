@@ -1,8 +1,6 @@
 ---
 name: moonweave-rfc
 description: Draft, review, converge, or update Moonweave RFCs for major, hard-to-reverse changes spanning cross-repo, public APIs/schemas, core tech stack, AI/Agent permissions, long-term state, embodiment control, security ethics, or governance.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
@@ -30,6 +28,10 @@ Draft, review, converge, or update Moonweave RFCs for major, hard-to-reverse cha
 - Author/Champion/Sponsor/Decision Owner
 - Alternatives and risks
 - Related RFC/ADR/Issue
+
+## Document Record Metadata
+
+Create the RFC from the RFC template. Before drafting its body, populate `created`, `updated`, `last_reviewed`, `summary`, `canonical`, `related`, `supersedes`, and `superseded_by`; use ISO dates and preserve accepted-history links.
 
 
 ## Security Execution Contract

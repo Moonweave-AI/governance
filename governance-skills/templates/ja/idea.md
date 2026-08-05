@@ -7,6 +7,14 @@ risk: S0
 maturity: M0
 created:
 next_review:
+updated: 
+last_reviewed: 
+review_cycle_days: 180
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Idea: <title>

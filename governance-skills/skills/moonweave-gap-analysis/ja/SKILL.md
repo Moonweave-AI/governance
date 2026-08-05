@@ -1,8 +1,6 @@
 ---
 name: moonweave-gap-analysis
 description: プロジェクトの現在の事実をMoonweaveガバナンス要件と比較し、欠落しているOwner、意思決定、テスト、ドキュメント、リスクレビュー、自動化、引き継ぎ、実行時エビデンスを特定し、繰り返される手動修正をルール、スキル、CI、テンプレートに変換する。補漏、四半期Review、ガバナンスドリフト治理に使用する。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームに適用。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:

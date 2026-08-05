@@ -30,7 +30,7 @@ function canonicalFor(file) {
   return fs.existsSync(english) ? `../en/${path.basename(file)}` : `./${path.basename(file)}`;
 }
 function render(data) {
-  return ['---', `type: ${data.type}`, 'status: Active', 'owner: Moonweave AI Governance Maintainers', 'created: 2026-07-22', `updated: ${today}`, `last_reviewed: ${today}`, 'review_cycle_days: 180', `summary: ${yaml(data.summary)}`, `canonical: ${data.canonical}`, 'supersedes: []', 'superseded_by: []', '---', ''].join('\n');
+  return ['---', `type: ${data.type}`, 'status: Active', 'owner: Moonweave AI Governance Maintainers', 'created: 2026-07-22', `updated: ${today}`, `last_reviewed: ${today}`, 'review_cycle_days: 180', `summary: ${yaml(data.summary)}`, `canonical: ${data.canonical}`, 'related: []', 'supersedes: []', 'superseded_by: []', '---', ''].join('\n');
 }
 
 let changed = 0;

@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative glossary: Governance & Process."
 canonical: ./01-governance-and-process.md
+related: []
 supersedes: []
 superseded_by: []
 ---

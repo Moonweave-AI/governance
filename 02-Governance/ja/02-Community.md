@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative governance policy: コミュニティ健全性と貢献者成長."
 canonical: ../en/02-Community.md
+related: []
 supersedes: []
 superseded_by: []
 ---

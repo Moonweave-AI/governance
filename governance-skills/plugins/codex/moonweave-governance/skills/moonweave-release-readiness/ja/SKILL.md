@@ -1,8 +1,6 @@
 ---
 name: moonweave-release-readiness
 description: Release Readiness、アーティファクト追跡、マイグレーション/ロールバック、監視、SLO、段階的ロールアウト、ローンチ後検証を実行し、Go/No-Go/Conditional Goを出力する。バージョンリリース、本番デプロイ、モデル/Agentローンチ、具身能力リリースに使用する。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームに適用。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:

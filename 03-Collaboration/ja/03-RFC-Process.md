@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative governance process: RFC プロセス."
 canonical: ../en/03-RFC-Process.md
+related: []
 supersedes: []
 superseded_by: []
 ---

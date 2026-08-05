@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import { auditRepository } from '../lib/audit.mjs';
-import { documentLintMarkdown, lintDocuments } from '../lib/document-lint.mjs';
+import { documentLintMarkdown, lintDocuments, lintTemplates, templateLintMarkdown } from '../lib/document-lint.mjs';
 import { lintReleaseMetadata, releaseLintMarkdown } from '../lib/release-lint.mjs';
 import { packageJson, packageRoot } from '../lib/config.mjs';
 import { emit, findingsMarkdown, toSarif } from '../lib/output.mjs';
@@ -56,6 +56,7 @@ Commands:
   audit                        Read-only audit of project governance and engineering baseline
   lint-skills                  Statically check Agent Skills format and dangerous patterns
   lint-docs                    Validate metadata, dates, lifecycle, and canonical links in governance documents
+  lint-templates               Validate required metadata fields in every governance template
   lint-release                 Validate release-version declarations across manifests, READMEs, and changelogs
   eval-static                  Run routing, trigger, and static safety regressions
   checksums                    Generate checksums.sha256
@@ -247,6 +248,12 @@ async function main() {
     case 'lint-docs': {
       const report = lintDocuments(options.root || path.resolve(packageRoot, '..'));
       emit(options.format === 'json' ? report : documentLintMarkdown(report), { format: options.format || 'markdown', out: options.out });
+      if (report.summary.errors > 0) process.exitCode = 1;
+      break;
+    }
+    case 'lint-templates': {
+      const report = lintTemplates(options.root || packageRoot);
+      emit(options.format === 'json' ? report : templateLintMarkdown(report), { format: options.format || 'markdown', out: options.out });
       if (report.summary.errors > 0) process.exitCode = 1;
       break;
     }

@@ -1,8 +1,6 @@
 ---
 name: moonweave-documentation
 description: Create, refactor, or review knowledge assets such as README, Tutorial, How-to, Reference, Explanation, API docs, Runbook, and Model/Dataset/Agent Cards, ensuring a single source of truth, Owner, status, metadata, links, review, and lifecycle.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
@@ -30,6 +28,18 @@ Create, refactor, or review knowledge assets such as README, Tutorial, How-to, R
 - Authoritative source of truth
 - Related Issue/RFC/ADR/code
 - Owner and status
+
+## Required Document Metadata
+
+For every formal document created or materially updated, use the matching governance template and preserve its YAML frontmatter. Populate `type`, `status`, `owner`, `created`, `updated`, `last_reviewed`, `review_cycle_days`, `summary`, `canonical`, `related`, `supersedes`, and `superseded_by`.
+
+- `created` is the record's original creation date and must not be rewritten.
+- `updated` is the last material content change; `last_reviewed` is the date an Owner confirmed the document remains valid. They are not Git commit timestamps.
+- Use ISO dates (`YYYY-MM-DD`), and ensure `created ≤ updated ≤ last_reviewed`.
+- Use `Superseded` or `Archived` only with an explicit successor or retained-context explanation. Never silently overwrite an accepted decision.
+- Keep the summary concise enough for progressive disclosure, and point translations to the canonical source.
+
+Do not add lifecycle fields to `SKILL.md` files themselves: published Skills are stable instructions, not live work records.
 
 
 ## Security Execution Contract

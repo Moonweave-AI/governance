@@ -1,8 +1,6 @@
 ---
 name: moonweave-gap-analysis
 description: Compare the project's current facts against Moonweave governance requirements, identify missing Owners, decisions, tests, docs, risk reviews, automation, handoffs, and runtime evidence, and convert repeated manual corrections into rules, skills, CI, or templates. Use for gap filling, quarterly reviews, and governance drift treatment.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

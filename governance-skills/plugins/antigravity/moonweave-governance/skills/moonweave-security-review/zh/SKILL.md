@@ -1,8 +1,6 @@
 ---
 name: moonweave-security-review
 description: 对项目、设计、Issue、PR、依赖、数据、模型、Agent工具权限或具身能力执行S0-S5风险评估、资产来源审查、威胁建模、Stop-Ship判断和例外审查。用于安全Review、发布门禁和高风险变更。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

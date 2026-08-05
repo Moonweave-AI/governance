@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative governance policy: セキュリティ、プライバシー、責任境界."
 canonical: ../en/02-Security-Ethics.md
+related: []
 supersedes: []
 superseded_by: []
 ---

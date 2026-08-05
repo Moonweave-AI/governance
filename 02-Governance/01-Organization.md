@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative governance policy: 组织结构与责任模型."
 canonical: ./01-Organization.md
+related: []
 supersedes: []
 superseded_by: []
 ---

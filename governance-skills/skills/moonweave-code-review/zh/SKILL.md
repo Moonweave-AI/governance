@@ -1,8 +1,6 @@
 ---
 name: moonweave-code-review
 description: 对PR或diff进行证据驱动的审查，覆盖正确性、设计、复杂性、测试、契约、安全、隐私、AI/Agent、具身、性能、可观测、部署和文档；按严重度给出可操作意见。用于GitHub PR Review、pre-merge检查或独立审计。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

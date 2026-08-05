@@ -1,8 +1,6 @@
 ---
 name: moonweave-research
 description: 研究実験、論文Review、再現、Dataset/Model Card、Eval記録を設計・実行・レビューし、仮説、コード/データ/モデル/設定/ハードウェア/乱数シード、生結果、ネガティブ結果、制限、次のステップを追跡可能にする。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートするプラットフォーム向け。決定的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:
@@ -30,6 +28,10 @@ metadata:
 - コード、データ、モデル、環境
 - 指標とベースライン
 - ライセンス/プライバシー/倫理情報
+
+## 文書記録メタデータ
+
+対応するテンプレートから研究ログ、論文レビュー、またはカードを作成する。`created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related` を実験時刻と分けて記録し、現在の有効性を明確にする。
 
 
 ## セキュリティ実行契約

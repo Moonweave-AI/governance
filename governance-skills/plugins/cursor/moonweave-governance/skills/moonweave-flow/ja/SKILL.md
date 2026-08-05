@@ -1,8 +1,6 @@
 ---
 name: moonweave-flow
 description: 現在のプロジェクトフェーズに対し段階的なマルチskillフローを実行する。まずプロジェクトを監査してフェーズ(idea、engineering、major-refactor/RFC、release、operation、retirement)を決定し、今後の段階的ステップを列挙し、全段階的フローを実行する前にユーザーにフェーズの確認と同意を求める。各stageは適切なMoonweave skillとゲートを呼び出し、高リスクのstageには独自のレビューと人間の確認が依然必要。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:

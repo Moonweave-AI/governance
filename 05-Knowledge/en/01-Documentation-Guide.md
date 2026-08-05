@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative knowledge policy: Documentation Writing and Knowledge Asset Management Standards."
 canonical: ./01-Documentation-Guide.md
+related: []
 supersedes: []
 superseded_by: []
 ---

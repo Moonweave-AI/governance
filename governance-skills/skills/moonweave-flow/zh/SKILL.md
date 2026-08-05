@@ -1,8 +1,6 @@
 ---
 name: moonweave-flow
 description: 为当前项目阶段运行分阶段的多 skill 流程。先审计项目以确定其阶段(idea、engineering、major-refactor/RFC、release、operation 或 retirement),列出即将进行的分阶段步骤,并在执行完整分阶段流程前请求用户确认阶段并同意。每个阶段调用相应的 Moonweave skill 与门禁;高风险阶段仍需各自审查与人类确认。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持 Agent Skills 开放格式的平台;确定性检查可选 Node.js 20+ 与 moonweave-skills CLI。
 metadata:

@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative governance policy: 辉夜计划原则."
 canonical: ./01-Principles.md
+related: []
 supersedes: []
 superseded_by: []
 ---

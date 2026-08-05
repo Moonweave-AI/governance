@@ -1,8 +1,6 @@
 ---
 name: moonweave-retrospective
 description: Conduct structured reflection after a release, milestone, incident, experiment, RFC, or long-running task; compare expected vs. actual, identify systemic causes, governance blind spots, and reusable knowledge, and form an Owner-bearing improvement loop.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

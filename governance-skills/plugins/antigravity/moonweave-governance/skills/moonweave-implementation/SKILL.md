@@ -1,8 +1,6 @@
 ---
 name: moonweave-implementation
 description: Execute code or system changes that are already Engineering Ready, following short branches, small commits, reproducible environments, local verification, scope control, dependency governance, and test/doc synchronization. Use for actual development, refactoring, fixes, and cross-file implementation.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

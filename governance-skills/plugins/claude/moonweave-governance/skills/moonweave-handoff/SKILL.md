@@ -1,8 +1,6 @@
 ---
 name: moonweave-handoff
 description: Create an actionable Handoff for DRI/Owner temporary absence, role changes, project pauses, incident shift changes, working group closeout, or repository transfer; update the Owner Registry, access paths, risks, next steps, and receipt confirmation.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Applies on platforms that support the open Agent Skills format; deterministic checks optionally use Node.js 20+ and the moonweave-skills CLI.
 metadata:

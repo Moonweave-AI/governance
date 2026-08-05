@@ -13,6 +13,8 @@ decision_owner:
 related_rfc:
 supersedes: []
 superseded_by: []
+type: adr
+related: []
 ---
 
 # ADR-0000: <title>

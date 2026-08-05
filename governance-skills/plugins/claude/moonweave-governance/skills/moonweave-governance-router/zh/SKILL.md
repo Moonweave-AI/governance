@@ -1,8 +1,6 @@
 ---
 name: moonweave-governance-router
 description: 对任何项目请求、Issue、PR、设计或事故先做治理分类：识别工作类型、S0-S5风险、QA-L0-L5质量等级、M0-M9成熟度、所需Owner/DRI、RFC/ADR/安全/评测/具身门禁，并把任务路由到正确的Moonweave技能。用于不确定下一步、开始复杂工作或需要治理总览时。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

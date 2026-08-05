@@ -1,8 +1,6 @@
 ---
 name: moonweave-retrospective
 description: リリース、マイルストーン、インシデント、実験、RFC、長期タスク終了後に構造化された振り返りを行い、期待と実績を比較し、系統的原因、ガバナンスの盲点、再利用可能なナレッジを特定し、Ownerを持つ改善ループを形成する。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートするプラットフォーム向け。決定的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:

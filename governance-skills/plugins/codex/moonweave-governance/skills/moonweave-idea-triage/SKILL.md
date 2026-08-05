@@ -1,8 +1,6 @@
 ---
 name: moonweave-idea-triage
 description: Turn scattered ideas, feedback, incident improvements, or research questions into actionable Idea/Discovery records — complete type, Area, risk, Owner, priority, evidence, and next-step routing. Use for new ideas, requirement clarification, backlog cleanup, and judging whether a project is worth doing.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on any platform supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

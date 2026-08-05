@@ -1,8 +1,6 @@
 ---
 name: moonweave-governance-router
 description: あらゆるプロジェクト依頼、Issue、PR、設計、インシデントに対してまずガバナンスのトリアージを行う。作業タイプ、S0-S5リスク、QA-L0-L5品質レベル、M0-M9成熟度、必要なOwner/DRI、RFC/ADR/セキュリティ/評価/具現化ゲートを識別し、タスクを適切なMoonweaveスキルにルーティングする。次のステップが不明な場合、複雑な作業を開始する場合、ガバナンスの全体像が必要な場合に使用する。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートする任意のプラットフォームで動作。決定論的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:

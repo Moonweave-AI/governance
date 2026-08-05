@@ -1,8 +1,6 @@
 ---
 name: moonweave-adr
 description: Create or review an Architecture Decision Record capturing decisions already made that affect system structure or quality attributes and are hard to reverse, including context, alternatives, and consequences. Use after an RFC is accepted, for major technology selection, migrations, or superseding existing architecture decisions.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
@@ -30,6 +28,10 @@ Create or review an Architecture Decision Record capturing decisions already mad
 - Related RFC/Issue/PR
 - Candidate options
 - Decision maker and date
+
+## Document Record Metadata
+
+Create the ADR from the ADR template. Populate `created`, `updated`, `last_reviewed`, `summary`, `canonical`, `related`, `supersedes`, and `superseded_by`; preserve the original creation date and link any successor rather than rewriting accepted history.
 
 
 ## Security Execution Contract

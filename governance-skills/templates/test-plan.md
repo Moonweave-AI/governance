@@ -3,6 +3,16 @@ type: test-plan
 owner:
 risk:
 quality_level:
+status: Draft
+created: 
+updated: 
+last_reviewed: 
+review_cycle_days: 180
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Test Plan: <title>

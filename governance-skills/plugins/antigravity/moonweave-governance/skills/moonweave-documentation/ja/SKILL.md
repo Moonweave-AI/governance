@@ -1,8 +1,6 @@
 ---
 name: moonweave-documentation
 description: README、Tutorial、How-to、Reference、Explanation、APIドキュメント、Runbook、Model/Dataset/Agent Cardなどのナレッジ資産を作成・リファクタ・レビューし、単一の事実源、Owner、ステータス、メタデータ、リンク、Review、ライフサイクルを確保する。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートするプラットフォーム向け。決定的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:
@@ -30,6 +28,14 @@ README、Tutorial、How-to、Reference、Explanation、APIドキュメント、R
 - 権威ある事実源
 - 関連するIssue/RFC/ADR/コード
 - Ownerとステータス
+
+## 正式ドキュメントの必須ログメタデータ
+
+正式ドキュメントを新規作成または実質的に更新する場合は、対応するガバナンステンプレートを使い、YAML frontmatter を保持する。`type`、`status`、`owner`、`created`、`updated`、`last_reviewed`、`review_cycle_days`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by` を記入する。
+
+- 日付は ISO `YYYY-MM-DD` を使い、`created ≤ updated ≤ last_reviewed` を満たす。`updated` と `last_reviewed` は Git コミット時刻ではない。
+- `Superseded` または `Archived` には明示的な後継または保持理由を付ける。翻訳は canonical 正本を指す。
+- これらのライフサイクル項目を `SKILL.md` 自身に追加しない。公開済み Skill は安定した指示であり、作業記録ではない。
 
 
 ## セキュリティ実行契約

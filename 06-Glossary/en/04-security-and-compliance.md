@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative glossary: Security & Compliance."
 canonical: ./04-security-and-compliance.md
+related: []
 supersedes: []
 superseded_by: []
 ---

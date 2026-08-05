@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative engineering policy: 品質保障規範."
 canonical: ../en/02-Quality-Assurance.md
+related: []
 supersedes: []
 superseded_by: []
 ---

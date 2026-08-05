@@ -1,8 +1,6 @@
 ---
 name: moonweave-incident-response
 description: 处理生产中断、安全漏洞、数据损坏、Agent越权、具身异常或重大回归：建立单一时间线、Incident DRI、影响沟通、缓解/回滚、证据保全、私密披露和无责复盘。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

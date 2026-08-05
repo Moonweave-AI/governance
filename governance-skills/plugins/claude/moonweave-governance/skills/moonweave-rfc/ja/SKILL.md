@@ -1,8 +1,6 @@
 ---
 name: moonweave-rfc
 description: クロスリポジトリ、公開API/Schema、コア技術スタック、AI/Agent権限、長期状態、Embodiment制御、Security Ethics、Governance、またはロールバック困難な重大変更に対して、Moonweave RFCのドラフト、レビュー、収束、または更新を行う。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:
@@ -30,6 +28,10 @@ metadata:
 - Author/Champion/Sponsor/Decision Owner
 - 代替案とリスク
 - 関連RFC/ADR/Issue
+
+## 文書記録メタデータ
+
+RFC テンプレートから作成し、本文の前に `created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by` を記入する。ISO 日付を用い、Accepted の履歴リンクを保持する。
 
 
 ## Security Execution Contract

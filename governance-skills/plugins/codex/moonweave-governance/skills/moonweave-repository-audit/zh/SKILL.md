@@ -1,8 +1,6 @@
 ---
 name: moonweave-repository-audit
 description: 对任意辉夜计划仓库执行只读审计，检查治理安装、Owner、风险/质量声明、README/SECURITY/CODEOWNERS、CI、依赖锁定、Issue/PR模板、测试、文档、AI/数据/具身专项证据和潜在secret；输出可追踪补漏计划。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

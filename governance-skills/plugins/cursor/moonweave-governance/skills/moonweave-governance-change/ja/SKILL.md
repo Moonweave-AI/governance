@@ -1,8 +1,6 @@
 ---
 name: moonweave-governance-change
 description: Moonweaveの原則、Governance、コラボレーション、エンジニアリング、品質、知識、またはskills自体を変更する際、Governance RFC、影響分析、後方互換性、プラットフォーム適合、評価、バージョニング、移行を実行する。Governanceリポジトリの更新、skillの追加/変更、プラットフォームアダプタの適合に使用する。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートするプラットフォームで適用。決定論的チェックは任意でNode.js 20+とmoonweave-skills CLIを使用。
 metadata:

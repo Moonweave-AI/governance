@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative glossary: Documentation & Knowledge Management."
 canonical: ./08-documentation-and-knowledge.md
+related: []
 supersedes: []
 superseded_by: []
 ---

@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative knowledge policy: ドキュメント作成およびナレッジ資産管理規範."
 canonical: ../en/01-Documentation-Guide.md
+related: []
 supersedes: []
 superseded_by: []
 ---

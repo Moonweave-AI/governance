@@ -1,8 +1,6 @@
 ---
 name: moonweave-community-contribution
 description: 外部貢献、初回Issue/PR、非コード貢献、AI支援貢献、Mentorship、コミュニティ紛争を処理し、参入ポイントを明確に、フィードバックを具体的に、貢献を認知可能に、メンテナ負荷を管理下に、行動規範を執行可能に保つ。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートするプラットフォームで適用。決定論的チェックは任意でNode.js 20+とmoonweave-skills CLIを使用。
 metadata:

@@ -15,5 +15,6 @@ jobs:
       - run: npm test
       - run: npm run lint:skills
       - run: npm run lint:docs
+      - run: npm run lint:templates
       - run: npm run lint:release
       - run: npm run pack:check

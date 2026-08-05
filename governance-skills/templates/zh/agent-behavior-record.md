@@ -5,6 +5,15 @@ owner:
 version:
 risk: S4
 quality_level: QA-L4
+created: 
+updated: 
+last_reviewed: 
+review_cycle_days: 180
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Agent Behavior Record: <name>

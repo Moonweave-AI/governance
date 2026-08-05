@@ -15,7 +15,7 @@ const valid = [
   '---', 'type: governance-policy', 'status: Active', 'owner: Governance',
   'created: 2026-07-22', 'updated: 2026-08-05', 'last_reviewed: 2026-08-05',
   'review_cycle_days: 180', 'summary: This is a sufficiently descriptive governance policy summary.',
-  'canonical: ./policy.md', 'supersedes: []', 'superseded_by: []', '---', '# Policy', '',
+  'canonical: ./policy.md', 'related: []', 'supersedes: []', 'superseded_by: []', '---', '# Policy', '',
 ].join('\n');
 
 test('document lint accepts complete authoritative metadata', () => {

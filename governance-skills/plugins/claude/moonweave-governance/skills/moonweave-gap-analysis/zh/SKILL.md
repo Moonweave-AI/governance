@@ -1,8 +1,6 @@
 ---
 name: moonweave-gap-analysis
 description: 比较项目当前事实与Moonweave治理要求，识别缺失Owner、决策、测试、文档、风险审查、自动化、交接和运行证据，并把重复人工纠正转化为规则、技能、CI或模板。用于补漏、季度Review和治理漂移治理。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

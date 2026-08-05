@@ -1,8 +1,6 @@
 ---
 name: moonweave-governance-change
 description: When modifying Moonweave principles, governance, collaboration, engineering, quality, knowledge, or the skills themselves, execute a governance RFC, impact analysis, backward compatibility, platform adaptation, evaluation, versioning, and migration. Used to update the governance repository, add/modify a skill, or adapt platform adapters.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Applies on platforms that support the open Agent Skills format; deterministic checks optionally use Node.js 20+ and the moonweave-skills CLI.
 metadata:

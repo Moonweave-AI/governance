@@ -6,6 +6,14 @@ backup_owner:
 quality_level:
 last_reviewed:
 next_review:
+created: 
+updated: 
+review_cycle_days: 180
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Quality Declaration: <component>

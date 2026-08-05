@@ -1,8 +1,6 @@
 ---
 name: moonweave-idea-triage
 description: 把零散想法、反馈、事故改进或研究问题转成可判断的Idea/Discovery记录，完成类型、Area、风险、Owner、优先级、证据和下一步分流。用于新想法、需求澄清、backlog清理和项目是否值得做的判断。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

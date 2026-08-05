@@ -1,8 +1,6 @@
 ---
 name: moonweave-rfc
 description: 起草、审查、收敛或更新辉夜计划RFC，适用于跨仓库、公共API/Schema、核心技术栈、AI/Agent权限、长期状态、具身控制、安全伦理、治理或难回滚的重大变更。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
@@ -30,6 +28,10 @@ metadata:
 - Author/Champion/Sponsor/Decision Owner
 - 替代方案和风险
 - 相关RFC/ADR/Issue
+
+## 文档记录元数据
+
+必须从 RFC 模板创建文档。写正文前填写 `created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by`；日期使用 ISO 格式，并保留已接受决策的历史关联。
 
 
 ## 安全执行契约

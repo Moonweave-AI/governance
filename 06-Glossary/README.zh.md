@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative glossary: 术语表."
 canonical: ./README.zh.md
+related: []
 supersedes: []
 superseded_by: []
 ---

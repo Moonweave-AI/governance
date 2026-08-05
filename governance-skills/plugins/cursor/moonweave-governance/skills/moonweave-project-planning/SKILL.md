@@ -1,8 +1,6 @@
 ---
 name: moonweave-project-planning
 description: Break a validated problem or prototype into an executable project plan — lifecycle state, M0-M9 maturity, milestones, Issues, dependencies, Owner/DRI, quality evidence, release, and exit conditions. Use for project planning, Roadmap, Milestone, prototype promotion, and pause/archive decisions.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on any platform supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

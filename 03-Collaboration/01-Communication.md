@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative governance process: 沟通规范."
 canonical: ./01-Communication.md
+related: []
 supersedes: []
 superseded_by: []
 ---

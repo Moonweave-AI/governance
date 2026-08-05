@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative glossary: 身体性知能とロボティクス."
 canonical: ../en/07-embodiment-and-robotics.md
+related: []
 supersedes: []
 superseded_by: []
 ---

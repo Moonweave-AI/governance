@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative knowledge policy: Live Paired Evaluation — Agent Self-Test Prompt."
 canonical: ./live-evaluation-prompt.md
+related: []
 supersedes: []
 superseded_by: []
 ---

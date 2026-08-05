@@ -1,3 +1,17 @@
+---
+type: asset-record
+status: Draft
+owner: 
+created: 
+updated: 
+last_reviewed: 
+review_cycle_days: 180
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
+---
 # Asset Record: <name>
 
 Asset Type:

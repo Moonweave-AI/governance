@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative engineering policy: api-and-protocols."
 canonical: ./api-and-protocols.md
+related: []
 supersedes: []
 superseded_by: []
 ---

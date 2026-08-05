@@ -23,6 +23,8 @@ related_prs:
 related_adrs:
 supersedes: []
 superseded_by: []
+owner: 
+related: []
 ---
 
 # RFC-0000: <title>

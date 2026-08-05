@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative knowledge policy: ADR-0001: Relocate `.github` to repo root and unify release-manifest at 0.2.0."
 canonical: ./0001-github-root-and-release-manifest-unification.md
+related: []
 supersedes: []
 superseded_by: []
 ---

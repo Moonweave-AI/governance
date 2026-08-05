@@ -1,8 +1,6 @@
 ---
 name: moonweave-help
 description: Help a user pick the right Moonweave skill or command for their current situation. Describe the 25 skills grouped by phase, ask one clarifying question when intent is ambiguous, and recommend the best next skill with a one-line reason. Use when the user asks "which skill should I use", "what command do I run", or is otherwise unsure how to start.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on any platform supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

@@ -1,8 +1,6 @@
 ---
 name: moonweave-research
 description: 设计、执行或审查研究实验、论文Review、复现、Dataset/Model Card和Eval记录，保证假设、代码/数据/模型/配置/硬件/随机种子、原始结果、负面结果、限制和下一步可追溯。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
@@ -30,6 +28,10 @@ metadata:
 - 代码、数据、模型和环境
 - 指标与基线
 - 许可/隐私/伦理信息
+
+## 文档记录元数据
+
+必须从对应模板创建研究日志、论文审查或卡片。填写 `created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`；这些字段须与实验时间戳分开记录，避免混淆文档的当前有效性。
 
 
 ## 安全执行契约

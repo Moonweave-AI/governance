@@ -4,7 +4,7 @@ import { parseFrontmatter } from './frontmatter.mjs';
 import { normalizeRel, walkFiles } from './fs-utils.mjs';
 
 export const GOVERNANCE_DOCUMENT_ROOTS = ['01-Foundation', '02-Governance', '03-Collaboration', '04-Engineering', '05-Knowledge', '06-Glossary'];
-const REQUIRED = ['type', 'status', 'owner', 'created', 'updated', 'last_reviewed', 'review_cycle_days', 'summary', 'canonical', 'supersedes', 'superseded_by'];
+const REQUIRED = ['type', 'status', 'owner', 'created', 'updated', 'last_reviewed', 'review_cycle_days', 'summary', 'canonical', 'related', 'supersedes', 'superseded_by'];
 const TYPES = new Set(['governance-policy', 'governance-process', 'engineering-policy', 'knowledge-policy', 'glossary']);
 const STATUSES = new Set(['Draft', 'Active', 'Deprecated', 'Superseded', 'Archived']);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -41,7 +41,7 @@ export function lintDocuments(rootInput) {
     if (DATE.test(parsed.data.created || '') && DATE.test(parsed.data.updated || '') && parsed.data.updated < parsed.data.created) findings.push(finding('error', 'updated-before-created', rel, 'updated cannot be earlier than created'));
     if (DATE.test(parsed.data.updated || '') && DATE.test(parsed.data.last_reviewed || '') && parsed.data.last_reviewed < parsed.data.updated) findings.push(finding('error', 'review-before-update', rel, 'last_reviewed cannot be earlier than updated'));
     if (parsed.data.review_cycle_days && !/^\d+$/.test(parsed.data.review_cycle_days)) findings.push(finding('error', 'invalid-review-cycle', rel, 'review_cycle_days must be a positive integer'));
-    for (const key of ['supersedes', 'superseded_by']) if (key in parsed.data && !isListValue(parsed.data[key])) findings.push(finding('error', 'invalid-document-relation', rel, `${key} must be a YAML list or []`));
+    for (const key of ['related', 'supersedes', 'superseded_by']) if (key in parsed.data && !isListValue(parsed.data[key])) findings.push(finding('error', 'invalid-document-relation', rel, `${key} must be a YAML list or []`));
     if (parsed.data.status === 'Superseded' && parsed.data.superseded_by === '[]') findings.push(finding('error', 'missing-replacement', rel, 'Superseded documents must name a replacement in superseded_by'));
     if (parsed.data.status === 'Archived' && !parsed.data.summary) findings.push(finding('error', 'missing-archive-context', rel, 'Archived documents require a summary explaining their retained context'));
     if (parsed.data.canonical) {
@@ -53,9 +53,36 @@ export function lintDocuments(rootInput) {
   return { root, summary, findings };
 }
 
+export function lintTemplates(rootInput) {
+  const root = path.resolve(rootInput);
+  const findings = [];
+  const files = walkFiles(path.join(root, 'templates')).filter((file) => file.endsWith('.md'));
+  for (const file of files) {
+    const parsed = parseFrontmatter(fs.readFileSync(file, 'utf8'));
+    const rel = path.relative(root, file);
+    if (parsed.error) {
+      findings.push(finding('error', parsed.error, rel, 'Governance templates require YAML frontmatter.'));
+      continue;
+    }
+    for (const key of REQUIRED) if (!(key in parsed.data)) findings.push(finding('error', 'missing-template-metadata', rel, `frontmatter is missing ${key}`));
+  }
+  const summary = { templates: files.length, errors: findings.filter((item) => item.severity === 'error').length, warnings: 0 };
+  return { root, summary, findings };
+}
+
 export function documentLintMarkdown(report) {
   const lines = ['# Governance Document Metadata Check', '', `- Documents: ${report.summary.documents}`, `- Errors: ${report.summary.errors}`, `- Warnings: ${report.summary.warnings}`, ''];
   if (!report.findings.length) lines.push('All authoritative governance documents have valid metadata.');
+  else {
+    lines.push('| Severity | Rule | Path | Message |', '|---|---|---|---|');
+    for (const item of report.findings) lines.push(`| ${item.severity} | ${item.id} | \`${item.path}\` | ${item.message.replaceAll('|', '\\|')} |`);
+  }
+  return lines.join('\n');
+}
+
+export function templateLintMarkdown(report) {
+  const lines = ['# Governance Template Metadata Check', '', `- Templates: ${report.summary.templates}`, `- Errors: ${report.summary.errors}`, ''];
+  if (!report.findings.length) lines.push('All governance templates have the required metadata fields.');
   else {
     lines.push('| Severity | Rule | Path | Message |', '|---|---|---|---|');
     for (const item of report.findings) lines.push(`| ${item.severity} | ${item.id} | \`${item.path}\` | ${item.message.replaceAll('|', '\\|')} |`);

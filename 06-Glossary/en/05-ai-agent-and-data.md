@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative glossary: AI, Agent & Data."
 canonical: ./05-ai-agent-and-data.md
+related: []
 supersedes: []
 superseded_by: []
 ---

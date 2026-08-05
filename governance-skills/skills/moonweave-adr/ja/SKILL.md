@@ -1,8 +1,6 @@
 ---
 name: moonweave-adr
 description: Architecture Decision Recordを作成またはレビューし、システム構造や品質属性に影響し逆転困難な、既に下された意思決定のコンテキスト、代替案、結果を記録する。RFC承認後、主要な技術選定、移行、既存アーキテクチャ決定の置き換えに使用。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:
@@ -30,6 +28,10 @@ Architecture Decision Recordを作成またはレビューし、システム構�
 - 関連RFC/Issue/PR
 - 候補案
 - 意思決定者と日付
+
+## 文書記録メタデータ
+
+ADR テンプレートから作成し、`created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by` を記入する。Accepted の履歴を書き換えず、後継リンクで置換する。
 
 
 ## Security Execution Contract

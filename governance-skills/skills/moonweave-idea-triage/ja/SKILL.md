@@ -1,8 +1,6 @@
 ---
 name: moonweave-idea-triage
 description: 散在なアイデア、フィードバック、インシデント改善、研究問いを実行可能なIdea/Discoveryレコードに変換する。タイプ、Area、リスク、Owner、優先度、エビデンス、次のステップのルーティングを完了する。新規アイデア、要件の明確化、バックログ整理、プロジェクト価値の判断に使用する。
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートする任意のプラットフォームで動作。決定論的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:

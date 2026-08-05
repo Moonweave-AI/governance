@@ -8,6 +8,7 @@ last_reviewed: 2026-08-05
 review_cycle_days: 180
 summary: "Authoritative governance policy: Community Health and Contributor Growth."
 canonical: ./02-Community.md
+related: []
 supersedes: []
 superseded_by: []
 ---

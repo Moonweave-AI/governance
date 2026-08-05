@@ -1,3 +1,17 @@
+---
+type: threat-model
+status: Draft
+owner: 
+created: 
+updated: 
+last_reviewed: 
+review_cycle_days: 180
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
+---
 # Threat Model: <system>
 
 ## Scope and Assets

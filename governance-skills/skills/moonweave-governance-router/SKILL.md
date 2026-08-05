@@ -1,8 +1,6 @@
 ---
 name: moonweave-governance-router
 description: Apply governance triage to any project request, Issue, PR, design, or incident first — identify work type, S0-S5 risk, QA-L0-L5 quality level, M0-M9 maturity, required Owner/DRI, and RFC/ADR/security/eval/embodiment gates, then route the task to the correct Moonweave skill. Use when unsure of the next step, starting complex work, or needing a governance overview.
-status: Active
-last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on any platform supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
