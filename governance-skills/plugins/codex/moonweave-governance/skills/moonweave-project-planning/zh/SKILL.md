@@ -1,6 +1,8 @@
 ---
 name: moonweave-project-planning
 description: 把已验证的问题或原型拆解成可执行的项目计划：生命周期状态、M0-M9成熟度、里程碑、Issue、依赖、Owner/DRI、质量证据、发布和退出条件。用于项目规划、Roadmap、Milestone、原型晋级和暂停/归档决策。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

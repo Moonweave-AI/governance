@@ -1,6 +1,8 @@
 ---
 name: moonweave-issue
 description: Create or refine actionable GitHub Issues covering Bug, Feature, Research, Experiment, Security, Docs, Migration, and Release tasks; ensure context, scope, acceptance, Owner, risk, and linked decisions are complete.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

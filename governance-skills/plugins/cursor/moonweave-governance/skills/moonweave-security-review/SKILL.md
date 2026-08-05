@@ -1,6 +1,8 @@
 ---
 name: moonweave-security-review
 description: Perform S0-S5 risk assessment, asset provenance review, threat modeling, Stop-Ship judgment, and exception review on projects, designs, Issues, PRs, dependencies, data, models, Agent tool permissions, or embodied capabilities. Use for security Review, release gates, and high-risk changes.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

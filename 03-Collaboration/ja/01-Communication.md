@@ -1,3 +1,16 @@
+---
+type: governance-process
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative governance process: コミュニケーション規範."
+canonical: ../en/01-Communication.md
+supersedes: []
+superseded_by: []
+---
 # コミュニケーション規範
 
 > 本文は、プロジェクトの組織コミュニケーションシステム設計を示します。「どの事柄をどのプラットフォームで話すか、どの情報を必ず記録に残すか、どのコミュニケーションは一時的でよいか、どの結論を GitHub / Notion / RFC / ADR に戻す必要があるか、会議で記録と追跡をどう作成するか、Agent の自動プッシュで何ができて何ができないか、引き継ぎ・欠席・事故・エスカレーションをどう扱うか」を扱います。

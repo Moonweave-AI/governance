@@ -1,6 +1,8 @@
 ---
 name: moonweave-retrospective
 description: 在发布、里程碑、事故、实验、RFC或长期任务结束后进行结构化反思，比较预期与实际，识别系统性原因、治理盲区和可复用知识，并形成有Owner的改进闭环。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

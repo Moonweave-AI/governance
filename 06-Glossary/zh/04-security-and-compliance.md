@@ -1,3 +1,16 @@
+---
+type: glossary
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative glossary: 安全与合规."
+canonical: ../en/04-security-and-compliance.md
+supersedes: []
+superseded_by: []
+---
 # 安全与合规
 
 本文档定义 Moonweave/辉夜计划（Kaguya Project）治理文档中使用的应用安全、供应链完整性、合规框架与漏洞管理相关术语。

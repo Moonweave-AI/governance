@@ -1,6 +1,8 @@
 ---
 name: moonweave-pull-request
 description: "Package implementation into a reviewable Pull Request: control scope, link Issue/RFC/ADR, explain motivation, tests, compatibility, security, AI/Agent, deployment, and rollback, and check Ready conditions. Use to open a PR, update a PR description, or prepare for merge."
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

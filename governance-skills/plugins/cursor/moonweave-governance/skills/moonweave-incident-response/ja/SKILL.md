@@ -1,6 +1,8 @@
 ---
 name: moonweave-incident-response
 description: 本番障害、セキュリティ脆弱性、データ破損、Agentの権限越境、Embodied異常、重大なリグレッションを処理する：単一タイムライン、Incident DRI、影響コミュニケーション、緩和/ロールバック、証拠保全、非公開開示、非難責ポストモーテムを確立する。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートするプラットフォームで適用。決定論的チェックは任意でNode.js 20+とmoonweave-skills CLIを使用。
 metadata:

@@ -1,6 +1,8 @@
 ---
 name: moonweave-incident-response
 description: Handle production outages, security vulnerabilities, data corruption, Agent overreach, embodied anomalies, or major regressions by establishing a single timeline, an Incident DRI, impact communication, mitigation/rollback, evidence preservation, private disclosure, and a blameless postmortem.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Applies on platforms that support the open Agent Skills format; deterministic checks optionally use Node.js 20+ and the moonweave-skills CLI.
 metadata:

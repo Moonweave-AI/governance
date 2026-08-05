@@ -1,3 +1,16 @@
+---
+type: governance-policy
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative governance policy: 輝夜計画の原則."
+canonical: ../en/01-Principles.md
+supersedes: []
+superseded_by: []
+---
 # 輝夜計画の原則
 
 > 名は輝夜に由来し、心は彩葉を継ぐ —— デジタル世界において、長く存在する生命に、歳月を貫く長情の伴走を与え、最終的には具現化された姿で、デジタル世界から現実の物理世界への跳躍を完成させる。

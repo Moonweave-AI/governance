@@ -1,3 +1,16 @@
+---
+type: governance-policy
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative governance policy: コミュニティ健全性と貢献者成長."
+canonical: ../en/02-Community.md
+supersedes: []
+superseded_by: []
+---
 # コミュニティ健全性と貢献者成長
 
 > 本文書は、輝夜計画が外部参加者をコミュニティに迎え入れ、貢献者が残り成長する方法、安全で尊重され持続可能な協働環境の維持方法、およびコミュニティが少数 Maintainer の暗黙的負担にならない方法を定義します。`01-Organization.md` は「誰が責任を負い、誰に権限があり、誰が裁定するか」に答えます。本文書は「人がどう入り、参加し、成長し、保護され、認められ、引き継がれるか」に答えます。コミュニティは権力構造ではなく、ライフサイクルです。

@@ -1,6 +1,8 @@
 ---
 name: moonweave-project-bootstrap
 description: 为新的辉夜计划仓库、服务、库、数据/模型项目或具身子项目建立Engineering Ready基线、Owner、风险与质量声明、标准文件、CI骨架、Agent配置和首次审计。用于创建项目、接管遗留仓库或把原型提升为正式工程。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

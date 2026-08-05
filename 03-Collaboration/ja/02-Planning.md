@@ -1,3 +1,16 @@
+---
+type: governance-process
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative governance process: 協業計画規範."
+canonical: ../en/02-Planning.md
+supersedes: []
+superseded_by: []
+---
 # 協業計画規範
 
 > 本文は、輝夜計画がアイデア、実験、プロトタイプ、または要件から始まり、それが実行に値するかをどう判断するか、どう検証するか、RFC / 設計にどう入るか、エンジニアリングタスクにどう分解するか、テスト、リリース、本番投入、運用、振り返りをどう完了するか、いつ一時停止、アーカイブ、終了するかを定義します。すべてのプロジェクトの **Idea → Prototype → Engineering → Release → Operation** に共通する統一フローです——単なる Roadmap ドキュメントでも、プロジェクト管理ツールの説明でもありません。

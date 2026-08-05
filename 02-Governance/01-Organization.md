@@ -1,3 +1,16 @@
+---
+type: governance-policy
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative governance policy: 组织结构与责任模型."
+canonical: ./01-Organization.md
+supersedes: []
+superseded_by: []
+---
 # 组织结构与责任模型
 
 > 本文定义辉夜计划中，责任如何归属，权限如何获得，Owner 如何产生，组织如何扩展，以及当无人负责、多人冲突或系统失效时由谁收敛。它是 `01-Principles.md` 中"可传承的系统优于个人英雄工程""存在比工具重要"在组织层的落地——把责任、权限、范围与升级路径明确化，而不是把权力集中给一个"核心组"。

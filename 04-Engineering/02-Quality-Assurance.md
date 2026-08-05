@@ -1,3 +1,16 @@
+---
+type: engineering-policy
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative engineering policy: 质量保障规范."
+canonical: ./02-Quality-Assurance.md
+supersedes: []
+superseded_by: []
+---
 # 质量保障规范
 
 > 本文定义辉夜计划中软件、AI Agent、前后端系统、基础设施、数据管线、模型服务、研究实验、具身控制系统与公开资产的质量保障体系。质量保障不是发布前的测试阶段，而是贯穿设计、实现、审查、构建、发布、运行、反馈与退役的持续证据系统。一个工程成果只有在其质量证据足以支撑对应风险等级和生命周期承诺时，才可以被合并、发布、上线、公开或进入长期维护。

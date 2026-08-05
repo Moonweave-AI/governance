@@ -11,14 +11,18 @@ area:
 risk_level:
 created:
 updated:
+last_reviewed:
+review_cycle_days: 180
+summary:
+canonical:
 fcp_start:
 fcp_end:
 decision_date:
 related_issues:
 related_prs:
 related_adrs:
-supersedes:
-superseded_by:
+supersedes: []
+superseded_by: []
 ---
 
 # RFC-0000: <title>

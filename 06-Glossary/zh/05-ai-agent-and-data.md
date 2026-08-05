@@ -1,3 +1,16 @@
+---
+type: glossary
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative glossary: AI、Agent 与数据."
+canonical: ../en/05-ai-agent-and-data.md
+supersedes: []
+superseded_by: []
+---
 # AI、Agent 与数据
 
 本文档定义 Moonweave/辉夜计划（Kaguya Project）治理文档中使用的人工智能、语言模型、自主 Agent 与数据管理相关术语。

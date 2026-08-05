@@ -1,6 +1,8 @@
 ---
 name: moonweave-engineering-brief
 description: 为标准或高风险工程变更撰写Engineering Brief，先定义领域概念、状态、不变量、接口和失败模式，再确定实现、技术选型、测试、观测、部署和回滚。用于进入正式开发前或PR过大需要前置设计时。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

@@ -1,3 +1,16 @@
+---
+type: governance-policy
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative governance policy: 組織構造と責任モデル."
+canonical: ../en/01-Organization.md
+supersedes: []
+superseded_by: []
+---
 # 組織構造と責任モデル
 
 > 本文書は、輝夜計画において、責任がどのように帰属するか、権限がどのように付与されるか、Owner がどのように生まれるか、組織がどのように拡張するか、そして誰も責任を負わない場合、複数者が衝突する場合、またはシステムが機能不全に陥った場合に誰が収束させるかを定義します。これは `../../01-Foundation/ja/01-Principles.md` における「個人のヒーロー工学よりも継承可能なシステム」「存在はツールより重要」という原則を組織層で具体化したものです——権力を「コアグループ」に集中させるのではなく、責任、権限、スコープ、エスカレーション経路を明確化します。

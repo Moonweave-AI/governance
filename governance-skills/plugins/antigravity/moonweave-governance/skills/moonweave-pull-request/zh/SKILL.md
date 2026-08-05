@@ -1,6 +1,8 @@
 ---
 name: moonweave-pull-request
 description: 把实现整理成可审查的Pull Request：控制范围、链接Issue/RFC/ADR、说明动机、测试、兼容、安全、AI/Agent、部署和回滚，并检查Ready条件。用于开PR、更新PR描述或准备合并。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

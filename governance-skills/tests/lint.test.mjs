@@ -20,6 +20,8 @@ test('lint flags unquoted colon in description (regression for moonweave-pull-re
     '---',
     'name: moonweave-bad-colon',
     'description: Package a Pull Request: control scope and link the Issue.',
+    'status: Active',
+    'last_reviewed: 2026-08-05',
     'license: MIT',
     '---',
     '# Bad',

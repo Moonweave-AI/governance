@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "version": "0.2.3",
-  "generated_at": null,
+  "generated_at": "2026-08-05T08:00:00.000Z",
   "source_skill_count": 25,
   "targets": [
     "portable",

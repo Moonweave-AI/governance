@@ -1,3 +1,16 @@
+---
+type: knowledge-policy
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative knowledge policy: Documentation Writing and Knowledge Asset Management Standards."
+canonical: ./01-Documentation-Guide.md
+supersedes: []
+superseded_by: []
+---
 # Documentation Writing and Knowledge Asset Management Standards
 
 > This document defines the rules for writing, maintaining, reviewing, versioning, expiration, and archiving of documentation, decision records, research records, data records, model records, and operational records in the Kaguya Project. Documentation is not an afterthought that follows code completion—it is infrastructure that makes the system understandable, maintainable, reproducible, auditable, and transferable. An engineering outcome is truly complete only when its knowledge records are sufficient for successors to understand, verify, and take over.

@@ -1,6 +1,8 @@
 ---
 name: moonweave-documentation
 description: README、Tutorial、How-to、Reference、Explanation、APIドキュメント、Runbook、Model/Dataset/Agent Cardなどのナレッジ資産を作成・リファクタ・レビューし、単一の事実源、Owner、ステータス、メタデータ、リンク、Review、ライフサイクルを確保する。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートするプラットフォーム向け。決定的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:

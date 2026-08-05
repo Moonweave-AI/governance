@@ -1,6 +1,8 @@
 ---
 name: moonweave-quality-assurance
 description: 为软件、服务、数据、模型、Agent或具身系统确定QA-L0-L5，设计测试分层和质量证据，执行Q0-Q5门禁，识别Flaky test、质量债和发布阻断。用于测试计划、CI门禁、质量审查和生产就绪。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

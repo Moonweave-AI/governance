@@ -1,6 +1,8 @@
 ---
 name: moonweave-flow
 description: Run a staged multi-skill flow for the current project phase. First audit the project to determine its phase (idea, engineering, major-refactor/RFC, release, operation, or retirement), list the upcoming staged steps, and ask the user to confirm the phase and consent before executing the full staged flow. Each stage invokes the appropriate Moonweave skill and gates; high-risk stages still require their own reviews and human confirmation.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on any platform supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

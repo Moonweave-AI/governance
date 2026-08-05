@@ -1,3 +1,16 @@
+---
+type: glossary
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative glossary: 身体性知能とロボティクス."
+canonical: ../en/07-embodiment-and-robotics.md
+supersedes: []
+superseded_by: []
+---
 # 身体性知能とロボティクス
 
 物理システム、ロボット制御、シミュレーション、安全メカニズム、ハードウェアとソフトウェアの相互作用に関する用語集です。輝夜計画の身体性知能（Embodiment）領域の中核概念を定義します。

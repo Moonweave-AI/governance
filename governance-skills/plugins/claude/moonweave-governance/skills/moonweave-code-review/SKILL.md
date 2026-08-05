@@ -1,6 +1,8 @@
 ---
 name: moonweave-code-review
 description: Perform evidence-driven review of PRs or diffs, covering correctness, design, complexity, testing, contracts, security, privacy, AI/Agent, embodiment, performance, observability, deployment, and documentation; produce actionable findings by severity. Use for GitHub PR Review, pre-merge checks, or independent audit.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

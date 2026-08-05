@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moonweave.ai/schemas/governance-document-metadata-v1.json",
+  "title": "Moonweave Governance Document Metadata",
+  "description": "Frontmatter required on authoritative governance documents.",
+  "type": "object",
+  "required": ["type", "status", "owner", "created", "updated", "last_reviewed", "review_cycle_days", "summary", "canonical", "supersedes", "superseded_by"],
+  "properties": {
+    "type": {"type": "string", "enum": ["governance-policy", "governance-process", "engineering-policy", "knowledge-policy", "glossary"]},
+    "status": {"type": "string", "enum": ["Draft", "Active", "Deprecated", "Superseded", "Archived"]},
+    "owner": {"type": "string", "minLength": 1},
+    "created": {"type": "string", "format": "date"},
+    "updated": {"type": "string", "format": "date"},
+    "last_reviewed": {"type": "string", "format": "date"},
+    "review_cycle_days": {"type": "integer", "minimum": 1},
+    "summary": {"type": "string", "minLength": 20, "maxLength": 280},
+    "canonical": {"type": "string", "minLength": 1},
+    "supersedes": {"type": "array", "items": {"type": "string"}},
+    "superseded_by": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

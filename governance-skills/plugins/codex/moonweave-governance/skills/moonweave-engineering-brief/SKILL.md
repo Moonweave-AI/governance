@@ -1,6 +1,8 @@
 ---
 name: moonweave-engineering-brief
 description: Write an Engineering Brief for standard or high-risk engineering changes, defining domain concepts, state, invariants, interfaces, and failure modes first, then implementation, technology selection, testing, observability, deployment, and rollback. Use before formal development begins or when a PR is too large and needs upfront design.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

@@ -1,6 +1,8 @@
 ---
 name: moonweave-documentation
 description: 创建、重构或审查README、Tutorial、How-to、Reference、Explanation、API文档、Runbook、Model/Dataset/Agent Card等知识资产，确保单一事实源、Owner、状态、元数据、链接、Review和生命周期。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

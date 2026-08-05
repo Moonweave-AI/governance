@@ -1,3 +1,16 @@
+---
+type: glossary
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative glossary: 基础设施与运维."
+canonical: ../en/06-infrastructure-and-operations.md
+supersedes: []
+superseded_by: []
+---
 # 基础设施与运维
 
 本文档定义 Moonweave/辉夜计划（Kaguya Project）治理文档中使用的部署、发布管理、监控、事故响应与运维可靠性相关术语。

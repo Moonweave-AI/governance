@@ -1,3 +1,16 @@
+---
+type: governance-process
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative governance process: RFC Process."
+canonical: ./03-RFC-Process.md
+supersedes: []
+superseded_by: []
+---
 # RFC Process
 
 > This document is the formal decision process for major changes in the Kaguya Project—not an ordinary "proposal template." When an idea affects long-term architecture, public interfaces, cross-repository contracts, AI Agent behavior, security boundaries, embodied control, organizational governance, or long-term maintenance responsibility, it must complete public argument, review, decision, archival, and implementation tracking through the RFC process. Small changes go through Issue / PR; large changes go through structured design and community review first.

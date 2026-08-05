@@ -1,6 +1,8 @@
 ---
 name: moonweave-help
 description: 帮用户为当前情境选择合适的 Moonweave skill 或命令。按阶段分组介绍 25 个 skill,在意图不明确时提出一个澄清问题,并用一句话理由推荐最佳下一步 skill。当用户问"该用哪个 skill""该跑什么命令"或不确定如何起步时使用。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持 Agent Skills 开放格式的平台;确定性检查可选 Node.js 20+ 与 moonweave-skills CLI。
 metadata:

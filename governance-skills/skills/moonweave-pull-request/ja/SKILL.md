@@ -1,6 +1,8 @@
 ---
 name: moonweave-pull-request
 description: 実装をレビュー可能なPull Requestにまとめる。スコープを制御し、Issue/RFC/ADRをリンクし、動機、テスト、互換性、セキュリティ、AI/Agent、デプロイ、ロールバックを説明し、Ready条件を確認する。PR作成、PR説明の更新、マージ準備に使用する。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+とmoonweave-skills CLIを要求する。
 metadata:

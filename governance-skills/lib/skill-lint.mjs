@@ -5,6 +5,8 @@ import { parseFrontmatter } from './frontmatter.mjs';
 import { normalizeRel, walkFiles } from './fs-utils.mjs';
 
 const NAME_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const SKILL_STATUSES = new Set(['Draft', 'Active', 'Deprecated', 'Superseded', 'Archived']);
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const DANGEROUS = [
   { id: 'pipe-shell', regex: /(?:curl|wget)[^\n|]*\|\s*(?:bash|sh|zsh)/i, message: 'Detected download-then-execute shell pattern' },
   { id: 'rm-rf', regex: /\brm\s+-rf\s+(?:\/|~|\$HOME|\.\.)/i, message: 'Detected high-risk recursive delete command' },
@@ -42,6 +44,10 @@ function checkSkillDir(skillDir, root) {
     const unquoted = !/^['"]/.test(value);
     if (unquoted && /:\s/.test(value)) findings.push({ severity: 'error', id: 'description-unquoted-colon', path: rel, message: 'description contains an unquoted ": " sequence; standard YAML parsers may misparse it. Quote the value.' });
   }
+  if (!parsed.data.status) findings.push({ severity: 'error', id: 'missing-skill-status', path: rel, message: 'frontmatter is missing status' });
+  else if (!SKILL_STATUSES.has(parsed.data.status)) findings.push({ severity: 'error', id: 'invalid-skill-status', path: rel, message: `Unknown status: ${parsed.data.status}` });
+  if (!parsed.data.last_reviewed) findings.push({ severity: 'error', id: 'missing-skill-review-date', path: rel, message: 'frontmatter is missing last_reviewed' });
+  else if (!DATE_RE.test(parsed.data.last_reviewed)) findings.push({ severity: 'error', id: 'invalid-skill-review-date', path: rel, message: 'last_reviewed must be YYYY-MM-DD' });
 
   const bodyWords = parsed.body.trim().split(/\s+/).filter(Boolean).length;
   if (bodyWords > 5000) findings.push({ severity: 'warning', id: 'body-too-long', path: rel, message: `Body is about ${bodyWords} tokens/words; consider splitting references for progressive loading` });

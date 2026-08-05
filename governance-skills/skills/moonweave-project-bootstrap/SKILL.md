@@ -1,6 +1,8 @@
 ---
 name: moonweave-project-bootstrap
 description: Establish an Engineering Ready baseline for a new Moonweave repo, service, library, data/model project, or embodiment subproject — Owner, risk and quality declarations, standard files, CI skeleton, Agent configuration, and a first audit. Use when creating a project, taking over a legacy repo, or promoting a prototype to formal engineering.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on any platform supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

@@ -1,3 +1,16 @@
+---
+type: knowledge-policy
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative knowledge policy: Live Paired Evaluation — Agent Self-Test Prompt."
+canonical: ./live-evaluation-prompt.md
+supersedes: []
+superseded_by: []
+---
 # Live Paired Evaluation — Agent Self-Test Prompt
 
 > Paste this entire block into the Agent (Cursor / Claude Code / Codex / etc.)

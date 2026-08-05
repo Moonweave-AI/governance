@@ -1,6 +1,8 @@
 ---
 name: moonweave-engineering-brief
 description: 標準または高リスクのエンジニアリング変更に対するEngineering Briefを作成し、ドメイン概念、状態、不変条件、インターフェース、失敗モードを先に定義し、その後実装、技術選定、テスト、観測、デプロイ、ロールバックを決定する。正式開発前やPRが大きく事前設計が必要な場合に使用。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:

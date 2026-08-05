@@ -1,3 +1,16 @@
+---
+type: governance-process
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative governance process: RFC プロセス."
+canonical: ../en/03-RFC-Process.md
+supersedes: []
+superseded_by: []
+---
 # RFC プロセス
 
 > 本文は輝夜計画の重大変更に対する正式意思決定プロセスであり、通常の「提案テンプレート」ではありません。アイデアが長期アーキテクチャ、公開インターフェース、リポジトリ横断契約、AI Agent 行動、セキュリティ境界、具身制御、組織ガバナンス、長期保守責任に影響する場合、RFC プロセスを通じて公開論証、レビュー、決定、アーカイブ、実装追跡を完了する必要があります。小変更は Issue / PR、大変更は構造化設計とコミュニティレビューを先に行います。

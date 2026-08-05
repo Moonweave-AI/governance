@@ -1,3 +1,16 @@
+---
+type: glossary
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative glossary: Infrastructure & Operations."
+canonical: ./06-infrastructure-and-operations.md
+supersedes: []
+superseded_by: []
+---
 # Infrastructure & Operations
 
 Terms related to deployment, release management, monitoring, incident response, and operational reliability.

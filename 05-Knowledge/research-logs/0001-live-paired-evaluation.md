@@ -1,12 +1,16 @@
 ---
-type: research-log
-status: active
+type: knowledge-policy
+status: Active
 owner: Moonweave AI Governance Maintainers
-risk: S1
-visibility: public
 created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative knowledge policy: Experiment Log: Live Paired Evaluation of Moonweave Skills."
+canonical: ./0001-live-paired-evaluation.md
+supersedes: []
+superseded_by: []
 ---
-
 # Experiment Log: Live Paired Evaluation of Moonweave Skills
 
 ## Research Question

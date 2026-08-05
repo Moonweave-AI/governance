@@ -1,6 +1,8 @@
 ---
 name: moonweave-repository-audit
 description: 任意のMoonweaveプロジェクトリポジトリに対して読み取り専用監査を実行し、ガバナンスインストール、Owner、リスク/品質宣言、README/SECURITY/CODEOWNERS、CI、依存ロック、Issue/PRテンプレート、テスト、ドキュメント、AI/データ/具身特有のエビデンス、潜在的secretをチェックし、追跡可能な是正計画を出力する。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームに適用。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:

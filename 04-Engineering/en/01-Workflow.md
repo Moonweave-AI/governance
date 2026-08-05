@@ -1,3 +1,16 @@
+---
+type: engineering-policy
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative engineering policy: Engineering Workflow."
+canonical: ./01-Workflow.md
+supersedes: []
+superseded_by: []
+---
 # Engineering Workflow
 
 > This document defines the unified workflow for engineering work in the Kaguya Project—from design through delivery—for software, AI Agents, frontend and backend systems, infrastructure, data pipelines, model services, toolchains, and embodied systems. It focuses on "how to complete work in an engineering manner," including technical design confirmation, implementation preparation, development branches, local verification, Pull Request, Code Review, CI/CD, build, deployment, release verification, issue feedback, and the fix loop.

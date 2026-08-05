@@ -1,6 +1,8 @@
 ---
 name: moonweave-project-bootstrap
 description: 新しいMoonweaveリポジトリ、サービス、ライブラリ、データ/モデルプロジェクト、具現化サブプロジェクトにEngineering Readyベースラインを構築する。Owner、リスク・品質宣言、標準ファイル、CIスケルトン、Agent設定、初回監査を行う。プロジェクト作成、レガシーリポジトリの引き継ぎ、プロトタイプの正式エンジニアリングへの引き上げ時に使用する。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートする任意のプラットフォームで動作。決定論的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:

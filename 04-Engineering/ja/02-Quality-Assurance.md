@@ -1,3 +1,16 @@
+---
+type: engineering-policy
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative engineering policy: 品質保障規範."
+canonical: ../en/02-Quality-Assurance.md
+supersedes: []
+superseded_by: []
+---
 # 品質保障規範
 
 > 本文書は、輝夜計画におけるソフトウェア、AI Agent、フロントエンド／バックエンドシステム、インフラストラクチャ、データパイプライン、モデルサービス、研究実験、具身制御システム、公開資産の品質保障体系を定義します。品質保障はリリース前のテスト段階ではなく、設計、実装、レビュー、ビルド、リリース、運用、フィードバック、退役を貫く継続的証拠システムです。エンジニアリング成果物は、品質証拠が対応するリスク等級とライフサイクルコミットメントを支えるに足る場合にのみ、マージ、リリース、本番投入、公開、長期保守に入ることができます。

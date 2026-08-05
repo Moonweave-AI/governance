@@ -1,6 +1,8 @@
 ---
 name: moonweave-repository-audit
 description: Perform a read-only audit of any Moonweave project repository, checking governance installation, Owners, risk/quality claims, README/SECURITY/CODEOWNERS, CI, dependency locking, Issue/PR templates, tests, docs, AI/data/embodiment-specific evidence, and potential secrets; output a trackable remediation plan.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

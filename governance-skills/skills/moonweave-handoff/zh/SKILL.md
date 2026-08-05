@@ -1,6 +1,8 @@
 ---
 name: moonweave-handoff
 description: 为DRI/Owner暂离、角色变化、项目暂停、事故换班、工作组结束或仓库移交创建可执行Handoff，更新Owner Registry、访问路径、风险、下一步和接收确认。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

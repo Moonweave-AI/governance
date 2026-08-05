@@ -1,3 +1,16 @@
+---
+type: knowledge-policy
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative knowledge policy: ドキュメント作成およびナレッジ資産管理規範."
+canonical: ../en/01-Documentation-Guide.md
+supersedes: []
+superseded_by: []
+---
 # ドキュメント作成およびナレッジ資産管理規範
 
 > 本文書は、輝夜計画におけるドキュメント、意思決定記録、研究記録、データ記録、モデル記録、運用記録の作成、保守、レビュー、バージョン管理、失効、およびアーカイブのルールを定義します。ドキュメントはコード完成後の付属物ではなく、システムを理解可能、保守可能、再現可能、監査可能、引き継ぎ可能にするインフラストラクチャです。エンジニアリング成果は、そのナレッジ記録が後任者が理解、検証、引き継ぎに十分である場合にのみ、真に完成したと言えます。

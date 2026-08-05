@@ -1,6 +1,6 @@
 {
   "name": "moonweave-governance-skills",
-  "version": "0.1.0",
+  "version": "0.2.3",
   "governance_source": "https://github.com/Moonweave-AI/governance",
   "governance_branch": "main",
   "retrieved_at": "2026-07-22",

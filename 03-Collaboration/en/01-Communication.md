@@ -1,3 +1,16 @@
+---
+type: governance-process
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative governance process: Communication Standards."
+canonical: ./01-Communication.md
+supersedes: []
+superseded_by: []
+---
 # Communication Standards
 
 > This document presents the organizational communication system design for the project. It addresses "which platform is used for which matters, which information must be captured, which communication can be ephemeral, which conclusions must return to GitHub / Notion / RFC / ADR, how meetings create records for tracking, what Agent automation may and may not push, and how handoffs, absences, incidents, and escalations are handled."

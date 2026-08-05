@@ -1,6 +1,8 @@
 ---
 name: moonweave-quality-assurance
 description: Determine QA-L0-L5 for software, services, data, models, Agents, or embodied systems; design test layers and quality evidence; execute Q0-Q5 gates; identify flaky tests, quality debt, and release blockers. Use for test planning, CI gates, quality reviews, and production readiness.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

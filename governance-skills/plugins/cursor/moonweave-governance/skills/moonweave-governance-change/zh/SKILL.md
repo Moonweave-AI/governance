@@ -1,6 +1,8 @@
 ---
 name: moonweave-governance-change
 description: 修改辉夜计划原则、治理、协作、工程、质量、知识或skills本身时，执行治理RFC、影响分析、向后兼容、平台适配、评测、版本和迁移流程。用于更新governance仓库、增加/修改skill或平台适配器。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:

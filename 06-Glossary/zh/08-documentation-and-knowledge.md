@@ -1,3 +1,16 @@
+---
+type: glossary
+status: Active
+owner: Moonweave AI Governance Maintainers
+created: 2026-07-22
+updated: 2026-08-05
+last_reviewed: 2026-08-05
+review_cycle_days: 180
+summary: "Authoritative glossary: 文档与知识管理."
+canonical: ../en/08-documentation-and-knowledge.md
+supersedes: []
+superseded_by: []
+---
 # 文档与知识管理
 
 本文档定义 Moonweave/辉夜计划（Kaguya Project）治理文档中使用的技术写作、文档系统、知识组织与信息架构相关术语。

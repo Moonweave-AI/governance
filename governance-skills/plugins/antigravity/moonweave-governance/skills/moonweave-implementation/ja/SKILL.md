@@ -1,6 +1,8 @@
 ---
 name: moonweave-implementation
 description: 既にEngineering Readyのコードまたはシステム変更を実行し、短命ブランチ、小さなコミット、再現可能な環境、ローカル検証、スコープ制御、依存ガバナンス、テスト/ドキュメント同期に従う。実際の開発、リファクタリング、修正、クロスファイル実装に使用。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:

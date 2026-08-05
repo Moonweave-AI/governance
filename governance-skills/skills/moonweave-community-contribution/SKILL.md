@@ -1,6 +1,8 @@
 ---
 name: moonweave-community-contribution
 description: Handle external contributions, first Issues/PRs, non-code contributions, AI-assisted contributions, Mentorship, and community conflict; keep entry points clear, feedback specific, contributions recognizable, maintainer load controlled, and the Code of Conduct enforceable.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Applies on platforms that support the open Agent Skills format; deterministic checks optionally use Node.js 20+ and the moonweave-skills CLI.
 metadata:

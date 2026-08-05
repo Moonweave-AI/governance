@@ -1,6 +1,8 @@
 ---
 name: moonweave-release-readiness
 description: Execute Release Readiness, artifact traceability, migration/rollback, monitoring, SLO, staged rollout, and post-launch verification; output Go/No-Go/Conditional Go. Use for version releases, production deployments, model/Agent launches, or embodied capability releases.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

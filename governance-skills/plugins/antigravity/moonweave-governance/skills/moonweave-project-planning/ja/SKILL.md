@@ -1,6 +1,8 @@
 ---
 name: moonweave-project-planning
 description: 検証済みの問題やプロトタイプを実行可能なプロジェクト計画に分解する。ライフサイクル状態、M0-M9成熟度、マイルストーン、Issue、依存、Owner/DRI、品質エビデンス、リリース、終了条件を定義する。プロジェクト計画、Roadmap、Milestone、プロトタイプ昇格、一時停止/アーカイブ意思決定に使用する。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープン形式をサポートする任意のプラットフォームで動作。決定論的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:

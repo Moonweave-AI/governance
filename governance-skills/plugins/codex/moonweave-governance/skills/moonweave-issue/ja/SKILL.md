@@ -1,6 +1,8 @@
 ---
 name: moonweave-issue
 description: Bug、Feature、Research、Experiment、Security、Docs、Migration、Releaseタスクを含む実行可能なGitHub Issueを作成または改善し、コンテキスト、スコープ、验收、Owner、リスク、関連決定が完全であることを確保する。
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+とmoonweave-skills CLIを要求する。
 metadata:

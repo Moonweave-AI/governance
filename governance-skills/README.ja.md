@@ -4,7 +4,7 @@
 
 [Moonweave AI Governance](https://github.com/Moonweave-AI/governance) を「人が記憶すべき長文ドキュメント」から、発見可能・呼出可能・検査可能・監査可能な Agent Skills・コマンド・テンプレート・CLI・プラットフォームアダプタへとコンパイルします。
 
-> **バージョン: 0.1.0**
+> **バージョン: 0.2.3**
 > **スペックスナップショット: 2026-07-22**
 > **ステータス: Active / 公開発行前。機能とインストール成果物は検証済み、npm パッケージと各プラットフォームのマーケットプレースは Moonweave AI アカウントによる実際の公開または審査提出が必要です。**
 > **Owner: Moonweave AI Governance Maintainers。Backup Owner: Moonweave AI Stewardship Council。**
@@ -94,6 +94,7 @@ moonweave-skills doctor --root .
 moonweave-skills new rfc --title "長期記憶状態プロトコルの統一"
 moonweave-skills audit --root . --profile ai-agent --format markdown
 moonweave-skills lint-skills
+moonweave-skills lint-docs --root ..
 moonweave-skills checksums
 ```
 

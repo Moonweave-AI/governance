@@ -1,6 +1,8 @@
 ---
 name: moonweave-documentation
 description: Create, refactor, or review knowledge assets such as README, Tutorial, How-to, Reference, Explanation, API docs, Runbook, and Model/Dataset/Agent Cards, ensuring a single source of truth, Owner, status, metadata, links, review, and lifecycle.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

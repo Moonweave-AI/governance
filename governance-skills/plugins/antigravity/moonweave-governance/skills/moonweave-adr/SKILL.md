@@ -1,6 +1,8 @@
 ---
 name: moonweave-adr
 description: Create or review an Architecture Decision Record capturing decisions already made that affect system structure or quality attributes and are hard to reverse, including context, alternatives, and consequences. Use after an RFC is accepted, for major technology selection, migrations, or superseding existing architecture decisions.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:

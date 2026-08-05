@@ -1,6 +1,8 @@
 ---
 name: moonweave-research
 description: Design, execute, or review research experiments, paper reviews, reproductions, Dataset/Model Cards, and Eval records, ensuring hypotheses, code/data/model/config/hardware/random seeds, raw results, negative results, limitations, and next steps are traceable.
+status: Active
+last_reviewed: 2026-08-05
 license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
