@@ -1,5 +1,5 @@
 ---
-type: "research-log"
+type: "knowledge-policy/research-logs"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
