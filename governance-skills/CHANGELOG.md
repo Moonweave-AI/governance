@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.4 — 2026-08-06
+
+- Add unified governance document metadata requirements (status, Owner, dates,
+  review cadence, canonical source, superseded-by) across the knowledge base.
+- Register the live paired evaluation prompt as a typed research asset and align
+  metadata guidance with maintainer feedback.
+- Regenerate adapters, checksums, and release metadata for version 0.2.4 after
+  the failed v0.2.4 tag (package was still 0.2.3 at publish time).
+
 ## 0.2.3 — 2026-07-22
 
 - Fix CLI router under-rating high-risk production/deploy cases found by the

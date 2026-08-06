@@ -1,6 +1,6 @@
 {
   "name": "@moonweave-ai/governance-skills",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Cross-platform Agent Skills, commands, deterministic checks, templates and adapters implementing the Moonweave AI governance system.",
   "type": "module",
   "license": "MIT",

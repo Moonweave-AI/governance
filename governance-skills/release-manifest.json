@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "package": "@moonweave-ai/governance-skills",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "status": "published",
   "governance_source": "https://github.com/Moonweave-AI/governance",
-  "governance_snapshot_date": "2026-07-22",
+  "governance_snapshot_date": "2026-08-06",
   "contents": {
     "skills": 25,
     "commands": 25,
@@ -55,7 +55,7 @@
       "S4/S5 routing and embodied Stop-Ship tests",
       "positive and negative skill triggering regression",
       "package self-audit",
-      "npm registry publication (0.2.2 published via release.yml)",
+      "npm registry publication (0.2.4 published via release.yml)",
       "release signing and OIDC provenance (npm publish --provenance, SLSA v1, GitHub Actions OIDC)",
       "third-party marketplace discovery verified via skills.sh (npx skills add Moonweave-AI/governance/governance-skills --all -g installed 25/25 to 73 agents; Eve and PromptScript skipped as the platforms do not support global scope)",
       "third-party security scan (skills.sh Socket + Snyk + Gen): all 25 skills rated Safe, 0 high-severity alerts",

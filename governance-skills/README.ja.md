@@ -4,9 +4,9 @@
 
 [Moonweave AI Governance](https://github.com/Moonweave-AI/governance) を「人が記憶すべき長文ドキュメント」から、発見可能・呼出可能・検査可能・監査可能な Agent Skills・コマンド・テンプレート・CLI・プラットフォームアダプタへとコンパイルします。
 
-> **バージョン: 0.2.3**
-> **スペックスナップショット: 2026-07-22**
-> **ステータス: Active / 公開発行前。機能とインストール成果物は検証済み、npm パッケージと各プラットフォームのマーケットプレースは Moonweave AI アカウントによる実際の公開または審査提出が必要です。**
+> **バージョン: 0.2.4**
+> **スペックスナップショット: 2026-08-06**
+> **ステータス: Active / published。npm `@moonweave-ai/governance-skills@0.2.4` として公開済み（SLSA provenance 付き）。skills.sh と各プラットフォームマーケットプレース（Cursor、Claude Code、Codex、Antigravity、Kilo、OpenCode、汎用 `.agents/skills` 形式）から発見・インストール可能。**
 > **Owner: Moonweave AI Governance Maintainers。Backup Owner: Moonweave AI Stewardship Council。**
 
 ## コアアーキテクチャ
