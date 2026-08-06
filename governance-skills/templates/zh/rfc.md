@@ -2,23 +2,28 @@
 rfc: RFC-0000
 title:
 status: Draft
-type: Engineering
+type: engineering/rfc
 authors:
 champion:
 sponsor:
 decision_owner:
 area:
 risk_level:
-created:
-updated:
+created: <date>
+updated: <date>
+last_reviewed: <date>
+summary:
+canonical:
 fcp_start:
 fcp_end:
 decision_date:
 related_issues:
 related_prs:
 related_adrs:
-supersedes:
-superseded_by:
+supersedes: []
+superseded_by: []
+owner: 
+related: []
 ---
 
 # RFC-0000: <title>

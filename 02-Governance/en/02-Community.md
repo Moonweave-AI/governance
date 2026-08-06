@@ -1,3 +1,16 @@
+---
+type: "governance-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance policy: Community Health and Contributor Growth."
+canonical: "./02-Community.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # Community Health and Contributor Growth
 
 > This document defines how the Kaguya Project enables external participants to enter the community, how contributors stay and grow, how a safe, respectful, and sustainable collaboration environment is maintained, and how the community avoids becoming an implicit burden on a few maintainers. `01-Organization.md` answers "who is responsible, who has permissions, who adjudicates"; this document answers "how people enter, participate, grow, are protected, are recognized, and are handed off." Community is the life cycle, not the power structure.

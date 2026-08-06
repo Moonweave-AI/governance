@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: 具身智能与机器人."
+canonical: "../en/07-embodiment-and-robotics.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 具身智能与机器人
 
 本文档定义 Moonweave/辉夜计划（Kaguya Project）治理文档中使用的物理系统、机器人控制、仿真、安全机制与软硬件交互相关术语。

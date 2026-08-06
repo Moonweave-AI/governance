@@ -1,13 +1,21 @@
 ---
-type: engineering-brief
+type: engineering/brief
 status: draft
-owner:
+owner: <owner>
 dri:
 risk:
 quality_level:
 related_issue:
 related_rfc:
 related_adr:
+created: 
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Engineering Brief: <title>

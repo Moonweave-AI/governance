@@ -1,3 +1,16 @@
+---
+type: operations/postmortem
+status: Draft
+owner: 
+created: 
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
+---
 # Postmortem: <title>
 
 ## Summary

@@ -1,3 +1,16 @@
+---
+type: "governance-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance policy: Organizational Structure and Responsibility Model."
+canonical: "./01-Organization.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # Organizational Structure and Responsibility Model
 
 > This document defines how responsibility is assigned, how permissions are granted, how Owners are established, how the organization scales, and who converges when no one is responsible, when multiple parties conflict, or when the system fails in the Kaguya Project. It is the organizational-layer implementation of "systems that outlast individuals beat hero engineering" and "existence matters more than tools" from `../../01-Foundation/en/01-Principles.md`—making responsibility, permissions, scope, and escalation paths explicit rather than concentrating power in a "core group."

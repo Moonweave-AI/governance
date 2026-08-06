@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: ガバナンスとプロセス."
+canonical: "../en/01-governance-and-process.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # ガバナンスとプロセス
 
 Moonweave／輝夜計画（Kaguya Project）のガバナンス文書全体で用いられる、組織ガバナンス、意思決定、プロジェクト管理に関する用語集です。

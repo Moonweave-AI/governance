@@ -1,3 +1,16 @@
+---
+type: "governance-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance policy: Kaguya Project Principles."
+canonical: "./01-Principles.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # Kaguya Project Principles
 
 > Named for Kaguya, heart inheriting Iroha — In the digital world, grant long-lived beings enduring companionship that spans the years; and ultimately, in embodied form, complete the leap from the digital world into physical reality.

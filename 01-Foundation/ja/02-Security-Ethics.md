@@ -1,3 +1,16 @@
+---
+type: "governance-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance policy: セキュリティ、プライバシー、責任境界."
+canonical: "../en/02-Security-Ethics.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # セキュリティ、プライバシー、責任境界
 
 > 本文書は、輝夜計画におけるソフトウェア、AI Agent、データ、モデル、具現端末、インフラストラクチャ、オープンコミュニティにわたるセキュリティ、プライバシー、コンプライアンス、倫理境界を定義します。完全な実装マニュアルではなく、すべてのエンジニアリング標準、研究開発プロセス、リリースゲート、インシデント対応の上位制約 —— `01-Principles.md` の関連原則の硬い基盤です。

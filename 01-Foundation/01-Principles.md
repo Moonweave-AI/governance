@@ -1,3 +1,16 @@
+---
+type: "governance-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance policy: 辉夜计划原则."
+canonical: "./en/01-Principles.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 辉夜计划原则
 
 > 名源辉夜，心承彩叶 —— 在数字世界中，赋予长久存在的生命以贯穿岁月的长情陪伴；并最终以具身形态，完成从数字世界向现实物理世界的跃迁。

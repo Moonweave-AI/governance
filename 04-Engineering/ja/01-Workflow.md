@@ -1,3 +1,16 @@
+---
+type: "engineering-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative engineering policy: エンジニアリングワークフロー."
+canonical: "../en/01-Workflow.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # エンジニアリングワークフロー
 
 > 本文書は、輝夜計画におけるソフトウェア、AI Agent、フロントエンド／バックエンドシステム、インフラストラクチャ、データパイプライン、モデルサービス、ツールチェーン、および具身関連エンジニアリングが、設計からデリバリーまで統一されたワークフローに従うことを定義します。本文書は「エンジニアリング的にどのように作業を完了するか」に焦点を当て、技術方案の確認、実装準備、開発ブランチ、ローカル検証、Pull Request、Code Review、CI/CD、ビルド、デプロイ、リリース検証、問題フィードバック、および修正ループを含みます。

@@ -1,10 +1,18 @@
 ---
-type: prototype
+type: engineering/prototype
 status: active
-owner:
+owner: <owner>
 risk:
 maturity: M3
 expires:
+created: 
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Prototype / Experiment: <title>

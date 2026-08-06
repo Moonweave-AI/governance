@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: ドキュメンテーションと知識管理."
+canonical: "../en/08-documentation-and-knowledge.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # ドキュメンテーションと知識管理
 
 技術文書作成、ドキュメントシステム、知識組織化、情報アーキテクチャに関する用語集です。輝夜計画のDocs as Code方針と知識資産管理の基礎概念を定義します。

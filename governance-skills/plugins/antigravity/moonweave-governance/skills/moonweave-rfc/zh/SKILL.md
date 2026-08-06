@@ -29,6 +29,10 @@ metadata:
 - 替代方案和风险
 - 相关RFC/ADR/Issue
 
+## 文档记录元数据
+
+必须从 RFC 模板创建文档。写正文前填写 `created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by`；日期使用 ISO 格式，并保留已接受决策的历史关联。
+
 
 ## 安全执行契约
 

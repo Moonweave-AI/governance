@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: Quality & Testing."
+canonical: "./03-quality-and-testing.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # Quality & Testing
 
 Terms related to software quality assurance, testing strategies, and verification practices.

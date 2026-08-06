@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: Engineering & Development."
+canonical: "./02-engineering-and-development.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # Engineering & Development
 
 Terms related to software engineering practices, version control, branching strategies, and development workflows.

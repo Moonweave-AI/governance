@@ -1,3 +1,16 @@
+---
+type: security/hazard-analysis
+status: Draft
+owner: 
+created: 
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
+---
 # Hazard Analysis: <embodied-system>
 
 ## システム / 環境 / リスクに晒される人

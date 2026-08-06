@@ -1,3 +1,16 @@
+---
+type: "governance-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance policy: 社区健康与贡献者成长."
+canonical: "./en/02-Community.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 社区健康与贡献者成长
 
 > 本文定义辉夜计划如何让外部参与者进入社区，如何让贡献者留下并成长，如何维护安全、尊重、可持续的协作环境，以及社区如何避免变成少数维护者的隐性负担。`01-Organization.md` 回答"谁负责、谁有权限、谁裁决"；本文回答"人如何进入、参与、成长、被保护、被认可、被交接"。社区是生命循环，不是权力结构。

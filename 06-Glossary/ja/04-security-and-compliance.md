@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: セキュリティとコンプライアンス."
+canonical: "../en/04-security-and-compliance.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # セキュリティとコンプライアンス
 
 アプリケーションセキュリティ、サプライチェーンの完全性、コンプライアンスフレームワーク、脆弱性管理に関する用語集です。輝夜計画のセキュリティレベル（S0〜S5）の基礎を定義します。

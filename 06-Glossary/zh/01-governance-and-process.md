@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: 治理与流程."
+canonical: "../en/01-governance-and-process.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 治理与流程
 
 本文档定义 Moonweave/辉夜计划（Kaguya Project）治理文档中使用的组织治理、决策制定与项目管理相关术语，帮助团队成员在跨领域协作时保持一致的语义与流程理解。

@@ -6,7 +6,7 @@
     {
       "name": "moonweave-governance",
       "description": "Moonweave governance skills, commands, templates and safety gates.",
-      "version": "0.1.0",
+      "version": "0.2.3",
       "source": {"source": "github", "repo": "Moonweave-AI/governance"}
     }
   ]

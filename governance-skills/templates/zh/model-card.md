@@ -1,10 +1,18 @@
 ---
-type: model-card
+type: knowledge/model-card
 status: draft
-owner:
+owner: <owner>
 version:
 base_model:
 license:
+created: 
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Model Card: <name>

@@ -1,8 +1,17 @@
 ---
-type: test-plan
-owner:
+type: quality/test-plan
+owner: <owner>
 risk:
 quality_level:
+status: Draft
+created: 
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Test Plan: <title>

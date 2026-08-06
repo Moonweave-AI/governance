@@ -29,6 +29,10 @@ metadata:
 - 代替案とリスク
 - 関連RFC/ADR/Issue
 
+## 文書記録メタデータ
+
+RFC テンプレートから作成し、本文の前に `created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by` を記入する。ISO 日付を用い、Accepted の履歴リンクを保持する。
+
 
 ## Security Execution Contract
 

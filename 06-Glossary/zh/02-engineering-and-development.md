@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: 工程与开发."
+canonical: "../en/02-engineering-and-development.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 工程与开发
 
 本文档定义 Moonweave/辉夜计划（Kaguya Project）治理文档中使用的软件工程实践、版本控制、分支策略与开发工作流相关术语。

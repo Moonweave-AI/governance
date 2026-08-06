@@ -1,10 +1,17 @@
 ---
-type: research-log
+type: knowledge-policy/research-logs
 status: active
-owner:
+owner: <owner>
 risk:
 visibility:
-created:
+created: <date>
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Experiment Log: <title>

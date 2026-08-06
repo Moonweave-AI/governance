@@ -29,6 +29,17 @@ Create, refactor, or review knowledge assets such as README, Tutorial, How-to, R
 - Related Issue/RFC/ADR/code
 - Owner and status
 
+## Required Document Metadata
+
+For every formal document created or materially updated, use the matching governance template and preserve its YAML frontmatter. Populate `type`, `status`, `owner`, `created`, `updated`, `last_reviewed`, `review_cycle_days`, `summary`, `canonical`, `related`, `supersedes`, and `superseded_by`.
+
+- `created` is the record's original creation date and must not be rewritten.
+- Choose `type` from `core/document-type-registry.json`; use the matching template and register a new type before using it.
+- `updated` is the last material content change; `last_reviewed` is the date an Owner confirmed the document remains valid. They are not Git commit timestamps.
+- Use ISO dates (`YYYY-MM-DD`), and ensure `created ≤ updated ≤ last_reviewed`.
+- Use `Superseded` or `Archived` only with an explicit successor or retained-context explanation. Never silently overwrite an accepted decision.
+- Keep the summary concise enough for progressive disclosure, and point translations to the canonical source.
+
 
 ## Security Execution Contract
 

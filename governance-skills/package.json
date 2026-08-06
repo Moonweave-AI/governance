@@ -46,9 +46,12 @@
     "validate:adapters": "node scripts/validate-marketplaces.mjs",
     "test": "node --test tests/*.test.mjs",
     "lint:skills": "node bin/moonweave-skills.mjs lint-skills",
+    "lint:docs": "node bin/moonweave-skills.mjs lint-docs --root ..",
+    "lint:templates": "node bin/moonweave-skills.mjs lint-templates",
+    "lint:release": "node bin/moonweave-skills.mjs lint-release",
     "eval:static": "node bin/moonweave-skills.mjs eval-static",
     "audit:self": "node bin/moonweave-skills.mjs audit --root . --profile library --format markdown",
-    "verify": "npm run build:adapters && npm run validate:adapters && npm test && npm run lint:skills && npm run eval:static",
+    "verify": "npm run build:adapters && npm run validate:adapters && npm test && npm run lint:skills && npm run lint:docs && npm run lint:templates && npm run lint:release && npm run eval:static",
     "prepack": "npm run verify",
     "pack:check": "npm pack --dry-run",
     "prepublishOnly": "npm run verify && node bin/moonweave-skills.mjs audit --root . --profile library --format markdown --fail-on medium"

@@ -1,3 +1,16 @@
+---
+type: "governance-process"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance process: Collaboration Planning Standards."
+canonical: "./02-Planning.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # Collaboration Planning Standards
 
 > This document defines how the Kaguya Project determines whether an idea, experiment, prototype, or requirement is worth pursuing; how to validate it; how to enter RFC / design; how to break down into engineering tasks; how to complete testing, release, go-live, operations, and postmortem; and when to pause, archive, or terminate. It is the unified flow for all projects from **Idea → Prototype → Engineering → Release → Operation**—not merely a Roadmap document or project management tool guide.

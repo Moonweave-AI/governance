@@ -1,12 +1,19 @@
 ---
-type: discovery
+type: planning/discovery
 status: active
-owner:
+owner: <owner>
 dri:
 risk:
 maturity:
-created:
+created: <date>
 next_review:
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Discovery Brief: <title>

@@ -1,10 +1,18 @@
 ---
-type: dataset-card
+type: knowledge/dataset-card
 status: draft
-owner:
+owner: <owner>
 version:
 license:
 visibility:
+created: 
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Dataset Card: <name>

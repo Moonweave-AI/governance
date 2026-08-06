@@ -1,3 +1,16 @@
+---
+type: security/hazard-analysis
+status: Draft
+owner: 
+created: 
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
+---
 # Hazard Analysis: <embodied-system>
 
 ## System / Environment / People at Risk

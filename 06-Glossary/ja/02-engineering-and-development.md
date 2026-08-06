@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: エンジニアリングと開発."
+canonical: "../en/02-engineering-and-development.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # エンジニアリングと開発
 
 ソフトウェアエンジニアリングの実践、バージョン管理、ブランチ戦略、開発ワークフローに関する用語集です。輝夜計画の開発標準の基礎となる概念を定義します。

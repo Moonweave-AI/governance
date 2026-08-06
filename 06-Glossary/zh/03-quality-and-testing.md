@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: 质量与测试."
+canonical: "../en/03-quality-and-testing.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 质量与测试
 
 本文档定义 Moonweave/辉夜计划（Kaguya Project）治理文档中使用的软件质量保证、测试策略与验证实践相关术语。

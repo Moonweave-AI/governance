@@ -29,6 +29,10 @@ metadata:
 - 候选方案
 - 决策者与日期
 
+## 文档记录元数据
+
+必须从 ADR 模板创建文档。填写 `created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by`；保留初始创建日期，并通过后继链接替代已接受历史，不得重写。
+
 
 ## 安全执行契约
 

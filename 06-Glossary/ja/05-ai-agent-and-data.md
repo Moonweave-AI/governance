@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: AI・エージェント・データ."
+canonical: "../en/05-ai-agent-and-data.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # AI・エージェント・データ
 
 人工知能、言語モデル、自律エージェント、データ管理に関する用語集です。輝夜計画のAI・エージェント領域の中核概念を定義します。

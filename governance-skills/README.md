@@ -4,9 +4,9 @@
 
 Compiles [Moonweave AI Governance](https://github.com/Moonweave-AI/governance) from "long documents a human must memorize" into discoverable, invokable, checkable, auditable Agent Skills, commands, templates, a CLI, and platform adapters.
 
-> **Version: 0.2.2**
+> **Version: 0.2.3**
 > **Spec snapshot: 2026-07-22**
-> **Status: Active / published. Published to npm as `@moonweave-ai/governance-skills@0.2.2` with SLSA provenance; discoverable via skills.sh and platform marketplaces (Cursor, Claude Code, Codex, Antigravity, Kilo, OpenCode, and the generic `.agents/skills` format).**
+> **Status: Active / published. Published to npm as `@moonweave-ai/governance-skills@0.2.3` with SLSA provenance; discoverable via skills.sh and platform marketplaces (Cursor, Claude Code, Codex, Antigravity, Kilo, OpenCode, and the generic `.agents/skills` format).**
 > **Owner: Moonweave AI Governance Maintainers. Backup Owner: Moonweave AI Stewardship Council.**
 
 ## Core Architecture
@@ -93,6 +93,7 @@ moonweave-skills doctor --root .
 moonweave-skills new rfc --title "Unify the long-term memory state protocol"
 moonweave-skills audit --root . --profile ai-agent --format markdown
 moonweave-skills lint-skills
+moonweave-skills lint-docs --root ..
 moonweave-skills checksums
 ```
 

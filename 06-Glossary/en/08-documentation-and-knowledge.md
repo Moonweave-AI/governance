@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: Documentation & Knowledge Management."
+canonical: "./08-documentation-and-knowledge.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # Documentation & Knowledge Management
 
 Terms related to technical writing, documentation systems, knowledge organization, and information architecture.

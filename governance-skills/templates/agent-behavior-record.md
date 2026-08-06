@@ -1,10 +1,18 @@
 ---
-type: agent-behavior-record
+type: agent/behavior-record
 status: draft
-owner:
+owner: <owner>
 version:
 risk: S4
 quality_level: QA-L4
+created: 
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Agent Behavior Record: <name>

@@ -1,3 +1,16 @@
+---
+type: operations/incident
+status: Draft
+owner: 
+created: 
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
+---
 # Incident: <title>
 
 ## Severity / Status / DRI

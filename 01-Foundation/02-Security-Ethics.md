@@ -1,3 +1,16 @@
+---
+type: "governance-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance policy: 安全、隐私与责任边界."
+canonical: "./en/02-Security-Ethics.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 安全、隐私与责任边界
 
 > 本文定义辉夜计划在软件、AI Agent、数据、模型、具身终端、基础设施与开放社区中的安全、隐私、合规与伦理边界。它不是完整的实施手册，而是所有工程标准、研发流程、发布门禁和事故响应的上位约束——是 `01-Principles.md` 里相关原则的硬底座。

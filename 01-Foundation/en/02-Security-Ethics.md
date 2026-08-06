@@ -1,3 +1,16 @@
+---
+type: "governance-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance policy: Security, Privacy, and Responsibility Boundaries."
+canonical: "./02-Security-Ethics.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # Security, Privacy, and Responsibility Boundaries
 
 > This document defines the security, privacy, compliance, and ethics boundaries for the Kaguya Project across software, AI Agent, data, models, embodied terminals, infrastructure, and open community. It is not a complete implementation manual, but the overarching constraint for all engineering standards, R&D processes, release gates, and incident response — the hard foundation for related principles in `01-Principles.md`.

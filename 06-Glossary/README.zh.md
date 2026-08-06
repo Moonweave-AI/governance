@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: 术语表."
+canonical: "./README.zh.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 术语表
 
 > **语言**：[English](README.md) · [中文](README.zh.md) · [日本語](README.ja.md)

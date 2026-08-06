@@ -11,11 +11,20 @@ export function parseFrontmatter(text) {
     if (!rawLine.trim() || rawLine.trimStart().startsWith('#')) continue;
     const indent = rawLine.match(/^\s*/)[0].length;
     const line = rawLine.trim();
+    if (indent > 0 && line.startsWith('- ') && currentObject) {
+      if (!Array.isArray(data[currentObject])) data[currentObject] = [];
+      data[currentObject].push(line.slice(2).trim().replace(/^['"]|['"]$/g, ''));
+      continue;
+    }
     const idx = line.indexOf(':');
     if (idx < 0) continue;
     const key = line.slice(0, idx).trim();
     let value = line.slice(idx + 1).trim();
     value = value.replace(/^['"]|['"]$/g, '');
+    if (/^\[.*\]$/.test(value)) {
+      const inner = value.slice(1, -1).trim();
+      value = inner ? inner.split(',').map((item) => item.trim().replace(/^['"]|['"]$/g, '')) : [];
+    }
     if (indent > 0 && currentObject) {
       if (typeof data[currentObject] !== 'object') data[currentObject] = {};
       data[currentObject][key] = value;

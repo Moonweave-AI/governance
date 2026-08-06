@@ -1,3 +1,16 @@
+---
+type: "engineering-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative engineering policy: 工程工作流."
+canonical: "./en/01-Workflow.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 工程工作流
 
 > 本文定义辉夜计划中软件、AI Agent、前后端系统、基础设施、数据管线、模型服务、工具链与具身相关工程从设计到交付的统一工作流程。本文关注"如何工程化地完成工作"，包括技术方案确认、实现准备、开发分支、本地验证、Pull Request、Code Review、CI/CD、构建、部署、发布验证、问题反馈与修复闭环。

@@ -1,12 +1,18 @@
 ---
-type: research-log
-status: active
-owner: Moonweave AI Governance Maintainers
-risk: S1
-visibility: public
-created: 2026-07-22
+type: "knowledge-policy/research-logs"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative knowledge policy: Experiment Log: Live Paired Evaluation of Moonweave Skills."
+canonical: "./0001-live-paired-evaluation.md"
+related: []
+supersedes: []
+superseded_by: []
+risk: "S1"
+visibility: "public"
 ---
-
 # Experiment Log: Live Paired Evaluation of Moonweave Skills
 
 ## Research Question
@@ -142,4 +148,3 @@ deterministic CLI defects it exposed are fixed in 0.2.3. Remaining platforms
 - Ship 0.2.3 with the router fixes + version sync + regression tests.
 - Optionally run the self-test prompt in the other 5 platforms; append
   results and raise maturity as coverage grows.
-

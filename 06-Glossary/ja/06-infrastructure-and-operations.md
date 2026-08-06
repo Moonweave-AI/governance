@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: インフラストラクチャと運用."
+canonical: "../en/06-infrastructure-and-operations.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # インフラストラクチャと運用
 
 デプロイ、リリース管理、監視、インシデント対応、運用信頼性に関する用語集です。輝夜計画の本番運用と成熟度レベルM5到達の基礎概念を定義します。

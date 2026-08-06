@@ -1,3 +1,16 @@
+---
+type: "glossary"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative glossary: AI, Agent & Data."
+canonical: "./05-ai-agent-and-data.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # AI, Agent & Data
 
 Terms related to artificial intelligence, language models, autonomous agents, and data management within the Kaguya Project.

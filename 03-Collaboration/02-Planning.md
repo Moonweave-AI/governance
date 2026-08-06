@@ -1,3 +1,16 @@
+---
+type: "governance-process"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance process: 合作规划规范."
+canonical: "./en/02-Planning.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 合作规划规范
 
 > 本文定义辉夜计划从一个想法、实验、原型或需求开始，如何判断它是否值得做；如何验证；如何进入 RFC / 设计；如何拆解为工程任务；如何完成测试、发布、上线、运维和复盘；以及何时暂停、归档或终止。它是所有项目从 **Idea → Prototype → Engineering → Release → Operation** 的统一流程——不是单纯 Roadmap 文档，也不是项目管理工具说明。

@@ -29,6 +29,10 @@ Architecture Decision Recordを作成またはレビューし、システム構�
 - 候補案
 - 意思決定者と日付
 
+## 文書記録メタデータ
+
+ADR テンプレートから作成し、`created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by` を記入する。Accepted の履歴を書き換えず、後継リンクで置換する。
+
 
 ## Security Execution Contract
 

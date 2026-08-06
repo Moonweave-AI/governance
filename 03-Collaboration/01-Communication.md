@@ -1,3 +1,16 @@
+---
+type: "governance-process"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative governance process: 沟通规范."
+canonical: "./en/01-Communication.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 沟通规范
 
 > 本文用于呈现项目的组织通信系统设计。它解决"什么事情在哪个平台说、哪些信息必须沉淀、哪些沟通可以临时发生、哪些结论必须回到 GitHub / Notion / RFC / ADR、会议如何创建记录追踪、Agent 自动推送什么不能推送什么、交接缺席事故升级如何处理"。

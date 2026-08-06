@@ -1,11 +1,18 @@
 ---
-type: runbook
+type: operations/runbook
 status: active
-owner:
+owner: <owner>
 backup_owner:
-last_reviewed:
+last_reviewed: <date>
 next_review:
 visibility: internal
+created: 
+updated: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Runbook: <system>

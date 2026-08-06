@@ -29,6 +29,10 @@ Design, execute, or review research experiments, paper reviews, reproductions, D
 - Metrics and baselines
 - Licensing/privacy/ethics information
 
+## Document Record Metadata
+
+Start a research log, paper review, or card from its matching template. `created`, `updated`, and `last_reviewed` describe the document record; record experiment execution, data-collection, and evaluation times in the research content where they are needed.
+
 
 ## Security Execution Contract
 

@@ -1,3 +1,16 @@
+---
+type: "engineering-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative engineering policy: Quality Assurance Standards."
+canonical: "./02-Quality-Assurance.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # Quality Assurance Standards
 
 > This document defines the quality assurance system for software, AI Agents, frontend and backend systems, infrastructure, data pipelines, model services, research experiments, embodied control systems, and public assets in the Kaguya Project. Quality assurance is not a testing phase before release, but a continuous evidence system spanning design, implementation, review, build, release, operation, feedback, and retirement. An engineering deliverable may be merged, released, deployed, published, or enter long-term maintenance only when its quality evidence is sufficient to support the corresponding risk level and lifecycle commitment.

@@ -1,12 +1,19 @@
 ---
-type: idea
+type: planning/idea
 status: inbox
-owner:
+owner: <owner>
 dri:
 risk: S0
 maturity: M0
-created:
+created: <date>
 next_review:
+updated: 
+last_reviewed: 
+summary: 
+canonical: 
+related: []
+supersedes: []
+superseded_by: []
 ---
 
 # Idea: <title>

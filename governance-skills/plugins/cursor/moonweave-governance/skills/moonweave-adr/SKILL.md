@@ -29,6 +29,10 @@ Create or review an Architecture Decision Record capturing decisions already mad
 - Candidate options
 - Decision maker and date
 
+## Document Record Metadata
+
+Create the ADR from the ADR template. Populate `created`, `updated`, `last_reviewed`, `summary`, `canonical`, `related`, `supersedes`, and `superseded_by`; preserve the original creation date and link any successor rather than rewriting accepted history.
+
 
 ## Security Execution Contract
 

@@ -29,6 +29,10 @@ Draft, review, converge, or update Moonweave RFCs for major, hard-to-reverse cha
 - Alternatives and risks
 - Related RFC/ADR/Issue
 
+## Document Record Metadata
+
+Create the RFC from the RFC template. Before drafting its body, populate `created`, `updated`, `last_reviewed`, `summary`, `canonical`, `related`, `supersedes`, and `superseded_by`; use ISO dates and preserve accepted-history links.
+
 
 ## Security Execution Contract
 

@@ -1,3 +1,16 @@
+---
+type: "knowledge-policy"
+status: "Active"
+owner: "Moonweave AI Governance Maintainers"
+created: "2026-07-22"
+updated: "2026-08-05"
+last_reviewed: "2026-08-05"
+summary: "Authoritative knowledge policy: 文档编写与知识资产管理规范."
+canonical: "./en/01-Documentation-Guide.md"
+related: []
+supersedes: []
+superseded_by: []
+---
 # 文档编写与知识资产管理规范
 
 > 本文定义辉夜计划中文档、决策记录、研究记录、数据记录、模型记录和运维记录的编写、维护、审查、版本化、过期与归档规则。文档不是代码完成后的附属物，而是系统可理解、可维护、可复现、可审计和可传承的基础设施。一个工程成果只有在其知识记录足以让后来者理解、验证和接手时，才真正完成。

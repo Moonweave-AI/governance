@@ -42,7 +42,6 @@ function checkSkillDir(skillDir, root) {
     const unquoted = !/^['"]/.test(value);
     if (unquoted && /:\s/.test(value)) findings.push({ severity: 'error', id: 'description-unquoted-colon', path: rel, message: 'description contains an unquoted ": " sequence; standard YAML parsers may misparse it. Quote the value.' });
   }
-
   const bodyWords = parsed.body.trim().split(/\s+/).filter(Boolean).length;
   if (bodyWords > 5000) findings.push({ severity: 'warning', id: 'body-too-long', path: rel, message: `Body is about ${bodyWords} tokens/words; consider splitting references for progressive loading` });
   if (!/(Security Execution Contract|Safety Execution Contract|安全执行契约)/.test(parsed.body)) findings.push({ severity: 'error', id: 'missing-safety-contract', path: rel, message: 'Missing "Security Execution Contract" section' });
