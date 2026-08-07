@@ -4,6 +4,7 @@ import path from 'node:path';
 import process from 'node:process';
 import { auditRepository } from '../lib/audit.mjs';
 import { documentLintMarkdown, lintDocuments, lintTemplates, templateLintMarkdown } from '../lib/document-lint.mjs';
+import { buildDocumentGraph, documentIndexMarkdown } from '../lib/document-graph.mjs';
 import { lintReleaseMetadata, releaseLintMarkdown } from '../lib/release-lint.mjs';
 import { packageJson, packageRoot } from '../lib/config.mjs';
 import { emit, findingsMarkdown, toSarif } from '../lib/output.mjs';
@@ -56,6 +57,7 @@ Commands:
   audit                        Read-only audit of project governance and engineering baseline
   lint-skills                  Statically check Agent Skills format and dangerous patterns
   lint-docs                    Validate metadata, dates, lifecycle, and canonical links in governance documents
+  docs-index                   Generate a linked Markdown index or JSON graph from document metadata
   lint-templates               Validate required metadata fields in every governance template
   lint-release                 Validate release-version declarations across manifests, READMEs, and changelogs
   eval-static                  Run routing, trigger, and static safety regressions
@@ -249,6 +251,25 @@ async function main() {
       const report = lintDocuments(options.root || path.resolve(packageRoot, '..'));
       emit(options.format === 'json' ? report : documentLintMarkdown(report), { format: options.format || 'markdown', out: options.out });
       if (report.summary.errors > 0) process.exitCode = 1;
+      break;
+    }
+    case 'docs-index': {
+      if (options.help) {
+        process.stdout.write('Usage: moonweave-skills docs-index [--root .] [--format markdown|json] [--out path] [--check]\n');
+        break;
+      }
+      const graph = buildDocumentGraph(options.root || path.resolve(packageRoot, '..'));
+      const format = options.format || 'markdown';
+      const output = format === 'json' ? graph : documentIndexMarkdown(graph, { outputFile: options.out });
+      if (options.check) {
+        if (!options.out) throw new Error('docs-index --check requires --out.');
+        const expected = format === 'json' ? `${JSON.stringify(output, null, 2)}\n` : `${output.trimEnd()}\n`;
+        const target = path.resolve(options.out);
+        if (!fs.existsSync(target) || fs.readFileSync(target, 'utf8') !== expected) {
+          throw new Error(`Document index is out of date: ${target}. Run docs-index again without --check.`);
+        }
+        process.stdout.write(`Document index is current: ${target}\n`);
+      } else emit(output, { format, out: options.out });
       break;
     }
     case 'lint-templates': {

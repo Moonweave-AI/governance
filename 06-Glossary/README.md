@@ -3,11 +3,11 @@ type: "glossary"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative glossary: Glossary."
 canonical: "./README.md"
-related: []
+related: ["./en/01-governance-and-process.md", "./en/02-engineering-and-development.md", "./en/03-quality-and-testing.md", "./en/04-security-and-compliance.md", "./en/05-ai-agent-and-data.md", "./en/06-infrastructure-and-operations.md", "./en/07-embodiment-and-robotics.md", "./en/08-documentation-and-knowledge.md"]
 supersedes: []
 superseded_by: []
 ---

@@ -1,7 +1,7 @@
 ---
 adr: ADR-0000
 title:
-status: Proposed
+status: Draft
 owner: <owner>
 created: <date>
 updated: <date>
@@ -9,6 +9,7 @@ last_reviewed: <date>
 summary:
 canonical:
 decision_owner:
+decision_scope:
 related_rfc:
 supersedes: []
 superseded_by: []

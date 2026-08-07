@@ -3,11 +3,11 @@ type: "engineering-policy"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative engineering policy: 工程工作流."
 canonical: "./en/01-Workflow.md"
-related: []
+related: ["../01-Foundation/02-Security-Ethics.md", "../02-Governance/02-Community.md", "../03-Collaboration/02-Planning.md", "../03-Collaboration/03-RFC-Process.md", "./02-Quality-Assurance.md", "../05-Knowledge/01-Documentation-Guide.md", "../06-Glossary/zh/02-engineering-and-development.md", "../06-Glossary/zh/06-infrastructure-and-operations.md"]
 supersedes: []
 superseded_by: []
 ---

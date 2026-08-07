@@ -95,6 +95,7 @@ moonweave-skills new rfc --title "長期記憶状態プロトコルの統一"
 moonweave-skills audit --root . --profile ai-agent --format markdown
 moonweave-skills lint-skills
 moonweave-skills lint-docs --root ..
+moonweave-skills docs-index --root .. --out docs/DOCUMENT-INDEX.md
 moonweave-skills checksums
 ```
 
@@ -125,6 +126,7 @@ Skills はセキュリティ境界ではありません。決定的な制限は�
 - [`docs/INSTALLATION.md`](docs/INSTALLATION.md)
 - [`docs/COMPATIBILITY.md`](docs/COMPATIBILITY.md)
 - [`docs/GOVERNANCE-TRACEABILITY.md`](docs/GOVERNANCE-TRACEABILITY.md)
+- [`docs/DOCUMENT-INDEX.md`](docs/DOCUMENT-INDEX.md)
 - [`docs/EVALUATION.md`](docs/EVALUATION.md)
 - [`docs/REFERENCES.md`](docs/REFERENCES.md)
 - [`docs/PUBLISHING.md`](docs/PUBLISHING.md)

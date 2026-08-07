@@ -3,11 +3,11 @@ type: "glossary"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative glossary: 治理与流程."
 canonical: "../en/01-governance-and-process.md"
-related: []
+related: ["../README.zh.md", "../../01-Foundation/01-Principles.md", "../../02-Governance/01-Organization.md", "../../03-Collaboration/03-RFC-Process.md"]
 supersedes: []
 superseded_by: []
 ---

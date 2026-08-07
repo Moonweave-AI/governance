@@ -3,11 +3,11 @@ type: "governance-process"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative governance process: Collaboration Planning Standards."
 canonical: "./02-Planning.md"
-related: []
+related: ["../../01-Foundation/en/02-Security-Ethics.md", "../../02-Governance/en/01-Organization.md", "./01-Communication.md", "./03-RFC-Process.md", "../../04-Engineering/en/01-Workflow.md", "../../04-Engineering/en/02-Quality-Assurance.md"]
 supersedes: []
 superseded_by: []
 ---

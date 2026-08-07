@@ -3,11 +3,11 @@ type: "governance-policy"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative governance policy: 組織構造と責任モデル."
 canonical: "../en/01-Organization.md"
-related: []
+related: ["../../01-Foundation/ja/01-Principles.md", "../../01-Foundation/ja/02-Security-Ethics.md", "./02-Community.md", "../../03-Collaboration/ja/01-Communication.md", "../../03-Collaboration/ja/02-Planning.md", "../../03-Collaboration/ja/03-RFC-Process.md", "../../06-Glossary/ja/01-governance-and-process.md"]
 supersedes: []
 superseded_by: []
 ---

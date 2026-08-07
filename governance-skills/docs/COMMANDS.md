@@ -39,6 +39,19 @@ Profiles: docs, library, service, ai-agent, embodied, auto.
 ## `lint-skills`
 Check Agent Skills frontmatter, names, description length, safe-execution contracts, dangerous instructions, and resource file sizes.
 
+## `lint-docs`
+Validate document metadata, canonical targets, decision identifiers and scopes, local relation targets, graph connectivity, reciprocal `related` links, and reciprocal `supersedes`/`superseded_by` lifecycle links. The check rejects isolated records, disconnected subgraphs, overlapping current RFC or ADR authorities for one `decision_scope`, and ADRs that omit an existing same-scope RFC link. A superseded record must name its successor and use status `Superseded`.
+
+## `docs-index`
+
+```bash
+moonweave-skills docs-index --root . --format json
+moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md
+moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --check
+```
+
+Generate an LLM-readable JSON graph or a clickable Markdown table from authoritative document frontmatter and `core/governance-map.json`. Frontmatter remains the source of truth; the Markdown file is a generated view. `--check` fails when the committed view is stale.
+
 ## `eval-static`
 Run risk routing, positive/negative trigger cases for all 23 skills, and static security regressions.
 

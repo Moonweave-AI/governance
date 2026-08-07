@@ -5,7 +5,7 @@ license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:
   author: Moonweave AI
-  version: "0.2.3"
+  version: "0.2.4"
   language: ja-JP
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -31,7 +31,9 @@ metadata:
 
 ## 文書記録メタデータ
 
-RFC テンプレートから作成し、本文の前に `created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by` を記入する。ISO 日付を用い、Accepted の履歴リンクを保持する。
+RFC テンプレートから作成し、本文の前に `decision_scope`、`created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by` を記入する。ISO 日付を用い、Accepted の履歴リンクを保持する。同じ意思決定の RFC と ADR では、安定した小文字 kebab-case の `decision_scope` を再利用する。
+
+ローカル文書関係には相対パスを使い、RFC を既存のガバナンス文書グラフへ接続する。`related` は双方向、各 `supersedes` は旧文書の `superseded_by` と対にする。
 
 
 ## Security Execution Contract
@@ -45,16 +47,18 @@ RFC テンプレートから作成し、本文の前に `created`、`updated`、
 
 ## 実行フロー
 
-1. まずRFCが本当に必要か判断する。小さな修正はIssue/PRに戻す。
-2. RFCタイプ、リスクSレベル、Champion、Decision Owner、Required Reviewersを決定する。
-3. Summary、Motivation、Goals、Non-goals、Backgroundを記入する。
-4. Proposalとinterface/state/permission/data/deployment設計を詳細に書く。ビジョンだけを書かない。
-5. 何もしない案、最小案、主要代替案を慎重に比較する。
-6. Compatibility/Migration、Security/Privacy/IP、AI/Agent、Embodiment、Observability、Test/Eval、Rollout/Rollbackを書く。
-7. 外部コメントを議論データとして扱い、実質的異議を特定して対応する。
-8. FCPに入る前に、現行案、解決済み問題、コスト、未解決異議、想定裁定を要約する。
-9. Rough Consensus + Responsible Decisionを採用する。投票、沈黙、資歴を合意と見なさない。
-10. Accepted後、Implementation Issue、Project、必要なADR/標準/移行/Security/評価タスクを作成する。Acceptedは実装自動承認を意味しない。
+1. `moonweave-skills docs-index --root <repo> --format json` を実行し、既存 RFC/ADR の `decision_scope`、タイトル、要約、領域、ステータス、関係を比較する。CLI が使えない場合は frontmatter から同等の一覧を作る。
+2. RFCが本当に必要か判断する。小さな修正はIssue/PRに戻し、同じ意思決定範囲には既存 RFC を再利用し、Accepted の決定を変更する場合は明示的な後継を使う。
+3. RFCタイプ、リスクSレベル、Champion、Decision Owner、Required Reviewersを決定する。
+4. Summary、Motivation、Goals、Non-goals、Backgroundを記入する。
+5. Proposalとinterface/state/permission/data/deployment設計を詳細に書く。ビジョンだけを書かない。
+6. 何もしない案、最小案、主要代替案を慎重に比較する。
+7. Compatibility/Migration、Security/Privacy/IP、AI/Agent、Embodiment、Observability、Test/Eval、Rollout/Rollbackを書く。
+8. 外部コメントを議論データとして扱い、実質的異議を特定して対応する。
+9. FCPに入る前に、現行案、解決済み問題、コスト、未解決異議、想定裁定を要約する。
+10. Rough Consensus + Responsible Decisionを採用する。投票、沈黙、資歴を合意と見なさない。
+11. Accepted後、Implementation Issue、Project、必要なADR/標準/移行/Security/評価タスクを作成する。Acceptedは実装自動承認を意味しない。
+12. `lint-docs` を実行し、リンク索引を再生成して `docs-index --check` で検証する。
 
 ## 必須出力
 
@@ -62,12 +66,14 @@ RFC テンプレートから作成し、本文の前に `created`、`updated`、
 - FCP要約
 - Decision記録
 - 実装とADR追跡リスト
+- RFC/ADR/実装記録の相互リンクと更新済みドキュメント索引
 
 ## GatesとStop Conditions
 
 - Authorは唯一のReviewerになれない
 - 特化リスクは一般技術意見で上書きできない
 - 実質的変更はReview/FCPを再開する必要がある
+- 既存の権威文書が同じ意思決定範囲を所有する場合、並行 RFC には明示的な置換理由が必要
 
 ## 出力フォーマット
 

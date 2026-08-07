@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.3"
+  version: "0.2.4"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -31,7 +31,9 @@ metadata:
 
 ## 文档记录元数据
 
-必须从 RFC 模板创建文档。写正文前填写 `created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by`；日期使用 ISO 格式，并保留已接受决策的历史关联。
+必须从 RFC 模板创建文档。写正文前填写 `decision_scope`、`created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by`；日期使用 ISO 格式，并保留已接受决策的历史关联。同一决策的 RFC 与 ADR 必须复用稳定的小写 kebab-case `decision_scope`。
+
+本地文档关系使用相对路径，并把 RFC 接入既有治理文档图。`related` 必须双向，每个 `supersedes` 必须与旧文档的 `superseded_by` 配对。
 
 
 ## 安全执行契约
@@ -45,16 +47,18 @@ metadata:
 
 ## 执行流程
 
-1. 先判断是否真的需要RFC；小型修复退回Issue/PR。
-2. 确定RFC类型、风险S级、Champion、Decision Owner和Required Reviewers。
-3. 填写Summary、Motivation、Goals、Non-goals、Background。
-4. 详细写Proposal与接口/状态/权限/数据/部署设计；不得只写愿景。
-5. 认真比较不做、最小方案和主要替代方案。
-6. 写Compatibility/Migration、Security/Privacy/IP、AI/Agent、Embodiment、Observability、Test/Eval、Rollout/Rollback。
-7. 把外部评论视为讨论数据，识别并处理实质性异议。
-8. 进入FCP前总结当前方案、已解决问题、代价、未解决异议和预期裁决。
-9. 采用Rough Consensus + Responsible Decision；不把投票、沉默或资历当共识。
-10. Accepted后创建Implementation Issue、Project、必要ADR/标准/迁移/安全/评测任务；Accepted不等于实现自动批准。
+1. 运行 `moonweave-skills docs-index --root <repo> --format json`，比较既有 RFC/ADR 的 `decision_scope`、标题、摘要、领域、状态和关系；CLI 不可用时，从 frontmatter 建立同等清单。
+2. 判断是否真的需要 RFC；小型修复退回 Issue/PR，同一决策范围复用既有 RFC，修改已接受决策时使用显式后继文档。
+3. 确定RFC类型、风险S级、Champion、Decision Owner和Required Reviewers。
+4. 填写Summary、Motivation、Goals、Non-goals、Background。
+5. 详细写Proposal与接口/状态/权限/数据/部署设计；不得只写愿景。
+6. 认真比较不做、最小方案和主要替代方案。
+7. 写Compatibility/Migration、Security/Privacy/IP、AI/Agent、Embodiment、Observability、Test/Eval、Rollout/Rollback。
+8. 把外部评论视为讨论数据，识别并处理实质性异议。
+9. 进入FCP前总结当前方案、已解决问题、代价、未解决异议和预期裁决。
+10. 采用Rough Consensus + Responsible Decision；不把投票、沉默或资历当共识。
+11. Accepted后创建Implementation Issue、Project、必要ADR/标准/迁移/安全/评测任务；Accepted不等于实现自动批准。
+12. 运行 `lint-docs`，重建链接索引，并用 `docs-index --check` 验证。
 
 ## 必须输出
 
@@ -62,12 +66,14 @@ metadata:
 - FCP总结
 - Decision记录
 - 实现与ADR追踪清单
+- RFC/ADR/实现记录的互链和更新后的文档索引
 
 ## 门禁与停止条件
 
 - 作者不能是唯一Reviewer
 - 专项风险不得被普通技术意见绕过
 - 实质性修改需重启Review/FCP
+- 已有权威文档覆盖同一决策范围时，并行 RFC 必须给出明确替代理由
 
 ## 输出格式
 

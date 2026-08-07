@@ -3,11 +3,11 @@ type: "glossary"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative glossary: 工程与开发."
 canonical: "../en/02-engineering-and-development.md"
-related: []
+related: ["../README.zh.md", "../../04-Engineering/01-Workflow.md"]
 supersedes: []
 superseded_by: []
 ---

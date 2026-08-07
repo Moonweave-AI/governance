@@ -3,11 +3,11 @@ type: "knowledge-policy"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative knowledge policy: 文档编写与知识资产管理规范."
 canonical: "./en/01-Documentation-Guide.md"
-related: []
+related: ["../01-Foundation/01-Principles.md", "../01-Foundation/02-Security-Ethics.md", "../03-Collaboration/03-RFC-Process.md", "../04-Engineering/01-Workflow.md", "../04-Engineering/02-Quality-Assurance.md", "../06-Glossary/zh/08-documentation-and-knowledge.md"]
 supersedes: []
 superseded_by: []
 ---

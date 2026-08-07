@@ -3,11 +3,11 @@ type: "glossary"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative glossary: 具身智能与机器人."
 canonical: "../en/07-embodiment-and-robotics.md"
-related: []
+related: ["../README.zh.md", "../../01-Foundation/02-Security-Ethics.md", "../../04-Engineering/standards/ai-systems.md"]
 supersedes: []
 superseded_by: []
 ---

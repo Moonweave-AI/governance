@@ -3,11 +3,11 @@ type: "glossary"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative glossary: 基础设施与运维."
 canonical: "../en/06-infrastructure-and-operations.md"
-related: []
+related: ["../README.zh.md", "../../04-Engineering/01-Workflow.md", "../../04-Engineering/standards/backend.md"]
 supersedes: []
 superseded_by: []
 ---

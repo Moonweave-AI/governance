@@ -39,6 +39,19 @@ Profiles：docs、library、service、ai-agent、embodied、auto。
 ## `lint-skills`
 Agent Skills の frontmatter、名前、説明の長さ、安全実行契約、危険な指示、リソースファイルのサイズを確認する。
 
+## `lint-docs`
+文書メタデータ、canonical 対象、意思決定 ID と範囲、ローカル関係の対象、グラフの連結性、双方向の `related`、相互の `supersedes`/`superseded_by` ライフサイクルリンクを検証する。孤立した記録、分断された部分グラフ、同じ `decision_scope` を所有する重複した現行 RFC または ADR、既存の同範囲 RFC へリンクしない ADR を拒否する。置換された記録は後継を示し、`Superseded` ステータスを使う必要がある。
+
+## `docs-index`
+
+```bash
+moonweave-skills docs-index --root . --format json
+moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md
+moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --check
+```
+
+権威文書の frontmatter と `core/governance-map.json` から、LLM が読める JSON グラフまたはクリック可能な Markdown 一覧を生成する。Frontmatter が事実源であり、Markdown は生成ビューにすぎない。コミット済みビューが古い場合は `--check` が失敗する。
+
 ## `eval-static`
 リスクルーティング、全 23 スキルの正/負トリガーケース、静的セキュリティ回帰を実行する。
 

@@ -3,11 +3,11 @@ type: "glossary"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative glossary: 品質とテスト."
 canonical: "../en/03-quality-and-testing.md"
-related: []
+related: ["../README.ja.md", "../../04-Engineering/ja/02-Quality-Assurance.md"]
 supersedes: []
 superseded_by: []
 ---

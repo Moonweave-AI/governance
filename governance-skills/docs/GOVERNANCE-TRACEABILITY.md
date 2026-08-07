@@ -10,9 +10,11 @@ This system does not attempt to "summarize everything" in a prompt. Instead, it 
 | Community | community-contribution, issue, retro | contribution templates | Issue/CoC process record |
 | Communication | issue, handoff, incident | canonical-link checks | meeting/action/handoff |
 | Planning | triage, planning, bootstrap | lifecycle/risk/maturity fields | idea, discovery, prototype |
-| RFC Process | rfc, adr, governance-change | frontmatter/status/link checks | RFC/ADR |
+| RFC Process | rfc, adr, governance-change | frontmatter/status/decision-scope/reciprocal-relation/index checks | RFC/ADR |
 | Workflow | brief, implementation, PR, review, release | repo baseline/CI/lockfile checks | brief, PR, runbook |
 | Quality Assurance | QA, review, release, audit | test/quality/SBOM evidence checks | test plan, quality, release report |
-| Documentation Guide | docs, research, RFC, ADR | doc metadata/link/stale checks | README/docs/research/cards |
+| Documentation Guide | docs, research, RFC, ADR | connected document graph/metadata/link/stale checks | README/docs/research/cards |
 
 The machine-readable mapping is in `core/governance-map.json`.
+
+The current generated cross-document and document-to-skill view is [`DOCUMENT-INDEX.md`](DOCUMENT-INDEX.md). Its data comes from document frontmatter plus `core/governance-map.json`; CI checks that the view is current.

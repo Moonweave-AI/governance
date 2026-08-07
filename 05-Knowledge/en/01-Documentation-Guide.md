@@ -3,11 +3,11 @@ type: "knowledge-policy"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative knowledge policy: Documentation Writing and Knowledge Asset Management Standards."
 canonical: "./01-Documentation-Guide.md"
-related: []
+related: ["../../01-Foundation/en/01-Principles.md", "../../01-Foundation/en/02-Security-Ethics.md", "../../03-Collaboration/en/03-RFC-Process.md", "../../04-Engineering/en/01-Workflow.md", "../../04-Engineering/en/02-Quality-Assurance.md", "../adr/0001-github-root-and-release-manifest-unification.md", "../research-logs/0001-live-paired-evaluation.md", "../../06-Glossary/en/08-documentation-and-knowledge.md"]
 supersedes: []
 superseded_by: []
 ---
