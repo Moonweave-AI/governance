@@ -40,6 +40,23 @@ test('document graph renders a linked index from frontmatter', () => {
   assert.match(markdown, /related: \[Process\]\(\.\.\/02-Governance\/process\.md\)/);
 });
 
+test('document graph escapes table delimiters in link labels', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-graph-'));
+  write(root, '01-Foundation/policy.md', document({ title: 'Policy | Scope', canonical: './policy.md' }));
+  const markdown = documentIndexMarkdown(buildDocumentGraph(root));
+  assert.ok(markdown.includes('[Policy \\| Scope](./01-Foundation/policy.md)'));
+});
+
+test('document graph only assigns decision identifiers to RFC and ADR records', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-graph-'));
+  const policy = document({ title: 'Policy', canonical: './policy.md' })
+    .replace('canonical: ./policy.md', 'rfc: RFC-9999\nadr: ADR-9999\ncanonical: ./policy.md');
+  write(root, '01-Foundation/policy.md', policy);
+  const graph = buildDocumentGraph(root);
+  assert.equal(graph.documents[0].identifier, null);
+  assert.match(documentIndexMarkdown(graph), /- Decision records: 0/);
+});
+
 test('document graph highlights RFC and ADR decision records', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-graph-'));
   const adr = document({ title: 'Storage Decision', canonical: './0001-storage.md' })
@@ -62,4 +79,35 @@ test('docs-index --check detects generated index drift', () => {
   const stale = spawnSync(process.execPath, [...args, '--check'], { encoding: 'utf8' });
   assert.equal(stale.status, 1);
   assert.match(stale.stderr, /Document index is out of date/);
+});
+
+test('JSON indexes are independent of the checkout path', () => {
+  const firstRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-index-a-'));
+  const secondRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-index-b-'));
+  const out = path.join(firstRoot, 'document-index.json');
+  for (const root of [firstRoot, secondRoot]) {
+    write(root, '01-Foundation/policy.md', document({ title: 'Policy', canonical: './policy.md' }));
+  }
+  const cli = path.join(packageRoot, 'bin', 'moonweave-skills.mjs');
+  const generated = spawnSync(process.execPath, [cli, 'docs-index', '--root', firstRoot, '--format', 'json', '--out', out], { encoding: 'utf8' });
+  assert.equal(generated.status, 0, generated.stderr);
+  const checked = spawnSync(process.execPath, [cli, 'docs-index', '--root', secondRoot, '--format', 'json', '--out', out, '--check'], { encoding: 'utf8' });
+  assert.equal(checked.status, 0, checked.stderr);
+  assert.equal(JSON.parse(fs.readFileSync(out, 'utf8')).root, undefined);
+});
+
+test('docs-index can generate package-safe repository links', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-index-'));
+  write(root, '01-Foundation/policy.md', document({ title: 'Policy', canonical: './policy.md' }));
+  const markdown = documentIndexMarkdown(buildDocumentGraph(root), {
+    outputFile: path.join(root, 'docs', 'DOCUMENT-INDEX.md'),
+    baseUrl: 'https://github.com/Moonweave-AI/governance/blob/main/',
+  });
+  assert.ok(markdown.includes('[Policy](https://github.com/Moonweave-AI/governance/blob/main/01-Foundation/policy.md)'));
+});
+
+test('the packaged document index has no package-escaping relative links', () => {
+  const markdown = fs.readFileSync(path.join(packageRoot, 'docs', 'DOCUMENT-INDEX.md'), 'utf8');
+  assert.doesNotMatch(markdown, /\]\(\.\.\/\.\.\//);
+  assert.match(markdown, /\]\(https:\/\/github\.com\/Moonweave-AI\/governance\/blob\/main\//);
 });

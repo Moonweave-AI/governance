@@ -255,12 +255,12 @@ async function main() {
     }
     case 'docs-index': {
       if (options.help) {
-        process.stdout.write('Usage: moonweave-skills docs-index [--root .] [--format markdown|json] [--out path] [--check]\n');
+        process.stdout.write('Usage: moonweave-skills docs-index [--root .] [--format markdown|json] [--out path] [--base-url URL] [--check]\n');
         break;
       }
       const graph = buildDocumentGraph(options.root || path.resolve(packageRoot, '..'));
       const format = options.format || 'markdown';
-      const output = format === 'json' ? graph : documentIndexMarkdown(graph, { outputFile: options.out });
+      const output = format === 'json' ? graph : documentIndexMarkdown(graph, { outputFile: options.out, baseUrl: options['base-url'] });
       if (options.check) {
         if (!options.out) throw new Error('docs-index --check requires --out.');
         const expected = format === 'json' ? `${JSON.stringify(output, null, 2)}\n` : `${output.trimEnd()}\n`;

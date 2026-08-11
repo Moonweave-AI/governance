@@ -47,10 +47,11 @@ Profiles：docs、library、service、ai-agent、embodied、auto。
 ```bash
 moonweave-skills docs-index --root . --format json
 moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md
+moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url https://github.com/OWNER/REPO/blob/main/
 moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --check
 ```
 
-从权威文档 frontmatter 和 `core/governance-map.json` 生成适合 LLM 读取的 JSON 图或可点击 Markdown 总表。Frontmatter 仍是事实源，Markdown 文件只是生成视图；提交视图过期时 `--check` 失败。
+从权威文档 frontmatter 和 `core/governance-map.json` 生成适合 LLM 读取的 JSON 图或可点击 Markdown 总表。Frontmatter 仍是事实源，Markdown 文件只是生成视图；当索引会脱离所引用的仓库文档分发（例如进入 npm 包）时，使用 `--base-url` 生成可访问的仓库链接；提交视图过期时 `--check` 失败。
 
 ## `eval-static`
 运行风险路由、全部 23 个技能的正/负触发用例与静态安全回归。

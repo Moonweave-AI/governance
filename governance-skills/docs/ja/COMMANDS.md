@@ -47,10 +47,11 @@ Agent Skills の frontmatter、名前、説明の長さ、安全実行契約、�
 ```bash
 moonweave-skills docs-index --root . --format json
 moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md
+moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url https://github.com/OWNER/REPO/blob/main/
 moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --check
 ```
 
-権威文書の frontmatter と `core/governance-map.json` から、LLM が読める JSON グラフまたはクリック可能な Markdown 一覧を生成する。Frontmatter が事実源であり、Markdown は生成ビューにすぎない。コミット済みビューが古い場合は `--check` が失敗する。
+権威文書の frontmatter と `core/governance-map.json` から、LLM が読める JSON グラフまたはクリック可能な Markdown 一覧を生成する。Frontmatter が事実源であり、Markdown は生成ビューにすぎない。npm パッケージなど、参照先のリポジトリ文書を含めずに索引を配布する場合は `--base-url` でアクセス可能なリポジトリリンクを生成する。コミット済みビューが古い場合は `--check` が失敗する。
 
 ## `eval-static`
 リスクルーティング、全 23 スキルの正/負トリガーケース、静的セキュリティ回帰を実行する。

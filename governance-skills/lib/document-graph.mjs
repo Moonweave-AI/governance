@@ -17,6 +17,12 @@ function titleFor(body, file) {
   return body.match(/^#\s+(.+)$/m)?.[1]?.trim() || path.basename(file, '.md');
 }
 
+function decisionIdentifier(data) {
+  if (data.type === 'engineering/rfc') return data.rfc || null;
+  if (data.type === 'architecture/adr') return data.adr || null;
+  return null;
+}
+
 function splitTarget(value) {
   const markdown = value.match(/^\[[^\]]+\]\(([^)]+)\)$/);
   const target = (markdown?.[1] || value).trim();
@@ -59,7 +65,7 @@ export function buildDocumentGraph(rootInput) {
       updated: data.updated || null,
       last_reviewed: data.last_reviewed || null,
       summary: data.summary || null,
-      identifier: data.rfc || data.adr || null,
+      identifier: decisionIdentifier(data),
       decision_scope: data.decision_scope || null,
       canonical: resolveReference(data.canonical, file, root, documentPaths),
       relations: Object.fromEntries(DOCUMENT_RELATIONS.map((key) => [
@@ -91,11 +97,12 @@ export function buildDocumentGraph(rootInput) {
   const canonicalRecords = new Set(documents.map((document) => document.canonical.document || document.path));
   const relationCount = documents.reduce((count, document) => count + DOCUMENT_RELATIONS.reduce((total, key) => total + document.relations[key].length, 0), 0);
   const skillLinkCount = documents.reduce((count, document) => count + document.skills.length, 0);
-  return {
-    root,
+  const graph = {
     summary: { documents: documents.length, canonical_records: canonicalRecords.size, relations: relationCount, skill_links: skillLinkCount },
     documents,
   };
+  Object.defineProperty(graph, 'root', { value: root });
+  return graph;
 }
 
 function table(value) {
@@ -103,31 +110,33 @@ function table(value) {
 }
 
 function linkLabel(value) {
-  return String(value).replaceAll('[', '\\[').replaceAll(']', '\\]');
+  return table(value).replaceAll('[', '\\[').replaceAll(']', '\\]');
 }
 
-function hrefFor(root, outputFile, target) {
+function hrefFor(root, outputFile, target, baseUrl) {
   if (/^[a-z][a-z0-9+.-]*:/i.test(target) || target.startsWith('//')) return target;
   const { pathname, suffix } = splitTarget(target);
+  if (baseUrl) return new URL(`${pathname}${suffix}`, baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`).href;
   const base = outputFile ? path.dirname(path.resolve(outputFile)) : root;
   let relative = normalizeRel(path.relative(base, path.resolve(root, pathname)));
   if (!relative.startsWith('.')) relative = `./${relative}`;
   return `${relative}${suffix}`;
 }
 
-function referenceLink(graph, outputFile, reference, documentsByPath, fallbackLabel) {
+function referenceLink(graph, outputFile, baseUrl, reference, documentsByPath, fallbackLabel) {
   if (!reference.target) return '-';
   const targetDocument = reference.document ? documentsByPath.get(reference.document) : null;
   const label = targetDocument?.identifier || targetDocument?.title || fallbackLabel || reference.target;
-  return `[${linkLabel(label)}](${hrefFor(graph.root, outputFile, reference.target)})`;
+  return `[${linkLabel(label)}](${hrefFor(graph.root, outputFile, reference.target, baseUrl)})`;
 }
 
 export function documentIndexMarkdown(graph, options = {}) {
   const outputFile = options.outputFile || null;
+  const baseUrl = options.baseUrl || null;
   const documentsByPath = new Map(graph.documents.map((document) => [document.path, document]));
   const decisionRecords = graph.documents.filter((document) => document.identifier);
   const relationsFor = (document) => DOCUMENT_RELATIONS.flatMap((key) => document.relations[key].map((reference) => {
-    return `${key}: ${referenceLink(graph, outputFile, reference, documentsByPath)}`;
+    return `${key}: ${referenceLink(graph, outputFile, baseUrl, reference, documentsByPath)}`;
   })).join('<br>') || '-';
   const lines = [
     '# Governance Document Index',
@@ -147,7 +156,7 @@ export function documentIndexMarkdown(graph, options = {}) {
   else {
     lines.push('| Record | Decision scope | Type | Status | Relations | Updated |', '|---|---|---|---|---|---|');
     for (const document of decisionRecords) {
-      const documentLink = `[${linkLabel(document.identifier)}](${hrefFor(graph.root, outputFile, document.path)})`;
+      const documentLink = `[${linkLabel(document.identifier)}](${hrefFor(graph.root, outputFile, document.path, baseUrl)})`;
       lines.push(`| ${documentLink} | ${table(document.decision_scope || '-')} | ${table(document.type)} | ${table(document.status)} | ${relationsFor(document)} | ${table(document.updated)} |`);
     }
     lines.push('');
@@ -160,10 +169,10 @@ export function documentIndexMarkdown(graph, options = {}) {
   );
   for (const document of graph.documents) {
     const documentLabel = document.identifier || document.title;
-    const documentLink = `[${linkLabel(documentLabel)}](${hrefFor(graph.root, outputFile, document.path)})`;
+    const documentLink = `[${linkLabel(documentLabel)}](${hrefFor(graph.root, outputFile, document.path, baseUrl)})`;
     const canonical = document.canonical.document === document.path
       ? 'self'
-      : referenceLink(graph, outputFile, document.canonical, documentsByPath, 'canonical');
+      : referenceLink(graph, outputFile, baseUrl, document.canonical, documentsByPath, 'canonical');
     const skills = document.skills.map((skill) => `\`${skill}\``).join('<br>') || '-';
     lines.push(`| ${documentLink} | ${table(document.type)} | ${table(document.decision_scope || '-')} | ${table(document.status)} | ${canonical} | ${relationsFor(document)} | ${skills} | ${table(document.updated)} | ${table(document.summary)} |`);
   }

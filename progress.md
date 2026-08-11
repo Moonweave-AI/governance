@@ -77,3 +77,36 @@
 - `progress.md`：追加本轮效果验证、历史关系回填、测试证据和回滚点。
 - 回滚点：本开发分支创建前的 `main` 基线为 `7ccefb0`；PR 合并前可切回 `main` 后删除 `codex/document-inline-governance`，合并后应对该 PR 的合并提交执行 `git revert`，不得改写共享分支历史。
 - 验证证据更正：上述空白检查通过仅指 `git diff --check` 和本轮新增/修改行；仓库全量 `rg -n '[[:blank:]]+$' --glob '!*.git*' .` 仍会命中既有模板中的空占位符，本轮未扩大范围做全量格式化。
+
+## 2026-08-11 - Task: 检查并修复 Codex 对文档内联升级 PR 的评审意见
+
+### What was done
+
+- 逐条复现并确认 Codex 提出的 4 个 P2 问题，修复 JSON 图携带本机绝对路径、发布包索引链接越界、链接标签破坏 Markdown 表格，以及非 RFC/ADR 文档被误识别为决策记录的问题。
+- 为发布用索引增加显式 `--base-url`，使 npm 包内的索引指向可访问的权威仓库文档，同时保留本地生成索引默认使用相对链接的行为，避免复制治理文档形成第二事实源。
+- 补充跨检出目录 JSON 一致性、发布链接、表格转义和决策类型约束回归测试，并同步三语命令说明与维护入口。
+
+### Testing
+
+- `node --test tests/document-graph.test.mjs`：通过；8 个文档图与索引测试零失败，覆盖全部 4 条 Codex 意见。
+- `npm run verify`：通过；40 个测试、25 项技能检查、64 份治理文档检查、72 个模板检查、发布元数据检查和 171 项静态评测均为零失败。
+- `npm run pack:check`：通过；npm dry-run 包含 1192 个文件，包大小约 629.5 kB，并在 prepack 阶段再次通过完整验证。
+- `node bin/moonweave-skills.mjs checksums`：通过；刷新 1197 条发布文件校验和。
+- `git diff --check` 与发布索引越界链接搜索：通过；补丁无空白错误，`docs/DOCUMENT-INDEX.md` 不再包含 `](../../` 链接。
+
+### Notes
+
+- `governance-skills/lib/document-graph.mjs`：将运行时根路径改为非序列化属性，按文档类型提取决策编号，转义链接标签中的表格分隔符，并支持仓库基准 URL。
+- `governance-skills/bin/moonweave-skills.mjs`：为 `docs-index` 接入 `--base-url` 参数并更新命令帮助。
+- `governance-skills/package.json`：让生成与漂移检查脚本使用权威仓库 URL 构建发布索引。
+- `governance-skills/tests/document-graph.test.mjs`：增加 4 类 Codex 评审问题的针对性回归验证。
+- `governance-skills/docs/DOCUMENT-INDEX.md`：重建发布索引，将越出 npm 包的相对链接替换为权威仓库链接。
+- `governance-skills/docs/COMMANDS.md`：说明 `--base-url` 的发布场景与用法。
+- `governance-skills/docs/zh/COMMANDS.md`：同步中文 `--base-url` 命令说明。
+- `governance-skills/docs/ja/COMMANDS.md`：同步日文 `--base-url` 命令说明。
+- `governance-skills/README.md`：将发布索引维护入口统一为 `npm run docs:index`。
+- `governance-skills/README.zh.md`：同步中文发布索引维护入口。
+- `governance-skills/README.ja.md`：同步日文发布索引维护入口。
+- `governance-skills/checksums.sha256`：刷新本轮发布文件内容的校验和。
+- `progress.md`：追加本轮 Codex 评审修复、验证证据、文件落点和回滚点。
+- 回滚点：本轮修改前的提交为 `967ec617c380ed20524c8224ae8c90a4ade6bcc6`；提交后应对本轮提交执行 `git revert`，不得改写共享 PR 分支历史。

@@ -95,7 +95,7 @@ moonweave-skills new rfc --title "長期記憶状態プロトコルの統一"
 moonweave-skills audit --root . --profile ai-agent --format markdown
 moonweave-skills lint-skills
 moonweave-skills lint-docs --root ..
-moonweave-skills docs-index --root .. --out docs/DOCUMENT-INDEX.md
+npm run docs:index
 moonweave-skills checksums
 ```
 

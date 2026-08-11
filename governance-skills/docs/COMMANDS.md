@@ -47,10 +47,11 @@ Validate document metadata, canonical targets, decision identifiers and scopes, 
 ```bash
 moonweave-skills docs-index --root . --format json
 moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md
+moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url https://github.com/OWNER/REPO/blob/main/
 moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --check
 ```
 
-Generate an LLM-readable JSON graph or a clickable Markdown table from authoritative document frontmatter and `core/governance-map.json`. Frontmatter remains the source of truth; the Markdown file is a generated view. `--check` fails when the committed view is stale.
+Generate an LLM-readable JSON graph or a clickable Markdown table from authoritative document frontmatter and `core/governance-map.json`. Frontmatter remains the source of truth; the Markdown file is a generated view. Use `--base-url` when the generated index is distributed without the referenced repository documents, such as in an npm package. `--check` fails when the committed view is stale.
 
 ## `eval-static`
 Run risk routing, positive/negative trigger cases for all 23 skills, and static security regressions.

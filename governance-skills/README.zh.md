@@ -95,7 +95,7 @@ moonweave-skills new rfc --title "统一长期记忆状态协议"
 moonweave-skills audit --root . --profile ai-agent --format markdown
 moonweave-skills lint-skills
 moonweave-skills lint-docs --root ..
-moonweave-skills docs-index --root .. --out docs/DOCUMENT-INDEX.md
+npm run docs:index
 moonweave-skills checksums
 ```
 
