@@ -42,6 +42,14 @@ function parseArgs(argv) {
   return { positional, options };
 }
 
+function resolveBaseUrl(value) {
+  if (value !== 'release') return value;
+  const repository = typeof packageJson.repository === 'string' ? packageJson.repository : packageJson.repository?.url;
+  if (!repository) throw new Error('docs-index --base-url release requires package.json.repository.url.');
+  const source = repository.replace(/^git\+/, '').replace(/\.git$/, '');
+  return `${source}/blob/v${packageJson.version}/`;
+}
+
 function help() {
   return `Moonweave Governance Skills ${packageJson.version}
 
@@ -255,12 +263,12 @@ async function main() {
     }
     case 'docs-index': {
       if (options.help) {
-        process.stdout.write('Usage: moonweave-skills docs-index [--root .] [--format markdown|json] [--out path] [--base-url URL] [--check]\n');
+        process.stdout.write('Usage: moonweave-skills docs-index [--root .] [--format markdown|json] [--out path] [--base-url URL|release] [--check]\n');
         break;
       }
       const graph = buildDocumentGraph(options.root || path.resolve(packageRoot, '..'));
       const format = options.format || 'markdown';
-      const output = format === 'json' ? graph : documentIndexMarkdown(graph, { outputFile: options.out, baseUrl: options['base-url'] });
+      const output = format === 'json' ? graph : documentIndexMarkdown(graph, { outputFile: options.out, baseUrl: resolveBaseUrl(options['base-url']) });
       if (options.check) {
         if (!options.out) throw new Error('docs-index --check requires --out.');
         const expected = format === 'json' ? `${JSON.stringify(output, null, 2)}\n` : `${output.trimEnd()}\n`;

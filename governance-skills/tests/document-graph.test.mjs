@@ -5,6 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { packageJson } from '../lib/config.mjs';
 import { buildDocumentGraph, documentIndexMarkdown } from '../lib/document-graph.mjs';
 
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -106,8 +107,18 @@ test('docs-index can generate package-safe repository links', () => {
   assert.ok(markdown.includes('[Policy](https://github.com/Moonweave-AI/governance/blob/main/01-Foundation/policy.md)'));
 });
 
+test('docs-index release base URL pins package links to the package version tag', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-index-'));
+  const out = path.join(root, 'docs', 'DOCUMENT-INDEX.md');
+  write(root, '01-Foundation/policy.md', document({ title: 'Policy', canonical: './policy.md' }));
+  const cli = path.join(packageRoot, 'bin', 'moonweave-skills.mjs');
+  const generated = spawnSync(process.execPath, [cli, 'docs-index', '--root', root, '--out', out, '--base-url', 'release'], { encoding: 'utf8' });
+  assert.equal(generated.status, 0, generated.stderr);
+  assert.match(fs.readFileSync(out, 'utf8'), new RegExp(`\\]\\(https://github\\.com/Moonweave-AI/governance/blob/v${packageJson.version}/`));
+});
+
 test('the packaged document index has no package-escaping relative links', () => {
   const markdown = fs.readFileSync(path.join(packageRoot, 'docs', 'DOCUMENT-INDEX.md'), 'utf8');
   assert.doesNotMatch(markdown, /\]\(\.\.\/\.\.\//);
-  assert.match(markdown, /\]\(https:\/\/github\.com\/Moonweave-AI\/governance\/blob\/main\//);
+  assert.match(markdown, new RegExp(`\\]\\(https://github\\.com/Moonweave-AI/governance/blob/v${packageJson.version}/`));
 });

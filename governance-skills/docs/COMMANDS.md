@@ -40,7 +40,7 @@ Profiles: docs, library, service, ai-agent, embodied, auto.
 Check Agent Skills frontmatter, names, description length, safe-execution contracts, dangerous instructions, and resource file sizes.
 
 ## `lint-docs`
-Validate document metadata, canonical targets, decision identifiers and scopes, local relation targets, graph connectivity, reciprocal `related` links, and reciprocal `supersedes`/`superseded_by` lifecycle links. The check rejects isolated records, disconnected subgraphs, overlapping current RFC or ADR authorities for one `decision_scope`, and ADRs that omit an existing same-scope RFC link. A superseded record must name its successor and use status `Superseded`.
+Validate document metadata, canonical targets, decision identifiers and scopes, governed relation endpoints, graph connectivity, reciprocal `related` links, and reciprocal `supersedes`/`superseded_by` lifecycle links. Decision aliases must match their canonical record's type, identifier, and `decision_scope`; supersession endpoints and local `related` endpoints must resolve to governed documents. The check rejects isolated records, disconnected subgraphs, overlapping current RFC or ADR authorities for one `decision_scope`, and ADRs that omit an existing same-scope RFC link. A superseded record must name its successor and use status `Superseded`.
 
 ## `docs-index`
 
@@ -48,10 +48,11 @@ Validate document metadata, canonical targets, decision identifiers and scopes, 
 moonweave-skills docs-index --root . --format json
 moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md
 moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url https://github.com/OWNER/REPO/blob/main/
+moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url release
 moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --check
 ```
 
-Generate an LLM-readable JSON graph or a clickable Markdown table from authoritative document frontmatter and `core/governance-map.json`. Frontmatter remains the source of truth; the Markdown file is a generated view. Use `--base-url` when the generated index is distributed without the referenced repository documents, such as in an npm package. `--check` fails when the committed view is stale.
+Generate an LLM-readable JSON graph or a clickable Markdown table from authoritative document frontmatter and `core/governance-map.json`. Frontmatter remains the source of truth; the Markdown file is a generated view. Use `--base-url` when the generated index is distributed without the referenced repository documents, such as in an npm package. The special value `release` resolves to the repository's immutable `v<package-version>` tag; a full URL remains available for other revisions or repositories. `--check` fails when the committed view is stale.
 
 ## `eval-static`
 Run risk routing, positive/negative trigger cases for all 23 skills, and static security regressions.

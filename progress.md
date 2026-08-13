@@ -110,3 +110,36 @@
 - `governance-skills/checksums.sha256`：刷新本轮发布文件内容的校验和。
 - `progress.md`：追加本轮 Codex 评审修复、验证证据、文件落点和回滚点。
 - 回滚点：本轮修改前的提交为 `967ec617c380ed20524c8224ae8c90a4ade6bcc6`；提交后应对本轮提交执行 `git revert`，不得改写共享 PR 分支历史。
+
+## 2026-08-13 - Task: 根据第二次 Codex 评审修复决策与发布索引门禁
+
+### What was done
+
+- 修复决策记录 `canonical` 别名校验：RFC/ADR 只有在类型、编号和 `decision_scope` 都与 canonical 记录一致时才能参与 authority 合并。
+- 收紧关系端点：外部或非治理文件不得作为 `supersedes`/`superseded_by` 目标；本地 `related` 目标必须解析为治理文档。
+- 将 npm 包索引的 `--base-url` 改为动态 `release` 模式，按 `package.json` 版本生成 `v<version>` 不可变标签链接，避免发布包索引跟随 `main` 漂移。
+- 同步三语命令说明，重建 64 份文档的发布索引并刷新发布校验和。
+
+### Testing
+
+- 评审缺口复现：旧逻辑对 canonical 别名伪合并返回 0 个错误；外部 supersession 和本地非治理 related 端点均可绕过专门校验。
+- `node --test tests/document-lint.test.mjs tests/document-graph.test.mjs`：通过；21 个定向测试零失败。
+- `npm run verify`：通过；25 个技能、199 项适配器/市场校验、64 份治理文档、72 个模板和 171 个静态评测均通过。
+- `npm run pack:check`：通过；npm dry-run 包含 1192 个文件，并在 prepack 阶段再次通过完整验证。
+- `node bin/moonweave-skills.mjs checksums`：通过；刷新 1197 条发布文件校验和。
+- `git diff --check` 与 `lint:docs-index --check`：通过；索引无漂移且补丁无空白错误。
+
+### Notes
+
+- `governance-skills/lib/document-lint.mjs`：新增决策 canonical 元数据一致性和受治理关系端点校验。
+- `governance-skills/bin/moonweave-skills.mjs`：新增 `--base-url release` 到版本标签的解析。
+- `governance-skills/package.json`：让索引生成与检查脚本使用 release 基址。
+- `governance-skills/tests/document-lint.test.mjs`：新增 canonical 别名和非治理关系端点回归测试。
+- `governance-skills/tests/document-graph.test.mjs`：新增 release 标签链接回归测试并更新发布索引断言。
+- `governance-skills/docs/COMMANDS.md`：更新英文 lint 与发布索引命令说明。
+- `governance-skills/docs/zh/COMMANDS.md`：同步中文 lint 与发布索引命令说明。
+- `governance-skills/docs/ja/COMMANDS.md`：同步日文 lint 与发布索引命令说明。
+- `governance-skills/docs/DOCUMENT-INDEX.md`：重建为 `v0.2.4` 不可变标签链接。
+- `governance-skills/checksums.sha256`：刷新本轮发布文件校验和。
+- `progress.md`：追加本轮评审修复、验证证据和回滚点。
+- 回滚方式：提交前执行 `git diff -- governance-skills progress.md | git apply --reverse`；提交后对本轮提交执行 `git revert <本轮提交>`，不得改写共享 PR 分支历史。

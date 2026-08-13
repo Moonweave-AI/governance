@@ -105,6 +105,38 @@ test('document lint rejects missing relation targets and duplicate decision iden
   assert.equal(findings.filter((item) => item.id === 'duplicate-document-identifier').length, 2);
 });
 
+test('document lint validates decision canonical targets before collapsing authorities', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-lint-'));
+  const policy = valid.replace('related: []', 'related: [./first.md, ./second.md]');
+  const first = valid
+    .replace('type: governance-policy', 'type: engineering/rfc')
+    .replace('canonical: ./policy.md', 'rfc: RFC-0001\ndecision_scope: shared-protocol\ncanonical: ./policy.md')
+    .replace('related: []', 'related: [./policy.md]')
+    .replace('# Policy', '# First');
+  const second = first.replace('RFC-0001', 'RFC-0002').replace('# First', '# Second');
+  write(root, '03-Collaboration/policy.md', policy);
+  write(root, '03-Collaboration/first.md', first);
+  write(root, '03-Collaboration/second.md', second);
+  const findings = lintDocuments(root).findings;
+  assert.equal(findings.filter((item) => item.id === 'invalid-canonical-decision-target').length, 2);
+
+  write(root, '03-Collaboration/notes.txt', 'This is not an authoritative governance document.');
+  write(root, '03-Collaboration/first.md', first.replace('canonical: ./policy.md', 'canonical: ./notes.txt'));
+  assert.ok(lintDocuments(root).findings.some((item) => item.id === 'invalid-canonical-decision-target' && item.path === '03-Collaboration/first.md'));
+});
+
+test('document lint rejects ungoverned relation endpoints', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-lint-'));
+  const document = valid
+    .replace('related: []', 'related: [../notes.txt]')
+    .replace('supersedes: []', 'supersedes: [https://example.com/old]');
+  write(root, '01-Foundation/en/policy.md', document);
+  write(root, '01-Foundation/notes.txt', 'This is not an authoritative governance document.');
+  const findings = lintDocuments(root).findings;
+  assert.ok(findings.some((item) => item.id === 'invalid-related-target'));
+  assert.ok(findings.some((item) => item.id === 'invalid-supersession-target'));
+});
+
 test('document lint rejects overlapping live decisions with the same scope', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-lint-'));
   const first = valid

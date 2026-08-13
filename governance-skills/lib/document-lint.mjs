@@ -51,12 +51,19 @@ export function lintDocuments(rootInput) {
     if (typeof data.canonical !== 'string' || !data.canonical.trim() || document.canonical.external || !document.canonical.exists) {
       findings.push(finding('error', 'missing-canonical-target', rel, `canonical target does not exist: ${data.canonical || '(empty)'}`));
     }
+    if (['engineering/rfc', 'architecture/adr'].includes(document.type)) {
+      const canonical = document.canonical.document ? documentsByPath.get(document.canonical.document) : null;
+      if (!canonical || canonical.type !== document.type || canonical.identifier !== document.identifier || canonical.decision_scope !== document.decision_scope) {
+        findings.push(finding('error', 'invalid-canonical-decision-target', rel, 'Decision record canonical target must match its type, identifier, and decision_scope'));
+      }
+    }
     for (const key of DOCUMENT_RELATIONS) {
       const seen = new Set();
       for (const reference of document.relations[key]) {
         const identity = reference.external ? reference.target : reference.document || reference.target;
         if (!identity || !reference.exists && !reference.external) findings.push(finding('error', 'missing-document-relation-target', rel, `${key} target does not exist: ${reference.value}`));
-        if ((key === 'supersedes' || key === 'superseded_by') && reference.exists && !reference.document) findings.push(finding('error', 'invalid-supersession-target', rel, `${key} must point to another governed document: ${reference.value}`));
+        if ((key === 'supersedes' || key === 'superseded_by') && (reference.external || (reference.exists && !reference.document))) findings.push(finding('error', 'invalid-supersession-target', rel, `${key} must point to another governed document: ${reference.value}`));
+        if (key === 'related' && !reference.external && reference.exists && !reference.document) findings.push(finding('error', 'invalid-related-target', rel, `${key} must point to another governed document: ${reference.value}`));
         if (reference.document === document.path) findings.push(finding('error', 'self-document-relation', rel, `${key} must not point to the same document`));
         if (seen.has(identity)) findings.push(finding('error', 'duplicate-document-relation', rel, `${key} repeats target: ${reference.value}`));
         seen.add(identity);
