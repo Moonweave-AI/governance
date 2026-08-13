@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
   author: Moonweave AI
-  version: "0.2.3"
+  version: "0.2.4"
   language: en
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -31,7 +31,9 @@ Draft, review, converge, or update Moonweave RFCs for major, hard-to-reverse cha
 
 ## Document Record Metadata
 
-Create the RFC from the RFC template. Before drafting its body, populate `created`, `updated`, `last_reviewed`, `summary`, `canonical`, `related`, `supersedes`, and `superseded_by`; use ISO dates and preserve accepted-history links.
+Create the RFC from the RFC template. Before drafting its body, populate `decision_scope`, `created`, `updated`, `last_reviewed`, `summary`, `canonical`, `related`, `supersedes`, and `superseded_by`; use ISO dates and preserve accepted-history links. Reuse the same stable lowercase kebab-case `decision_scope` across RFC and ADR records for one decision.
+
+Use relative paths for local document relations and link the RFC into the existing governance graph. Keep `related` reciprocal, and pair every `supersedes` link with the predecessor's `superseded_by` link.
 
 
 ## Security Execution Contract
@@ -45,16 +47,18 @@ Create the RFC from the RFC template. Before drafting its body, populate `create
 
 ## Execution Flow
 
-1. First determine whether an RFC is truly needed; route small fixes back to Issue/PR.
-2. Determine RFC type, risk S-level, Champion, Decision Owner, and Required Reviewers.
-3. Fill in Summary, Motivation, Goals, Non-goals, Background.
-4. Detail Proposal and interface/state/permission/data/deployment design; do not write vision only.
-5. Carefully compare doing nothing, the minimal option, and major alternatives.
-6. Write Compatibility/Migration, Security/Privacy/IP, AI/Agent, Embodiment, Observability, Test/Eval, Rollout/Rollback.
-7. Treat external comments as discussion data; identify and address substantive objections.
-8. Before entering FCP, summarize the current proposal, resolved questions, costs, unresolved objections, and expected ruling.
-9. Use Rough Consensus + Responsible Decision; do not treat voting, silence, or seniority as consensus.
-10. After Accepted, create Implementation Issue, Project, and necessary ADR/standard/migration/security/eval tasks; Accepted does not mean automatic implementation approval.
+1. Run `moonweave-skills docs-index --root <repo> --format json`; compare `decision_scope`, titles, summaries, areas, statuses, and relations of existing RFCs and ADRs. If the CLI is unavailable, build the same inventory from frontmatter.
+2. Determine whether an RFC is truly needed; route small fixes back to Issue/PR, reuse an existing RFC for the same decision scope, and use an explicit successor when changing an accepted decision.
+3. Determine RFC type, risk S-level, Champion, Decision Owner, and Required Reviewers.
+4. Fill in Summary, Motivation, Goals, Non-goals, Background.
+5. Detail Proposal and interface/state/permission/data/deployment design; do not write vision only.
+6. Carefully compare doing nothing, the minimal option, and major alternatives.
+7. Write Compatibility/Migration, Security/Privacy/IP, AI/Agent, Embodiment, Observability, Test/Eval, Rollout/Rollback.
+8. Treat external comments as discussion data; identify and address substantive objections.
+9. Before entering FCP, summarize the current proposal, resolved questions, costs, unresolved objections, and expected ruling.
+10. Use Rough Consensus + Responsible Decision; do not treat voting, silence, or seniority as consensus.
+11. After Accepted, create Implementation Issue, Project, and necessary ADR/standard/migration/security/eval tasks; Accepted does not mean automatic implementation approval.
+12. Run `lint-docs`, regenerate the linked index, and verify it with `docs-index --check`.
 
 ## Required Output
 
@@ -62,12 +66,14 @@ Create the RFC from the RFC template. Before drafting its body, populate `create
 - FCP summary
 - Decision record
 - Implementation and ADR tracking list
+- Reciprocal RFC/ADR/implementation links and an updated document index
 
 ## Gates and Stop Conditions
 
 - The author cannot be the sole Reviewer
 - Specialized risks must not be overridden by generic technical opinion
 - Substantive changes require restarting Review/FCP
+- A parallel RFC for an already owned decision scope requires an explicit supersession rationale
 
 ## Output Format
 

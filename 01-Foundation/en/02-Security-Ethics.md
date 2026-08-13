@@ -3,11 +3,11 @@ type: "governance-policy"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative governance policy: Security, Privacy, and Responsibility Boundaries."
 canonical: "./02-Security-Ethics.md"
-related: []
+related: ["./01-Principles.md", "../../02-Governance/en/01-Organization.md", "../../03-Collaboration/en/01-Communication.md", "../../03-Collaboration/en/02-Planning.md", "../../03-Collaboration/en/03-RFC-Process.md", "../../04-Engineering/en/01-Workflow.md", "../../04-Engineering/en/02-Quality-Assurance.md", "../../05-Knowledge/en/01-Documentation-Guide.md", "../../04-Engineering/standards/ai-systems.md", "../../04-Engineering/standards/api-and-protocols.md", "../../06-Glossary/en/04-security-and-compliance.md", "../../06-Glossary/en/05-ai-agent-and-data.md", "../../06-Glossary/en/07-embodiment-and-robotics.md"]
 supersedes: []
 superseded_by: []
 ---

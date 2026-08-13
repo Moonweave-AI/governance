@@ -5,7 +5,7 @@ license: MIT
 compatibility: Agent Skillsオープン形式をサポートするプラットフォーム向け。決定的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:
   author: Moonweave AI
-  version: "0.2.3"
+  version: "0.2.4"
   language: ja-JP
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -36,6 +36,7 @@ README、Tutorial、How-to、Reference、Explanation、APIドキュメント、R
 - 日付は ISO `YYYY-MM-DD` を使い、`created ≤ updated ≤ last_reviewed` を満たす。`updated` と `last_reviewed` は Git コミット時刻ではない。
 - `type` は `core/document-type-registry.json` にある値を選ぶ。対応するテンプレートを使い、新しい type は使用前に登録する。
 - `Superseded` または `Archived` には明示的な後継または保持理由を付ける。翻訳は canonical 正本を指す。
+- ローカル文書関係には相対パスを使う。各ガバナンス文書は少なくとも一つの他のガバナンス文書へリンクし、グラフ全体を連結に保つ。`related` は双方向、`supersedes` は旧文書の `superseded_by` と対にする。
 
 
 ## セキュリティ実行契約
@@ -49,15 +50,17 @@ README、Tutorial、How-to、Reference、Explanation、APIドキュメント、R
 
 ## 実行フロー
 
-1. ドキュメントタイプを判定する：Tutorial、How-to、Reference、Explanation、特殊記録。混在禁止。
-2. canonicalな事実源と対象読者を確認する。チャット/会議の要約だけでは事実にならない。
-3. title/type/status/owner/audience/visibility/updated/last_reviewed/related linksなどのメタデータを追加する。
-4. READMEにはWhat/Why/Status/Quick Start/Docs/Security/Contributing/License/Ownershipを記載する。
-5. Referenceは可能な限りソースSchema/APIから生成する。手書きドキュメントはwhy/howを説明する。
-6. コード例は最小・実行可能・シークレットなしで、バージョンと期待出力を持ち、CIに入れられるならCIに入れる。
-7. 用語の一貫性、能動態、手順の順序、アクセシビリティ、画像alt、チャートソースファイルをチェックする。
-8. Technical/Docs/専門Reviewとmarkdown/link/spell/style/secretチェックを完了する。
-9. 再Review周期を設定する。陳腐化した内容はDeprecated/Superseded/Archivedとし、代替パスを示す。
+1. 起草前に `moonweave-skills docs-index --root <repo> --format json` を実行し、タイトル、要約、タイプ、ステータス、canonical 記録、関係を確認する。CLI が使えない場合は frontmatter から同等の一覧を作る。
+2. 一覧から範囲が重なる Active または Draft の記録を探す。既存文書が事実を所有する場合は canonical 文書を再利用し、決定が変わった場合は後継を作り両方向のライフサイクルリンクを更新する。
+3. ドキュメントタイプを判定する：Tutorial、How-to、Reference、Explanation、特殊記録。混在禁止。
+4. canonicalな事実源と対象読者を確認する。チャット/会議の要約だけでは事実にならない。
+5. title/type/status/owner/audience/visibility/updated/last_reviewed/related linksなどのメタデータを追加する。
+6. READMEにはWhat/Why/Status/Quick Start/Docs/Security/Contributing/License/Ownershipを記載する。
+7. Referenceは可能な限りソースSchema/APIから生成する。手書きドキュメントはwhy/howを説明する。
+8. コード例は最小・実行可能・シークレットなしで、バージョンと期待出力を持ち、CIに入れられるならCIに入れる。
+9. 用語の一貫性、能動態、手順の順序、アクセシビリティ、画像alt、チャートソースファイルをチェックする。
+10. Technical/Docs/専門Reviewとmarkdown/link/spell/style/secretチェックを完了する。
+11. `lint-docs` を実行し、`docs-index --out <index>` で Markdown 索引を再生成して `docs-index --check` で検証する。
 
 ## 必須出力
 
@@ -65,12 +68,14 @@ README、Tutorial、How-to、Reference、Explanation、APIドキュメント、R
 - メタデータとOwner
 - Review/CIチェックリスト
 - 陳腐化/重複ナレッジの整理提案
+- 更新済みドキュメント索引、または決定論的 CLI を利用できなかった旨
 
 ## ゲートと停止条件
 
 - 正式ドキュメントにはOwnerとステータスが必須
 - 重要な結論は追跡可能でなければならない
 - AI生成内容は人間が検証しなければならない
+- 新しい Active 文書は、明示的な置換経路なしに既存の権威文書と重複または矛盾してはならない
 
 ## 出力形式
 

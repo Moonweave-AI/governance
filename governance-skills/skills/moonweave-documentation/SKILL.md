@@ -5,7 +5,7 @@ license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
   author: Moonweave AI
-  version: "0.2.3"
+  version: "0.2.4"
   language: en
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -39,6 +39,7 @@ For every formal document created or materially updated, use the matching govern
 - Use ISO dates (`YYYY-MM-DD`), and ensure `created ≤ updated ≤ last_reviewed`.
 - Use `Superseded` or `Archived` only with an explicit successor or retained-context explanation. Never silently overwrite an accepted decision.
 - Keep the summary concise enough for progressive disclosure, and point translations to the canonical source.
+- Store local document relations as relative paths. Every governed document must link at least one other governed document, and the graph must stay connected. Keep `related` reciprocal, and keep `supersedes` paired with the predecessor's `superseded_by`.
 
 
 ## Security Execution Contract
@@ -52,15 +53,17 @@ For every formal document created or materially updated, use the matching govern
 
 ## Execution Flow
 
-1. Determine the document type: Tutorial, How-to, Reference, Explanation, or a special record; do not mix types.
-2. Confirm the canonical source of truth and target audience; chat/meeting summaries alone cannot serve as facts.
-3. Add metadata such as title/type/status/owner/audience/visibility/updated/last_reviewed/related links.
-4. A README must explain What/Why/Status/Quick Start/Docs/Security/Contributing/License/Ownership.
-5. Reference should be generated from source Schema/API where possible; hand-written docs explain why/how.
-6. Code examples must be minimal, runnable, secret-free, with version and expected output; if they can enter CI, put them in CI.
-7. Check terminology consistency, active voice, step order, accessibility, image alt text, and chart source files.
-8. Complete Technical/Docs/specialized review and markdown/link/spell/style/secret checks.
-9. Set a review cycle; mark stale content as Deprecated/Superseded/Archived and provide the replacement path.
+1. Run `moonweave-skills docs-index --root <repo> --format json` and inspect titles, summaries, types, statuses, canonical records, and relations before drafting. If the CLI is unavailable, build the same inventory from frontmatter.
+2. Search the inventory for overlapping active or draft records. Reuse the canonical document when it already owns the fact; if a decision changed, create a successor and update both lifecycle links.
+3. Determine the document type: Tutorial, How-to, Reference, Explanation, or a special record; do not mix types.
+4. Confirm the canonical source of truth and target audience; chat/meeting summaries alone cannot serve as facts.
+5. Add metadata such as title/type/status/owner/audience/visibility/updated/last_reviewed/related links.
+6. A README must explain What/Why/Status/Quick Start/Docs/Security/Contributing/License/Ownership.
+7. Reference should be generated from source Schema/API where possible; hand-written docs explain why/how.
+8. Code examples must be minimal, runnable, secret-free, with version and expected output; if they can enter CI, put them in CI.
+9. Check terminology consistency, active voice, step order, accessibility, image alt text, and chart source files.
+10. Complete Technical/Docs/specialized review and markdown/link/spell/style/secret checks.
+11. Run `lint-docs`, regenerate the Markdown index with `docs-index --out <index>`, and verify it with `docs-index --check`.
 
 ## Required Outputs
 
@@ -68,12 +71,14 @@ For every formal document created or materially updated, use the matching govern
 - Metadata and Owner
 - Review/CI checklist
 - Cleanup recommendations for stale/duplicate knowledge
+- Updated document index, or an explicit note that the deterministic CLI was unavailable
 
 ## Gates and Stop Conditions
 
 - Formal documents must have an Owner and status
 - Important conclusions must be traceable
 - AI-generated content must be human-verified
+- A new active document must not duplicate or contradict an existing authority without an explicit supersession path
 
 ## Output Format
 

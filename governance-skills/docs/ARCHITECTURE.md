@@ -46,9 +46,16 @@ Paired Evals / Security Analysis / Release Evidence
 Governance RFC
   → update typed core
   → update focused skills / commands / templates
+  → lint reciprocal document relations + regenerate document index
   → build:adapters
   → validate:adapters
   → tests + lint + static eval + audit
   → version / changelog / checksums
   → npm tarball / ZIP / marketplace submission
 ```
+
+## Document Graph
+
+Authoritative document frontmatter is the graph source. `canonical` groups translations and canonical records; `related` forms reciprocal context edges; `supersedes` and `superseded_by` form reciprocal lifecycle edges; `decision_scope` gives RFC and ADR records a shared decision identity. `core/governance-map.json` connects canonical governance documents to the skills that operationalize them.
+
+`docs-index` renders that graph as JSON for selective Agent loading or as a linked Markdown table for people. The generated table is never edited as a second authority. Before drafting an RFC, ADR, or other formal record, the Agent must inspect graph titles, summaries, types, statuses, decision scopes, and neighbors for overlap; after editing, it must run `lint-docs`, regenerate the table, and use `docs-index --check` to prevent drift. The lint gate keeps every record linked, the whole graph connected, same-scope current decisions unique by record type, and existing RFC-to-ADR decision chains explicit.

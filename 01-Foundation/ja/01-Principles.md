@@ -3,11 +3,11 @@ type: "governance-policy"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative governance policy: 輝夜計画の原則."
 canonical: "../en/01-Principles.md"
-related: []
+related: ["./02-Security-Ethics.md", "../../02-Governance/ja/01-Organization.md", "../../05-Knowledge/ja/01-Documentation-Guide.md", "../../06-Glossary/ja/01-governance-and-process.md"]
 supersedes: []
 superseded_by: []
 ---

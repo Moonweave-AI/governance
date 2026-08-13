@@ -94,6 +94,7 @@ moonweave-skills new rfc --title "Unify the long-term memory state protocol"
 moonweave-skills audit --root . --profile ai-agent --format markdown
 moonweave-skills lint-skills
 moonweave-skills lint-docs --root ..
+npm run docs:index
 moonweave-skills checksums
 ```
 
@@ -124,6 +125,7 @@ See [`docs/SECURITY-MODEL.md`](docs/SECURITY-MODEL.md) and [`SECURITY.md`](SECUR
 - [`docs/INSTALLATION.md`](docs/INSTALLATION.md)
 - [`docs/COMPATIBILITY.md`](docs/COMPATIBILITY.md)
 - [`docs/GOVERNANCE-TRACEABILITY.md`](docs/GOVERNANCE-TRACEABILITY.md)
+- [`docs/DOCUMENT-INDEX.md`](docs/DOCUMENT-INDEX.md)
 - [`docs/EVALUATION.md`](docs/EVALUATION.md)
 - [`docs/REFERENCES.md`](docs/REFERENCES.md)
 - [`docs/PUBLISHING.md`](docs/PUBLISHING.md)

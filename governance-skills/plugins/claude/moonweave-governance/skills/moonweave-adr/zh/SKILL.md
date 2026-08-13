@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.3"
+  version: "0.2.4"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -31,7 +31,9 @@ metadata:
 
 ## 文档记录元数据
 
-必须从 ADR 模板创建文档。填写 `created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by`；保留初始创建日期，并通过后继链接替代已接受历史，不得重写。
+必须从 ADR 模板创建文档。填写 `decision_scope`、`created`、`updated`、`last_reviewed`、`summary`、`canonical`、`related`、`supersedes`、`superseded_by`；保留初始创建日期，并通过后继链接替代已接受历史，不得重写。存在已接受 RFC 时，复用其稳定的小写 kebab-case `decision_scope`。
+
+本地文档关系使用相对路径，并把 ADR 接入既有治理文档图。`related` 必须双向，每个 `supersedes` 必须与旧文档的 `superseded_by` 配对。
 
 
 ## 安全执行契约
@@ -45,26 +47,30 @@ metadata:
 
 ## 执行流程
 
-1. 确认这是"已作出的架构决策"，不是仍在讨论的提案。
-2. 用不可变历史视角写Context：当时约束、问题和证据。
-3. 明确Decision，不使用模糊措辞。
-4. 列出正面、负面和中性Consequences。
-5. 记录被考虑和拒绝的替代方案及理由。
-6. 链接RFC、Issue、PR、标准与迁移计划。
-7. 状态使用Proposed/Accepted/Deprecated/Superseded；不要回头改写已接受事实。
-8. 决策变化时创建新ADR，并相互链接supersedes/superseded-by。
+1. 运行 `moonweave-skills docs-index --root <repo> --format json`，比较既有 ADR/RFC 的 `decision_scope`、标题、摘要、状态和关系；CLI 不可用时，从 frontmatter 建立同等清单。
+2. 确认这是“已作出的架构决策”，不是仍在讨论的提案，并确认没有有效 ADR 已经拥有同一决策范围。
+3. 用不可变历史视角写Context：当时约束、问题和证据。
+4. 明确Decision，不使用模糊措辞。
+5. 列出正面、负面和中性Consequences。
+6. 记录被考虑和拒绝的替代方案及理由。
+7. 链接RFC、Issue、PR、标准与迁移计划。
+8. 使用统一文档生命周期状态 Draft/Active/Deprecated/Superseded/Archived；不要回头改写已接受事实。
+9. 决策变化时创建新ADR，并相互链接 `supersedes`/`superseded_by`。
+10. 运行 `lint-docs`，重建链接索引，并用 `docs-index --check` 验证。
 
 ## 必须输出
 
 - ADR Markdown
 - 关联链接
 - 后续实现/迁移任务
+- RFC/ADR 互链和更新后的文档索引
 
 ## 门禁与停止条件
 
 - ADR不替代RFC讨论
 - 历史ADR追加而不重写
 - 必须有Owner/Decision Owner
+- 已有权威 ADR 覆盖同一决策范围时，并行 ADR 必须给出明确替代理由
 
 ## 输出格式
 

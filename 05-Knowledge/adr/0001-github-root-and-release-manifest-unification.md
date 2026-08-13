@@ -1,13 +1,15 @@
 ---
-type: "knowledge-policy"
+type: "architecture/adr"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative knowledge policy: ADR-0001: Relocate `.github` to repo root and unify release-manifest at 0.2.0."
 canonical: "./0001-github-root-and-release-manifest-unification.md"
-related: []
+adr: "ADR-0001"
+decision_scope: "repository-root-and-release-manifest"
+related: ["../../04-Engineering/en/01-Workflow.md", "../en/01-Documentation-Guide.md"]
 supersedes: []
 superseded_by: []
 ---

@@ -46,9 +46,16 @@ Paired Evals / Security Analysis / Release Evidence
 Governance RFC
   → typed core を更新
   → focused skills / commands / templates を更新
+  → 文書関係の相互性を検証し文書索引を再生成
   → build:adapters
   → validate:adapters
   → tests + lint + static eval + audit
   → version / changelog / checksums
   → npm tarball / ZIP / marketplace submission
 ```
+
+## ドキュメントグラフ
+
+権威文書の frontmatter がグラフの事実源である。`canonical` は canonical 記録と翻訳をグループ化し、`related` は双方向コンテキスト辺、`supersedes` と `superseded_by` は相互のライフサイクル辺、`decision_scope` は RFC と ADR に共有の意思決定 ID を形成する。`core/governance-map.json` は canonical ガバナンス文書を、それを運用するスキルへ接続する。
+
+`docs-index` は同じグラフを Agent の選択的読み込み用 JSON、または人向けのリンク付き Markdown 一覧として出力する。生成一覧を第二の権威として手編集してはならない。RFC、ADR、その他の正式記録を起草する前に、Agent はグラフのタイトル、要約、タイプ、ステータス、意思決定範囲、隣接記録を比較して重複を確認する。編集後は `lint-docs`、一覧の再生成、`docs-index --check` を実行してドリフトを防ぐ。lint ゲートは各記録のローカル関係、グラフ全体の連結、同種の現行決定における範囲の一意性、既存 RFC から ADR への意思決定チェーンを強制する。

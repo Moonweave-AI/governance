@@ -46,9 +46,16 @@ Paired Evals / Security Analysis / Release Evidence
 Governance RFC
   → 更新 typed core
   → 更新 focused skills / commands / templates
+  → 检查文档关系互逆性并重建文档索引
   → build:adapters
   → validate:adapters
   → tests + lint + static eval + audit
   → version / changelog / checksums
   → npm tarball / ZIP / marketplace submission
 ```
+
+## 文档关系图
+
+权威文档 frontmatter 是关系图事实源。`canonical` 对 canonical 记录及其翻译分组；`related` 形成双向上下文边；`supersedes` 与 `superseded_by` 形成互逆生命周期边；`decision_scope` 为 RFC 与 ADR 提供共享的决策身份。`core/governance-map.json` 再把 canonical 治理文档连接到执行它们的技能。
+
+`docs-index` 将同一张图输出为供 Agent 按需加载的 JSON，或供人阅读的可点击 Markdown 总表。生成总表不得被手工编辑为第二权威。起草 RFC、ADR 或其他正式记录前，Agent 必须比较图中的标题、摘要、类型、状态、决策范围和相邻记录以排查重叠；修改后必须运行 `lint-docs`、重建总表，并用 `docs-index --check` 防止漂移。门禁保证每份记录都有本地关系、全图连通、同类型的有效同范围决策唯一，并显式保留已有的 RFC 到 ADR 决策链。

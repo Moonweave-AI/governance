@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.3"
+  version: "0.2.4"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -38,6 +38,7 @@ metadata:
 - 日期一律使用 ISO 格式 `YYYY-MM-DD`，并保证 `created ≤ updated ≤ last_reviewed`。
 - 只有明确替代目标或保留背景说明时，才可使用 `Superseded` 或 `Archived`；不得静默覆盖已接受的决策。
 - `summary` 应足够精简以支持渐进披露；翻译文档必须指向 canonical 正本。
+- 本地文档关系使用相对路径。每份受治理文档必须连接至少一份其他受治理文档，且全图保持连通。`related` 必须双向，`supersedes` 必须与旧文档的 `superseded_by` 配对。
 
 
 ## 安全执行契约
@@ -51,15 +52,17 @@ metadata:
 
 ## 执行流程
 
-1. 判断文档类型：Tutorial、How-to、Reference、Explanation或特殊记录；禁止混写。
-2. 确认canonical事实源和目标读者；聊天/会议摘要不能单独成为事实。
-3. 添加title/type/status/owner/audience/visibility/updated/last_reviewed/related links等元数据。
-4. README必须说明What/Why/Status/Quick Start/Docs/Security/Contributing/License/Ownership。
-5. Reference尽量由源Schema/API生成；手写文档解释why/how。
-6. 代码示例必须最小可运行、无secret、有版本和预期输出，能进CI则进CI。
-7. 检查术语一致、主动语态、步骤顺序、可访问性、图片alt、图表源文件。
-8. 完成Technical/Docs/专项Review与markdown/link/spell/style/secret检查。
-9. 设置复审周期；过期内容标为Deprecated/Superseded/Archived并给替代路径。
+1. 起草前运行 `moonweave-skills docs-index --root <repo> --format json`，检查标题、摘要、类型、状态、canonical 记录和关系；CLI 不可用时，从 frontmatter 建立同等清单。
+2. 在清单中搜索范围重叠的有效或草稿记录。已有文档拥有该事实时复用 canonical 文档；决策变化时新建后继文档并更新两端生命周期链接。
+3. 判断文档类型：Tutorial、How-to、Reference、Explanation或特殊记录；禁止混写。
+4. 确认canonical事实源和目标读者；聊天/会议摘要不能单独成为事实。
+5. 添加title/type/status/owner/audience/visibility/updated/last_reviewed/related links等元数据。
+6. README必须说明What/Why/Status/Quick Start/Docs/Security/Contributing/License/Ownership。
+7. Reference尽量由源Schema/API生成；手写文档解释why/how。
+8. 代码示例必须最小可运行、无secret、有版本和预期输出，能进CI则进CI。
+9. 检查术语一致、主动语态、步骤顺序、可访问性、图片alt、图表源文件。
+10. 完成Technical/Docs/专项Review与markdown/link/spell/style/secret检查。
+11. 运行 `lint-docs`，用 `docs-index --out <index>` 重建 Markdown 索引，再用 `docs-index --check` 验证一致性。
 
 ## 必须输出
 
@@ -67,12 +70,14 @@ metadata:
 - 元数据与Owner
 - Review/CI清单
 - 过期/重复知识清理建议
+- 更新后的文档索引；若确定性 CLI 不可用则明确说明
 
 ## 门禁与停止条件
 
 - 正式文档必须有Owner和状态
 - 重要结论必须可追溯
 - AI生成内容必须人工核验
+- 新的有效文档不得在没有显式替代路径时重复或矛盾于既有权威文档
 
 ## 输出格式
 

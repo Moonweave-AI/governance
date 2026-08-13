@@ -3,11 +3,11 @@ type: "engineering-policy"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative engineering policy: 质量保障规范."
 canonical: "./en/02-Quality-Assurance.md"
-related: []
+related: ["../01-Foundation/02-Security-Ethics.md", "../03-Collaboration/02-Planning.md", "./01-Workflow.md", "../05-Knowledge/01-Documentation-Guide.md", "../06-Glossary/zh/03-quality-and-testing.md"]
 supersedes: []
 superseded_by: []
 ---

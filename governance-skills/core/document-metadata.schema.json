@@ -13,10 +13,11 @@
     "updated": {"type": "string", "format": "date"},
     "last_reviewed": {"type": "string", "format": "date"},
     "summary": {"type": "string", "minLength": 20, "maxLength": 280},
+    "decision_scope": {"type": "string", "description": "Stable lowercase kebab-case identity for the decision governed by an RFC or ADR.", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
     "canonical": {"type": "string", "minLength": 1},
-    "related": {"type": "array", "items": {"type": "string"}},
-    "supersedes": {"type": "array", "items": {"type": "string"}},
-    "superseded_by": {"type": "array", "items": {"type": "string"}}
+    "related": {"type": "array", "description": "Reciprocal links to related records. Local documents use relative paths.", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "supersedes": {"type": "array", "description": "Older governed records replaced by this record.", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "superseded_by": {"type": "array", "description": "Newer governed records that replace this record.", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
   },
   "additionalProperties": true
 }

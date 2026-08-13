@@ -8,6 +8,7 @@ champion:
 sponsor:
 decision_owner:
 area:
+decision_scope:
 risk_level:
 created: <date>
 updated: <date>

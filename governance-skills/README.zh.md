@@ -95,6 +95,7 @@ moonweave-skills new rfc --title "统一长期记忆状态协议"
 moonweave-skills audit --root . --profile ai-agent --format markdown
 moonweave-skills lint-skills
 moonweave-skills lint-docs --root ..
+npm run docs:index
 moonweave-skills checksums
 ```
 
@@ -125,6 +126,7 @@ Skills 并非安全边界。确定性限制应由权限系统、Hook、CI、分�
 - [`docs/INSTALLATION.md`](docs/INSTALLATION.md)
 - [`docs/COMPATIBILITY.md`](docs/COMPATIBILITY.md)
 - [`docs/GOVERNANCE-TRACEABILITY.md`](docs/GOVERNANCE-TRACEABILITY.md)
+- [`docs/DOCUMENT-INDEX.md`](docs/DOCUMENT-INDEX.md)
 - [`docs/EVALUATION.md`](docs/EVALUATION.md)
 - [`docs/REFERENCES.md`](docs/REFERENCES.md)
 - [`docs/PUBLISHING.md`](docs/PUBLISHING.md)

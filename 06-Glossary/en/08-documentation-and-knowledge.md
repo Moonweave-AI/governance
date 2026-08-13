@@ -3,11 +3,11 @@ type: "glossary"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-05"
-last_reviewed: "2026-08-05"
+updated: "2026-08-08"
+last_reviewed: "2026-08-08"
 summary: "Authoritative glossary: Documentation & Knowledge Management."
 canonical: "./08-documentation-and-knowledge.md"
-related: []
+related: ["../README.md", "../../05-Knowledge/en/01-Documentation-Guide.md"]
 supersedes: []
 superseded_by: []
 ---
