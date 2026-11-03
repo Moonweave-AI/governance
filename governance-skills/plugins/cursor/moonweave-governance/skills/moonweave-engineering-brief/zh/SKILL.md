@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -49,7 +49,7 @@ metadata:
 6. 写测试金字塔、契约/E2E/AI/具身专项计划。
 7. 写日志、Metrics、Tracing、SLO/告警。
 8. 写迁移、灰度、回滚和Owner/DRI。
-9. 判断是否发现新的RFC触发条件；若有则停止实现并升级。
+9. 出现新的不可逆公共契约时，记下 RFC 门禁，并继续可运行的变更；只有用户只要简报时才停在简报。
 
 ## 必须输出
 
@@ -84,6 +84,10 @@ metadata:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## 交付契约
+
+终点是用户要求的可运行的变更，以及证明它确实如此的证据。默认只读取图谱或邻域（`docs-index --view atlas`，或 `--view neighborhood --focus <path>`），把事实写回既有权威记录，发布说明里每条可见变化只留一行。RFC、ADR、计划或索引只在任务本身就是这份记录，或变更不可逆时作为中间门禁。
 
 ## 治理来源
 

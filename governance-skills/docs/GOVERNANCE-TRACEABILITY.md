@@ -17,4 +17,4 @@ This system does not attempt to "summarize everything" in a prompt. Instead, it 
 
 The machine-readable mapping is in `core/governance-map.json`.
 
-The current generated cross-document and document-to-skill view is [`DOCUMENT-INDEX.md`](DOCUMENT-INDEX.md). Its data comes from document frontmatter plus `core/governance-map.json`; CI checks that the view is current.
+The current generated views are [`DOCUMENT-ATLAS.md`](DOCUMENT-ATLAS.md), [`CHANGE-ATLAS.md`](CHANGE-ATLAS.md), and [`DOCUMENT-INDEX.md`](DOCUMENT-INDEX.md). Their data comes from document frontmatter plus `core/governance-map.json`; CI checks that the views are current. Agents load the atlas or a neighborhood. The index remains the audit ledger.

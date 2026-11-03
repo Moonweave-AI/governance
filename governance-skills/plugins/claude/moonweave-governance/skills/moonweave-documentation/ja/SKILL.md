@@ -5,7 +5,7 @@ license: MIT
 compatibility: Agent Skillsオープン形式をサポートするプラットフォーム向け。決定的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: ja-JP
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -50,8 +50,8 @@ README、Tutorial、How-to、Reference、Explanation、APIドキュメント、R
 
 ## 実行フロー
 
-1. 起草前に `moonweave-skills docs-index --root <repo> --format json` を実行し、タイトル、要約、タイプ、ステータス、canonical 記録、関係を確認する。CLI が使えない場合は frontmatter から同等の一覧を作る。
-2. 一覧から範囲が重なる Active または Draft の記録を探す。既存文書が事実を所有する場合は canonical 文書を再利用し、決定が変わった場合は後継を作り両方向のライフサイクルリンクを更新する。
+1. 起草前に `moonweave-skills docs-index --root <repo> --view atlas` を実行する。既存記録が事実を所有している可能性がある場合は `docs-index --view neighborhood --focus <path>` だけを読む。CLI が使えない場合は、その領域の canonical 記録の frontmatter だけを読む。
+2. アトラスから範囲が重なる Active または Draft の記録を探し、その権威文書を直接更新する。事実が現在の権威に置けないときだけ新しいファイルを作り、旧記録を置換するか `consolidation: new-authority` を設定する。
 3. ドキュメントタイプを判定する：Tutorial、How-to、Reference、Explanation、特殊記録。混在禁止。
 4. canonicalな事実源と対象読者を確認する。チャット/会議の要約だけでは事実にならない。
 5. title/type/status/owner/audience/visibility/updated/last_reviewed/related linksなどのメタデータを追加する。
@@ -60,7 +60,7 @@ README、Tutorial、How-to、Reference、Explanation、APIドキュメント、R
 8. コード例は最小・実行可能・シークレットなしで、バージョンと期待出力を持ち、CIに入れられるならCIに入れる。
 9. 用語の一貫性、能動態、手順の順序、アクセシビリティ、画像alt、チャートソースファイルをチェックする。
 10. Technical/Docs/専門Reviewとmarkdown/link/spell/style/secretチェックを完了する。
-11. `lint-docs` を実行し、`docs-index --out <index>` で Markdown 索引を再生成して `docs-index --check` で検証する。
+11. `lint-docs` を実行し、`docs-index --view all` でアトラス、変更アトラス、監査台帳を再生成して `--check` で検証する。
 
 ## 必須出力
 
@@ -68,7 +68,7 @@ README、Tutorial、How-to、Reference、Explanation、APIドキュメント、R
 - メタデータとOwner
 - Review/CIチェックリスト
 - 陳腐化/重複ナレッジの整理提案
-- 更新済みドキュメント索引、または決定論的 CLI を利用できなかった旨
+- 再生成したアトラスと変更アトラス。決定論的 CLI を利用できない場合はその旨
 
 ## ゲートと停止条件
 
@@ -98,9 +98,13 @@ README、Tutorial、How-to、Reference、Explanation、APIドキュメント、R
 |---|---|---|---|
 ```
 
+## 引き渡し契約
+
+終端の成果物は、依頼された動作する変更と、それが実際に動く証拠である。既定ではアトラスまたは近傍だけを読む（`docs-index --view atlas`、または `--view neighborhood --focus <path>`）。事実は既存の権威記録へ書き戻し、リリースノートは見える変更ごとに一行にする。RFC、ADR、計画、索引は、依頼がその記録自体である場合、または変更が不可逆な場合の中間ゲートに限る。
+
 ## ガバナンス情報源
 
-- Documentation Guide（全文）
+- Documentation Guide（近傍）
 - Communication §単一事実源
 - Principles §伝承可能
 

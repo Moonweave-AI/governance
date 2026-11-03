@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -52,8 +52,8 @@ metadata:
 
 ## 执行流程
 
-1. 起草前运行 `moonweave-skills docs-index --root <repo> --format json`，检查标题、摘要、类型、状态、canonical 记录和关系；CLI 不可用时，从 frontmatter 建立同等清单。
-2. 在清单中搜索范围重叠的有效或草稿记录。已有文档拥有该事实时复用 canonical 文档；决策变化时新建后继文档并更新两端生命周期链接。
+1. 起草前运行 `moonweave-skills docs-index --root <repo> --view atlas`。可能已有记录拥有该事实时，只加载 `docs-index --view neighborhood --focus <path>`。CLI 不可用时，只读该领域 canonical 记录的 frontmatter。
+2. 在图谱中查找范围重叠的有效或草稿记录，并直接修改该权威文档。只有事实无法写入当前权威记录时才新建文件，然后替代旧记录，或设置 `consolidation: new-authority`。
 3. 判断文档类型：Tutorial、How-to、Reference、Explanation或特殊记录；禁止混写。
 4. 确认canonical事实源和目标读者；聊天/会议摘要不能单独成为事实。
 5. 添加title/type/status/owner/audience/visibility/updated/last_reviewed/related links等元数据。
@@ -62,7 +62,7 @@ metadata:
 8. 代码示例必须最小可运行、无secret、有版本和预期输出，能进CI则进CI。
 9. 检查术语一致、主动语态、步骤顺序、可访问性、图片alt、图表源文件。
 10. 完成Technical/Docs/专项Review与markdown/link/spell/style/secret检查。
-11. 运行 `lint-docs`，用 `docs-index --out <index>` 重建 Markdown 索引，再用 `docs-index --check` 验证一致性。
+11. 运行 `lint-docs`，用 `docs-index --view all` 重建图谱、变更图谱和审计台账，再用 `--check` 验证。
 
 ## 必须输出
 
@@ -70,7 +70,7 @@ metadata:
 - 元数据与Owner
 - Review/CI清单
 - 过期/重复知识清理建议
-- 更新后的文档索引；若确定性 CLI 不可用则明确说明
+- 重建后的图谱和变更图谱；若确定性 CLI 不可用则明确说明
 
 ## 门禁与停止条件
 
@@ -100,9 +100,13 @@ metadata:
 |---|---|---|---|
 ```
 
+## 交付契约
+
+终点是用户要求的可运行的变更，以及证明它确实如此的证据。默认只读取图谱或邻域（`docs-index --view atlas`，或 `--view neighborhood --focus <path>`），把事实写回既有权威记录，发布说明里每条可见变化只留一行。RFC、ADR、计划或索引只在任务本身就是这份记录，或变更不可逆时作为中间门禁。
+
 ## 治理来源
 
-- Documentation Guide全文
+- Documentation Guide（图谱邻域）
 - Communication §单一事实源
 - Principles §可传承
 

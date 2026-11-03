@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -47,7 +47,7 @@ metadata:
 
 ## 执行流程
 
-1. 运行 `moonweave-skills docs-index --root <repo> --format json`，比较既有 ADR/RFC 的 `decision_scope`、标题、摘要、状态和关系；CLI 不可用时，从 frontmatter 建立同等清单。
+1. 运行 `moonweave-skills docs-index --root <repo> --view changes`，比较既有 ADR 与 RFC 的决策范围。范围命中时用 `--focus` 只加载一个邻域。CLI 不可用时，只读这些 canonical 记录。
 2. 确认这是“已作出的架构决策”，不是仍在讨论的提案，并确认没有有效 ADR 已经拥有同一决策范围。
 3. 用不可变历史视角写Context：当时约束、问题和证据。
 4. 明确Decision，不使用模糊措辞。
@@ -56,7 +56,7 @@ metadata:
 7. 链接RFC、Issue、PR、标准与迁移计划。
 8. 使用统一文档生命周期状态 Draft/Active/Deprecated/Superseded/Archived；不要回头改写已接受事实。
 9. 决策变化时创建新ADR，并相互链接 `supersedes`/`superseded_by`。
-10. 运行 `lint-docs`，重建链接索引，并用 `docs-index --check` 验证。
+10. 运行 `lint-docs`，用 `docs-index --view all` 重建图谱和变更图谱，并用 `--check` 验证。
 
 ## 必须输出
 
@@ -92,6 +92,10 @@ metadata:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## 交付契约
+
+终点是用户要求的可运行的变更，以及证明它确实如此的证据。默认只读取图谱或邻域（`docs-index --view atlas`，或 `--view neighborhood --focus <path>`），把事实写回既有权威记录，发布说明里每条可见变化只留一行。RFC、ADR、计划或索引只在任务本身就是这份记录，或变更不可逆时作为中间门禁。
 
 ## 治理来源
 

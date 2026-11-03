@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -41,8 +41,8 @@ metadata:
 
 ## 执行流程
 
-1. 读取最近的AGENTS/规则和相关Issue/RFC/ADR，不预加载无关治理文档。
-2. 确认分支、范围和禁止项；发现无Issue/无验收/无Owner的重大任务先补齐。
+1. 读取文档图谱，或只读取约束本任务的那一份记录的邻域，再加上最近的 AGENTS/规则和相关 Issue、RFC 或 ADR。
+2. 确认分支和范围。重大任务缺少验收标准时，把标准写进既有 Issue 或 PR，并在同一次工作里继续可运行的变更。
 3. 检查工作树，禁止覆盖用户未提交改动。
 4. 用最小可审查增量实现；行为变更与纯重构尽量分离。
 5. 新增依赖前验证来源、许可、活跃度、漏洞、锁文件和退出策略。
@@ -84,6 +84,10 @@ metadata:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## 交付契约
+
+终点是用户要求的可运行的变更，以及证明它确实如此的证据。默认只读取图谱或邻域（`docs-index --view atlas`，或 `--view neighborhood --focus <path>`），把事实写回既有权威记录，发布说明里每条可见变化只留一行。RFC、ADR、计划或索引只在任务本身就是这份记录，或变更不可逆时作为中间门禁。
 
 ## 治理来源
 

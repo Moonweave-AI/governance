@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works on any platform supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: en
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -45,7 +45,7 @@ Apply governance triage to any project request, Issue, PR, design, or incident f
 5. Propose a quality level QA-L0-L5 and a maturity level M0-M9.
 6. Determine whether an RFC, ADR, Threat Model, Privacy Review, AI Eval, Hazard Analysis, Release Gate, or Postmortem is required.
 7. Confirm Owner, DRI, Required Reviewers, and sources of truth; list missing items as blockers or gaps to fill.
-8. Output the minimum compliant path and the next skill to invoke; do not load every spec at once.
+8. Output the minimum compliant path. For a build or fix, the last skill is implementation. Load the document atlas or one neighborhood, then continue the working change.
 
 ## Required Output
 
@@ -58,7 +58,7 @@ Apply governance triage to any project request, Issue, PR, design, or incident f
 
 - Resolve any BLOCKED condition first.
 - Risk levels must come with evidence, not just a label.
-- Major changes must not go straight to implementation.
+- A build or fix ends in implementation. An RFC or ADR is an intermediate gate only for an irreversible or cross-cutting change.
 
 ## Output Format
 
@@ -80,6 +80,10 @@ Prefer the following compact structure:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## Delivery Contract
+
+The terminal deliverable is the working change the user asked for, together with the evidence that it behaves. Load the document atlas or neighborhood (`docs-index --view atlas`, or `--view neighborhood --focus <path>`), update the canonical record in place, and keep the release note to one line per visible change. An RFC, ADR, plan, or index is only an intermediate gate when the task is that record or the change is irreversible.
 
 ## Governance Sources
 

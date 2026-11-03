@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -43,7 +43,7 @@ metadata:
 ## 执行流程
 
 1. 先确认是实践调整、标准调整还是原则/治理变更；采用相应强度。
-2. 创建Governance RFC，说明问题、目标、非目标、替代、影响、迁移和回滚。
+2. 直接更新既有权威治理记录。变更触及原则或难回滚规则时再开 Governance RFC，并在同一次变更里落地技能、CLI 和测试。
 3. 更新governance-map与traceability，列出受影响skills、commands、templates、checks和docs。
 4. 修改Skill IR语义内核，再编译/同步平台适配器，禁止手工分叉长期漂移。
 5. 运行静态lint、触发/非触发测试、配对eval和安全分析。
@@ -84,6 +84,10 @@ metadata:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## 交付契约
+
+终点是用户要求的可运行的变更，以及证明它确实如此的证据。默认只读取图谱或邻域（`docs-index --view atlas`，或 `--view neighborhood --focus <path>`），把事实写回既有权威记录，发布说明里每条可见变化只留一行。RFC、ADR、计划或索引只在任务本身就是这份记录，或变更不可逆时作为中间门禁。
 
 ## 治理来源
 

@@ -5,7 +5,7 @@ license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: ja-JP
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -47,7 +47,7 @@ RFC テンプレートから作成し、本文の前に `decision_scope`、`crea
 
 ## 実行フロー
 
-1. `moonweave-skills docs-index --root <repo> --format json` を実行し、既存 RFC/ADR の `decision_scope`、タイトル、要約、領域、ステータス、関係を比較する。CLI が使えない場合は frontmatter から同等の一覧を作る。
+1. `moonweave-skills docs-index --root <repo> --view changes` を実行し、意思決定範囲を比較する。一致する RFC または ADR がある場合は `docs-index --view neighborhood --focus <path>` だけを読む。CLI が使えない場合は、その canonical 記録だけを読む。
 2. RFCが本当に必要か判断する。小さな修正はIssue/PRに戻し、同じ意思決定範囲には既存 RFC を再利用し、Accepted の決定を変更する場合は明示的な後継を使う。
 3. RFCタイプ、リスクSレベル、Champion、Decision Owner、Required Reviewersを決定する。
 4. Summary、Motivation、Goals、Non-goals、Backgroundを記入する。
@@ -58,7 +58,7 @@ RFC テンプレートから作成し、本文の前に `decision_scope`、`crea
 9. FCPに入る前に、現行案、解決済み問題、コスト、未解決異議、想定裁定を要約する。
 10. Rough Consensus + Responsible Decisionを採用する。投票、沈黙、資歴を合意と見なさない。
 11. Accepted後、Implementation Issue、Project、必要なADR/標準/移行/Security/評価タスクを作成する。Acceptedは実装自動承認を意味しない。
-12. `lint-docs` を実行し、リンク索引を再生成して `docs-index --check` で検証する。
+12. `lint-docs` を実行し、`docs-index --view all` でアトラスと変更アトラスを再生成して `--check` で検証する。
 
 ## 必須出力
 
@@ -96,9 +96,13 @@ RFC テンプレートから作成し、本文の前に `decision_scope`、`crea
 |---|---|---|---|
 ```
 
+## 引き渡し契約
+
+終端の成果物は、依頼された動作する変更と、それが実際に動く証拠である。既定ではアトラスまたは近傍だけを読む（`docs-index --view atlas`、または `--view neighborhood --focus <path>`）。事実は既存の権威記録へ書き戻し、リリースノートは見える変更ごとに一行にする。RFC、ADR、計画、索引は、依頼がその記録自体である場合、または変更が不可逆な場合の中間ゲートに限る。
+
 ## Governanceソース
 
-- RFC Process全文
+- RFC Process（近傍）
 - Planning §RFCトリガー
 - Organization §エスカレーションパス
 - Security-Ethics

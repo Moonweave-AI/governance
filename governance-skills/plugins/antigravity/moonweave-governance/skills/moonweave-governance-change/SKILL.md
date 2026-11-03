@@ -5,7 +5,7 @@ license: MIT
 compatibility: Applies on platforms that support the open Agent Skills format; deterministic checks optionally use Node.js 20+ and the moonweave-skills CLI.
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: en
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -43,7 +43,7 @@ When modifying Moonweave principles, governance, collaboration, engineering, qua
 ## Execution Flow
 
 1. First confirm whether this is a practice adjustment, a standard adjustment, or a principle/governance change; apply the corresponding strength.
-2. Create a Governance RFC stating the problem, goals, non-goals, alternatives, impact, migration, and rollback.
+2. Update the canonical governance record in place. Open a Governance RFC when the change alters a principle or a hard-to-reverse rule, and land the skill, CLI, and tests in the same change.
 3. Update the governance-map and traceability; list affected skills, commands, templates, checks, and docs.
 4. Modify the Skill IR semantic core, then compile/sync platform adapters; do not hand-fork and let it drift long-term.
 5. Run static lint, triggered/non-triggered tests, paired evals, and security analysis.
@@ -84,6 +84,10 @@ Prefer the following compact structure:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## Delivery Contract
+
+The terminal deliverable is the working change the user asked for, together with the evidence that it behaves. Load the document atlas or neighborhood (`docs-index --view atlas`, or `--view neighborhood --focus <path>`), update the canonical record in place, and keep the release note to one line per visible change. An RFC, ADR, plan, or index is only an intermediate gate when the task is that record or the change is irreversible.
 
 ## Governance Sources
 

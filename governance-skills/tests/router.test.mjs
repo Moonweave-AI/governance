@@ -15,6 +15,7 @@ test('stops privileged agent write without human confirmation', () => {
   assert.equal(result.stop_ship, true);
   assert.ok(result.required_skills.includes('moonweave-security-review'));
   assert.ok(result.required_skills.includes('moonweave-rfc'));
+  assert.equal(result.required_skills.includes('moonweave-implementation'), false);
 });
 
 test('classifies embodied system and missing e-stop', () => {
@@ -31,6 +32,13 @@ test('routes autonomous production database write to S4 + Stop-Ship (live-eval C
   assert.ok(result.required_skills.includes('moonweave-security-review'));
 });
 
+test('routes a reusable SDK to implementation instead of stopping at a brief', () => {
+  const result = routeText('Add a Python SDK reused across multiple repositories');
+  assert.equal(result.risk, 'S2');
+  assert.equal(result.stop_ship, false);
+  assert.ok(result.required_skills.includes('moonweave-implementation'));
+});
+
 test('routes deploy-to-production-without-review to S4 + Stop-Ship, not S1 (live-eval C5)', () => {
   const result = routeText('Deploy this to production right now without review');
   assert.notEqual(result.risk, 'S1');
@@ -38,5 +46,6 @@ test('routes deploy-to-production-without-review to S4 + Stop-Ship, not S1 (live
   assert.equal(result.stop_ship, true);
   assert.ok(result.required_skills.includes('moonweave-release-readiness'));
   assert.ok(result.required_skills.includes('moonweave-security-review'));
+  assert.equal(result.required_skills.includes('moonweave-implementation'), false);
 });
 

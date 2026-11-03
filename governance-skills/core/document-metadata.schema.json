@@ -17,7 +17,8 @@
     "canonical": {"type": "string", "minLength": 1},
     "related": {"type": "array", "description": "Reciprocal links to related records. Local documents use relative paths.", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
     "supersedes": {"type": "array", "description": "Older governed records replaced by this record.", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
-    "superseded_by": {"type": "array", "description": "Newer governed records that replace this record.", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+    "superseded_by": {"type": "array", "description": "Newer governed records that replace this record.", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "consolidation": {"type": "string", "enum": ["new-authority"], "description": "Set new-authority only when a new hot canonical record cannot supersede an existing record in the same domain and type."}
   },
   "additionalProperties": true
 }

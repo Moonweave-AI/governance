@@ -5,7 +5,7 @@ license: MIT
 compatibility: For platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: en
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -53,8 +53,8 @@ For every formal document created or materially updated, use the matching govern
 
 ## Execution Flow
 
-1. Run `moonweave-skills docs-index --root <repo> --format json` and inspect titles, summaries, types, statuses, canonical records, and relations before drafting. If the CLI is unavailable, build the same inventory from frontmatter.
-2. Search the inventory for overlapping active or draft records. Reuse the canonical document when it already owns the fact; if a decision changed, create a successor and update both lifecycle links.
+1. Run `moonweave-skills docs-index --root <repo> --view atlas`. When an existing record may own the fact, load only `docs-index --view neighborhood --focus <path>`. If the CLI is unavailable, read the frontmatter of the canonical records in that domain.
+2. Search the atlas for an overlapping active or draft record. Edit that canonical document. Create a new file only when the fact cannot live in the current authority, then supersede the old record or set `consolidation: new-authority`.
 3. Determine the document type: Tutorial, How-to, Reference, Explanation, or a special record; do not mix types.
 4. Confirm the canonical source of truth and target audience; chat/meeting summaries alone cannot serve as facts.
 5. Add metadata such as title/type/status/owner/audience/visibility/updated/last_reviewed/related links.
@@ -63,7 +63,7 @@ For every formal document created or materially updated, use the matching govern
 8. Code examples must be minimal, runnable, secret-free, with version and expected output; if they can enter CI, put them in CI.
 9. Check terminology consistency, active voice, step order, accessibility, image alt text, and chart source files.
 10. Complete Technical/Docs/specialized review and markdown/link/spell/style/secret checks.
-11. Run `lint-docs`, regenerate the Markdown index with `docs-index --out <index>`, and verify it with `docs-index --check`.
+11. Run `lint-docs`, regenerate the atlas, change atlas, and audit ledger with `docs-index --view all`, and verify them with `--check`.
 
 ## Required Outputs
 
@@ -71,7 +71,7 @@ For every formal document created or materially updated, use the matching govern
 - Metadata and Owner
 - Review/CI checklist
 - Cleanup recommendations for stale/duplicate knowledge
-- Updated document index, or an explicit note that the deterministic CLI was unavailable
+- Regenerated atlas and change atlas, or an explicit note that the deterministic CLI was unavailable
 
 ## Gates and Stop Conditions
 
@@ -100,6 +100,10 @@ Prefer the following compact structure:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## Delivery Contract
+
+The terminal deliverable is the working change the user asked for, together with the evidence that it behaves. Load the document atlas or neighborhood (`docs-index --view atlas`, or `--view neighborhood --focus <path>`), update the canonical record in place, and keep the release note to one line per visible change. An RFC, ADR, plan, or index is only an intermediate gate when the task is that record or the change is irreversible.
 
 ## Governance Sources
 

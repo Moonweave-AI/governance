@@ -5,7 +5,7 @@ license: MIT
 compatibility: Agent Skillsオープン形式をサポートする任意のプラットフォームで動作。決定論的チェックにはオプションでNode.js 20+とmoonweave-skills CLIが必要。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: ja-JP
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -47,7 +47,7 @@ metadata:
 5. 品質レベルQA-L0-L5と成熟度M0-M9を提案する。
 6. RFC、ADR、Threat Model、Privacy Review、AI Eval、Hazard Analysis、Release Gate、Postmortemの要否を判断する。
 7. Owner、DRI、Required Reviewers、事実源を確認する。欠落項目はブロックまたは埋めるべき gaps として挙げる。
-8. 最小のコンプライアンスパスと次に呼ぶスキルを出力する。仕様を一度にすべて読み込まない。
+8. 最小のコンプライアンスパスを出す。構築または修正の最後のスキルは実装である。文書アトラスまたは近傍を一つ読み、動作する変更を続ける。
 
 ## 必須出力
 
@@ -60,7 +60,7 @@ metadata:
 
 - いかなるBLOCKED条件も先に処理する
 - リスクレベルにはエビデンスを伴わせ、ラベルのみとしない
-- 重大な変更を直接実装に進めない
+- 構築または修正は実装で終える。RFC または ADR は、不可逆または横断的な変更の中間ゲートに限る。
 
 ## 出力形式
 
@@ -82,6 +82,10 @@ metadata:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## 引き渡し契約
+
+終端の成果物は、依頼された動作する変更と、それが実際に動く証拠である。既定ではアトラスまたは近傍だけを読む（`docs-index --view atlas`、または `--view neighborhood --focus <path>`）。事実は既存の権威記録へ書き戻し、リリースノートは見える変更ごとに一行にする。RFC、ADR、計画、索引は、依頼がその記録自体である場合、または変更が不可逆な場合の中間ゲートに限る。
 
 ## ガバナンスソース
 

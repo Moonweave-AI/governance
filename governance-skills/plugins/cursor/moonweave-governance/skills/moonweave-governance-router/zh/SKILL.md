@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -47,7 +47,7 @@ metadata:
 5. 提出质量等级QA-L0-L5和成熟度M0-M9。
 6. 判断是否需要RFC、ADR、Threat Model、Privacy Review、AI Eval、Hazard Analysis、Release Gate或Postmortem。
 7. 确认Owner、DRI、Required Reviewers和事实源；缺失项列为阻断或补漏。
-8. 输出最小合规路径和下一步应调用的技能，不一次加载所有规范。
+8. 输出最小合规路径。构建或修复的最后一步是实现。加载文档图谱或一个邻域，然后继续可运行的变更。
 
 ## 必须输出
 
@@ -60,7 +60,7 @@ metadata:
 
 - 任何BLOCKED条件先处理
 - 风险等级需给证据，不能只给标签
-- 重大变更不得直接进入实现
+- 构建或修复以实现收尾。RFC 或 ADR 只在不可逆或跨领域变更时作为中间门禁。
 
 ## 输出格式
 
@@ -82,6 +82,10 @@ metadata:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## 交付契约
+
+终点是用户要求的可运行的变更，以及证明它确实如此的证据。默认只读取图谱或邻域（`docs-index --view atlas`，或 `--view neighborhood --focus <path>`），把事实写回既有权威记录，发布说明里每条可见变化只留一行。RFC、ADR、计划或索引只在任务本身就是这份记录，或变更不可逆时作为中间门禁。
 
 ## 治理来源
 

@@ -58,4 +58,4 @@ Governance RFC
 
 权威文档 frontmatter 是关系图事实源。`canonical` 对 canonical 记录及其翻译分组；`related` 形成双向上下文边；`supersedes` 与 `superseded_by` 形成互逆生命周期边；`decision_scope` 为 RFC 与 ADR 提供共享的决策身份。`core/governance-map.json` 再把 canonical 治理文档连接到执行它们的技能。
 
-`docs-index` 将同一张图输出为供 Agent 按需加载的 JSON，或供人阅读的可点击 Markdown 总表。生成总表不得被手工编辑为第二权威。起草 RFC、ADR 或其他正式记录前，Agent 必须比较图中的标题、摘要、类型、状态、决策范围和相邻记录以排查重叠；修改后必须运行 `lint-docs`、重建总表，并用 `docs-index --check` 防止漂移。门禁保证每份记录都有本地关系、全图连通、同类型的有效同范围决策唯一，并显式保留已有的 RFC 到 ADR 决策链。
+`docs-index` 从同一张图渲染四种视图。`atlas` 是 Agent 的默认加载：每个热 canonical 记录一行，并受固定预算约束。`neighborhood --focus <path>` 加载该记录和一跳。`changes` 是发布链加上决策替代。`full` 是每份译文和每条边的审计台账。生成视图不是第二权威。起草前，Agent 读取图谱；某一行可能已经拥有该事实时，再读一个邻域。修改后运行 `lint-docs`，用 `--view all` 重建视图，并用 `--check` 防止漂移。门禁保持图连通、热图谱不超出预算、新的 canonical 记录被整合或显式成为新权威、变更日志头一致，并且仓库中不存在进度日记。

@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -47,7 +47,7 @@ metadata:
 
 ## 执行流程
 
-1. 运行 `moonweave-skills docs-index --root <repo> --format json`，比较既有 RFC/ADR 的 `decision_scope`、标题、摘要、领域、状态和关系；CLI 不可用时，从 frontmatter 建立同等清单。
+1. 运行 `moonweave-skills docs-index --root <repo> --view changes`，比较决策范围。命中既有 RFC 或 ADR 时，只加载 `docs-index --view neighborhood --focus <path>`。CLI 不可用时，只读这些 canonical 记录。
 2. 判断是否真的需要 RFC；小型修复退回 Issue/PR，同一决策范围复用既有 RFC，修改已接受决策时使用显式后继文档。
 3. 确定RFC类型、风险S级、Champion、Decision Owner和Required Reviewers。
 4. 填写Summary、Motivation、Goals、Non-goals、Background。
@@ -58,7 +58,7 @@ metadata:
 9. 进入FCP前总结当前方案、已解决问题、代价、未解决异议和预期裁决。
 10. 采用Rough Consensus + Responsible Decision；不把投票、沉默或资历当共识。
 11. Accepted后创建Implementation Issue、Project、必要ADR/标准/迁移/安全/评测任务；Accepted不等于实现自动批准。
-12. 运行 `lint-docs`，重建链接索引，并用 `docs-index --check` 验证。
+12. 运行 `lint-docs`，用 `docs-index --view all` 重建图谱和变更图谱，并用 `--check` 验证。
 
 ## 必须输出
 
@@ -96,9 +96,13 @@ metadata:
 |---|---|---|---|
 ```
 
+## 交付契约
+
+终点是用户要求的可运行的变更，以及证明它确实如此的证据。默认只读取图谱或邻域（`docs-index --view atlas`，或 `--view neighborhood --focus <path>`），把事实写回既有权威记录，发布说明里每条可见变化只留一行。RFC、ADR、计划或索引只在任务本身就是这份记录，或变更不可逆时作为中间门禁。
+
 ## 治理来源
 
-- RFC Process全文
+- RFC Process（图谱邻域）
 - Planning §RFC触发
 - Organization §升级路径
 - Security-Ethics

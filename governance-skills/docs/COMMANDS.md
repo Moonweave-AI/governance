@@ -40,19 +40,19 @@ Profiles: docs, library, service, ai-agent, embodied, auto.
 Check Agent Skills frontmatter, names, description length, safe-execution contracts, dangerous instructions, and resource file sizes.
 
 ## `lint-docs`
-Validate document metadata, canonical targets, decision identifiers and scopes, governed relation endpoints, graph connectivity, reciprocal `related` links, and reciprocal `supersedes`/`superseded_by` lifecycle links. Decision aliases must match their canonical record's type, identifier, and `decision_scope`; supersession endpoints and local `related` endpoints must resolve to governed documents. The check rejects isolated records, disconnected subgraphs, overlapping current RFC or ADR authorities for one `decision_scope`, and ADRs that omit an existing same-scope RFC link. A superseded record must name its successor and use status `Superseded`.
+Validate document metadata, canonical targets, decision identifiers and scopes, governed relation endpoints, graph connectivity, reciprocal links, the hot-atlas budget, changelog shape, and consolidation of new canonical records. The check rejects isolated records, disconnected subgraphs, overlapping current decisions, generic summaries on newly updated records, changelog stacks, mismatched changelog heads, and append-only `progress.md` diaries.
 
 ## `docs-index`
 
 ```bash
-moonweave-skills docs-index --root . --format json
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url https://github.com/OWNER/REPO/blob/main/
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url release
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --check
+moonweave-skills docs-index --root . --view atlas
+moonweave-skills docs-index --root . --view neighborhood --focus 05-Knowledge/en/01-Documentation-Guide.md
+moonweave-skills docs-index --root . --view changes
+moonweave-skills docs-index --root . --view all --out-dir docs --base-url release
+moonweave-skills docs-index --root . --view all --out-dir docs --base-url release --check
 ```
 
-Generate an LLM-readable JSON graph or a clickable Markdown table from authoritative document frontmatter and `core/governance-map.json`. Frontmatter remains the source of truth; the Markdown file is a generated view. Use `--base-url` when the generated index is distributed without the referenced repository documents, such as in an npm package. The special value `release` resolves to the repository's immutable `v<package-version>` tag; a full URL remains available for other revisions or repositories. `--check` fails when the committed view is stale.
+Render the document graph from frontmatter and `core/governance-map.json`. `--view atlas` is the default and keeps one row per hot canonical record. `--view neighborhood` requires `--focus` and returns that record plus one hop. `--view changes` is the release chain and decision supersession. `--view full` is the audit ledger. `--view all` writes `DOCUMENT-ATLAS.md`, `CHANGE-ATLAS.md`, and `DOCUMENT-INDEX.md`. Frontmatter remains the source of truth. Use `--base-url release` for the immutable `v<package-version>` links shipped in the npm package. `--check` fails when a committed view is stale.
 
 ## `eval-static`
 Run risk routing, positive/negative trigger cases for all 23 skills, and static security regressions.

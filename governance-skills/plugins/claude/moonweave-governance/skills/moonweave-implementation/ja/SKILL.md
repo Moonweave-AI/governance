@@ -5,7 +5,7 @@ license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: ja-JP
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -41,8 +41,8 @@ metadata:
 
 ## 実行フロー
 
-1. 最新のAGENTS/ルールと関連Issue/RFC/ADRを読む。無関係なGovernanceドキュメントをプレロードしない。
-2. ブランチ、スコープ、禁止事項を確認する。Issue/受入基準/Ownerのない重大タスクは先に補完する。
+1. 文書アトラス、またはこの作業を支配する記録の近傍一つと、最新の AGENTS/ルール、関連 Issue、RFC、ADR を読む。
+2. ブランチとスコープを確認する。重大タスクに受入基準がない場合は、既存の Issue または PR に書き、同じ作業の中で動作する変更を続ける。
 3. ワークツリーを確認し、ユーザーの未コミット変更を上書きしない。
 4. 最小のレビュー可能インクリメントで実装する。振る舞い変更と純リファクタリングは可能な限り分離する。
 5. 新規依存を追加する前に、ソース、ライセンス、活動、脆弱性、ロックファイル、出口戦略を検証する。
@@ -84,6 +84,10 @@ metadata:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## 引き渡し契約
+
+終端の成果物は、依頼された動作する変更と、それが実際に動く証拠である。既定ではアトラスまたは近傍だけを読む（`docs-index --view atlas`、または `--view neighborhood --focus <path>`）。事実は既存の権威記録へ書き戻し、リリースノートは見える変更ごとに一行にする。RFC、ADR、計画、索引は、依頼がその記録自体である場合、または変更が不可逆な場合の中間ゲートに限る。
 
 ## Governanceソース
 

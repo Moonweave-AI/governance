@@ -1,9 +1,9 @@
 {
   "name": "moonweave-governance-skills",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "governance_source": "https://github.com/Moonweave-AI/governance",
   "governance_branch": "main",
-  "retrieved_at": "2026-08-06",
+  "retrieved_at": "2026-11-02",
   "canonical_language": "en",
   "architecture": "typed governance core + focused Agent Skills + platform adapters + deterministic CLI + evaluations",
   "default_install_mode": "copy",

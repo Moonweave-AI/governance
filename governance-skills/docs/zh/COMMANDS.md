@@ -45,14 +45,14 @@ Profiles：docs、library、service、ai-agent、embodied、auto。
 ## `docs-index`
 
 ```bash
-moonweave-skills docs-index --root . --format json
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url https://github.com/OWNER/REPO/blob/main/
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url release
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --check
+moonweave-skills docs-index --root . --view atlas
+moonweave-skills docs-index --root . --view neighborhood --focus 05-Knowledge/en/01-Documentation-Guide.md
+moonweave-skills docs-index --root . --view changes
+moonweave-skills docs-index --root . --view all --out-dir docs --base-url release
+moonweave-skills docs-index --root . --view all --out-dir docs --base-url release --check
 ```
 
-从权威文档 frontmatter 和 `core/governance-map.json` 生成适合 LLM 读取的 JSON 图或可点击 Markdown 总表。Frontmatter 仍是事实源，Markdown 文件只是生成视图；当索引会脱离所引用的仓库文档分发（例如进入 npm 包）时，使用 `--base-url` 生成可访问的仓库链接。特殊值 `release` 会解析为仓库不可变的 `v<package-version>` 标签；其他修订或仓库仍可使用完整 URL；提交视图过期时 `--check` 失败。
+从 frontmatter 和 `core/governance-map.json` 渲染文档图。`--view atlas` 是默认视图，每个热 canonical 记录一行。`--view neighborhood` 需要 `--focus`，返回该记录和一跳。`--view changes` 是发布链和决策替代。`--view full` 是审计台账。`--view all` 写出 `DOCUMENT-ATLAS.md`、`CHANGE-ATLAS.md` 和 `DOCUMENT-INDEX.md`。Frontmatter 仍是事实源。npm 包使用 `--base-url release` 生成不可变的 `v<package-version>` 链接。提交视图过期时 `--check` 失败。
 
 ## `eval-static`
 运行风险路由、全部 23 个技能的正/负触发用例与静态安全回归。

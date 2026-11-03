@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: en
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -47,7 +47,7 @@ Use relative paths for local document relations and link the ADR into the existi
 
 ## Execution Flow
 
-1. Run `moonweave-skills docs-index --root <repo> --format json`; compare existing ADR/RFC `decision_scope`, titles, summaries, statuses, and relations. If the CLI is unavailable, build the same inventory from frontmatter.
+1. Run `moonweave-skills docs-index --root <repo> --view changes` and compare existing ADR and RFC decision scopes. Load one neighborhood with `--focus` when a scope matches. If the CLI is unavailable, read those canonical records only.
 2. Confirm this is "an architecture decision already made", not a proposal still under discussion, and that no active ADR already owns the same decision scope.
 3. Write Context with an immutable-history perspective: constraints, problems, and evidence at the time.
 4. State the Decision clearly; avoid vague wording.
@@ -56,7 +56,7 @@ Use relative paths for local document relations and link the ADR into the existi
 7. Link to RFC, Issue, PR, standards, and migration plans.
 8. Use the shared document lifecycle statuses Draft/Active/Deprecated/Superseded/Archived; do not retroactively rewrite accepted facts.
 9. When the decision changes, create a new ADR and cross-link `supersedes`/`superseded_by`.
-10. Run `lint-docs`, regenerate the linked index, and verify it with `docs-index --check`.
+10. Run `lint-docs`, regenerate the atlas and change atlas with `docs-index --view all`, and verify them with `--check`.
 
 ## Required Output
 
@@ -92,6 +92,10 @@ Prefer the following compact structure:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## Delivery Contract
+
+The terminal deliverable is the working change the user asked for, together with the evidence that it behaves. Load the document atlas or neighborhood (`docs-index --view atlas`, or `--view neighborhood --focus <path>`), update the canonical record in place, and keep the release note to one line per visible change. An RFC, ADR, plan, or index is only an intermediate gate when the task is that record or the change is irreversible.
 
 ## Governance Sources
 
