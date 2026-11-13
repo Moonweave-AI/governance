@@ -17,4 +17,4 @@
 
 机器可读映射见 `core/governance-map.json`。
 
-当前跨文档和文档到技能的生成视图见 [`DOCUMENT-INDEX.md`](../DOCUMENT-INDEX.md)。其数据来自文档 frontmatter 与 `core/governance-map.json`，CI 会检查该视图是否最新。
+当前生成视图是 [`DOCUMENT-ATLAS.md`](../DOCUMENT-ATLAS.md)、[`CHANGE-ATLAS.md`](../CHANGE-ATLAS.md) 和 [`DOCUMENT-INDEX.md`](../DOCUMENT-INDEX.md)。数据来自文档 frontmatter 与 `core/governance-map.json`，CI 检查这些视图是否最新。Agent 加载图谱或邻域。索引保留为审计台账。

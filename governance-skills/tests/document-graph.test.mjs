@@ -6,7 +6,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { packageJson } from '../lib/config.mjs';
-import { buildDocumentGraph, documentIndexMarkdown } from '../lib/document-graph.mjs';
+import { buildDocumentGraph, documentAtlasMarkdown, documentIndexMarkdown, documentNeighborhoodMarkdown, changeAtlasMarkdown, parseChangelog } from '../lib/document-graph.mjs';
 
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -33,7 +33,12 @@ test('document graph renders a linked index from frontmatter', () => {
   const graph = buildDocumentGraph(root);
   const out = path.join(root, 'docs', 'DOCUMENT-INDEX.md');
   const markdown = documentIndexMarkdown(graph, { outputFile: out });
-  assert.deepEqual(graph.summary, { documents: 2, canonical_records: 2, relations: 2, skill_links: 0 });
+  assert.equal(graph.summary.documents, 2);
+  assert.equal(graph.summary.canonical_records, 2);
+  assert.equal(graph.summary.relations, 2);
+  assert.equal(graph.summary.skill_links, 0);
+  assert.equal(graph.summary.hot_canonical, 2);
+  assert.equal(graph.summary.translations, 0);
   assert.match(markdown, /\[Policy\]\(\.\.\/01-Foundation\/policy\.md\)/);
   assert.match(markdown, /## Decision Records\n\nNo RFC or ADR records are registered\./);
   assert.match(markdown, /## All Documents/);
@@ -121,4 +126,63 @@ test('the packaged document index has no package-escaping relative links', () =>
   const markdown = fs.readFileSync(path.join(packageRoot, 'docs', 'DOCUMENT-INDEX.md'), 'utf8');
   assert.doesNotMatch(markdown, /\]\(\.\.\/\.\.\//);
   assert.match(markdown, new RegExp(`\\]\\(https://github\\.com/Moonweave-AI/governance/blob/v${packageJson.version}/`));
+});
+
+test('atlas keeps one hot canonical row and hides translations and superseded records', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-atlas-'));
+  const current = document({ title: 'Policy', canonical: './policy.md', related: '[./old.md]' }).replace('supersedes: []', 'supersedes: [./old.md]');
+  const old = document({ title: 'Old Policy', canonical: './old.md', related: '[./policy.md]' })
+    .replace('status: Active', 'status: Superseded')
+    .replace('superseded_by: []', 'superseded_by: [./policy.md]');
+  const translation = document({ title: '方針', canonical: '../policy.md' });
+  write(root, '01-Foundation/policy.md', current);
+  write(root, '01-Foundation/old.md', old);
+  write(root, '01-Foundation/ja/policy.md', translation);
+  const graph = buildDocumentGraph(root);
+  const atlas = documentAtlasMarkdown(graph);
+  const [hot] = atlas.split('## Cold');
+  assert.equal(graph.summary.hot_canonical, 1);
+  assert.equal(graph.summary.translations, 1);
+  assert.match(hot, /\[Policy\]/);
+  assert.doesNotMatch(hot, /Old Policy/);
+  assert.doesNotMatch(atlas, /方針/);
+  assert.match(atlas, /## Cold Records/);
+  const neighborhood = documentNeighborhoodMarkdown(graph, '01-Foundation/policy.md');
+  assert.match(neighborhood, /supersedes/);
+  assert.match(neighborhood, /Old Policy/);
+  assert.match(neighborhood, /01-Foundation\/ja\/policy\.md/);
+  assert.ok(atlas.length < documentIndexMarkdown(graph).length);
+});
+
+test('atlas omits generated labels that only repeat the document title', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-atlas-label-'));
+  const policy = document({ title: 'Policy', canonical: './policy.md' })
+    .replace('summary: This document describes the authoritative Policy governance policy.', 'summary: Authoritative governance policy: Policy.');
+  write(root, '01-Foundation/policy.md', policy);
+  const atlas = documentAtlasMarkdown(buildDocumentGraph(root));
+  assert.match(atlas, /\| - \|$/m);
+  assert.doesNotMatch(atlas, /Authoritative governance policy/);
+});
+
+test('change atlas links each release to the previous release', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-changes-'));
+  write(root, '01-Foundation/policy.md', document({ title: 'Policy', canonical: './policy.md' }));
+  write(root, 'governance-skills/CHANGELOG.md', [
+    '# Changelog',
+    '',
+    '## 0.2.5 — 2026-11-02',
+    '',
+    '- Bounded atlas.',
+    '',
+    '## 0.2.4 — 2026-08-06',
+    '',
+    '- Previous release.',
+    '',
+  ].join('\n'));
+  const versions = parseChangelog(fs.readFileSync(path.join(root, 'governance-skills/CHANGELOG.md'), 'utf8'));
+  assert.deepEqual(versions.map((version) => version.version), ['0.2.5', '0.2.4']);
+  const markdown = changeAtlasMarkdown(buildDocumentGraph(root));
+  assert.match(markdown, /0250\["0\.2\.5"\]/);
+  assert.match(markdown, /0250 --> 0241/);
+  assert.match(markdown, /\| 0\.2\.5 \| 2026-11-02 \| 0\.2\.4 \|/);
 });

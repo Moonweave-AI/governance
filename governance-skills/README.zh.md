@@ -4,7 +4,7 @@
 
 将 [Moonweave AI Governance](https://github.com/Moonweave-AI/governance) 从“需要人工记忆的长文档”编译成可发现、可调用、可检查、可审计的 Agent Skills、命令、模板、CLI 与平台适配器。
 
-> **版本：0.2.4**
+> **版本：0.2.5**
 > **规范快照日期：2026-08-06**
 > **状态：Active / published。已发布至 npm `@moonweave-ai/governance-skills@0.2.4`（含 SLSA provenance）；可通过 skills.sh 与各平台市场（Cursor、Claude Code、Codex、Antigravity、Kilo、OpenCode 及通用 `.agents/skills` 格式）发现与安装。**
 > **Owner：Moonweave AI Governance Maintainers；Backup Owner：Moonweave AI Stewardship Council。**
@@ -126,6 +126,8 @@ Skills 并非安全边界。确定性限制应由权限系统、Hook、CI、分�
 - [`docs/INSTALLATION.md`](docs/INSTALLATION.md)
 - [`docs/COMPATIBILITY.md`](docs/COMPATIBILITY.md)
 - [`docs/GOVERNANCE-TRACEABILITY.md`](docs/GOVERNANCE-TRACEABILITY.md)
+- [`docs/DOCUMENT-ATLAS.md`](docs/DOCUMENT-ATLAS.md)
+- [`docs/CHANGE-ATLAS.md`](docs/CHANGE-ATLAS.md)
 - [`docs/DOCUMENT-INDEX.md`](docs/DOCUMENT-INDEX.md)
 - [`docs/EVALUATION.md`](docs/EVALUATION.md)
 - [`docs/REFERENCES.md`](docs/REFERENCES.md)

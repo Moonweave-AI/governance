@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.5 — 2026-11-02
+
+### Changed
+
+- The document graph now loads as a bounded atlas, a one-hop neighborhood, and a release change chain.
+- New hot canonical records must supersede an existing record or declare a new authority, and progress diaries are rejected.
+- Every skill carries a delivery contract: a build or fix finishes as a working change.
+
 ## 0.2.4 — 2026-08-06
 
 - Add unified governance document metadata requirements (status, Owner, dates,

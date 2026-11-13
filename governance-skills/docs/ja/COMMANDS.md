@@ -45,14 +45,14 @@ Agent Skills の frontmatter、名前、説明の長さ、安全実行契約、�
 ## `docs-index`
 
 ```bash
-moonweave-skills docs-index --root . --format json
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url https://github.com/OWNER/REPO/blob/main/
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --base-url release
-moonweave-skills docs-index --root . --out docs/DOCUMENT-INDEX.md --check
+moonweave-skills docs-index --root . --view atlas
+moonweave-skills docs-index --root . --view neighborhood --focus 05-Knowledge/en/01-Documentation-Guide.md
+moonweave-skills docs-index --root . --view changes
+moonweave-skills docs-index --root . --view all --out-dir docs --base-url release
+moonweave-skills docs-index --root . --view all --out-dir docs --base-url release --check
 ```
 
-権威文書の frontmatter と `core/governance-map.json` から、LLM が読める JSON グラフまたはクリック可能な Markdown 一覧を生成する。Frontmatter が事実源であり、Markdown は生成ビューにすぎない。npm パッケージなど、参照先のリポジトリ文書を含めずに索引を配布する場合は `--base-url` でアクセス可能なリポジトリリンクを生成する。特殊値 `release` はリポジトリの不変な `v<package-version>` タグへ解決され、他のリビジョンやリポジトリには完全な URL を使用できる。コミット済みビューが古い場合は `--check` が失敗する。
+frontmatter と `core/governance-map.json` から文書グラフを描く。`--view atlas` が既定で、ホットな canonical 記録ごとに一行を保つ。`--view neighborhood` は `--focus` が必要で、その記録と一ホップを返す。`--view changes` はリリースチェーンと意思決定の置換である。`--view full` は監査台帳である。`--view all` は `DOCUMENT-ATLAS.md`、`CHANGE-ATLAS.md`、`DOCUMENT-INDEX.md` を書く。Frontmatter が事実源である。npm パッケージでは `--base-url release` で不変の `v<package-version>` リンクを作る。コミット済みビューが古いと `--check` は失敗する。
 
 ## `eval-static`
 リスクルーティング、全 23 スキルの正/負トリガーケース、静的セキュリティ回帰を実行する。

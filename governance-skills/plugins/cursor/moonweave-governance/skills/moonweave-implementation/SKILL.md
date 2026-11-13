@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: en
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -41,8 +41,8 @@ Execute code or system changes that are already Engineering Ready, following sho
 
 ## Execution Flow
 
-1. Read the latest AGENTS/rules and related Issue/RFC/ADR; do not preload unrelated governance docs.
-2. Confirm branch, scope, and prohibitions; for major tasks missing an Issue/acceptance criteria/Owner, fill those in first.
+1. Read the document atlas or the neighborhood of the one governing record, plus the latest AGENTS/rules and the related Issue, RFC, or ADR.
+2. Confirm branch and scope. When a major task has no acceptance criteria, write them into the existing Issue or PR and continue the working change in the same effort.
 3. Check the work tree; never overwrite the user's uncommitted changes.
 4. Implement in minimal reviewable increments; separate behavior changes from pure refactors where possible.
 5. Before adding a new dependency, verify source, license, activity, vulnerabilities, lockfile, and exit strategy.
@@ -84,6 +84,10 @@ Prefer the following compact structure:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## Delivery Contract
+
+The terminal deliverable is the working change the user asked for, together with the evidence that it behaves. Load the document atlas or neighborhood (`docs-index --view atlas`, or `--view neighborhood --focus <path>`), update the canonical record in place, and keep the release note to one line per visible change. An RFC, ADR, plan, or index is only an intermediate gate when the task is that record or the change is irreversible.
 
 ## Governance Sources
 

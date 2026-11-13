@@ -5,7 +5,7 @@ license: MIT
 compatibility: Agent Skillsオープンフォーマットをサポートするプラットフォームで動作。決定論的チェックはオプションでNode.js 20+およびmoonweave-skills CLIが必要。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: ja-JP
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -47,7 +47,7 @@ ADR テンプレートから作成し、`decision_scope`、`created`、`updated`
 
 ## 実行フロー
 
-1. `moonweave-skills docs-index --root <repo> --format json` を実行し、既存 ADR/RFC の `decision_scope`、タイトル、要約、ステータス、関係を比較する。CLI が使えない場合は frontmatter から同等の一覧を作る。
+1. `moonweave-skills docs-index --root <repo> --view changes` を実行し、既存 ADR と RFC の意思決定範囲を比較する。範囲が一致したら `--focus` で近傍を一つだけ読む。CLI が使えない場合は、その canonical 記録だけを読む。
 2. これが「既に下されたアーキテクチャ意思決定」であり、まだ議論中の提案ではなく、同じ意思決定範囲を所有する Active ADR がないことを確認する。
 3. 不変歴史の視点でContextを書く。当時の制約、問題、証拠。
 4. Decisionを明確に記述し、曖昧な表現を使わない。
@@ -56,7 +56,7 @@ ADR テンプレートから作成し、`decision_scope`、`created`、`updated`
 7. RFC、Issue、PR、標準、移行計画にリンクする。
 8. 共通文書ライフサイクルの Draft/Active/Deprecated/Superseded/Archived を使用し、受け入れられた事実を遡及的に書き換えない。
 9. 意思決定が変化した場合は新ADRを作成し、`supersedes`/`superseded_by`で相互リンクする。
-10. `lint-docs` を実行し、リンク索引を再生成して `docs-index --check` で検証する。
+10. `lint-docs` を実行し、`docs-index --view all` でアトラスと変更アトラスを再生成して `--check` で検証する。
 
 ## 必須出力
 
@@ -92,6 +92,10 @@ ADR テンプレートから作成し、`decision_scope`、`created`、`updated`
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## 引き渡し契約
+
+終端の成果物は、依頼された動作する変更と、それが実際に動く証拠である。既定ではアトラスまたは近傍だけを読む（`docs-index --view atlas`、または `--view neighborhood --focus <path>`）。事実は既存の権威記録へ書き戻し、リリースノートは見える変更ごとに一行にする。RFC、ADR、計画、索引は、依頼がその記録自体である場合、または変更が不可逆な場合の中間ゲートに限る。
 
 ## Governanceソース
 

@@ -4,7 +4,7 @@
 
 [Moonweave AI Governance](https://github.com/Moonweave-AI/governance) を「人が記憶すべき長文ドキュメント」から、発見可能・呼出可能・検査可能・監査可能な Agent Skills・コマンド・テンプレート・CLI・プラットフォームアダプタへとコンパイルします。
 
-> **バージョン: 0.2.4**
+> **バージョン: 0.2.5**
 > **スペックスナップショット: 2026-08-06**
 > **ステータス: Active / published。npm `@moonweave-ai/governance-skills@0.2.4` として公開済み（SLSA provenance 付き）。skills.sh と各プラットフォームマーケットプレース（Cursor、Claude Code、Codex、Antigravity、Kilo、OpenCode、汎用 `.agents/skills` 形式）から発見・インストール可能。**
 > **Owner: Moonweave AI Governance Maintainers。Backup Owner: Moonweave AI Stewardship Council。**
@@ -126,6 +126,8 @@ Skills はセキュリティ境界ではありません。決定的な制限は�
 - [`docs/INSTALLATION.md`](docs/INSTALLATION.md)
 - [`docs/COMPATIBILITY.md`](docs/COMPATIBILITY.md)
 - [`docs/GOVERNANCE-TRACEABILITY.md`](docs/GOVERNANCE-TRACEABILITY.md)
+- [`docs/DOCUMENT-ATLAS.md`](docs/DOCUMENT-ATLAS.md)
+- [`docs/CHANGE-ATLAS.md`](docs/CHANGE-ATLAS.md)
 - [`docs/DOCUMENT-INDEX.md`](docs/DOCUMENT-INDEX.md)
 - [`docs/EVALUATION.md`](docs/EVALUATION.md)
 - [`docs/REFERENCES.md`](docs/REFERENCES.md)

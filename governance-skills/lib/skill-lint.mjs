@@ -47,7 +47,20 @@ function checkSkillDir(skillDir, root) {
   if (!/(Security Execution Contract|Safety Execution Contract|安全执行契约)/.test(parsed.body)) findings.push({ severity: 'error', id: 'missing-safety-contract', path: rel, message: 'Missing "Security Execution Contract" section' });
   if (!/(Stop-Ship|停止推进|阻断)/i.test(parsed.body)) findings.push({ severity: 'warning', id: 'missing-stop-ship', path: rel, message: 'Stop-Ship / blocking behavior not explicitly stated' });
   if (!/(not fabricat|unverified|不虚构|未验证|不得.*测试)/i.test(parsed.body)) findings.push({ severity: 'warning', id: 'missing-evidence-honesty', path: rel, message: 'Fabricating test, evaluation, or approval results is not explicitly forbidden' });
-  if (!/(Governance Sources?|治理来源)/.test(parsed.body)) findings.push({ severity: 'warning', id: 'missing-governance-source', path: rel, message: 'Missing governance-source traceability section' });
+  if (!/(Governance Sources?|治理来源|ガバナンス|治理ソース|Governanceソース)/.test(parsed.body)) findings.push({ severity: 'warning', id: 'missing-governance-source', path: rel, message: 'Missing governance-source traceability section' });
+  const language = parsed.data.metadata?.language || (rel.includes('/zh/') ? 'zh' : rel.includes('/ja/') ? 'ja' : 'en');
+  const delivery = {
+    en: { heading: '## Delivery Contract', needles: ['working change', 'atlas or neighborhood'] },
+    zh: { heading: '## 交付契约', needles: ['可运行的变更', '图谱或邻域'] },
+    ja: { heading: '## 引き渡し契約', needles: ['動作する変更', 'アトラスまたは近傍'] },
+  }[language] || { heading: '## Delivery Contract', needles: ['working change', 'atlas or neighborhood'] };
+  if (!parsed.body.includes(delivery.heading)) findings.push({ severity: 'error', id: 'missing-delivery-contract', path: rel, message: `Missing ${delivery.heading}` });
+  for (const needle of delivery.needles) {
+    if (!parsed.body.includes(needle)) findings.push({ severity: 'error', id: 'incomplete-delivery-contract', path: rel, message: `Delivery contract must include "${needle}"` });
+  }
+  if (/This document does not|本文不替代|本文档不替代|本文書は以下に代わるものではありません|list every file|逐文件进度日记/.test(parsed.body)) {
+    findings.push({ severity: 'error', id: 'defensive-writing', path: rel, message: 'Defensive disclaimer stacks and file-by-file progress diaries are forbidden' });
+  }
 
   for (const rule of DANGEROUS) {
     if (rule.regex.test(text)) findings.push({ severity: 'error', id: rule.id, path: rel, message: rule.message });

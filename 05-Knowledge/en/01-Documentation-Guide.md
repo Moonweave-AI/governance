@@ -3,9 +3,9 @@ type: "knowledge-policy"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-08"
-last_reviewed: "2026-08-08"
-summary: "Authoritative knowledge policy: Documentation Writing and Knowledge Asset Management Standards."
+updated: "2026-11-02"
+last_reviewed: "2026-11-02"
+summary: "Rules for one canonical record per fact, a bounded document atlas, a release change graph, and finishing a build with the working change."
 canonical: "./01-Documentation-Guide.md"
 related: ["../../01-Foundation/en/01-Principles.md", "../../01-Foundation/en/02-Security-Ethics.md", "../../03-Collaboration/en/03-RFC-Process.md", "../../04-Engineering/en/01-Workflow.md", "../../04-Engineering/en/02-Quality-Assurance.md", "../adr/0001-github-root-and-release-manifest-unification.md", "../research-logs/0001-live-paired-evaluation.md", "../../06-Glossary/en/08-documentation-and-knowledge.md"]
 supersedes: []
@@ -13,16 +13,16 @@ superseded_by: []
 ---
 # Documentation Writing and Knowledge Asset Management Standards
 
-> This document defines the rules for writing, maintaining, reviewing, versioning, expiration, and archiving of documentation, decision records, research records, data records, model records, and operational records in the Kaguya Project. Documentation is not an afterthought that follows code completion—it is infrastructure that makes the system understandable, maintainable, reproducible, auditable, and transferable. An engineering outcome is truly complete only when its knowledge records are sufficient for successors to understand, verify, and take over.
+> This record owns the Kaguya Project rules for where a fact lives, who keeps it current, how the document atlas and change graph stay bounded, and when a record is updated in place or superseded. A build or fix is finished when the system behaves as specified and the one canonical record a successor needs is current.
 
-This document does not replace:
+Peer authorities, each owning its own facts and linked from this record:
 
-- `../../03-Collaboration/en/03-RFC-Process.md`: the formal decision process for major proposals;
-- `../../04-Engineering/en/01-Workflow.md`: the engineering implementation workflow;
-- `../../04-Engineering/en/02-Quality-Assurance.md`: quality evidence standards;
-- `../../01-Foundation/en/02-Security-Ethics.md`: security, privacy, compliance, and ethical boundaries.
+- `../../03-Collaboration/en/03-RFC-Process.md` owns the decision process for major proposals.
+- `../../04-Engineering/en/01-Workflow.md` owns the engineering implementation workflow.
+- `../../04-Engineering/en/02-Quality-Assurance.md` owns quality evidence.
+- `../../01-Foundation/en/02-Security-Ethics.md` owns security, privacy, compliance, and ethical boundaries.
 
-This document covers **knowledge management issues not addressed by the above documents**: which knowledge must be recorded? Where is it recorded? Who is responsible for maintaining it? How should it be written to be readable, reviewable, reproducible, and inheritable? When does documentation expire, become obsolete, or get superseded?
+This record owns the knowledge-management facts those peers leave open: which fact is written down, where it lives, who maintains it, and when it expires or is superseded.
 
 ---
 
@@ -57,6 +57,27 @@ Eight principles, specifically governing knowledge asset management:
 7. **Documentation has status and validity period** — Documentation is not correct forever. Every formal document must express its current status: Draft / Active / Deprecated / Superseded / Archived. Documentation without status cannot be trusted.
 
 8. **Research documentation must support reproduction** — Experiment logs, data records, and model records must retain sufficient information for others to understand the experiment purpose, environment, inputs, configuration, results, and conclusions—even if the original author has left.
+
+### 2.1 Atlas, change graph, and consolidation
+
+Frontmatter is the graph source. The generated views are:
+
+- **Atlas** — one row per hot canonical record. This is the default context an agent loads.
+- **Neighborhood** — the chosen record plus one hop. Load it when a row in the atlas is relevant.
+- **Change atlas** — the release chain, each version pointing at the previous version, plus decision supersession and the date each canonical record last changed.
+- **Audit ledger** — every translation and every edge. It stays on disk for review and is not the default agent load.
+
+Keep a Changelog is the human release note: one version, one date, and a short list of notable changes grouped as Added, Changed, Deprecated, Removed, Fixed, or Security. A progress diary, a file-by-file inventory, or a second essay per change is not the changelog. Regenerate the change atlas after editing `CHANGELOG.md`; do not hand-maintain a parallel history.
+
+Consolidation rules:
+
+- Edit the canonical record that already owns the fact.
+- A new hot canonical record in a domain that already has the same document type must supersede an existing record, or set `consolidation: new-authority` when it truly opens a new authority.
+- Superseded, deprecated, and archived records leave the hot atlas and remain reachable from the change graph.
+- Translations point at the canonical record and do not add hot rows.
+- The hot atlas has a fixed budget. When it is full, merge or supersede before adding a record.
+- Summaries state the fact the record owns. A generated label such as "Authoritative policy: title" is not a summary.
+- A build, fix, or system change finishes as the working change plus the evidence that it behaves. An RFC, ADR, plan, or index is an intermediate gate when the task is that record or the change is irreversible.
 
 ---
 

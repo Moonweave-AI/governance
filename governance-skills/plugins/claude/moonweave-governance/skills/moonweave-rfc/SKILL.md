@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works on platforms supporting the Agent Skills open format; deterministic checks optionally require Node.js 20+ and the moonweave-skills CLI.
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: en
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -47,7 +47,7 @@ Use relative paths for local document relations and link the RFC into the existi
 
 ## Execution Flow
 
-1. Run `moonweave-skills docs-index --root <repo> --format json`; compare `decision_scope`, titles, summaries, areas, statuses, and relations of existing RFCs and ADRs. If the CLI is unavailable, build the same inventory from frontmatter.
+1. Run `moonweave-skills docs-index --root <repo> --view changes` and compare decision scopes. Load `docs-index --view neighborhood --focus <path>` for a matching RFC or ADR. If the CLI is unavailable, read those canonical records only.
 2. Determine whether an RFC is truly needed; route small fixes back to Issue/PR, reuse an existing RFC for the same decision scope, and use an explicit successor when changing an accepted decision.
 3. Determine RFC type, risk S-level, Champion, Decision Owner, and Required Reviewers.
 4. Fill in Summary, Motivation, Goals, Non-goals, Background.
@@ -58,7 +58,7 @@ Use relative paths for local document relations and link the RFC into the existi
 9. Before entering FCP, summarize the current proposal, resolved questions, costs, unresolved objections, and expected ruling.
 10. Use Rough Consensus + Responsible Decision; do not treat voting, silence, or seniority as consensus.
 11. After Accepted, create Implementation Issue, Project, and necessary ADR/standard/migration/security/eval tasks; Accepted does not mean automatic implementation approval.
-12. Run `lint-docs`, regenerate the linked index, and verify it with `docs-index --check`.
+12. Run `lint-docs`, regenerate the atlas and change atlas with `docs-index --view all`, and verify them with `--check`.
 
 ## Required Output
 
@@ -95,6 +95,10 @@ Prefer the following compact structure:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## Delivery Contract
+
+The terminal deliverable is the working change the user asked for, together with the evidence that it behaves. Load the document atlas or neighborhood (`docs-index --view atlas`, or `--view neighborhood --focus <path>`), update the canonical record in place, and keep the release note to one line per visible change. An RFC, ADR, plan, or index is only an intermediate gate when the task is that record or the change is irreversible.
 
 ## Governance Sources
 

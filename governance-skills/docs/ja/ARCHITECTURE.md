@@ -58,4 +58,4 @@ Governance RFC
 
 権威文書の frontmatter がグラフの事実源である。`canonical` は canonical 記録と翻訳をグループ化し、`related` は双方向コンテキスト辺、`supersedes` と `superseded_by` は相互のライフサイクル辺、`decision_scope` は RFC と ADR に共有の意思決定 ID を形成する。`core/governance-map.json` は canonical ガバナンス文書を、それを運用するスキルへ接続する。
 
-`docs-index` は同じグラフを Agent の選択的読み込み用 JSON、または人向けのリンク付き Markdown 一覧として出力する。生成一覧を第二の権威として手編集してはならない。RFC、ADR、その他の正式記録を起草する前に、Agent はグラフのタイトル、要約、タイプ、ステータス、意思決定範囲、隣接記録を比較して重複を確認する。編集後は `lint-docs`、一覧の再生成、`docs-index --check` を実行してドリフトを防ぐ。lint ゲートは各記録のローカル関係、グラフ全体の連結、同種の現行決定における範囲の一意性、既存 RFC から ADR への意思決定チェーンを強制する。
+`docs-index` は同じグラフから四つのビューを描く。`atlas` は Agent の既定読み込みで、ホットな canonical 記録ごとに一行、固定予算の内側に収める。`neighborhood --focus <path>` はその記録と一ホップを読む。`changes` はリリースチェーンと意思決定の置換である。`full` はすべての翻訳と辺の監査台帳である。生成ビューは第二の権威ではない。起草前に Agent はアトラスを読み、行がすでに事実を持つ可能性があるときは近傍を一つ読む。編集後は `lint-docs` を実行し、`--view all` でビューを再生成し、`--check` でドリフトを防ぐ。lint ゲートはグラフの連結、ホットアトラスの予算、新しい canonical 記録の統合または明示的な新権威、変更ログ先頭の一致を保ち、進捗日記をリポジトリから除く。

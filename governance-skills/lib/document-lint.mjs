@@ -1,6 +1,23 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildDocumentGraph, DOCUMENT_RELATIONS, GOVERNANCE_DOCUMENT_ROOTS } from './document-graph.mjs';
+import {
+  ATLAS_CHAR_BUDGET,
+  CHANGE_ATLAS_CHAR_BUDGET,
+  CHANGELOG_BULLET_BUDGET,
+  CHANGELOG_BULLET_CHAR_BUDGET,
+  GENERIC_SUMMARY_AFTER,
+  HOT_CANONICAL_BUDGET,
+  NEW_RECORD_INTEGRATION_AFTER,
+  buildDocumentGraph,
+  changeAtlasMarkdown,
+  documentAtlasMarkdown,
+  DOCUMENT_RELATIONS,
+  GOVERNANCE_DOCUMENT_ROOTS,
+  hotCanonicalDocuments,
+  isCanonicalRecord,
+  isHotStatus,
+  loadChangelogs,
+} from './document-graph.mjs';
 import { parseFrontmatter } from './frontmatter.mjs';
 import { normalizeRel, walkFiles } from './fs-utils.mjs';
 
@@ -182,6 +199,47 @@ export function lintDocuments(rootInput) {
   }
   for (const document of graph.documents) if (!visitState.has(document.path)) visit(document);
   for (const documentPath of cycleDocuments) findings.push(finding('error', 'supersession-cycle', documentPath, 'supersedes links must form an acyclic history'));
+
+  const hot = hotCanonicalDocuments(graph);
+  if (hot.length > HOT_CANONICAL_BUDGET) findings.push(finding('error', 'hot-atlas-over-budget', hot[0].path, `Hot canonical records ${hot.length} exceed the atlas budget of ${HOT_CANONICAL_BUDGET}`));
+  const atlas = documentAtlasMarkdown(graph);
+  if (atlas.length > ATLAS_CHAR_BUDGET) findings.push(finding('error', 'atlas-over-budget', 'docs/DOCUMENT-ATLAS.md', `Document atlas is ${atlas.length} characters and exceeds ${ATLAS_CHAR_BUDGET}`));
+  const changeAtlas = changeAtlasMarkdown(graph);
+  if (changeAtlas.length > CHANGE_ATLAS_CHAR_BUDGET) findings.push(finding('error', 'change-atlas-over-budget', 'docs/CHANGE-ATLAS.md', `Change atlas is ${changeAtlas.length} characters and exceeds ${CHANGE_ATLAS_CHAR_BUDGET}`));
+  const hotByDomainType = new Map();
+  for (const document of hot) {
+    const key = `${document.path.split('/')[0]}:${document.type}`;
+    if (!hotByDomainType.has(key)) hotByDomainType.set(key, []);
+    hotByDomainType.get(key).push(document);
+  }
+  for (const document of graph.documents) {
+    const summaryText = document._data.summary;
+    if (typeof summaryText === 'string' && document.updated >= GENERIC_SUMMARY_AFTER && /^Authoritative\b/i.test(summaryText)) {
+      findings.push(finding('error', 'generic-summary', document.path, 'summary must state the fact this record owns; a generated "Authoritative …" label is not a summary'));
+    }
+    if (!isCanonicalRecord(document) || !isHotStatus(document.status) || document.created < NEW_RECORD_INTEGRATION_AFTER) continue;
+    const siblings = hotByDomainType.get(`${document.path.split('/')[0]}:${document.type}`) || [];
+    const integrates = document.relations.supersedes.length > 0 || document._data.consolidation === 'new-authority';
+    if (siblings.length > 1 && !integrates) {
+      findings.push(finding('error', 'unintegrated-document', document.path, 'A new hot canonical record must supersede an existing record or set consolidation: new-authority'));
+    }
+  }
+  if (fs.existsSync(path.join(root, 'progress.md'))) findings.push(finding('error', 'append-only-progress-diary', 'progress.md', 'Append-only progress diaries are not a change graph. Record the release in CHANGELOG.md and regenerate the change atlas.'));
+  const changelogs = loadChangelogs(root);
+  const heads = changelogs.map((file) => file.versions[0]?.version).filter(Boolean);
+  if (new Set(heads).size > 1) findings.push(finding('error', 'changelog-head-mismatch', changelogs[0].path, `Changelog heads disagree: ${heads.join(', ')}`));
+  for (const file of changelogs) {
+    const raw = fs.readFileSync(path.join(root, file.path), 'utf8');
+    if (/###\s+What was done|###\s+Notes\b|回滚方式|逐文件进度日记|file-by-file progress diary/i.test(raw)) {
+      findings.push(finding('error', 'changelog-stack', file.path, 'Changelog entries must stay a release chain, not a progress diary'));
+    }
+    for (const version of file.versions) {
+      if (version.bullets.length > CHANGELOG_BULLET_BUDGET) findings.push(finding('error', 'changelog-bullet-budget', file.path, `${version.version} has ${version.bullets.length} bullets; keep a release to ${CHANGELOG_BULLET_BUDGET} notable changes`));
+      for (const bullet of version.bullets) {
+        if (bullet.text.length > CHANGELOG_BULLET_CHAR_BUDGET) findings.push(finding('error', 'changelog-bullet-too-long', file.path, `${version.version} has a bullet longer than ${CHANGELOG_BULLET_CHAR_BUDGET} characters`));
+      }
+    }
+  }
 
   const summary = { documents: graph.documents.length, errors: findings.filter((item) => item.severity === 'error').length, warnings: findings.filter((item) => item.severity === 'warning').length };
   return { root, summary, findings };

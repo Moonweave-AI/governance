@@ -3,9 +3,9 @@ type: "knowledge-policy"
 status: "Active"
 owner: "Moonweave AI Governance Maintainers"
 created: "2026-07-22"
-updated: "2026-08-08"
-last_reviewed: "2026-08-08"
-summary: "Authoritative knowledge policy: 文档编写与知识资产管理规范."
+updated: "2026-11-02"
+last_reviewed: "2026-11-02"
+summary: "规定一事一权威记录、有预算的文档图谱、发布变更链，以及构建请求以可运行的变更收尾。"
 canonical: "./en/01-Documentation-Guide.md"
 related: ["../01-Foundation/01-Principles.md", "../01-Foundation/02-Security-Ethics.md", "../03-Collaboration/03-RFC-Process.md", "../04-Engineering/01-Workflow.md", "../04-Engineering/02-Quality-Assurance.md", "../06-Glossary/zh/08-documentation-and-knowledge.md"]
 supersedes: []
@@ -13,16 +13,16 @@ superseded_by: []
 ---
 # 文档编写与知识资产管理规范
 
-> 本文定义辉夜计划中文档、决策记录、研究记录、数据记录、模型记录和运维记录的编写、维护、审查、版本化、过期与归档规则。文档不是代码完成后的附属物，而是系统可理解、可维护、可复现、可审计和可传承的基础设施。一个工程成果只有在其知识记录足以让后来者理解、验证和接手时，才真正完成。
+> 本记录拥有辉夜计划的知识资产规则：事实写在哪里、谁保持它正确、文档图谱和变更图谱如何保持有界，以及记录何时原地更新或被替代。构建或修复在系统行为符合约定，且后来者需要的那一份权威记录保持当前时完成。
 
-本文不替代：
+下列同级权威各自拥有自己的事实，并由本记录链接：
 
-- `03-Collaboration/03-RFC-Process.md`：重大提案的正式决策流程；
-- `04-Engineering/01-Workflow.md`：工程实现流程；
-- `04-Engineering/02-Quality-Assurance.md`：质量证据标准；
-- `01-Foundation/02-Security-Ethics.md`：安全、隐私、合规与伦理边界。
+- `03-Collaboration/03-RFC-Process.md` 拥有重大提案的决策流程。
+- `04-Engineering/01-Workflow.md` 拥有工程实现流程。
+- `04-Engineering/02-Quality-Assurance.md` 拥有质量证据。
+- `01-Foundation/02-Security-Ethics.md` 拥有安全、隐私、合规与伦理边界。
 
-本文覆盖上述文档**不涉及的知识管理问题**：哪些知识必须被记录？记录在哪里？谁负责维护？怎样写才可读、可审查、可复现、可继承？什么时候文档过期、废弃或被取代？
+本记录拥有这些同级权威留下的知识管理事实：哪些事实被写下、写在哪里、谁维护，以及何时过期或被替代。
 
 ---
 
@@ -57,6 +57,27 @@ superseded_by: []
 7. **文档有状态和有效期** — 文档不是永远正确的。每份正式文档必须能表达当前状态：Draft / Active / Deprecated / Superseded / Archived。没有状态的文档无法被信任。
 
 8. **研究文档必须支持复现** — 实验日志、数据记录和模型记录必须保留足够信息，使他人能够理解实验目的、环境、输入、配置、结果和结论——即使原作者已经离开。
+
+### 2.1 图谱、变更链与整合
+
+Frontmatter 是图的事实源。生成视图分为：
+
+- **图谱** — 每个热 canonical 记录一行。这是 Agent 默认加载的上下文。
+- **邻域** — 选中的记录加一跳。图谱中某一行相关时再加载。
+- **变更图谱** — 发布链中每个版本指向前一个版本，加上决策替代关系，以及每份 canonical 记录最后一次变更的日期。
+- **审计台账** — 每份译文和每条边。它留在磁盘上供审查，不是 Agent 的默认加载。
+
+Keep a Changelog 是给人读的发布说明：一个版本、一个日期，以及按 Added、Changed、Deprecated、Removed、Fixed、Security 分组的短列表。进度日记、逐文件清单，或每次变更再写一篇文章，都不是变更日志。修改 `CHANGELOG.md` 后重新生成变更图谱，不要另维护一套平行历史。
+
+整合规则：
+
+- 修改已经拥有该事实的权威记录。
+- 同一领域里已有相同文档类型时，新的热 canonical 记录必须替代既有记录；确实开启新权威时设置 `consolidation: new-authority`。
+- Superseded、Deprecated、Archived 记录退出热图谱，仍可从变更图谱到达。
+- 译文指向 canonical 记录，不增加热行。
+- 热图谱有固定预算。预算已满时，先合并或替代，再增加记录。
+- 摘要写出本记录拥有的事实。“Authoritative policy: 标题”这类生成标签不是摘要。
+- 构建、修复或系统变更以可运行的变更和证明其行为的证据收尾。RFC、ADR、计划或索引只在任务本身就是这份记录，或变更不可逆时作为中间门禁。
 
 ---
 

@@ -44,6 +44,17 @@
 - Sigstore: https://github.com/sigstore
 - SLSA framework: https://slsa.dev/
 
+## 上下文预算、变更图谱与完成
+
+- [Effective context engineering for AI agents](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents)（Anthropic，2025）。即时检索与渐进披露：上下文里保留标识，当前步骤需要时再加载记录。
+- [Equipping agents with Agent Skills](https://www.anthropic.com/research/equipping-agents-for-the-real-world-with-agent-skills)（Anthropic，2025）与 [Agent Skills 规范](https://agentskills.io/specification)。元数据、指令和资源按这个顺序加载。图谱是地图，邻域是下一份文件。
+- [From Local to Global: A GraphRAG Approach to Query-Focused Summarization](https://arxiv.org/html/2404.16130v2)（Edge 等，2024）。层级社区摘要回答全库问题，而不把原始图放进上下文。
+- [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/)。变更日志是给人读的精选发布列表。提交转储和进度日记被明确列为不良实践。
+- [Diátaxis](https://diataxis.fr/)。一种读者需求对应一种文档形式。这是“修改拥有该事实的页面，而不是再加一篇平行文档”的整合规则。
+- [SWE-bench](https://arxiv.org/html/2310.06770v3)（Jimenez 等，2024）与 [SWE-bench FAQ](https://github.com/SWE-bench/SWE-bench/blob/main/docs/faq.md)。补丁能够应用且测试通过，任务才算解决。
+- [Building effective AI agents](https://www.anthropic.com/research/building-effective-agents)（Anthropic，2024）。编码 Agent 以可验证的变更收尾；只有当额外流程改善这个结果时才增加流程。
+- [Documentation lifecycle ADR 0002](https://aot-technologies.github.io/node-wire/adr/0002-documentation-lifecycle/)。一个事实有一个拥有它的页面；活页描述现在为真的内容；计划不是证据。
+
 ## 工程治理基础
 
 Moonweave 治理仓库综合了 Google Engineering Practices、NIST SSDF / AI RMF、OWASP、SRE、Kubernetes KEP / PRR、Rust RFC、Python PEP、Apache / CNCF、Docs as Code、Model Cards、Datasheets for Datasets 等体系。本包不重新解释这些上游规范，而是以 Moonweave canonical 文档为统一的组织级来源，并保留到每个 Skill、命令、模板和审计检查的追踪矩阵。

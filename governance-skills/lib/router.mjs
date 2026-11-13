@@ -227,6 +227,7 @@ export function routeText(input) {
     skills.add('moonweave-research');
     artifacts.add('Research Log / Dataset Card');
   }
+  if (!stopShip && ['S2', 'S3', 'S4', 'S5'].includes(risk)) skills.add('moonweave-implementation');
   if (skills.size === 1) {
     skills.add(workObject(text) === 'Idea' ? 'moonweave-idea-triage' : 'moonweave-implementation');
   }

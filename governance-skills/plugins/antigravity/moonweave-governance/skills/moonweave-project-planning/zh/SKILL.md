@@ -5,7 +5,7 @@ license: MIT
 compatibility: 适用于支持Agent Skills开放格式的平台；确定性检查可选Node.js 20+与moonweave-skills CLI。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: zh-CN
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -49,7 +49,7 @@ metadata:
 6. 建立GitHub Project字段：Type、Area、Lifecycle、Risk、Maturity、Priority、Owner、DRI、Next Review。
 7. 为测试、文档、安全、评测、迁移、运维预留正式任务，不能只拆功能代码。
 8. 定义Kill/Pause/Archive条件与恢复条件。
-9. 输出周更格式和里程碑复审节奏。
+9. 输出里程碑复审节奏。用户要求把项目做出来时，在同一次工作里把计划交给实现。
 
 ## 必须输出
 
@@ -85,6 +85,10 @@ metadata:
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## 交付契约
+
+终点是用户要求的可运行的变更，以及证明它确实如此的证据。默认只读取图谱或邻域（`docs-index --view atlas`，或 `--view neighborhood --focus <path>`），把事实写回既有权威记录，发布说明里每条可见变化只留一行。RFC、ADR、计划或索引只在任务本身就是这份记录，或变更不可逆时作为中间门禁。
 
 ## 治理来源
 

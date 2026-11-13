@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
   "package": "@moonweave-ai/governance-skills",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "status": "published",
   "governance_source": "https://github.com/Moonweave-AI/governance",
-  "governance_snapshot_date": "2026-08-06",
+  "governance_snapshot_date": "2026-11-02",
   "contents": {
     "skills": 25,
     "commands": 25,

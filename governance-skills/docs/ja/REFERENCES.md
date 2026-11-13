@@ -44,6 +44,17 @@
 - Sigstore: https://github.com/sigstore
 - SLSA framework: https://slsa.dev/
 
+## コンテキスト予算、変更グラフ、完了
+
+- [Effective context engineering for AI agents](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents)（Anthropic、2025）。必要なときに記録を読む。識別子を文脈に残し、今の手順が必要とする記録だけを読む。
+- [Equipping agents with Agent Skills](https://www.anthropic.com/research/equipping-agents-for-the-real-world-with-agent-skills)（Anthropic、2025）と [Agent Skills 仕様](https://agentskills.io/specification)。メタデータ、手順、資源の順に読む。アトラスが地図で、近傍が次のファイルである。
+- [From Local to Global: A GraphRAG Approach to Query-Focused Summarization](https://arxiv.org/html/2404.16130v2)（Edge ほか、2024）。階層的なコミュニティ要約は、生のグラフを文脈に置かずにコーパス質問へ答える。
+- [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/)。変更ログは人間向けの選定されたリリース一覧である。コミットの転記と進捗日記は悪い実践として挙げられている。
+- [Diátaxis](https://diataxis.fr/)。読者の必要ごとに一つの文書形式を使う。事実を持つページを編集し、平行するページを足さない統合規則である。
+- [SWE-bench](https://arxiv.org/html/2310.06770v3)（Jimenez ほか、2024）と [SWE-bench FAQ](https://github.com/SWE-bench/SWE-bench/blob/main/docs/faq.md)。パッチが適用されテストが通ったときにタスクは解決する。
+- [Building effective AI agents](https://www.anthropic.com/research/building-effective-agents)（Anthropic、2024）。コーディングエージェントは検証できる変更で終え、その結果を良くするときだけ手順を足す。
+- [Documentation lifecycle ADR 0002](https://aot-technologies.github.io/node-wire/adr/0002-documentation-lifecycle/)。一つの事実に一つの所有ページ。生きたページは今真実であることを述べ、計画は証拠ではない。
+
 ## エンジニアリングガバナンスの基盤
 
 Moonweave ガバナンスリポジトリは Google Engineering Practices・NIST SSDF / AI RMF・OWASP・SRE・Kubernetes KEP / PRR・Rust RFC・Python PEP・Apache / CNCF・Docs as Code・Model Cards・Datasheets for Datasets などの体系を統合している。本パッケージはこれら上流仕様を再解釈せず、Moonweave canonical ドキュメントを統一された組織レベルの情報源とし、各 Skill・コマンド・テンプレート・監査チェックに至るトレーサビリティマトリクスを保持する。

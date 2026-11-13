@@ -172,6 +172,29 @@ test('document lint rejects types absent from the controlled vocabulary', () => 
   assert.ok(lintDocuments(root).findings.some((item) => item.id === 'invalid-document-type'));
 });
 
+test('document lint rejects progress diaries, generic summaries, and unintegrated new records', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-doc-lint-'));
+  const current = valid.replace('related: []', 'related: [./fresh.md]');
+  const fresh = valid
+    .replaceAll('./policy.md', './fresh.md')
+    .replace('created: 2026-07-22', 'created: 2026-11-02')
+    .replace('updated: 2026-08-05', 'updated: 2026-11-02')
+    .replace('last_reviewed: 2026-08-05', 'last_reviewed: 2026-11-02')
+    .replace('summary: This is a sufficiently descriptive governance policy summary.', 'summary: Authoritative governance policy: a fresh parallel policy.')
+    .replace('related: []', 'related: [./policy.md]');
+  write(root, '01-Foundation/en/policy.md', current);
+  write(root, '01-Foundation/en/fresh.md', fresh);
+  write(root, 'progress.md', '## 2026-11-02\n\n### What was done\n');
+  write(root, 'CHANGELOG.md', '## 0.2.5 — 2026-11-02\n\n- Root release.\n');
+  write(root, 'governance-skills/CHANGELOG.md', '## 0.2.4 — 2026-08-06\n\n- Package release.\n');
+  const findings = lintDocuments(root).findings;
+  assert.ok(findings.some((item) => item.id === 'append-only-progress-diary'));
+  assert.ok(findings.some((item) => item.id === 'generic-summary' && item.path.endsWith('fresh.md')));
+  assert.ok(findings.some((item) => item.id === 'unintegrated-document' && item.path.endsWith('fresh.md')));
+  assert.equal(findings.some((item) => item.id === 'unintegrated-document' && item.path.endsWith('policy.md')), false);
+  assert.ok(findings.some((item) => item.id === 'changelog-head-mismatch'));
+});
+
 test('template lint rejects types absent from the controlled vocabulary', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'mw-template-lint-'));
   write(root, 'templates/example.md', valid.replace('type: governance-policy', 'type: made-up-template'));

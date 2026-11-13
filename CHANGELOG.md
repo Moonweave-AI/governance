@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.2.5 — 2026-11-02
+
+### Changed
+
+- Governance skills load a bounded document atlas, a one-hop neighborhood, and a release change chain.
+- New canonical records are consolidated into the owning page, and append-only progress diaries are rejected.
+- A build or fix finishes as the working change. Disclaimer stacks are not a deliverable.
+
+## 0.2.4 — 2026-08-06
+
+### Changed
+
+- Unified governance document metadata and regenerated the document index.
+- Registered the live paired evaluation prompt as a research asset.
+- Republished 0.2.4 after the package version and tag drifted.
+
 ## 0.2.3 — 2026-07-22
 
 - Fix CLI router under-rating high-risk production/deploy cases found by the

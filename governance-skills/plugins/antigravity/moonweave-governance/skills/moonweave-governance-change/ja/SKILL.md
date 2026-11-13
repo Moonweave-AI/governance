@@ -5,7 +5,7 @@ license: MIT
 compatibility: Agent Skillsオープン形式をサポートするプラットフォームで適用。決定論的チェックは任意でNode.js 20+とmoonweave-skills CLIを使用。
 metadata:
   author: Moonweave AI
-  version: "0.2.4"
+  version: "0.2.5"
   language: ja-JP
   governance-source: https://github.com/Moonweave-AI/governance
 ---
@@ -43,7 +43,7 @@ Moonweaveの原則、Governance、コラボレーション、エンジニアリ�
 ## 実行フロー
 
 1. まず実践調整、標準調整、原則/Governance変更のいずれかを確認し、それぞれの強度を適用する。
-2. Governance RFCを作成し、問題、目標、非目標、代替、影響、移行、ロールバックを記述する。
+2. 既存の権威あるガバナンス記録をその場で更新する。原則または戻しにくい規則を変えるときだけ Governance RFC を開き、同じ変更でスキル、CLI、テストを着地させる。
 3. governance-mapとtraceabilityを更新し、影響を受けるskills、commands、templates、checks、docsを列挙する。
 4. Skill IRの意味コアを変更し、その後プラットフォームアダプタをコンパイル/同期する。手作業でフォークし長期ドリフトさせない。
 5. 静的lint、トリガ/非トリガテスト、ペアeval、セキュリティ分析を実行する。
@@ -84,6 +84,10 @@ Moonweaveの原則、Governance、コラボレーション、エンジニアリ�
 | Action | Owner | Due/Review | Canonical Link |
 |---|---|---|---|
 ```
+
+## 引き渡し契約
+
+終端の成果物は、依頼された動作する変更と、それが実際に動く証拠である。既定ではアトラスまたは近傍だけを読む（`docs-index --view atlas`、または `--view neighborhood --focus <path>`）。事実は既存の権威記録へ書き戻し、リリースノートは見える変更ごとに一行にする。RFC、ADR、計画、索引は、依頼がその記録自体である場合、または変更が不可逆な場合の中間ゲートに限る。
 
 ## Governanceソース
 

@@ -4,7 +4,7 @@ import path from 'node:path';
 import process from 'node:process';
 import { auditRepository } from '../lib/audit.mjs';
 import { documentLintMarkdown, lintDocuments, lintTemplates, templateLintMarkdown } from '../lib/document-lint.mjs';
-import { buildDocumentGraph, documentIndexMarkdown } from '../lib/document-graph.mjs';
+import { DOCUMENT_VIEWS, buildDocumentGraph, changeAtlas, documentAtlas, documentNeighborhood, documentNeighborhoodMarkdown, loadChangelogs } from '../lib/document-graph.mjs';
 import { lintReleaseMetadata, releaseLintMarkdown } from '../lib/release-lint.mjs';
 import { packageJson, packageRoot } from '../lib/config.mjs';
 import { emit, findingsMarkdown, toSarif } from '../lib/output.mjs';
@@ -65,7 +65,7 @@ Commands:
   audit                        Read-only audit of project governance and engineering baseline
   lint-skills                  Statically check Agent Skills format and dangerous patterns
   lint-docs                    Validate metadata, dates, lifecycle, and canonical links in governance documents
-  docs-index                   Generate a linked Markdown index or JSON graph from document metadata
+  docs-index                   Render the document atlas, neighborhood, change graph, or full audit ledger
   lint-templates               Validate required metadata fields in every governance template
   lint-release                 Validate release-version declarations across manifests, READMEs, and changelogs
   eval-static                  Run routing, trigger, and static safety regressions
@@ -263,12 +263,48 @@ async function main() {
     }
     case 'docs-index': {
       if (options.help) {
-        process.stdout.write('Usage: moonweave-skills docs-index [--root .] [--format markdown|json] [--out path] [--base-url URL|release] [--check]\n');
+        process.stdout.write('Usage: moonweave-skills docs-index [--root .] [--view atlas|neighborhood|changes|full|all] [--focus path] [--format markdown|json] [--out path] [--out-dir docs] [--base-url URL|release] [--check]\n');
         break;
       }
       const graph = buildDocumentGraph(options.root || path.resolve(packageRoot, '..'));
+      const view = options.view || 'atlas';
       const format = options.format || 'markdown';
-      const output = format === 'json' ? graph : documentIndexMarkdown(graph, { outputFile: options.out, baseUrl: resolveBaseUrl(options['base-url']) });
+      const baseUrl = resolveBaseUrl(options['base-url']);
+      const renderOptions = { baseUrl, changelogs: loadChangelogs(graph.root) };
+      if (view === 'all') {
+        const dir = path.resolve(options['out-dir'] || path.dirname(options.out || path.join(packageRoot, 'docs', 'DOCUMENT-ATLAS.md')));
+        const files = {
+          'DOCUMENT-ATLAS.md': DOCUMENT_VIEWS.atlas(graph, { ...renderOptions, outputFile: path.join(dir, 'DOCUMENT-ATLAS.md') }),
+          'CHANGE-ATLAS.md': DOCUMENT_VIEWS.changes(graph, { ...renderOptions, outputFile: path.join(dir, 'CHANGE-ATLAS.md') }),
+          'DOCUMENT-INDEX.md': DOCUMENT_VIEWS.full(graph, { ...renderOptions, outputFile: path.join(dir, 'DOCUMENT-INDEX.md') }),
+        };
+        if (options.check) {
+          for (const [name, content] of Object.entries(files)) {
+            const target = path.join(dir, name);
+            if (!fs.existsSync(target) || fs.readFileSync(target, 'utf8') !== `${content.trimEnd()}\n`) {
+              throw new Error(`Document index is out of date: ${target}. Run docs-index --view all again without --check.`);
+            }
+          }
+          process.stdout.write(`Document atlas is current: ${dir}\n`);
+        } else {
+          fs.mkdirSync(dir, { recursive: true });
+          for (const [name, content] of Object.entries(files)) fs.writeFileSync(path.join(dir, name), `${content.trimEnd()}\n`);
+          process.stdout.write(`Wrote document atlas to ${dir}\n`);
+        }
+        break;
+      }
+      let output;
+      if (view === 'neighborhood') {
+        if (!options.focus) throw new Error('docs-index --view neighborhood requires --focus.');
+        const neighborhood = documentNeighborhood(graph, options.focus);
+        if (neighborhood.error) throw new Error(`No governed document matches ${options.focus}.`);
+        output = format === 'json' ? neighborhood : documentNeighborhoodMarkdown(graph, options.focus, { ...renderOptions, outputFile: options.out });
+      } else if (!DOCUMENT_VIEWS[view]) {
+        throw new Error(`Unknown docs-index view: ${view}`);
+      } else if (format === 'json' && view === 'full') output = graph;
+      else if (format === 'json' && view === 'atlas') output = documentAtlas(graph);
+      else if (format === 'json' && view === 'changes') output = changeAtlas(graph, renderOptions.changelogs);
+      else output = DOCUMENT_VIEWS[view](graph, { ...renderOptions, outputFile: options.out });
       if (options.check) {
         if (!options.out) throw new Error('docs-index --check requires --out.');
         const expected = format === 'json' ? `${JSON.stringify(output, null, 2)}\n` : `${output.trimEnd()}\n`;

@@ -44,6 +44,17 @@ This package uses that repository's Chinese canonical documentation as its direc
 - Sigstore: https://github.com/sigstore
 - SLSA framework: https://slsa.dev/
 
+## Context budgets, change graphs, and completion
+
+- [Effective context engineering for AI agents](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents) (Anthropic, 2025). Just-in-time retrieval and progressive disclosure: keep identifiers in context and load the record that the current step needs.
+- [Equipping agents with Agent Skills](https://www.anthropic.com/research/equipping-agents-for-the-real-world-with-agent-skills) (Anthropic, 2025) and the [Agent Skills specification](https://agentskills.io/specification). Metadata, instructions, and resources load in that order. The atlas is the map; a neighborhood is the next file.
+- [From Local to Global: A GraphRAG Approach to Query-Focused Summarization](https://arxiv.org/html/2404.16130v2) (Edge et al., 2024). Hierarchical community summaries answer corpus questions without placing the raw graph in context.
+- [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/). A changelog is a curated release list for humans. Commit dumps and progress diaries are called out as bad practice.
+- [Diátaxis](https://diataxis.fr/). One document form per reader need, which is the consolidation rule behind editing the owning page instead of adding a parallel page.
+- [SWE-bench](https://arxiv.org/html/2310.06770v3) (Jimenez et al., 2024) and the [SWE-bench FAQ](https://github.com/SWE-bench/SWE-bench/blob/main/docs/faq.md). A task is resolved when the patch applies and the tests pass.
+- [Building effective AI agents](https://www.anthropic.com/research/building-effective-agents) (Anthropic, 2024). Coding agents finish through verifiable changes, and extra workflow layers are added only when they improve that outcome.
+- [Documentation lifecycle ADR 0002](https://aot-technologies.github.io/node-wire/adr/0002-documentation-lifecycle/). One fact has one owning page; living pages describe what is true now; plans are not evidence.
+
 ## Engineering Governance Foundations
 
 The Moonweave governance repository synthesizes systems such as Google Engineering Practices, NIST SSDF / AI RMF, OWASP, SRE, Kubernetes KEP / PRR, Rust RFC, Python PEP, Apache / CNCF, Docs as Code, Model Cards, and Datasheets for Datasets. This package does not re-interpret those upstream specifications; instead it uses the Moonweave canonical documentation as the unified organizational source and preserves a traceability matrix down to every Skill, command, template, and audit check.

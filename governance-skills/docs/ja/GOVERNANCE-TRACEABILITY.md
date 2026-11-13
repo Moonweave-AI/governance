@@ -17,4 +17,4 @@
 
 機械可読マッピングは `core/governance-map.json` にあります。
 
-現在の文書間および文書からスキルへの生成ビューは [`DOCUMENT-INDEX.md`](../DOCUMENT-INDEX.md) にある。データは文書 frontmatter と `core/governance-map.json` から取得し、CI がビューの最新性を検証する。
+現在の生成ビューは [`DOCUMENT-ATLAS.md`](../DOCUMENT-ATLAS.md)、[`CHANGE-ATLAS.md`](../CHANGE-ATLAS.md)、[`DOCUMENT-INDEX.md`](../DOCUMENT-INDEX.md) である。データは文書 frontmatter と `core/governance-map.json` から取得し、CI がビューの最新性を検証する。Agent はアトラスまたは近傍を読む。索引は監査台帳として残す。
